@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" style="color-scheme:light">
+<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>דשבורד בקרה — מחלקת מכירות</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Segoe UI',Arial,sans-serif;background:#f0f2f5;color:#1a1a2e;direction:rtl;padding:20px}
+.header{background:linear-gradient(135deg,#1a1a2e,#16213e 50%,#0f3460);color:#fff;padding:24px 32px;border-radius:16px;margin-bottom:16px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.header h1{font-size:1.8rem}.header .subtitle{font-size:.95rem;opacity:.78;margin-top:4px}
+.header .meta{text-align:left;font-size:.85rem;opacity:.7;line-height:1.7}
+.intro{background:#fff;border-radius:14px;padding:16px 20px;margin-bottom:18px;box-shadow:0 2px 12px rgba(0,0,0,.06);font-size:.92rem;line-height:1.8}
+.intro b{color:#0f3460}
+.section-title{font-size:1.25rem;font-weight:700;margin:30px 0 6px;padding-bottom:8px;border-bottom:2px solid #e0e0e0}
+.section-desc{font-size:.87rem;color:#666;margin-bottom:16px;line-height:1.6}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.card{background:#fff;border-radius:14px;padding:16px;box-shadow:0 2px 12px rgba(0,0,0,.07);border-top:4px solid}
+.rep-name{font-size:1.05rem;font-weight:700;margin-bottom:10px}
+.mrow{display:flex;gap:8px}
+.mm{flex:1;text-align:center;background:#f8fafc;border-radius:9px;padding:8px 4px}
+.mm .b{font-size:1.5rem;font-weight:800;line-height:1}.mm .l{font-size:.72rem;color:#475569;font-weight:600;margin-top:2px}
+.mm .d{font-size:.64rem;color:#94a3b8;margin-top:2px}.mm .o{font-size:.62rem;color:#b45309}
+.early{font-size:.6rem;color:#b45309;background:#fef3c7;border-radius:4px;padding:0 3px}
+.panel{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,.07)}
+table{width:100%;border-collapse:collapse;font-size:.86rem}
+th{background:#f8fafc;padding:9px 12px;text-align:right;font-weight:600;color:#374151;border-bottom:2px solid #e5e7eb}
+td{padding:8px 12px;border-bottom:1px solid #f3f4f6}tr:hover td{background:#f9fafb}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:.74rem;font-weight:700}
+.pill.bad{background:#fee2e2;color:#b91c1c}.pill.ok{background:#dcfce7;color:#15803d}.pill.mid{background:#fef9c3;color:#854d0e}
+.tabs{display:flex;gap:8px;margin-bottom:12px;flex-wrap:wrap}
+.tab-btn{padding:7px 15px;border:2px solid #e0e0e0;background:#fff;border-radius:24px;cursor:pointer;font-size:.85rem;font-weight:600;color:#666}
+.tab-btn.active{background:#1a1a2e;border-color:#1a1a2e;color:#fff}
+.tc{display:none}.tc.active{display:block}
+.two{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.bar{height:8px;border-radius:4px;display:inline-block;vertical-align:middle}
+.wkbar{display:flex;align-items:flex-end;gap:4px;height:72px}
+.wkbar .col{flex:1;background:#6366f1;border-radius:3px 3px 0 0;min-height:2px;position:relative}
+.wkbar .col span{position:absolute;top:-16px;right:50%;transform:translateX(50%);font-size:.62rem;color:#475569}
+.wklbl{display:flex;gap:4px;margin-top:4px}.wklbl div{flex:1;text-align:center}
+.wklbl .w{font-size:.62rem;color:#475569;font-weight:600}.wklbl .r{font-size:.56rem;color:#94a3b8}
+.verify{font-size:.72rem;color:#2563eb;cursor:pointer;text-decoration:underline}
+.vbox{display:none;font-size:.72rem;color:#555;background:#f8fafc;border-radius:6px;padding:5px 9px;margin-top:3px;text-align:right}
+.glossary{background:#f8fafc;border-radius:14px;padding:18px 22px;margin-top:24px;display:grid;grid-template-columns:repeat(2,1fr);gap:12px;font-size:.83rem}
+.footer{text-align:center;margin-top:24px;font-size:.78rem;color:#aaa;line-height:1.7}
+@media(max-width:1000px){.grid4{grid-template-columns:repeat(2,1fr)}.two,.glossary{grid-template-columns:1fr}}
+</style></head>
+<body>
+<div class="header"><div><h1>📊 דשבורד בקרה — מחלקת מכירות</h1>
+<div class="subtitle">אחוז סגירה, חלוקת לידים שבועית, מקור×נוכחות — עם אימות מלא</div></div>
+<div class="meta"><div>תקופה: מאי–יולי 2026</div><div>נציגים: ראובן · צבי · אבי · אלי</div><div>Pipedrive + Voicenter</div></div></div>
+<div class="intro">👋 <b>מה רואים כאן?</b> אחוז הסגירה של כל נציג, חלוקת הלידים <b>שבוע-שבוע</b>, ובאיזה סוג ליד כל אחד חזק (מקור + נוכחות בוובינר). ליד כל מספר יש <b>אימות</b> — "בדוק ✓" מציג מזהי דילים אמיתיים לבדיקה ב-Pipedrive. אחוז סגירה נמדד חודשית; חלוקה/פעילות שבועית.</div>
+
+<div class="section-title">📌 אחוז סגירה — לידים טריים (מאי / יוני / יולי)</div>
+<div class="section-desc">אחוז סגירה = נסגרו ÷ (נסגרו+הופסדו), אחרי בדיקת שיחות. "פתוח%" גבוה = החודש עוד מתעדכן. יולי בתחילתו (מדגם קטן).</div>
+<div class="grid4" id="cards"></div>
+
+<div class="section-title">💡 עם בקרה מול אם סומכים על הדיווח</div>
+<div class="section-desc">"אם סומכים" = מורידים את כל ה"אין מענה" · "עם בקרה" = מורידים רק 5+ פניות שלא ענו. הפער = ניפוח שנמנע.</div>
+<div class="panel"><div id="cmp"></div></div>
+
+<div class="section-title">📅 חלוקת לידים שבועית (מעקב שוטף)</div>
+<div class="section-desc">כמה לידים טריים כל נציג קיבל בכל <b>שבוע עבודה (ראשון–חמישי)</b>. מתחת לכל עמודה טווח התאריכים.</div>
+<div class="two" id="wk"></div>
+
+<div class="section-title">🆕 ליד טרי מול ליד מועבר (יוני)</div>
+<div class="section-desc">מועבר = ליד שהיה אצל נציג שעזב. נסגר פחות — נמדד בנפרד.</div>
+<div class="two" id="seg"></div>
+
+<div class="section-title">📞 בקרת "אין מענה"</div>
+<div class="section-desc">זנח מוקדם (&lt;5 פניות, נגד הנציג) · טופל כראוי (5+, יורד) · בעצם נענה (ענה בטלפון). "בדוק ✓" = דוגמאות דילים לאימות.</div>
+<div class="panel"><div id="na"></div></div>
+
+<div class="section-title">🔍 יעילות לפי מקור + נוכחות בוובינר</div>
+<div class="section-desc"><b>מצטבר מאי-יולי</b> — כל הלידים הטריים שהוכרעו בתקופה (לא חודש בודד; מצטבר כדי שהמדגם יהיה אמין). כלי לניתוב: איזה סוג ליד כל נציג סוגר הכי טוב.</div>
+<div class="tabs" id="srcTabs"></div>
+<div class="panel"><div id="srcC"></div></div>
+<div class="section-title" style="font-size:1.05rem">🎥 השפעת נוכחות בוובינר (מצטבר מאי-יולי)</div>
+<div class="section-desc">מתוך לידי הוובינר — אחוז סגירה של מי שנכח מול מי שלא. הנוכחות מכפילה את הסגירה.</div>
+<div class="panel"><div id="att"></div></div>
+
+<div class="section-title">🔄 חידושי מנוי (הועברו מ-Roy)</div>
+<div class="section-desc">כמה חידושים כל נציג קיבל בהעברה בכל חודש + תוצאה. אחוז סגירה נמוך = דגל. (יולי יתעדכן בריענון הבא)</div>
+<div class="panel"><div id="renc"></div></div>
+
+<div class="glossary">
+<div><b>אחוז סגירה</b><br>נסגרו ÷ (נסגרו+הופסדו) מתוך לידי החודש.</div>
+<div><b>פתוח %</b><br>לידים עדיין בטיפול — האחוז עוד יעלה.</div>
+<div><b>ליד טרי / מועבר</b><br>טרי=חולק ע"י המנהל · מועבר=היה אצל נציג שעזב.</div>
+<div><b>נכח בוובינר</b><br>הליד השתתף בוובינר — נסגר הרבה יותר טוב.</div>
+<div><b>בדוק ✓</b><br>מציג מזהי דילים אמיתיים לאימות מול Pipedrive.</div>
+<div><b>מצטבר מאי-יולי</b><br>סיכום כל התקופה יחד (לא חודש בודד) למדגם אמין.</div>
+</div>
+<div class="footer">Pipedrive + Voicenter · ייחוס לפי תאריך הקצאה מהלוג · מאי+יוני מעודנים בשיחות · לכל מספר יש אימות</div>
+<script>
+var BLOB={"order": ["ראובן", "צבי שמש", "אבי חוטובלי", "אלי בן סימון"], "D": {"ראובן": {"m": {"מאי": {"leads": 365, "won": 19, "den": 343, "op": 2, "conv": 5.5, "trust": 8.0, "k": 105, "e": 7, "c": 78}, "יוני": {"leads": 363, "won": 13, "den": 234, "op": 30, "conv": 5.6, "trust": 7.8, "k": 67, "e": 11, "c": 60}, "יולי": {"leads": 13, "won": 0, "den": 1, "op": 92, "conv": 0.0, "trust": 0, "k": 1, "e": 0, "c": 0}}, "inh": {"מאי": {"leads": 77, "won": 6, "den": 71, "conv": 8.5}, "יוני": {"leads": 58, "won": 2, "den": 27, "conv": 7.4}}, "src": {"וובינרים": {"won": 20, "dec": 298}, "כסף חכם": {"won": 7, "dec": 192}, "אחר": {"won": 4, "dec": 46}, "שיחה עם יועץ לימודים": {"won": 1, "dec": 9}, "תוכנית ההכשרה": {"won": 0, "dec": 10}, "מגנט 7 דרכים": {"won": 0, "dec": 22}, "טופס הגשת ליד": {"won": 0, "dec": 19}}, "att": {"att_won": 16, "att_dec": 213, "no_won": 4, "no_dec": 85}, "samp": {"מאי": [[43375, "2026-05-18", "won"], [43701, "2026-05-26", "won"], [42846, "2026-05-10", "won"]], "יוני": [[42538, "2026-06-28", "won"], [46438, "2026-06-29", "won"], [45924, "2026-06-22", "won"]], "יולי": [[41712, "2026-07-01", "lost"], [46673, "2026-07-01", "open"], [46700, "2026-07-02", "open"]]}, "renc": {"מאי": [50, 3, 42, 5, 7], "יוני": [54, 2, 40, 12, 5]}, "nasamp": {"מאי": [[44545, "2026-05-31", "0545580040"], [44071, "2026-05-25", "0556712610"], [42735, "2026-05-10", "0587578585"]], "יוני": [[45713, "2026-06-23", "0506298830"], [46511, "2026-06-29", "0509775712"], [46147, "2026-06-24", "0528292000"]], "יולי": []}}, "צבי שמש": {"m": {"מאי": {"leads": 312, "won": 17, "den": 279, "op": 5, "conv": 6.1, "trust": 7.7, "k": 59, "e": 8, "c": 36}, "יוני": {"leads": 283, "won": 13, "den": 219, "op": 17, "conv": 5.9, "trust": 7.7, "k": 50, "e": 5, "c": 26}, "יולי": {"leads": 9, "won": 0, "den": 2, "op": 78, "conv": 0.0, "trust": 0.0, "k": 0, "e": 0, "c": 0}}, "inh": {"מאי": {"leads": 8, "won": 2, "den": 8, "conv": 25.0}, "יוני": {"leads": 60, "won": 1, "den": 44, "conv": 2.3}}, "src": {"וובינרים": {"won": 22, "dec": 259}, "כסף חכם": {"won": 4, "dec": 185}, "אחר": {"won": 2, "dec": 30}, "מגנט 7 דרכים": {"won": 1, "dec": 14}, "טופס הגשת ליד": {"won": 1, "dec": 9}, "תוכנית ההכשרה": {"won": 0, "dec": 5}, "שיחה עם יועץ לימודים": {"won": 0, "dec": 11}}, "att": {"att_won": 20, "att_dec": 204, "no_won": 2, "no_dec": 55}, "samp": {"מאי": [[43839, "2026-05-25", "won"], [43644, "2026-05-24", "won"], [42647, "2026-05-07", "won"]], "יוני": [[46314, "2026-06-30", "won"], [46363, "2026-06-30", "won"], [46330, "2026-06-29", "won"]], "יולי": [[46630, "2026-07-02", "lost"], [46646, "2026-07-01", "lost"], [46669, "2026-07-01", "open"]]}, "renc": {"מאי": [66, 1, 59, 6, 2], "יוני": [21, 1, 15, 5, 6]}, "nasamp": {"מאי": [[19032, "2026-05-31", "0544423394"], [43685, "2026-05-24", "0544888844"], [43561, "2026-05-26", "0524291308"]], "יוני": [[31861, "2026-06-30", "0508260202"], [46253, "2026-06-30", "0538217243"], [46252, "2026-06-25", "0548086980"]], "יולי": []}}, "אבי חוטובלי": {"m": {"יוני": {"leads": 289, "won": 18, "den": 200, "op": 28, "conv": 9.0, "trust": 10.5, "k": 28, "e": 4, "c": 27}, "יולי": {"leads": 11, "won": 3, "den": 3, "op": 73, "conv": 100.0, "trust": 100.0, "k": 0, "e": 0, "c": 0}}, "inh": {"יוני": {"leads": 34, "won": 2, "den": 16, "conv": 12.5}}, "src": {"כסף חכם": {"won": 3, "dec": 69}, "וובינרים": {"won": 16, "dec": 107}, "אחר": {"won": 2, "dec": 13}, "שיחה עם יועץ לימודים": {"won": 0, "dec": 2}, "מגנט 7 דרכים": {"won": 0, "dec": 6}, "תוכנית ההכשרה": {"won": 0, "dec": 6}, "טופס הגשת ליד": {"won": 0, "dec": 4}}, "att": {"att_won": 13, "att_dec": 76, "no_won": 3, "no_dec": 31}, "samp": {"מאי": [], "יוני": [[44843, "2026-06-07", "won"], [45747, "2026-06-28", "won"], [46507, "2026-06-29", "won"]], "יולי": [[46229, "2026-07-02", "won"], [46340, "2026-07-02", "won"], [46515, "2026-07-01", "won"]]}, "renc": {"יוני": [43, 4, 27, 12, 13]}, "nasamp": {"מאי": [], "יוני": [[45017, "2026-06-07", "0532804289"], [23130, "2026-06-21", "0546988799"], [23516, "2026-06-07", "0544664289"]], "יולי": []}}, "אלי בן סימון": {"m": {"מאי": {"leads": 232, "won": 11, "den": 212, "op": 3, "conv": 5.2, "trust": 7.8, "k": 71, "e": 4, "c": 55}, "יוני": {"leads": 216, "won": 13, "den": 166, "op": 15, "conv": 7.8, "trust": 11.5, "k": 53, "e": 9, "c": 40}, "יולי": {"leads": 12, "won": 1, "den": 2, "op": 83, "conv": 50.0, "trust": 50.0, "k": 0, "e": 0, "c": 0}}, "inh": {"מאי": {"leads": 10, "won": 3, "den": 10, "conv": 30.0}, "יוני": {"leads": 45, "won": 2, "den": 37, "conv": 5.4}}, "src": {"וובינרים": {"won": 14, "dec": 214}, "כסף חכם": {"won": 5, "dec": 138}, "מגנט 7 דרכים": {"won": 1, "dec": 8}, "שיחה עם יועץ לימודים": {"won": 2, "dec": 3}, "אחר": {"won": 2, "dec": 16}, "תוכנית ההכשרה": {"won": 1, "dec": 6}, "טופס הגשת ליד": {"won": 0, "dec": 8}}, "att": {"att_won": 13, "att_dec": 152, "no_won": 1, "no_dec": 62}, "samp": {"מאי": [[33671, "2026-05-12", "won"], [42463, "2026-05-12", "won"], [9241, "2026-05-31", "won"]], "יוני": [[46277, "2026-06-28", "won"], [46309, "2026-06-28", "won"], [28899, "2026-06-29", "won"]], "יולי": [[45728, "2026-07-01", "won"], [46676, "2026-07-01", "lost"], [46691, "2026-07-02", "open"]]}, "renc": {"מאי": [53, 2, 48, 3, 4], "יוני": [24, 1, 21, 2, 5]}, "nasamp": {"מאי": [[42390, "2026-05-03", "0528367599"], [42521, "2026-05-12", "0546636012"], [43156, "2026-05-18", "0546684754"]], "יוני": [[45607, "2026-06-16", "0539879909"], [45657, "2026-06-17", "0548805995"], [6715, "2026-06-23", "0505064165"]], "יולי": []}}}, "wk": {"ראובן": {"2026-05-17": 59, "2026-05-24": 102, "2026-05-31": 85, "2026-06-07": 82, "2026-06-14": 58, "2026-06-21": 91, "2026-06-28": 84}, "צבי שמש": {"2026-05-17": 42, "2026-05-24": 105, "2026-05-31": 88, "2026-06-07": 68, "2026-06-14": 58, "2026-06-21": 43, "2026-06-28": 64}, "אבי חוטובלי": {"2026-05-17": 0, "2026-05-24": 0, "2026-05-31": 0, "2026-06-07": 85, "2026-06-14": 71, "2026-06-21": 76, "2026-06-28": 68}, "אלי בן סימון": {"2026-05-17": 22, "2026-05-24": 78, "2026-05-31": 49, "2026-06-07": 61, "2026-06-14": 47, "2026-06-21": 49, "2026-06-28": 39}}, "weeks": ["2026-05-17", "2026-05-24", "2026-05-31", "2026-06-07", "2026-06-14", "2026-06-21", "2026-06-28"], "wkr": {"2026-05-17": "א׳ 17/5–ה׳ 21/5", "2026-05-24": "א׳ 24/5–ה׳ 28/5", "2026-05-31": "א׳ 31/5–ה׳ 4/6", "2026-06-07": "א׳ 7/6–ה׳ 11/6", "2026-06-14": "א׳ 14/6–ה׳ 18/6", "2026-06-21": "א׳ 21/6–ה׳ 25/6", "2026-06-28": "א׳ 28/6–ה׳ 2/7"}};
+var order=BLOB.order,D=BLOB.D,WK=BLOB.wk,weeks=BLOB.weeks,WKR=BLOB.wkr;
+var COL={"ראובן":"#6366f1","צבי שמש":"#10b981","אבי חוטובלי":"#ef4444","אלי בן סימון":"#8b5cf6"};
+function fm(r){return D[r].m["מאי"]?"מאי":"יוני";}
+var vc=0;
+function vbtn(rows){if(!rows||!rows.length)return '';vc++;var id='v'+vc;var s='<span class="verify" onclick="var e=document.getElementById(\''+id+'\');e.style.display=e.style.display==\'block\'?\'none\':\'block\'">בדוק ✓</span><div class="vbox" id="'+id+'">';rows.forEach(function(r){s+='דיל '+r[0]+' · הוקצה '+r[1]+(r[2]?' · '+r[2]:'')+'<br>';});return s+'</div>';}
+document.getElementById('cards').innerHTML=order.map(function(r){var a=D[r].m,col=COL[r];
+ function cell(mo){var x=a[mo];if(!x)return '<div class="mm"><div class="b" style="color:#cbd5e1">—</div><div class="l">'+mo+'</div></div>';
+  var early=(mo==="יולי"||x.leads<25)?'<span class="early">מוקדם</span>':'';
+  return '<div class="mm"><div class="b" style="color:'+col+'">'+x.conv+'%</div><div class="l">'+mo+' '+early+'</div><div class="d">'+x.won+'/'+x.den+'</div><div class="o">פתוח '+x.op+'%</div>'+vbtn(D[r].samp[mo])+'</div>';}
+ return '<div class="card" style="border-top-color:'+col+'"><div class="rep-name">'+r+'</div><div class="mrow">'+cell("מאי")+cell("יוני")+cell("יולי")+'</div></div>';}).join('');
+var cmp='<table><tr><th>נציג</th><th>חודש</th><th>אם סומכים</th><th>עם בקרה</th><th>ניפוח שנמנע</th></tr>';
+order.forEach(function(r){["מאי","יוני"].forEach(function(mo,i){var x=D[r].m[mo];if(!x)return;var g=(x.trust-x.conv).toFixed(1);
+ cmp+='<tr><td>'+(mo===fm(r)?'<b>'+r+'</b>':'')+'</td><td>'+mo+'</td><td style="color:#b45309;font-weight:700">'+x.trust+'%</td><td style="color:#15803d;font-weight:700">'+x.conv+'%</td><td><span class="pill bad">+'+g+'</span></td></tr>';});});
+document.getElementById('cmp').innerHTML=cmp+'</table>';
+document.getElementById('wk').innerHTML=order.map(function(r){var w=WK[r]||{},mx=Math.max.apply(null,weeks.map(function(k){return w[k]||0}).concat([1]));
+ var bars=weeks.map(function(k){var v=w[k]||0;return '<div class="col" style="height:'+(100*v/mx)+'%;background:'+COL[r]+'"><span>'+v+'</span></div>';}).join('');
+ var lbls=weeks.map(function(k){return '<div><div class="w">'+k.replace("2026-","")+'</div><div class="r">'+(WKR[k]||'')+'</div></div>';}).join('');
+ return '<div class="card" style="border-top-color:'+COL[r]+'"><div class="rep-name">'+r+'</div><div class="wkbar">'+bars+'</div><div class="wklbl">'+lbls+'</div></div>';}).join('');
+document.getElementById('seg').innerHTML=order.map(function(r){var j=D[r].m["יוני"],ih=D[r].inh["יוני"],col=COL[r];if(!j||!ih)return '';var mx=Math.max(j.conv,ih.conv,1);
+ return '<div class="card" style="border-top-color:'+col+'"><div class="rep-name">'+r+' — יוני</div>'+
+ '<div style="display:flex;align-items:center;gap:8px;margin:8px 0"><span style="width:64px;font-size:.82rem">טרי</span><div style="flex:1;background:#f0f2f5;border-radius:5px;height:16px"><div style="height:100%;border-radius:5px;width:'+(100*j.conv/mx)+'%;background:'+col+'"></div></div><span style="width:130px;text-align:left;font-size:.76rem"><b>'+j.conv+'%</b> · '+j.won+'/'+j.den+' ('+j.leads+')</span></div>'+
+ '<div style="display:flex;align-items:center;gap:8px;margin:8px 0"><span style="width:64px;font-size:.82rem">מועבר</span><div style="flex:1;background:#f0f2f5;border-radius:5px;height:16px"><div style="height:100%;border-radius:5px;width:'+(100*ih.conv/mx)+'%;background:#f59e0b"></div></div><span style="width:130px;text-align:left;font-size:.76rem"><b>'+ih.conv+'%</b> · '+ih.won+'/'+ih.den+' ('+ih.leads+')</span></div></div>';}).join('');
+var na='<table><tr><th>נציג</th><th>חודש</th><th>זנח מוקדם</th><th>טופל כראוי</th><th>בעצם נענה ⚠️</th><th>אימות</th></tr>';
+order.forEach(function(r){["מאי","יוני"].forEach(function(mo,i){var x=D[r].m[mo];if(!x)return;
+ na+='<tr><td>'+(mo===fm(r)?'<b>'+r+'</b>':'')+'</td><td>'+mo+'</td><td><span class="pill bad">'+x.k+'</span></td><td><span class="pill ok">'+x.e+'</span></td><td><span class="pill mid">'+x.c+'</span></td><td>'+vbtn(D[r].nasamp[mo])+'</td></tr>';});});
+document.getElementById('na').innerHTML=na+'</table>';
+document.getElementById('srcTabs').innerHTML=order.map(function(r,i){return '<button class="tab-btn '+(i===0?'active':'')+'" onclick="ss(\''+r+'\',this)">'+r+'</button>';}).join('');
+function stbl(r){var s=D[r].src,rows=Object.keys(s).map(function(n){return[n,s[n]]}).sort(function(a,b){return b[1].dec-a[1].dec});
+ return '<table><tr><th>מקור</th><th>נסגרו</th><th>הוכרעו</th><th>אחוז סגירה</th></tr>'+rows.map(function(e){var n=e[0],v=e[1],c=v.dec?100*v.won/v.dec:0;return '<tr><td>'+n+'</td><td>'+v.won+'</td><td>'+v.dec+'</td><td><span class="bar" style="width:'+Math.min(120,c*5)+'px;background:'+(c>=10?"#10b981":c>=5?"#f59e0b":"#ef4444")+'"></span> <b>'+c.toFixed(1)+'%</b></td></tr>';}).join('')+'</table>';}
+document.getElementById('srcC').innerHTML=order.map(function(r,i){return '<div class="tc '+(i===0?'active':'')+'" id="s-'+i+'">'+stbl(r)+'</div>';}).join('');
+function ss(r,b){var i=order.indexOf(r);var B=document.querySelectorAll('#srcTabs .tab-btn');for(var k=0;k<B.length;k++)B[k].classList.remove('active');b.classList.add('active');var C=document.querySelectorAll('#srcC .tc');for(var k=0;k<C.length;k++)C[k].classList.remove('active');document.getElementById('s-'+i).classList.add('active');}
+var at='<table><tr><th>נציג</th><th>נכח בוובינר</th><th>לא נכח</th><th>הכפלה</th></tr>';
+order.forEach(function(r){var v=D[r].att;var aw=v.att_dec?100*v.att_won/v.att_dec:0,nw=v.no_dec?100*v.no_won/v.no_dec:0;var mult=nw>0?(aw/nw).toFixed(1):'—';
+ at+='<tr><td><b>'+r+'</b></td><td><span class="pill ok">'+aw.toFixed(0)+'%</span> ('+v.att_won+'/'+v.att_dec+')</td><td><span class="pill bad">'+nw.toFixed(0)+'%</span> ('+v.no_won+'/'+v.no_dec+')</td><td><b>×'+mult+'</b></td></tr>';});
+document.getElementById('att').innerHTML=at+'</table>';
+var rn='<table><tr><th>נציג</th><th>חודש</th><th>קיבל (הועברו)</th><th>נסגרו</th><th>הופסדו</th><th>פתוח</th><th>אחוז סגירה</th></tr>';
+order.forEach(function(r){["מאי","יוני"].forEach(function(mo,i){var v=D[r].renc[mo];if(!v)return;
+ rn+='<tr><td>'+(mo===fm(r)?'<b>'+r+'</b>':'')+'</td><td>'+mo+'</td><td>'+v[0]+'</td><td>'+v[1]+'</td><td>'+v[2]+'</td><td>'+v[3]+'</td><td><b style="color:'+(v[4]>=15?"#b45309":"#b91c1c")+'">'+v[4]+'%</b></td></tr>';});});
+document.getElementById('renc').innerHTML=rn+'</table>';
+</script>
+</body></html>
