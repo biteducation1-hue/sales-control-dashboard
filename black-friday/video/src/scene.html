@@ -1,0 +1,354 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<title>CyclesTrading BF26 offer</title>
+<style>
+@font-face{font-family:Heebo;font-weight:400;src:url(fonts/heebo-hebrew-400-normal.woff2) format('woff2');unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:400;src:url(fonts/heebo-latin-400-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Heebo;font-weight:500;src:url(fonts/heebo-hebrew-500-normal.woff2) format('woff2');unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:500;src:url(fonts/heebo-latin-500-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Heebo;font-weight:700;src:url(fonts/heebo-hebrew-700-normal.woff2) format('woff2');unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:700;src:url(fonts/heebo-latin-700-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Heebo;font-weight:800;src:url(fonts/heebo-hebrew-800-normal.woff2) format('woff2');unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:800;src:url(fonts/heebo-latin-800-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:Heebo;font-weight:900;src:url(fonts/heebo-hebrew-900-normal.woff2) format('woff2');unicode-range:U+0307-0308,U+0590-05FF,U+200C-2010,U+20AA,U+25CC,U+FB1D-FB4F}
+@font-face{font-family:Heebo;font-weight:900;src:url(fonts/heebo-latin-900-normal.woff2) format('woff2');unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{--board:#20272e;--deep:#151b20;--ink:#0d1216;--green:#7ed957;--gd:#1e332f;--gl:#c9ed8a;--coral:#ff8a5c;--flag:#ffd166;--muted:rgba(255,255,255,.66)}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1920px;height:1080px;overflow:hidden;background:var(--board)}
+body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
+#stage{position:absolute;inset:0;overflow:hidden;background:var(--board)}
+#glow{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(126,217,87,.10),transparent 58%),radial-gradient(ellipse at 50% 120%,rgba(0,0,0,.35),transparent 60%)}
+#grid{position:absolute;inset:-180px;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:90px 90px}
+#vig{position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,transparent 60%,rgba(0,0,0,.38));pointer-events:none}
+#black{position:absolute;inset:0;background:#000;opacity:0;pointer-events:none}
+.scene{position:absolute;inset:0;opacity:0}
+.abs{position:absolute}
+.a{will-change:transform,opacity}
+.ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.num{font-variant-numeric:tabular-nums}
+/* headline box */
+.hbox{position:absolute;background:#fff;color:var(--board);border:5px solid var(--ink);box-shadow:10px 11px 0 var(--ink);border-radius:16px;padding:14px 30px 18px;font-weight:900;line-height:1.12;white-space:nowrap}
+.hl{background:var(--green);color:var(--board);border-radius:10px;padding:0 .16em;display:inline-block}
+.kick{position:absolute;color:var(--gl);font-weight:800;font-size:30px;white-space:nowrap}
+.card{position:absolute;background:linear-gradient(160deg,#21392f,#16221d);border:2.5px solid rgba(126,217,87,.55);border-radius:34px}
+.pill{display:inline-block;background:var(--green);color:#0f200e;font-weight:900;border:3px solid var(--ink);border-radius:999px;box-shadow:4px 5px 0 var(--ink)}
+.shot{position:absolute;border:5px solid var(--ink);box-shadow:10px 12px 0 var(--ink),0 20px 50px rgba(0,0,0,.45);border-radius:14px;overflow:hidden;background:#1a1d21}
+.shot img{display:block;width:100%}
+.tape{position:absolute;width:120px;height:36px;background:rgba(201,237,138,.78);box-shadow:0 2px 6px rgba(0,0,0,.25)}
+.src{position:absolute;font-size:19px;color:rgba(255,255,255,.5);font-weight:500;white-space:nowrap}
+.ph{position:absolute;border:3px dashed rgba(255,209,102,.75);border-radius:18px;background:repeating-linear-gradient(135deg,rgba(255,209,102,.05) 0 18px,transparent 18px 36px),#141b18;color:var(--flag);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:8px;font-weight:800}
+/* S1 */
+.mcard{position:absolute;width:320px;height:360px;transform-style:preserve-3d}
+.mcard .f,.mcard .b{position:absolute;inset:0;border-radius:34px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px}
+.mcard .f{background:linear-gradient(160deg,#27323b,#1a2127);border:3px dashed rgba(255,255,255,.22)}
+.mcard .f span{font-size:230px;font-weight:900;color:rgba(255,255,255,.16);line-height:1}
+.mcard .b{background:linear-gradient(160deg,#21392f,#16221d);border:2.5px solid rgba(126,217,87,.55)}
+.mcard .b svg{width:120px;height:120px}
+.mcard .b b{font-size:44px;font-weight:900}
+.mcard .b i{font-style:normal;font-size:28px;color:var(--gl);font-weight:700}
+/* S2 lives */
+.live{position:absolute;width:396px;height:610px;padding:26px 24px;display:flex;flex-direction:column;gap:12px}
+.live .pill{align-self:flex-start;font-size:30px;padding:2px 24px}
+.live .ph{position:relative;height:232px;font-size:22px;margin-top:6px}
+.live .ph svg{width:62px;height:62px}
+.live h3{font-size:46px;font-weight:900;margin-top:10px;white-space:nowrap}
+.live .topic{font-size:30px;font-weight:800;color:var(--gl);line-height:1.25}
+.dot{display:inline-block;width:16px;height:16px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(126,217,87,.25);vertical-align:middle;margin-left:10px}
+/* S3 discord */
+.dpanel{position:absolute;background:#2b2d31;border:5px solid var(--ink);box-shadow:10px 12px 0 var(--ink);border-radius:20px;overflow:hidden}
+.dhead{height:74px;background:#1e1f22;display:flex;align-items:center;gap:14px;padding:0 26px;font-size:28px;font-weight:800;color:#f2f3f5}
+.room{position:absolute;right:20px;left:20px;height:82px;border-radius:12px;padding:10px 22px;display:flex;flex-direction:column;justify-content:center;background:#35373c;border-right:7px solid #4e5058}
+.room b{font-size:30px;font-weight:800;color:#f2f3f5;white-space:nowrap}
+.room b em{font-style:normal;color:#80848e;margin-left:8px}
+.room span{font-size:21px;color:#b5bac1;white-space:nowrap}
+.room.on{border-right-color:var(--green);background:#3a3f3d}
+.chips{display:flex;gap:8px;margin-top:4px}
+.chip{font-size:20px;font-weight:800;background:var(--gd);color:var(--gl);border-radius:999px;padding:1px 12px;border:1.5px solid rgba(126,217,87,.45);white-space:nowrap}
+/* S4 mentors */
+.av{position:absolute;width:150px;height:150px;border-radius:50%;background:linear-gradient(160deg,#21392f,#16221d);border:4px solid var(--green);box-shadow:6px 7px 0 var(--ink);display:flex;align-items:center;justify-content:center}
+.av svg{width:84px;height:84px}
+.day{position:absolute;width:128px;height:128px;border-radius:22px;background:#fff;color:var(--board);border:5px solid var(--ink);box-shadow:7px 8px 0 var(--ink);display:flex;flex-direction:column;align-items:center;justify-content:center;font-weight:900}
+.day b{font-size:30px}
+.day i{font-style:normal;font-size:48px;color:#2f8f1e;line-height:1}
+/* S5 report */
+.paper{position:absolute;background:#fbfbf7;color:var(--board);border:5px solid var(--ink);box-shadow:12px 13px 0 var(--ink);border-radius:10px;overflow:hidden}
+.paper .ph1{height:92px;background:var(--gd);display:flex;align-items:center;justify-content:space-between;padding:0 30px}
+.paper .ph1 img{height:52px}
+.paper .ph1 b{color:#fff;font-size:30px;font-weight:900}
+.paper .ph1 b em{font-style:normal;color:var(--green)}
+.arow{position:absolute;right:30px;left:30px;height:118px;border-bottom:2px dashed #cfd5da}
+.arow .an{position:absolute;right:0;top:12px;font-size:32px;font-weight:900;white-space:nowrap}
+.arow .lb{position:absolute;right:0;top:58px;font-size:21px;font-weight:800;color:#2f8f1e;white-space:nowrap}
+.arow .dates{position:absolute;left:0;top:18px;display:flex;gap:10px;direction:ltr;filter:blur(9px)}
+.arow .dates span{font-size:30px;font-weight:900;background:#e8f6dd;border:2px solid #7ed957;border-radius:10px;padding:2px 12px;color:#1e332f}
+.arow .sk{position:absolute;left:0;height:13px;border-radius:7px;background:#c9cfd4;filter:blur(3px)}
+.stamp{position:absolute;font-size:20px;font-weight:800;color:#b07a00;background:rgba(255,209,102,.25);border:2px dashed #d9a400;border-radius:8px;padding:2px 12px;white-space:nowrap}
+.bigpct{position:absolute;font-size:200px;font-weight:900;color:var(--green);line-height:1;direction:ltr;text-shadow:0 0 60px rgba(126,217,87,.35)}
+/* S6 receipt */
+.receipt{position:absolute;background:#fbfbf7;color:var(--board);border:5px solid var(--ink);box-shadow:12px 13px 0 var(--ink);border-radius:8px;padding:30px 40px}
+.receipt h3{font-size:34px;text-align:center;font-weight:900;letter-spacing:.02em}
+.receipt .sub{text-align:center;font-size:22px;color:#6b747c;margin-bottom:12px;font-weight:500}
+.rrow{display:flex;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:2px dashed #c9cfd4;font-size:30px;font-weight:700;white-space:nowrap}
+.rrow .yes{color:#2f8f1e;font-weight:900}
+/* S7 price */
+.was{position:absolute;font-size:72px;font-weight:800;color:rgba(255,255,255,.88);white-space:nowrap}
+.strike{position:absolute;height:5px;background:var(--coral);border-radius:3px;top:52%;right:-6px;transform-origin:right center}
+.now{position:absolute;font-size:300px;font-weight:900;color:var(--green);line-height:1;white-space:nowrap;text-shadow:0 0 70px rgba(126,217,87,.30)}
+.now small{font-size:.38em}
+.renew{position:absolute;background:#fff;color:var(--board);border:4px solid var(--ink);box-shadow:7px 8px 0 var(--ink);border-radius:14px;padding:14px 34px;font-weight:900;font-size:40px;white-space:nowrap}
+/* S8 */
+.cta{position:absolute;width:760px;height:124px;border-radius:24px;background:var(--green);color:#0f200e;border:5px solid var(--ink);box-shadow:8px 9px 0 var(--ink),0 0 50px rgba(126,217,87,.35);display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:900;white-space:nowrap}
+.ring{position:absolute;border:4px solid var(--green);border-radius:30px}
+.disc{position:absolute;font-size:22px;color:rgba(255,255,255,.62);font-weight:500;text-align:center;white-space:nowrap}
+</style>
+</head>
+<body>
+<div id="stage">
+  <div id="glow"></div><div id="grid"></div>
+
+  <!-- S1 HOOK 0-5 -->
+  <div class="scene" id="s1" data-s="0" data-e="5.0">
+    <img class="abs a" src="../assets/logo-white.png" style="left:810px;top:56px;width:300px" data-t="0.1" data-k="fade">
+    <div class="hbox a" style="font-size:96px;right:50%;top:190px;transform-origin:50% 50%" data-t="0.25" data-k="pop" data-cx="1">מה מקבלים בחודש <span class="hl">בקהילה?</span></div>
+    <div class="mcard a" id="m1" style="left:1290px;top:520px" data-t="0.9" data-k="right" data-r="4"><div class="f"><span>?</span></div><div class="b">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg><b>לייבים</b><i>4 בשבוע</i></div></div>
+    <div class="mcard a" id="m2" style="left:800px;top:540px" data-t="1.1" data-k="up" data-r="-2"><div class="f"><span>?</span></div><div class="b">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><b>דיסקורד</b><i>כל החדרים</i></div></div>
+    <div class="mcard a" id="m3" style="left:310px;top:520px" data-t="1.3" data-k="left" data-r="-4"><div class="f"><span>?</span></div><div class="b">
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h9l4 4v14H6z"/><path d="M15 3v4h4"/><path d="M9 12h7M9 15h7M9 18h4"/></svg><b>הדוח החודשי</b><i>5 נכסים</i></div></div>
+  </div>
+
+  <!-- S2 LIVES 5-17 -->
+  <div class="scene" id="s2" data-s="5.0" data-e="17.0">
+    <div class="hbox a" style="font-size:72px;right:110px;top:62px" data-t="5.2" data-k="pop"><span class="hl">4 לייבים</span> בכל שבוע</div>
+    <div class="abs a" style="left:110px;top:84px;display:flex;align-items:center;gap:18px" data-t="13.6" data-k="pop">
+      <span class="pill" style="font-size:40px;padding:6px 30px">כ-<span class="cnt num" data-t="13.7" data-d="1.4" data-to="17">0</span> לייבים בחודש</span>
+    </div>
+    <!-- cards right to left -->
+    <div class="card live a" style="left:1410px;top:300px" data-t="6.2" data-k="up" data-r="1.2"><span class="pill">ראשון</span>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
+      <h3>זיו</h3><div class="topic">לייב הכנה למסחר<br>סייקלים ומניות</div></div>
+    <div class="card live a" style="left:976px;top:300px" data-t="8.1" data-k="up" data-r="-1"><span class="pill">שלישי</span>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
+      <h3>מני בריזל</h3><div class="topic">לייב עומק<br>על הסייקלים</div></div>
+    <div class="card live a" style="left:542px;top:300px" data-t="10.0" data-k="up" data-r="1"><span class="pill">רביעי</span>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
+      <h3>רועי בן חמו</h3><div class="topic">תזמון עסקאות<br>במניות</div></div>
+    <div class="card live a" style="left:108px;top:300px" data-t="11.9" data-k="up" data-r="-1.2"><span class="pill">חמישי</span>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
+      <h3>גולן עין צבי</h3><div class="topic">דיוק בהבנת<br>הגרף</div></div>
+  </div>
+
+  <!-- S3 DISCORD 17-32 -->
+  <div class="scene" id="s3" data-s="17.0" data-e="32.0">
+    <div class="hbox a" style="font-size:66px;right:100px;top:56px" data-t="17.2" data-k="pop">כל חדרי <span class="hl">הדיסקורד</span></div>
+    <div class="abs a" style="right:104px;top:200px;display:flex;align-items:baseline;gap:20px;white-space:nowrap" data-t="17.7" data-k="up">
+      <span class="ltr num" style="font-size:104px;font-weight:900;color:var(--green);line-height:1"><span class="cnt" data-t="17.8" data-d="2.2" data-to="2000" data-comma="1">0</span>+</span>
+      <span style="font-size:40px;font-weight:800">סוחרים בקהילה</span>
+    </div>
+    <div class="dpanel a" style="right:100px;top:338px;width:800px;height:680px" data-t="18.4" data-k="up">
+      <div class="dhead"><svg width="34" height="34" viewBox="0 0 24 24" fill="#7ed957"><path d="M20 5a17 17 0 0 0-4.3-1.3l-.5 1a15 15 0 0 0-6.4 0l-.5-1A17 17 0 0 0 4 5C1.4 9 .7 12.8 1 16.6A17 17 0 0 0 6.3 19l1.1-1.6a11 11 0 0 1-1.7-.8l.4-.3a12 12 0 0 0 11.8 0l.4.3-1.7.8 1.1 1.6a17 17 0 0 0 5.3-2.4c.4-4.4-.6-8.2-3-11.6zM8.5 14.3c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1zm7 0c-1 0-1.9-1-1.9-2.1s.8-2.1 1.9-2.1 1.9 1 1.9 2.1-.8 2.1-1.9 2.1z"/></svg>סייקלס טריידינג · חדרים</div>
+      <div class="room a r" style="top:92px" data-t="19.0" data-k="right" data-on="19.0"><b><em>#</em>מומחי מניות</b><span>סטאפים, ממש לפני כניסה</span></div>
+      <div class="room a r" style="top:184px;height:96px" data-t="20.4" data-k="right" data-on="20.4"><b><em>#</em>חדר לכל נכס מהדוח</b><div class="chips"><span class="chip ltr">S&amp;P 500</span><span class="chip">ביטקוין</span><span class="chip">זהב</span><span class="chip">נפט</span><span class="chip">יורו-דולר</span></div></div>
+      <div class="room a r" style="top:290px" data-t="21.9" data-k="right" data-on="21.9"><b><em>#</em>רעיונות מסחר ומניות חמות</b><span>מה שהקהילה מעלה, והמנטורים מחדדים</span></div>
+      <div class="room a r" style="top:382px" data-t="23.3" data-k="right" data-on="23.3"><b><em>#</em>טווח ארוך ופנסיה</b><span>תיק פסיבי ותכנון לשנים קדימה</span></div>
+      <div class="room a r" style="top:474px;height:82px" data-t="24.6" data-k="right" data-on="24.6"><b><em>#</em>קריפטו &nbsp;·&nbsp; <em>#</em>מט"ח</b><span>אותה שיטה, עוד שווקים</span></div>
+      <div class="room a r" style="top:566px" data-t="25.9" data-k="right" data-on="25.9"><b><em>#</em>נוסטרו</b><span>מסחר בהון של אחרים</span></div>
+    </div>
+    <!-- real screenshots, left side -->
+    <div class="shot a ds" style="left:70px;top:80px;width:470px" data-t="19.6" data-k="pop" data-r="-3" data-dim="22.6"><img src="../assets/discord/discord-avihay-anon.png"></div>
+    <div class="shot a ds" style="left:470px;top:150px;width:500px" data-t="22.6" data-k="pop" data-r="2.5" data-dim="25.6"><img src="../assets/discord/discord-eli-anon.png"></div>
+    <div class="shot a ds" style="left:100px;top:560px;width:500px" data-t="25.6" data-k="pop" data-r="2" data-dim="28.4"><img src="../assets/discord/discord-shoval-anon.png"></div>
+    <div class="shot a ds" style="left:400px;top:760px;width:560px" data-t="28.4" data-k="pop" data-r="-2"><img src="../assets/discord/discord-adir-anon.png"></div>
+    <div class="src a" style="left:72px;top:1036px" data-t="19.8" data-k="fade">צילומי מסך אמיתיים מהדיסקורד של הקהילה · שמות ותמונות פרופיל טושטשו</div>
+  </div>
+
+  <!-- S4 MENTORS 32-38.5 -->
+  <div class="scene" id="s4" data-s="32.0" data-e="38.5">
+    <div class="hbox a" style="font-size:80px;right:50%;top:70px" data-t="32.2" data-k="pop" data-cx="1"><span class="hl">9 מנטורים</span> שעונים כל יום</div>
+    <div id="avs"></div>
+    <div id="days"></div>
+    <div class="shot a" style="left:96px;top:330px;width:300px;border-radius:24px" data-t="35.6" data-k="pop" data-r="-3"><img src="../assets/site/site-community-box-mentors.png"></div>
+    <div class="src a" style="left:96px;top:722px" data-t="35.8" data-k="fade">מתוך עמוד הקהילה באתר</div>
+  </div>
+
+  <!-- S5 REPORT 38.5-52.5 -->
+  <div class="scene" id="s5" data-s="38.5" data-e="52.5">
+    <div class="hbox a" style="font-size:66px;right:100px;top:56px" data-t="38.7" data-k="pop">ובנוסף: <span class="hl">הדוח החודשי</span></div>
+    <div class="paper a" id="paper" style="left:110px;top:120px;width:700px;height:900px" data-t="39.0" data-k="up" data-r="-1.6">
+      <div class="ph1"><b>דוח <em>נובמבר</em> 2026</b><img src="../assets/logo-white.png"></div>
+      <div class="arow a" style="top:118px" data-t="39.6" data-k="fade"><div class="an ltr">S&amp;P 500</div><div class="lb">תאריכי המפנה</div><div class="dates"><span>05-06.11</span><span>11.11</span><span>16.11</span><span>27.11</span></div><div class="sk" style="top:78px;width:300px"></div></div>
+      <div class="arow a" style="top:236px" data-t="40.2" data-k="fade"><div class="an">ביטקוין</div><div class="lb">תאריכי המפנה</div><div class="dates"><span>03-04.11</span><span>11.11</span><span>16.11</span><span>23-24.11</span></div><div class="sk" style="top:78px;width:250px"></div></div>
+      <div class="arow a" style="top:354px" data-t="40.8" data-k="fade"><div class="an">זהב</div><div class="lb">תאריכי המפנה</div><div class="dates"><span>05.11</span><span>12.11</span><span>16.11</span><span>23-24.11</span></div><div class="sk" style="top:78px;width:330px"></div></div>
+      <div class="arow a" style="top:472px" data-t="41.4" data-k="fade"><div class="an">נפט</div><div class="lb">תאריכי המפנה</div><div class="dates"><span>09.11</span><span>13.11</span><span>23.11</span><span>27.11</span></div><div class="sk" style="top:78px;width:280px"></div></div>
+      <div class="arow a" style="top:590px" data-t="42.0" data-k="fade"><div class="an">יורו-דולר</div><div class="lb">תאריכי המפנה</div><div class="dates"><span>06.11</span><span>11.11</span><span>18-19.11</span><span>27.11</span></div><div class="sk" style="top:78px;width:310px"></div></div>
+      <div class="abs" style="right:30px;left:30px;top:730px;filter:blur(3px)">
+        <div style="height:13px;border-radius:7px;background:#d5dadf;margin-bottom:16px;width:96%"></div>
+        <div style="height:13px;border-radius:7px;background:#d5dadf;margin-bottom:16px;width:88%"></div>
+        <div style="height:13px;border-radius:7px;background:#d5dadf;margin-bottom:16px;width:92%"></div>
+        <div style="height:13px;border-radius:7px;background:#d5dadf;width:60%"></div>
+      </div>
+      <div class="stamp" style="left:24px;bottom:20px">שחזור גרפי · התוכן מטושטש</div>
+    </div>
+    <div class="shot a" style="left:900px;top:470px;width:930px;border-radius:18px;background:#fff" data-t="45.2" data-k="pop" data-r="1.2"><img src="../assets/site/site-report-results-cards.png"></div>
+    <div class="src a" style="right:96px;top:968px" data-t="45.4" data-k="fade">צילום מסך מעמוד הדוח באתר סייקלס טריידינג</div>
+    <div class="abs a" style="right:100px;top:190px;display:flex;align-items:center;gap:34px" data-t="46.6" data-k="pop">
+      <div style="text-align:right"><div style="font-size:42px;font-weight:900;white-space:nowrap">אחוזי פגיעה</div><div style="font-size:26px;color:var(--muted);font-weight:500;white-space:nowrap">ממוצע 12 החודשים האחרונים<br>לפי נתוני האתר</div></div>
+      <div class="num" style="font-size:190px;font-weight:900;color:var(--green);line-height:1;direction:ltr;text-shadow:0 0 60px rgba(126,217,87,.35)"><span class="cnt" data-t="46.7" data-d="2.0" data-to="76.8" data-dec="1">0</span>%</div>
+    </div>
+  </div>
+
+  <!-- S6 RECEIPT 52.5-60.5 -->
+  <div class="scene" id="s6" data-s="52.5" data-e="60.5">
+    <div class="hbox a" style="font-size:80px;right:110px;top:300px" data-t="52.7" data-k="pop"><span class="hl">הכל</span> בחודש אחד</div>
+    <div class="kick a" style="right:118px;top:470px;font-size:36px" data-t="53.1" data-k="up">וזה רק החודש הראשון שלך בפנים</div>
+    <div class="receipt a" style="left:150px;top:90px;width:820px" data-t="52.9" data-k="up" data-r="-1.4">
+      <h3>סייקלס טריידינג · קבלה</h3><div class="sub">חודש אחד בקהילה</div>
+      <div class="rrow a" data-t="53.6" data-k="right"><span>כ-17 לייבים עם 4 מנטורים</span><span class="yes">✓ כלול</span></div>
+      <div class="rrow a" data-t="54.4" data-k="right"><span>חדרי מומחי מניות וסטאפים</span><span class="yes">✓ כלול</span></div>
+      <div class="rrow a" data-t="55.2" data-k="right"><span>חדר לכל נכס, רעיונות ומניות חמות</span><span class="yes">✓ כלול</span></div>
+      <div class="rrow a" data-t="56.0" data-k="right"><span>טווח ארוך, קריפטו, מט"ח ונוסטרו</span><span class="yes">✓ כלול</span></div>
+      <div class="rrow a" data-t="56.8" data-k="right"><span>קהילה של <span class="ltr">2,000+</span> סוחרים</span><span class="yes">✓ כלול</span></div>
+      <div class="rrow a" data-t="57.6" data-k="right"><span>מענה יומי מ-9 מנטורים</span><span class="yes">✓ כלול</span></div>
+      <div class="rrow a" data-t="58.4" data-k="right" style="border-bottom:0"><span>הדוח החודשי, 5 נכסים</span><span class="yes">✓ כלול</span></div>
+    </div>
+  </div>
+
+  <!-- S7 PRICE 60.5-69.5 (simple, pending owner's choice) -->
+  <div class="scene" id="s7" data-s="60.5" data-e="69.5">
+    <div class="bf">
+      <div class="kick a" style="right:50%;top:120px;font-size:38px" data-t="60.7" data-k="up" data-cx="1">בלאק פריידי · החודש הראשון</div>
+      <div class="was a" id="was" style="right:50%;top:190px" data-t="61.0" data-k="up" data-cx="1">במקום <span class="ltr num" style="position:relative">450 ₪<i class="strike" id="strike" style="left:-6px;right:-6px"></i></span></div>
+      <div class="now a num" style="right:50%;top:300px" data-t="62.2" data-k="pop" data-cx="1"><span class="ltr">197 <small>₪</small></span></div>
+      <div class="kick a" style="right:50%;top:640px;font-size:46px;color:var(--gl)" data-t="63.6" data-k="up" data-cx="1">פחות מ-7 ₪ ליום</div>
+      <div class="renew a" style="right:50%;top:760px" data-t="64.8" data-k="up" data-cx="1">מהחודש השני 450 ₪ לחודש, ביטול בכל עת</div>
+    </div>
+    <div class="ev">
+      <div class="kick a" style="right:50%;top:180px;font-size:40px" data-t="60.7" data-k="up" data-cx="1">כל מה שראיתם, במנוי חודשי</div>
+      <div class="now a num" style="right:50%;top:270px" data-t="61.6" data-k="pop" data-cx="1"><span class="ltr">450 <small>₪</small></span></div>
+      <div class="kick a" style="right:50%;top:610px;font-size:46px;color:var(--gl)" data-t="63.0" data-k="up" data-cx="1">לחודש · פחות מ-15 ₪ ליום</div>
+      <div class="renew a" style="right:50%;top:740px" data-t="64.4" data-k="up" data-cx="1">ביטול בכל עת</div>
+    </div>
+  </div>
+
+  <!-- S8 CTA 69.5-78 -->
+  <div class="scene" id="s8" data-s="69.5" data-e="78.4">
+    <img class="abs a" id="logo8" src="../assets/logo-white.png" style="left:735px;top:90px;width:450px" data-t="69.7" data-k="pop">
+    <div class="bf">
+      <div class="hbox a" style="font-size:84px;right:50%;top:330px" data-t="70.3" data-k="pop" data-cx="1">המבצע נסגר <span class="hl">ב-30/11</span> בשעה <span class="ltr">23:59</span></div>
+      <div class="ring" id="ring1" style="left:580px;top:620px;width:760px;height:124px"></div>
+      <div class="ring" id="ring2" style="left:580px;top:620px;width:760px;height:124px"></div>
+      <div class="cta a" id="ctab" style="left:580px;top:620px" data-t="71.2" data-k="pop">אני רוצה להיכנס לקהילה ←</div>
+      <svg id="cursor" class="abs" style="left:0;top:0;width:64px;height:64px;opacity:0" viewBox="0 0 24 24"><path d="M4 2l15 9-6.5 1.5L16 20l-3 1.4-3.4-7.4L5 18z" fill="#fff" stroke="#0d1216" stroke-width="1.4" stroke-linejoin="round"/></svg>
+    </div>
+    <div class="ev">
+      <div class="hbox a" style="font-size:84px;right:50%;top:360px" data-t="70.3" data-k="pop" data-cx="1">חודש שלם <span class="hl">בתוך הקהילה</span></div>
+    </div>
+    <div class="disc a" style="right:50%;top:900px" data-t="71.6" data-k="fade" data-cx="1">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון. ביצועי עבר אינם מעידים על העתיד.</div>
+  </div>
+
+  <div id="vig"></div><div id="black"></div>
+</div>
+<script>
+const VERSION=(new URLSearchParams(location.search).get('v')||'bf');
+const DUR=78.4;
+document.querySelectorAll(VERSION==='bf'?'.ev':'.bf').forEach(e=>e.remove());
+const clamp=(x,a=0,b=1)=>Math.max(a,Math.min(b,x));
+const prog=(t,a,d)=>clamp((t-a)/d);
+const spring=x=>x<=0?0:x>=1?1:1-Math.exp(-7*x)*Math.cos(9*x);
+const eOut=x=>1-Math.pow(1-x,3);
+const eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+
+// build S4 avatars + days
+(function(){
+  const avs=document.getElementById('avs');
+  const person='<svg viewBox="0 0 24 24" fill="#7ed957"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c.8-4.6 4.2-7 8.5-7s7.7 2.4 8.5 7z"/></svg>';
+  // 3 x 3 grid, right block
+  for(let i=0;i<9;i++){const r=Math.floor(i/3),c=i%3;
+    const d=document.createElement('div');d.className='av a';
+    d.style.left=(1180+ (2-c)*200 - (r%2)*0)+'px';d.style.top=(260+r*190)+'px';
+    d.dataset.t=(32.7+i*0.22).toFixed(2);d.dataset.k='pop';d.innerHTML=person;
+    // chat bubble tick
+    const bub=document.createElement('div');bub.className='abs';bub.style.cssText='left:-14px;top:-10px;width:54px;height:44px;border-radius:14px 14px 14px 4px;background:#fff;border:3px solid #0d1216;color:#2f8f1e;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center';bub.textContent='✓';
+    d.appendChild(bub);avs.appendChild(d);}
+  const days=document.getElementById('days');
+  ['א׳','ב׳','ג׳','ד׳','ה׳','ו׳'].forEach((n,i)=>{const d=document.createElement('div');d.className='day a';
+    d.style.left=(1700-170-i*150 - 420)+'px';d.style.top='860px';
+    d.style.left=(1660-i*150-120)+'px';
+    d.dataset.t=(34.4+i*0.25).toFixed(2);d.dataset.k='up';d.dataset.r=(i%2?2:-2);
+    d.innerHTML='<b>'+n+'</b><i>✓</i>';days.appendChild(d);});
+})();
+
+const scenes=[...document.querySelectorAll('.scene')].map(el=>({el,s:+el.dataset.s,e:+el.dataset.e}));
+const anims=[...document.querySelectorAll('.a')].map(el=>({el,t:+(el.dataset.t||0),k:el.dataset.k||'pop',r:+(el.dataset.r||0),cx:el.dataset.cx==='1',dim:el.dataset.dim?+el.dataset.dim:null,on:el.dataset.on?+el.dataset.on:null}));
+const cnts=[...document.querySelectorAll('.cnt')].map(el=>({el,t:+el.dataset.t,d:+el.dataset.d,to:+el.dataset.to,dec:+(el.dataset.dec||0),comma:el.dataset.comma==='1'}));
+const mcards=['m1','m2','m3'].map((id,i)=>({el:document.getElementById(id),t:3.0+i*0.35}));
+const grid=document.getElementById('grid'),black=document.getElementById('black');
+
+function fmt(v,dec,comma){let s=v.toFixed(dec);if(comma){s=Math.round(v).toLocaleString('en-US');}return s}
+
+window.render=function(t){
+  grid.style.transform=`translate(${(t*6)%90}px,${(t*4)%90}px)`;
+  for(const S of scenes){
+    const fi=prog(t,S.s,0.28), fo=1-prog(t,S.e-0.32,0.32);
+    const vis=t>=S.s&&t<S.e;
+    S.el.style.display=vis?'block':'none';
+    if(!vis)continue;
+    const o=Math.min(fi,fo);
+    const out=1-fo;
+    S.el.style.opacity=o;
+    S.el.style.transform=`translateY(${-36*eOut(out)}px) scale(${1-0.04*eOut(out)})`;
+  }
+  for(const A of anims){
+    const x=prog(t,A.t,0.55), s=spring(x), op=clamp((t-A.t)/0.18);
+    let tr='';
+    if(A.cx) tr+='translateX(50%) ';
+    if(A.k==='pop') tr+=`scale(${0.35+0.65*s}) `;
+    else if(A.k==='up') tr+=`translateY(${(1-s)*60}px) `;
+    else if(A.k==='left') tr+=`translateX(${-(1-s)*160}px) `;
+    else if(A.k==='right') tr+=`translateX(${(1-s)*160}px) `;
+    if(A.r) tr+=`rotate(${A.r*(A.k==='pop'?s:1)}deg) `;
+    A.el.style.transform=tr;
+    A.el.style.opacity=op;
+    if(A.dim!==null){const d=prog(t,A.dim,0.4);A.el.style.filter=`brightness(${1-0.4*d}) saturate(${1-0.3*d})`;}
+    if(A.on!==null){A.el.classList.toggle('on',t>=A.on+0.25);}
+  }
+  for(const C of cnts){const p=eOut(prog(t,C.t,C.d));C.el.textContent=fmt(C.to*p,C.dec,C.comma);}
+  // S1 mystery flip + idle wobble
+  for(const M of mcards){
+    const p=eIO(prog(t,M.t,0.5)), ang=180*p;
+    const f=M.el.querySelector('.f'),b=M.el.querySelector('.b');
+    const wob=t<M.t?Math.sin(t*3+M.t)*2.2:0;
+    M.el.style.transform+=` rotateY(${ang}deg) rotate(${wob}deg)`;
+    f.style.display=ang<90?'flex':'none';b.style.display=ang>=90?'flex':'none';
+    b.style.transform='rotateY(180deg)';
+    const q=f.querySelector('span');q.style.opacity=0.6+0.4*Math.sin(t*5);
+  }
+  // S7 strike
+  const st=document.getElementById('strike');
+  if(st){const p=eOut(prog(t,61.6,0.45));st.style.transform=`scaleX(${p})`;}
+  // S8 rings + cursor
+  const r1=document.getElementById('ring1');
+  if(r1){
+    const r2=document.getElementById('ring2');
+    [r1,r2].forEach((r,i)=>{const ph=((t-71.6+i*0.7)%1.4+1.4)%1.4/1.4;const on=t>71.6?1:0;
+      r.style.opacity=on*(0.65*(1-ph));r.style.transform=`scale(${1+0.22*ph},${1+0.8*ph})`;});
+    const c=document.getElementById('cursor');
+    const a=prog(t,72.2,0.9), e=eIO(a);
+    const x=1500+(1150-1500)*e, y=980+(690-980)*e;
+    const click=t>73.2&&t<73.45;
+    c.style.opacity=t>72.2?1:0;
+    c.style.transform=`translate(${x}px,${y}px) scale(${click?0.86:1})`;
+    const b=document.getElementById('ctab');
+    if(click) b.style.transform+=' translate(3px,3px)';
+  }
+  black.style.opacity=prog(t,DUR-0.4,0.4);
+};
+window.ready=(async()=>{await document.fonts.ready;await Promise.all([...document.images].map(i=>i.complete?Promise.resolve():new Promise(r=>{i.onload=i.onerror=r})));await Promise.all([...document.images].map(i=>i.decode().catch(()=>{})));return true})();
+window.DUR=DUR;
+render(0);
+</script>
+</body>
+</html>
