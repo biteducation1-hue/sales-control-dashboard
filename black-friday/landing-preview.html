@@ -1,0 +1,314 @@
+<title>בלאק פריידי בקהילה</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;900&family=Rubik:wght@500;700&display=swap">
+<style>
+/* layout: one dark column, price-and-renewal block repeated as the page's spine; sticky CTA on mobile */
+:root{
+  color-scheme:dark;
+  --ink:#050b16;        /* page ground */
+  --panel:#0c1a2e;      /* raised surfaces */
+  --line:#1b3150;
+  --fg:#eaf2fb;
+  --muted:#9db1c8;
+  --cyan:#38c6f4;       /* emphasis */
+  --green:#2fc46a;      /* action */
+  --green-ink:#04210f;
+  --flag:#ffd27a;       /* placeholder marker */
+  --display:"Rubik","Heebo",Arial,sans-serif;
+  --body:"Heebo",Arial,sans-serif;
+}
+*{box-sizing:border-box}
+body{background:var(--ink);color:var(--fg);font-family:var(--body);font-size:17px;line-height:1.65;direction:rtl}
+a{color:inherit}
+.band{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.inner{max-width:980px;margin:0 auto;padding-block:64px}
+.narrow{max-width:680px}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;line-height:1.15}
+h2{font-size:clamp(26px,4vw,38px);font-weight:700}
+h3{font-size:20px;font-weight:700}
+p{margin:0}
+.stack{display:flex;flex-direction:column;gap:18px}
+.ph{color:var(--flag);background:rgba(255,210,122,.1);border:1px dashed rgba(255,210,122,.5);border-radius:6px;padding:0 6px;font-size:.92em;white-space:nowrap}
+.eyebrow{font-size:13px;letter-spacing:.08em;color:var(--cyan);font-weight:700}
+
+/* preview ribbon */
+.preview{background:#1a1406;color:var(--flag);font-size:14px;text-align:center}
+.preview .inner{padding-block:10px}
+
+/* sticky top bar */
+.topbar{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:#08294a;border-bottom:1px solid var(--line);font-size:15px}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:#08294a}
+.topbar .inner{padding-block:9px;display:flex;flex-wrap:wrap;gap:4px 14px;justify-content:center;align-items:center;text-align:center}
+.topbar b{color:#fff}
+
+/* hero */
+.hero .inner{padding-block:56px 64px;display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+.hero h1{font-size:clamp(34px,6vw,58px);font-weight:700}
+.hero h1 em{font-style:normal;color:var(--cyan)}
+.hero .sub{color:var(--muted);font-size:19px;max-width:52ch}
+.portrait{aspect-ratio:4/5;max-width:100%;border-radius:18px;border:1px dashed var(--line);background:
+  radial-gradient(circle at 70% 25%,rgba(56,198,244,.18),transparent 55%),
+  repeating-radial-gradient(circle at 70% 25%,transparent 0 38px,rgba(56,198,244,.07) 38px 39px),var(--panel);
+  display:grid;place-items:center;text-align:center;padding:20px;color:var(--muted)}
+
+/* price block: the spine */
+.price{display:flex;flex-direction:column;gap:12px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+.price-row{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.was{color:var(--muted);text-decoration:line-through;font-size:22px;font-variant-numeric:tabular-nums}
+.now{font-family:var(--display);font-size:56px;font-weight:700;line-height:1;font-variant-numeric:tabular-nums}
+.now small{font-size:22px;color:var(--cyan);font-weight:500}
+.renew{background:#fff;color:#07172b;border-radius:10px;padding:10px 14px;font-weight:700;font-size:18px}
+.fine{font-size:14px;color:var(--muted)}
+
+/* countdown */
+.clock{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.clock-label{font-size:14px;color:var(--muted)}
+.units{display:flex;gap:8px;direction:ltr}
+.unit{min-width:58px;text-align:center;background:#06121f;border:1px solid var(--line);border-radius:10px;padding:6px 4px}
+.unit b{display:block;font-family:var(--display);font-size:24px;font-variant-numeric:tabular-nums}
+.unit span{font-size:12px;color:var(--muted)}
+
+/* buttons */
+.cta{display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--green);color:var(--green-ink);font-weight:900;font-size:20px;text-decoration:none;border-radius:999px;padding:16px 30px;border:0;cursor:pointer}
+.cta:hover{filter:brightness(1.08)}
+.cta:focus-visible,summary:focus-visible{outline:3px solid var(--cyan);outline-offset:3px}
+.cta-wrap{display:flex;flex-direction:column;gap:8px;align-items:flex-start}
+
+/* fit / not-fit */
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fit{border:1px solid var(--line);border-radius:14px;padding:22px;background:var(--panel)}
+.fit ul{margin:12px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:10px}
+.fit li{display:flex;gap:10px}
+.yes li::before{content:"✓";color:var(--green);font-weight:900}
+.no li::before{content:"✕";color:#ff8a8a;font-weight:900}
+
+/* includes */
+.includes{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.inc{border-top:2px solid var(--cyan);padding-top:14px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.inc p{color:var(--muted);font-size:16px}
+
+/* report peek */
+.peek{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.page{aspect-ratio:3/4;max-width:100%;border-radius:10px;background:#f4f7fb;color:#0b1f3a;padding:16px;position:relative;overflow:hidden;display:flex;flex-direction:column;gap:8px}
+.page h4{margin:0;font-family:var(--display);font-size:15px}
+.page .bar{height:8px;border-radius:4px;background:#c9d6e5}
+.page .bar.s{width:60%}.page .bar.m{width:80%}
+.page .wave{flex:1;border-radius:6px;background:linear-gradient(180deg,#e3ecf6,#d2dfee);position:relative}
+.page .wave::after{content:"";position:absolute;inset:30% 6% 30% 6%;border-top:3px solid #1e88e5;border-radius:50% 50% 0 0/100% 100% 0 0}
+.blur > *:not(.lock){filter:blur(5px)}
+.lock{position:absolute;inset:auto 10px 10px 10px;background:#07172b;color:#fff;border-radius:8px;padding:6px 10px;font-size:13px;text-align:center}
+
+/* testimonials */
+.quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.q{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;display:flex;flex-direction:column;gap:12px;min-width:0}
+.q p{font-size:17px}
+.q cite{font-style:normal;color:var(--muted);font-size:14px}
+.stats{display:flex;flex-wrap:wrap;gap:10px 28px;color:var(--muted)}
+.stats b{color:var(--fg);font-variant-numeric:tabular-nums}
+
+/* payment timeline */
+.pay{background:#071427}
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;border-right:2px solid var(--line);margin-right:14px}
+.steps li{position:relative;padding:0 30px 26px 0}
+.steps li:last-child{padding-bottom:0}
+.steps li::before{content:attr(data-n);position:absolute;right:-16px;top:0;width:30px;height:30px;border-radius:50%;background:var(--cyan);color:#05223a;font-weight:900;display:grid;place-items:center;font-size:15px}
+.steps b{display:block;font-size:18px}
+.steps span{color:var(--muted)}
+
+/* faq */
+details{border-bottom:1px solid var(--line);padding-block:16px}
+summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:12px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--cyan);font-size:22px;line-height:1}
+details[open] summary::after{content:"–"}
+details p{color:var(--muted);margin-top:10px}
+
+/* closing */
+.closing{text-align:center;background:radial-gradient(ellipse at 50% 0%,rgba(56,198,244,.14),transparent 60%),var(--ink)}
+.closing .inner{display:flex;flex-direction:column;align-items:center;gap:20px}
+.closing .price{max-width:560px;width:100%;align-items:center;text-align:center}
+.closing .price-row,.closing .clock{justify-content:center}
+.closing .cta-wrap{align-items:center}
+
+footer{font-size:14px;color:var(--muted);border-top:1px solid var(--line)}
+footer .inner{padding-block:32px 110px;display:flex;flex-direction:column;gap:10px}
+
+/* mobile sticky CTA */
+.mbar{display:none}
+@media (max-width:720px){
+  .hero .inner,.two,.quotes{grid-template-columns:1fr}
+  .peek{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+  .page{padding:10px}.page h4{font-size:12px}
+  .lock{font-size:11px;padding:4px 6px}
+  .inner{padding-block:48px}
+  .now{font-size:46px}
+  .mbar{display:flex;position:fixed;inset:auto 0 0 0;z-index:30;background:#08294a;border-top:1px solid var(--line);
+    padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+    align-items:center;justify-content:space-between;gap:12px}
+  .mbar .t{font-size:13px;line-height:1.35}
+  .mbar .t b{font-size:16px}
+  .mbar .cta{font-size:16px;padding:11px 20px}
+}
+@media (prefers-reduced-motion:no-preference){.cta{transition:filter .15s}}
+</style>
+
+<div class="preview band"><div class="inner">תצוגה מקדימה לאישור · מה שמסומן <span class="ph">[כך]</span> ממתין למידע ממך · הכפתורים עדיין לא מחוברים לקופה</div></div>
+
+<div class="topbar band"><div class="inner">
+  <span><b>בלאק פריידי:</b> חודש ראשון בקהילה ב-197 ₪</span>
+  <span>· החל מהחודש השני 450 ₪ לחודש, ביטול בכל עת ·</span>
+  <span>נסגר ב-30/11 בשעה 23:59</span>
+</div></div>
+
+<!-- 2 hero -->
+<section class="hero band"><div class="inner">
+  <div class="stack">
+    <span class="eyebrow">בלאק פריידי 2026 · לחברים חדשים בקהילה</span>
+    <h1>אתם כבר מכירים את זיו מהסרטונים. <em>עכשיו תראו איך זה נראה מבפנים.</em></h1>
+    <p class="sub">חודש שלם בקהילה של סייקלס טריידינג: הלייבים, הקהילה, הכלים והדוח החודשי. מקבלים בדיוק את מה שהחברים מקבלים, לא גרסה מקוצרת.</p>
+    <div class="price">
+      <div class="price-row"><span class="was">450 ₪</span><span class="now">197 ₪ <small>לחודש הראשון</small></span></div>
+      <div class="renew">החל מהחודש השני 450 ₪ לחודש, ביטול בכל עת</div>
+      <p class="fine">לפני סוף החודש הראשון תקבלו תזכורת על החיוב הבא. <span class="ph">[ערוץ ומועד]</span></p>
+      <div class="clock" data-clock><span class="clock-label">המבצע נסגר בעוד</span><div class="units"></div></div>
+    </div>
+    <div class="cta-wrap">
+      <a class="cta" href="#pay">אני רוצה להצטרף ב-197 ₪ ←</a>
+      <span class="fine">החל מהחודש השני 450 ₪ לחודש · ביטול בכל עת</span>
+    </div>
+  </div>
+  <div class="portrait"><span><span class="ph">[תמונה של זיו מלייב]</span><br><br>בלי גרף רווחים ובלי מסך P&L</span></div>
+</div></section>
+
+<!-- 3 why now -->
+<section class="band"><div class="inner narrow stack">
+  <h2>עקבתם מבחוץ. הגיע הזמן לבדוק מבפנים.</h2>
+  <p>ראיתם את הסרטונים, אולי השתתפתם בוובינר או קראתם את המדריך. מה שלא ראיתם הוא איך זה עובד ביום־יום: הלייבים, השאלות של החברים, והדוח שמסדר את החודש. החודש הזה נועד בדיוק לזה. חודש שלם ב-197 ₪ במקום 450 ₪, ואתם מחליטים אם להישאר.</p>
+</div></section>
+
+<!-- 4 fit -->
+<section class="band"><div class="inner stack">
+  <h2>לפני שמצטרפים, שיהיה ברור</h2>
+  <div class="two">
+    <div class="fit yes"><h3>זה בשבילכם אם…</h3><ul>
+      <li>אתם רוצים לעבוד לפי שיטה ולא לפי תחושות.</li>
+      <li>אתם משקיעים או סוחרים ורוצים תמונה חודשית מסודרת של השוק.</li>
+      <li>חסרים לכם סדר, תחקיר עצמי וסביבה רצינית.</li>
+      <li>יש לכם כמה שעות בשבוע ללייבים וללמידה.</li>
+    </ul></div>
+    <div class="fit no"><h3>זה לא בשבילכם אם…</h3><ul>
+      <li>אתם מחפשים איתותים להעתיק. אנחנו מלמדים לחשוב, לא נותנים פקודות.</li>
+      <li>אתם מחפשים הבטחה לרווח. אין כזו.</li>
+      <li>אתם מצפים לייעוץ השקעות אישי. התוכן לימודי.</li>
+      <li>אין לכם זמן החודש. עדיף לחכות.</li>
+    </ul></div>
+  </div>
+</div></section>
+
+<!-- 5 includes -->
+<section class="band"><div class="inner stack">
+  <h2>מה מקבלים בחודש הזה</h2>
+  <div class="includes">
+    <div class="inc"><h3>הדוח החודשי</h3><p>תמונת מצב מסודרת של השוק, של המחזורים ושל רמות המפתח. יוצא <span class="ph">[מועד]</span>.</p></div>
+    <div class="inc"><h3>לייבים שבועיים</h3><p>עם זיו ו<span class="ph">[מנטורים נוספים]</span>, <span class="ph">[מספר]</span> בשבוע. <span class="ph">[הקלטות: כן/לא]</span></p></div>
+    <div class="inc"><h3>הקהילה</h3><p><span class="ph">[פלטפורמה]</span> עם <span class="ph">[ערוצים]</span>, שאלות ותשובות בין החברים.</p></div>
+    <div class="inc"><h3>יומן המסחר</h3><p>לתיעוד ולתחקיר של כל עסקה. <span class="ph">[לאשר שכלול]</span></p></div>
+  </div>
+  <div class="cta-wrap"><a class="cta" href="#pay">אני רוצה להצטרף ב-197 ₪ ←</a><span class="fine">החל מהחודש השני 450 ₪ לחודש · ביטול בכל עת</span></div>
+</div></section>
+
+<!-- 6 report peek -->
+<section class="band"><div class="inner stack">
+  <h2>ככה נראה הדוח החודשי</h2>
+  <p class="narrow">פעם בחודש מקבלים תמונה אחת מסודרת: איפה השוק נמצא במחזור, אילו רמות חשובות ועל מה כדאי לשים עין. הנה קטע מדוח קודם. את השאר רואים חברי הקהילה.</p>
+  <div class="peek">
+    <div class="page"><h4>תמונת מצב: איפה אנחנו במחזור</h4><div class="bar m"></div><div class="bar s"></div><div class="wave"></div><div class="bar"></div><div class="bar s"></div></div>
+    <div class="page blur"><h4>רמות מפתח</h4><div class="bar"></div><div class="bar m"></div><div class="bar s"></div><div class="bar m"></div><div class="bar"></div><div class="lock">🔒 לחברי הקהילה</div></div>
+    <div class="page blur"><h4>על מה עוקבים החודש</h4><div class="bar m"></div><div class="wave"></div><div class="bar s"></div><div class="lock">🔒 לחברי הקהילה</div></div>
+  </div>
+  <p class="fine">מוקאפ. בגרסה הסופית יוחלף בעמודים אמיתיים מ<span class="ph">[דוח חודש]</span>. מציגים את המבנה, לא תוצאות.</p>
+  <div class="cta-wrap"><a class="cta" href="#pay">אני רוצה את הדוח הבא ←</a><span class="fine">197 ₪ לחודש הראשון · החל מהחודש השני 450 ₪, ביטול בכל עת</span></div>
+</div></section>
+
+<!-- 7 testimonials -->
+<section class="band"><div class="inner stack">
+  <h2>מה אומרים מי שכבר בפנים</h2>
+  <div class="quotes">
+    <figure class="q" style="margin:0"><p><span class="ph">[ציטוט על הסדר והשיטה]</span></p><cite>— <span class="ph">[שם]</span>, חבר מאז <span class="ph">[שנה]</span></cite></figure>
+    <figure class="q" style="margin:0"><p><span class="ph">[ציטוט על הלייבים והקהילה]</span></p><cite>— <span class="ph">[שם]</span></cite></figure>
+    <figure class="q" style="margin:0"><p><span class="ph">[ציטוט על הדוח החודשי]</span></p><cite>— <span class="ph">[שם]</span></cite></figure>
+  </div>
+  <div class="stats"><span><b><span class="ph">[X]</span></b> חברים פעילים</span><span><b><span class="ph">[Y]</span></b> לייבים בחודש</span><span>זיו בשוק מאז <b><span class="ph">[2007 — לאמת]</span></b></span></div>
+</div></section>
+
+<!-- 8 payment -->
+<section class="pay band" id="pay"><div class="inner narrow stack">
+  <h2>מה בדיוק קורה עם התשלום</h2>
+  <ol class="steps">
+    <li data-n="1"><b>היום</b><span>197 ₪ על החודש הראשון, במקום 450 ₪.</span></li>
+    <li data-n="2"><b>לפני סוף החודש</b><span>תזכורת על החיוב הבא. <span class="ph">[ערוץ ומועד]</span></span></li>
+    <li data-n="3"><b>מהחודש השני</b><span>המנוי מתחדש אוטומטית ב-450 ₪ לחודש.</span></li>
+    <li data-n="4"><b>ביטול</b><span>בכל עת. <span class="ph">[איך מבטלים ומתי זה נכנס לתוקף]</span></span></li>
+  </ol>
+  <p class="fine">המבצע לחברים חדשים בלבד ונסגר ב-30/11/2026 בשעה 23:59.</p>
+  <div class="cta-wrap"><a class="cta" href="#pay" data-checkout>אני רוצה להצטרף ב-197 ₪ ←</a><span class="fine">החל מהחודש השני 450 ₪ לחודש · ביטול בכל עת · <span class="ph">[קישור לתנאי הרכישה]</span></span></div>
+  <p class="fine" id="checkout-note" hidden>בגרסה החיה הכפתור הזה יוביל לקופה. <span class="ph">[קישור קופה — ממתין לאימות תהליך הרכישה]</span></p>
+</div></section>
+
+<!-- 9 faq -->
+<section class="band"><div class="inner narrow">
+  <h2 style="margin-bottom:12px">שאלות נפוצות</h2>
+  <details><summary>כמה אני משלם בפועל?</summary><p>197 ₪ על החודש הראשון. מהחודש השני המנוי מתחדש אוטומטית ב-450 ₪ לחודש, עד שתבטלו.</p></details>
+  <details><summary>איך מבטלים?</summary><p><span class="ph">[תהליך ביטול — ממתין לאימות]</span>. אפשר לבטל בכל עת.</p></details>
+  <details><summary>אקבל תזכורת לפני החיוב ב-450?</summary><p>כן. <span class="ph">[ערוץ ומועד]</span></p></details>
+  <details><summary>אם אבטל בחודש הראשון, יש החזר?</summary><p><span class="ph">[מדיניות — לאישור עו"ד]</span></p></details>
+  <details><summary>מה ההבדל בין החודש הזה לחברות רגילה?</summary><p>בתוכן אין הבדל. מקבלים בדיוק את מה שהחברים מקבלים, כולל הדוח החודשי. רק המחיר של החודש הראשון שונה.</p></details>
+  <details><summary>אני כבר חבר. אפשר ליהנות מהמבצע?</summary><p>המבצע לחברים חדשים בלבד. <span class="ph">[חברים לשעבר: לפי ההחלטה שלך]</span></p></details>
+  <details><summary>אני עדיין מתחיל. זה מתאים לי?</summary><p><span class="ph">[לאשר]</span> כן, אם אתם מוכנים ללמוד. מומלץ להתחיל מ<span class="ph">[תכני מבוא]</span>.</p></details>
+  <details><summary>כמה זמן צריך?</summary><p>מומלץ <span class="ph">[2–4]</span> שעות בשבוע.</p></details>
+  <details><summary>אתם נותנים המלצות קנייה ומכירה?</summary><p>לא. התוכן לימודי. מלמדים שיטה וניהול סיכונים, לא ייעוץ אישי.</p></details>
+  <details><summary>אפשר להבטיח שארוויח?</summary><p>לא, ואף אחד רציני לא יבטיח את זה. מסחר כרוך בסיכון, כולל אובדן כספים.</p></details>
+  <details><summary>מתי מקבלים גישה אחרי התשלום?</summary><p><span class="ph">[תהליך רכישה — ממתין לאימות]</span></p></details>
+  <details><summary>המבצע באמת נגמר ב-30/11?</summary><p>כן. ב-30/11/2026 בשעה 23:59 המחיר חוזר ל-450 ₪.</p></details>
+</div></section>
+
+<!-- 10 closing -->
+<section class="closing band"><div class="inner">
+  <h2>חודש אחד. כל מה שבפנים. אתם מחליטים אם להישאר.</h2>
+  <div class="price">
+    <div class="price-row"><span class="was">450 ₪</span><span class="now">197 ₪ <small>לחודש הראשון</small></span></div>
+    <div class="renew">החל מהחודש השני 450 ₪ לחודש, ביטול בכל עת</div>
+    <div class="clock" data-clock><span class="clock-label">נסגר בעוד</span><div class="units"></div></div>
+  </div>
+  <div class="cta-wrap"><a class="cta" href="#pay">אני רוצה להצטרף ב-197 ₪ ←</a></div>
+</div></section>
+
+<!-- 11 footer -->
+<footer class="band"><div class="inner">
+  <p>התוכן בקהילה, בלייבים ובדוח החודשי לימודי וכללי בלבד. הוא אינו ייעוץ השקעות, שיווק השקעות או תחליף לייעוץ שמתחשב בנתונים ובצרכים של כל אדם, ואינו המלצה לקנות או למכור נייר ערך. <span class="ph">[שם הישות]</span> אינה בעלת רישיון לפי חוק הסדרת העיסוק בייעוץ השקעות, התשנ"ה-1995 <span class="ph">[לאמת מול עו"ד]</span>. מסחר בשוק ההון כרוך בסיכון, כולל אובדן של חלק מההשקעה או של כולה. ביצועי עבר אינם מעידים על העתיד.</p>
+  <p>תנאי המבצע: החודש הראשון ב-197 ₪, ומהחודש השני חידוש אוטומטי ב-450 ₪ לחודש עד לביטול. <span class="ph">[תנאי רכישה]</span> · <span class="ph">[מדיניות פרטיות]</span> · <span class="ph">[ח.פ. ופרטי קשר]</span></p>
+</div></footer>
+
+<div class="mbar">
+  <div class="t"><b>197 ₪ לחודש הראשון</b><br>מהחודש השני 450 ₪, ביטול בכל עת</div>
+  <a class="cta" href="#pay">להצטרפות</a>
+</div>
+
+<script>
+(function(){
+  // Real deadline: 30/11/2026 23:59 Israel time (UTC+2 in November) = 21:59 UTC
+  var end = Date.UTC(2026,10,30,21,59,0);
+  var clocks = document.querySelectorAll('[data-clock] .units');
+  function cell(v,l){return '<div class="unit"><b>'+String(v).padStart(2,'0')+'</b><span>'+l+'</span></div>';}
+  function tick(){
+    var ms = Math.max(0, end - Date.now());
+    var d=Math.floor(ms/864e5), h=Math.floor(ms/36e5)%24, m=Math.floor(ms/6e4)%60, s=Math.floor(ms/1e3)%60;
+    var html = ms>0 ? cell(d,'ימים')+cell(h,'שעות')+cell(m,'דקות')+cell(s,'שניות') : '<div class="unit"><b>המבצע נסגר</b></div>';
+    clocks.forEach(function(c){c.innerHTML=html;});
+  }
+  tick(); setInterval(tick,1000);
+  var btn=document.querySelector('[data-checkout]'), note=document.getElementById('checkout-note');
+  if(btn&&note){btn.addEventListener('click',function(e){e.preventDefault();note.hidden=false;});}
+})();
+</script>
