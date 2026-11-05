@@ -181,7 +181,7 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
 .qgrid b{display:block;color:var(--green-light)}.qgrid .no{border-color:rgba(255,138,92,.55)}.qgrid .no b{color:#ffc3a8}
 .offer{background:linear-gradient(160deg,#21392f,#16221d);border:2px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;max-width:900px}
 .view a{color:var(--green)}
-.cbtn{font:inherit;font-size:12.5px;font-weight:800;margin-inline-start:10px;vertical-align:middle;background:none;border:1px dashed rgba(126,217,87,.6);color:var(--green-light);border-radius:999px;padding:1px 10px;cursor:pointer}
+.cbtn{text-decoration:none;display:inline-block;font:inherit;font-size:12.5px;font-weight:800;margin-inline-start:10px;vertical-align:middle;background:none;border:1px dashed rgba(126,217,87,.6);color:var(--green-light);border-radius:999px;padding:1px 10px;cursor:pointer}
 .cbtn:hover{background:var(--green-dark)}
 @media (max-width:860px){.stage{grid-template-columns:1fr}.phone{position:relative;top:0;order:-1}}
 </style>
@@ -322,11 +322,11 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
 
 <section class="view" id="v-process">
   <div class="cbox"><b>💬 איך הצוות מעיר הערות</b><ol>
-<li><b>הרשאה, פעם אחת:</b> בעל העסק פותח <b>Share</b> בראש העמוד ומזמין כל איש צוות לפי המייל שלו, עם הרשאת <b>הערות (Comment)</b>.</li>
-<li><b>כניסה:</b> איש הצוות פותח את הקישור כשהוא <b>מחובר ל-claude.ai</b> במייל שהוזמן. חשבון חינמי מספיק. בגלישה בסתר, או בלי התחברות, אי אפשר להעיר.</li>
-<li><b>הערה:</b> לוחצים על "💬 להעיר כאן" ליד כל כותרת, או מסמנים טקסט בעמוד. כולם רואים את כל ההערות.</li>
-<li><b>אישור:</b> בעל העסק מאשר הערה בתשובה עם <b>Send to Claude</b>. אני מבצע את השינוי, עונה בשרשור מה עשיתי, וסוגר אותו.</li>
-</ol></div>
+<li>לוחצים על <b>"💬 להוסיף הערה"</b> ליד כל כותרת, או על <a href="https://docs.google.com/spreadsheets/d/1ud8BB_fcrhIkD6eZ5yYbQ6AJtVA51O0fDdyBhro439A/edit" target="_blank" rel="noopener"><b>גיליון ההערות</b></a>. נפתח גיליון Google משותף.</li>
+<li>כל הערה נכתבת בשורה חדשה: שם, הלשונית, הקטע וההערה. הסטטוס נשאר <b>"חדש"</b>.</li>
+<li>בעל העסק עובר על ההערות ומשנה את הסטטוס ל<b>"מאושר"</b> או ל<b>"נדחה"</b>.</li>
+<li>אני עובר על הגיליון פעמיים ביום ומבצע כל הערה שסומנה "מאושר". אחרי הביצוע אני ממלא את העמודה "מה בוצע" ומשנה את הסטטוס ל<b>"בוצע"</b>.</li>
+</ol><p class="small">את הגיליון צריך לשתף עם כל איש צוות פעם אחת, כמו כל קובץ ב-Drive. בעל העסק משתף אותו מ-Drive: Share ← המייל של איש הצוות ← Editor.</p></div>
   <p class="intro">כל המהלך במבט אחד: השלבים, המסלול של לקוח מהמודעה ועד החידוש, איך עובדת תוכנית השגרירים, ומה חייב להיות מוכן ומתי.</p>
   <h3 class="mh">1 · השלבים</h3>
   <div class="steps-row">
@@ -601,19 +601,10 @@ window.addEventListener('hashchange',route);route();
 </script>
 
 <script>
-/* comment buttons: open the shell's comment composer on the section; hidden when commenting is unavailable */
+/* comment links: every section heading gets a link to the team feedback sheet */
 (function(){
-  var targets=document.querySelectorAll('h3.mh, section.view > p.intro:first-child');
-  var btns=[];
-  targets.forEach(function(t){var b=document.createElement('button');b.type='button';b.className='cbtn';b.hidden=true;b.textContent='💬 להעיר כאן';
-    b.addEventListener('click',function(){var c=window.__cm;if(!c)return;var el=t.tagName==='H3'?(t.nextElementSibling||t):t;c.openComposer({element:el}).catch(function(){});});
-    t.appendChild(b);btns.push(b);});
-  var tries=0;
-  (function hook(){
-    if(window.claude&&window.claude.use){
-      window.claude.use('comments').then(function(c){if(!c)return;window.__cm=c;btns.forEach(function(b){b.hidden=false;});}).catch(function(){});
-      return;}
-    if(++tries<40)setTimeout(hook,250);
-  })();
+  var S="https://docs.google.com/spreadsheets/d/1ud8BB_fcrhIkD6eZ5yYbQ6AJtVA51O0fDdyBhro439A/edit";
+  document.querySelectorAll('h3.mh, section.view > p.intro:first-child').forEach(function(t){
+    var a=document.createElement('a');a.className='cbtn';a.href=S;a.target='_blank';a.rel='noopener';a.textContent='💬 להוסיף הערה';t.appendChild(a);});
 })();
 </script>
