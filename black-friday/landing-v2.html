@@ -398,8 +398,5 @@ footer .inner{padding-block:30px 110px}
   if(heat){var hio=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;
     heat.querySelectorAll('td').forEach(function(td,i){td.style.animationDelay=(i*.025)+'s';td.classList.add('pop');});hio.disconnect();},{threshold:.2});
     if(heat.getBoundingClientRect().top>innerHeight)hio.observe(heat);}
-  var big=document.querySelector('.big-avg');
-  if(big&&big.getBoundingClientRect().top>innerHeight){var bio=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;bio.disconnect();
-    var t0=performance.now();(function f(t){var k=Math.min(1,(t-t0)/1200);big.textContent=(76.8*(1-Math.pow(1-k,3))).toFixed(1)+'%';if(k<1)requestAnimationFrame(f);})(t0);});bio.observe(big);}
 })();
 </script>
