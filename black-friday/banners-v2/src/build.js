@@ -35,9 +35,9 @@ const ASSETS = [n('S&amp;P 500'), 'ביטקוין', 'זהב', 'נפט', 'יור�
 const assets = (fs) => `<div class="assets" style="font-size:${fs}px">${ASSETS.map(a => `<span>${a}</span>`).join('')}</div>`;
 
 const pillars = (fs, cols = 3) => `<div class="pillars" style="font-size:${fs}px;grid-template-columns:repeat(${cols},1fr)">
-  <div class="pl"><i>1</i><h3>${n('4')} לייבים בשבוע</h3><p>זיו, מני, רועי וגולן</p></div>
-  <div class="pl"><i>2</i><h3>כל חדרי הדיסקורד</h3><p>${n('2,000+')} סוחרים ו-${n('9')} מנטורים</p></div>
-  <div class="pl"><i>3</i><h3>ובנוסף: הדוח החודשי</h3><p>תאריכי מפנה ב-${n('5')} נכסים</p></div>
+  <div class="pl"><i>${n('1')}</i><h3>${n('4')} לייבים בשבוע</h3><p>זיו, מני, רועי וגולן</p></div>
+  <div class="pl"><i>${n('2')}</i><h3>כל חדרי הדיסקורד</h3><p>${n('2,000+')} סוחרים ו-${n('9')} מנטורים</p></div>
+  <div class="pl"><i>${n('3')}</i><h3>+ הדוח החודשי</h3><p>תאריכי מפנה ב-${n('5')} נכסים</p></div>
 </div>`;
 
 const fit = (fs) => `<div class="fit2" style="font-size:${fs}px">
@@ -276,7 +276,7 @@ add('sq-o2-report', 1080, 1080, 'sq', `
   <div class="stat" style="margin-top:10px"><b class="n" style="font-size:170px">76.8%</b><span style="font-size:30px">פגיעה ב-${n('12')} החודשים האחרונים</span></div>
   <div style="margin-top:24px">${assets(28)}</div>
   <div class="grow"></div>
-  <div class="mini-price"><span>חודש ראשון בקהילה, כולל הדוח</span>${price(96, 26)}</div>
+  <div class="mini-price"><span>חודש ראשון בקהילה, כולל הדוח</span>${price(110, 30)}</div>
   ${renew(30, 'margin-top:18px')}
   <div class="fine" style="font-size:20px;margin-top:16px">ממוצע של ${n('60')} תחזיות. ביצועי עבר אינם מעידים על העתיד.</div>
   ${disc(20, 'margin-top:4px')}
@@ -285,7 +285,7 @@ add('sq-o2-report', 1080, 1080, 'sq', `
 add('sq-o3-noprint', 1080, 1080, 'sq', `
   <div class="row-top">${logo(220)}${tag('בלאק פריידי', 24)}</div>
   ${head('<span class="hl">בלי</span> אותיות קטנות', 76, 'margin-top:40px')}
-  <div style="margin-top:46px;width:100%">${terms(30, 2)}</div>
+  <div style="margin-top:54px;width:100%">${terms(33, 2)}</div>
   <div class="grow"></div>
   ${renew(32)}
   ${disc(22, 'margin-top:26px')}
@@ -293,13 +293,13 @@ add('sq-o3-noprint', 1080, 1080, 'sq', `
 
 add('p45-o1-hero', 1080, 1350, 'p45', `
   ${logo(250)}
-  ${head('חודש שלם בתוך <span class="hl">קהילת הסוחרים</span>', 72, 'margin-top:40px;max-width:900px')}
-  <div class="glow" style="margin-top:56px">${price(230)}</div>
-  <p class="per" style="font-size:32px;margin-top:22px">לחודש הראשון · בלאק פריידי</p>
-  ${renew(34, 'margin-top:24px')}
-  <div style="margin-top:50px;width:100%">${pillars(27)}</div>
-  <div class="grow"></div>
-  ${cta('אני רוצה להיכנס לקהילה', 38)}
+  ${head('חודש שלם בתוך <span class="hl">קהילת הסוחרים</span>', 66, 'margin-top:34px;max-width:900px')}
+  <div class="glow" style="margin-top:40px">${price(200)}</div>
+  <p class="per" style="font-size:30px;margin-top:14px">לחודש הראשון · בלאק פריידי</p>
+  ${renew(32, 'margin-top:18px')}
+  <div style="margin-top:40px;width:100%">${pillars(25)}</div>
+  <div class="grow" style="min-height:36px"></div>
+  ${cta('אני רוצה להיכנס לקהילה', 36)}
   ${disc(23, 'margin-top:30px')}
 `);
 
@@ -327,7 +327,7 @@ add('report-peek-open', 1080, 1350, 'p45', `
   ${logo(230)}
   ${head('הצצה <span class="hl">לדוח החודשי</span>', 70, 'margin-top:34px')}
   <p class="sub" style="font-size:28px;margin-top:20px">כלול בחודש בקהילה. התוכן עצמו נשמר לחברים.</p>
-  <div class="rbox" style="height:600px;margin-top:6px">${reportStack(0.88)}</div>
+  <div class="rbox" style="height:680px;margin-top:6px">${reportStack(0.98)}</div>
   <div class="mini-price">${price(100, 26)}<span>חודש ראשון בקהילה, כולל הדוח</span></div>
   ${renew(30, 'margin-top:16px')}
   <div class="grow"></div>

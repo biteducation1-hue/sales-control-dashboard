@@ -149,7 +149,7 @@ h1,h2,h3,p{margin:0}
 .tn b{color:#2f8f1e;font-weight:900}
 .term p{font-weight:700;line-height:1.38}
 .terms[style*="repeat(1"] .term{flex-direction:row;align-items:center;gap:24px}
-.terms[style*="repeat(1"] .tn{flex:none;width:8.6em}
+.terms[style*="repeat(1"] .tn{flex:none;width:9.9em}
 
 /* report pages */
 .rbox{position:relative;width:100%;display:flex;justify-content:center;align-items:center}
