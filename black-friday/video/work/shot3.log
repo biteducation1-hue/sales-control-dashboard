@@ -1,0 +1,16 @@
+swipers []
+site-report-results top -9047.1875
+node:internal/process/promises:394
+    triggerUncaughtException(err, true /* fromPromise */);
+    ^
+
+page.evaluate: TypeError: Cannot read properties of undefined (reading 'getBoundingClientRect')
+    at eval (eval at evaluate (:311:30), <anonymous>:1:182)
+    at UtilityScript.evaluate (<anonymous>:313:16)
+    at UtilityScript.<anonymous> (<anonymous>:1:44)
+    at shotAt (/tmp/claude-0/-home-user-sales-control-dashboard/14c85a98-2788-5150-9990-4b12814891c7/scratchpad/shot3.js:11:21)
+    at async /tmp/claude-0/-home-user-sales-control-dashboard/14c85a98-2788-5150-9990-4b12814891c7/scratchpad/shot3.js:26:2 {
+  log: []
+}
+
+Node.js v22.23.4

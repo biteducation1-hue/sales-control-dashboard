@@ -13,8 +13,8 @@ const logo = (w) => `<div class="logo" style="width:${w}px" role="img" aria-labe
 const keepHl = (html) => html.replace(/<span class="hl">([\s\S]*?)<\/span>(?![^<]*<\/span>)/g, (m, inner) => '<span class="hl">' + inner.split(/(<[^>]+>)/).map(t => t.startsWith('<') ? t : t.replace(/ /g, '&nbsp;')).join('') + '</span>');
 const head = (html, fs, extra = '') => `<h1 class="hbox" style="font-size:${fs}px;${extra}">${keepHl(html)}</h1>`;
 const strike = `<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg>`;
-const price = (p, gap) => `<div class="price" style="--p:${p}px;${gap ? 'gap:' + gap + 'px' : ''}"><span class="old"><span class="n">450</span>&nbsp;₪${strike}</span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div>`;
-const renew = (fs, extra = '') => `<div class="renew" style="font-size:${fs}px;${extra}">${RENEW}</div>`;
+const price = (p, gap) => `<div class="price${p < 80 ? ' compact' : ''}" style="--p:${p}px;${gap ? 'gap:' + gap + 'px' : ''}"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div>`;
+const renew = (fs, extra = '') => `<div class="renew" style="font-size:${Math.round(fs*0.62)}px;${extra}">${RENEW}</div>`;
 const cta = (t, fs, extra = '') => `<div class="cta" style="font-size:${fs}px;${extra}">${t} ←</div>`;
 const disc = (fs, extra = '') => `<div class="disc" style="font-size:${fs}px;${extra}">${DISC}</div>`;
 const tag = (t, fs, extra = '') => `<div class="tag" style="font-size:${fs}px;${extra}">${t}</div>`;
@@ -365,7 +365,7 @@ add('hero-mobile-open', 1080, 1350, 'p45', `
 
 mail('mail-o1-open', 'הקהילה <span class="hl">נפתחה</span>', `בלאק פריידי · עד ${n('30/11')}`);
 add('mail-o2-bf', 600, 200, 'mail mail-p', `
-  <div class="m-txt">${head('<span class="hl">בלאק פריידי</span>', 34)}<div class="renew" style="font-size:15px;margin-top:14px;padding:6px 10px">${RENEW}</div></div>
+  <div class="m-txt">${head('<span class="hl">בלאק פריידי</span>', 34)}<div class="renew" style="font-size:12px;margin-top:10px">${RENEW}</div></div>
   <div class="m-pr">${logo(104)}${price(58, 14)}</div>
 `);
 mail('mail-o3-tonight', 'נסגר <span class="hl">הלילה</span>', `המבצע נסגר ב-${n('23:59')}`);
