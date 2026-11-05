@@ -181,6 +181,8 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
 .qgrid b{display:block;color:var(--green-light)}.qgrid .no{border-color:rgba(255,138,92,.55)}.qgrid .no b{color:#ffc3a8}
 .offer{background:linear-gradient(160deg,#21392f,#16221d);border:2px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;max-width:900px}
 .view a{color:var(--green)}
+.cbtn{font:inherit;font-size:12.5px;font-weight:800;margin-inline-start:10px;vertical-align:middle;background:none;border:1px dashed rgba(126,217,87,.6);color:var(--green-light);border-radius:999px;padding:1px 10px;cursor:pointer}
+.cbtn:hover{background:var(--green-dark)}
 @media (max-width:860px){.stage{grid-template-columns:1fr}.phone{position:relative;top:0;order:-1}}
 </style>
 
@@ -319,7 +321,12 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
 </section>
 
 <section class="view" id="v-process">
-  <div class="cbox"><b>💬 איך מעירים הערות</b><ol><li><b>הצוות:</b> מסמנים טקסט או לוחצים על כל מקום בעמוד, וכותבים הערה. כולם רואים את כל ההערות, והן מתעדכנות בזמן אמת.</li><li><b>אישור:</b> הערה שבעל העסק מאשר מקבלת ממנו תשובה עם <b>Send to Claude</b>, או אזכור <b>@claude</b> בשרשור.</li><li><b>ביצוע:</b> אני מקבל את ההערה המאושרת, מבצע את השינוי, עונה בשרשור מה עשיתי, וסוגר אותו.</li></ol><p class="small">הערה שלא נשלחה ל-Claude נשארת פתוחה לדיון ולא מבוצעת.</p></div>
+  <div class="cbox"><b>💬 איך הצוות מעיר הערות</b><ol>
+<li><b>הרשאה, פעם אחת:</b> בעל העסק פותח <b>Share</b> בראש העמוד ומזמין כל איש צוות לפי המייל שלו, עם הרשאת <b>הערות (Comment)</b>.</li>
+<li><b>כניסה:</b> איש הצוות פותח את הקישור כשהוא <b>מחובר ל-claude.ai</b> במייל שהוזמן. חשבון חינמי מספיק. בגלישה בסתר, או בלי התחברות, אי אפשר להעיר.</li>
+<li><b>הערה:</b> לוחצים על "💬 להעיר כאן" ליד כל כותרת, או מסמנים טקסט בעמוד. כולם רואים את כל ההערות.</li>
+<li><b>אישור:</b> בעל העסק מאשר הערה בתשובה עם <b>Send to Claude</b>. אני מבצע את השינוי, עונה בשרשור מה עשיתי, וסוגר אותו.</li>
+</ol></div>
   <p class="intro">כל המהלך במבט אחד: השלבים, המסלול של לקוח מהמודעה ועד החידוש, איך עובדת תוכנית השגרירים, ומה חייב להיות מוכן ומתי.</p>
   <h3 class="mh">1 · השלבים</h3>
   <div class="steps-row">
@@ -591,4 +598,17 @@ function route(){var v=(location.hash||'#process').slice(1);if(VIEWS.indexOf(v)<
  VIEWS.forEach(function(n){var el=document.getElementById('v-'+n);if(n==='process'){el.classList.toggle('off',n!==v);}else{el.hidden=n!==v;}});
  document.querySelectorAll('nav.tabs a').forEach(function(a){if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
 window.addEventListener('hashchange',route);route();
+</script>
+
+<script>
+/* comment buttons: open the shell's comment composer on the section; hidden when commenting is unavailable */
+(function(){
+  var targets=document.querySelectorAll('h3.mh, section.view > p.intro:first-child');
+  var btns=[];
+  targets.forEach(function(t){var b=document.createElement('button');b.type='button';b.className='cbtn';b.hidden=true;b.textContent='💬 להעיר כאן';
+    b.addEventListener('click',function(){var c=window.__cm;if(!c)return;var el=t.tagName==='H3'?(t.nextElementSibling||t):t;c.openComposer({element:el}).catch(function(){});});
+    t.appendChild(b);btns.push(b);});
+  if(!window.claude||!window.claude.use)return;
+  window.claude.use('comments').then(function(c){if(!c)return;window.__cm=c;btns.forEach(function(b){b.hidden=false;});});
+})();
 </script>
