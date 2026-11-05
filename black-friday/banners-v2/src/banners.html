@@ -41,7 +41,7 @@ h1,h2,h3,p{margin:0}
 .tag{display:inline-block;background:var(--gd);color:var(--gl);border:2px solid rgba(126,217,87,.55);border-radius:999px;padding:.22em .9em;font-weight:800;line-height:1.3;white-space:nowrap}
 
 /* price */
-.price{display:flex;align-items:center;justify-content:center;gap:calc(var(--p)*.14);direction:rtl}
+.price{display:flex;align-items:center;justify-content:center;gap:calc(var(--p)*.22);direction:rtl}
 .old{position:relative;font-size:calc(var(--p)*.34);font-weight:800;color:rgba(255,255,255,.58);line-height:1}
 .old svg{position:absolute;inset:-10% -8%;width:116%;height:120%;overflow:visible}
 .old path{stroke:var(--coral);stroke-width:7;stroke-linecap:round;fill:none}
@@ -63,7 +63,7 @@ h1,h2,h3,p{margin:0}
 .chips{display:flex;gap:.6em;justify-content:center}
 .chip{display:flex;flex-direction:column;align-items:center;min-width:6.4em;padding:.45em .7em;border-radius:18px;background:rgba(13,18,22,.5);border:2px solid rgba(126,217,87,.32)}
 .chip b{font-size:1.9em;font-weight:900;color:var(--green);line-height:1.1}
-.chip span{color:var(--muted);font-weight:500}
+.chip > span{color:var(--muted);font-weight:500}
 .strip{background:var(--gd);color:#fff;border:2px solid rgba(126,217,87,.5);border-radius:16px;padding:.5em 1em;font-weight:800;width:100%}
 
 .date-card{display:flex;flex-direction:column;align-items:center;background:#fff;color:var(--board);border:5px solid var(--ink);box-shadow:10px 12px 0 var(--ink);border-radius:24px;padding:26px 70px 30px;transform:rotate(-2deg)}
@@ -90,23 +90,25 @@ h1,h2,h3,p{margin:0}
 /* report stat */
 .stat{display:flex;flex-direction:column;align-items:center}
 .stat b{font-weight:900;color:var(--green);line-height:1}
-.stat span{color:#fff;font-weight:700}
+.stat > span{color:#fff;font-weight:700}
 .assets{display:flex;gap:14px;justify-content:center}
-.assets span{background:#fff;color:var(--board);border:4px solid var(--ink);box-shadow:4px 5px 0 var(--ink);border-radius:14px;padding:6px 18px;font-weight:900}
+.assets > span{background:#fff;color:var(--board);border:4px solid var(--ink);box-shadow:4px 5px 0 var(--ink);border-radius:14px;padding:6px 18px;font-weight:900}
 
 /* timeline */
 .tl{display:flex;flex-direction:column;gap:16px;width:100%}
 .tl-row{display:flex;align-items:center;gap:28px;background:#fff;color:var(--board);border:5px solid var(--ink);box-shadow:7px 8px 0 var(--ink);border-radius:20px;padding:16px 26px;text-align:right}
 .tl-row .d{flex:none;min-width:7.2em;text-align:center;background:var(--gd);color:var(--gl);border-radius:12px;padding:6px 10px;font-weight:900}
 .tl-row.on .d{background:var(--green);color:var(--board);border:3px solid var(--ink)}
-.tl-row b{font-weight:900;margin-left:14px}
-.tl-row div span{color:#56616b;font-weight:500}
+.tl-row > div{display:flex;flex-direction:column;line-height:1.25}
+.tl-row b{font-weight:900}
+.tl-row > div > span{color:#56616b;font-weight:500;font-size:.85em}
 
 /* inside / outside */
 .io{display:grid;grid-template-columns:1fr 1.25fr;gap:30px;width:100%;align-items:stretch;text-align:right}
 .io h3{font-size:1.25em;font-weight:900;margin-bottom:14px}
 .io ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:14px}
-.io li{display:flex;gap:12px;line-height:1.35}
+.io li{position:relative;padding-right:1.1em;line-height:1.35}
+.io li::before{position:absolute;right:0;top:0}
 .io-out{border:3px dashed rgba(255,255,255,.3);border-radius:22px;padding:28px;color:rgba(255,255,255,.62)}
 .io-out li::before{content:"·";font-weight:900}
 .io-in{padding:28px}
@@ -120,7 +122,8 @@ h1,h2,h3,p{margin:0}
 .fit.no{background:linear-gradient(160deg,#3a2a24,#1f1917);border:3px solid rgba(255,138,92,.55)}
 .fit h3{font-size:1.2em;font-weight:900;margin-bottom:14px;color:var(--gl)}.fit.no h3{color:#ffc3a8}
 .fit ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:12px}
-.fit li{display:flex;gap:14px;line-height:1.4}
+.fit li{position:relative;padding-right:1.25em;line-height:1.4}
+.fit li::before{position:absolute;right:0;top:0}
 .fit.yes li::before{content:"✓";color:var(--green);font-weight:900}
 .fit.no li::before{content:"✕";color:var(--coral);font-weight:900}
 
@@ -156,8 +159,8 @@ h1,h2,h3,p{margin:0}
 .rstack{position:relative;width:560px;height:660px;flex:none}
 .rp-wrap{position:absolute;top:0;width:470px}
 .rp-wrap.front{right:45px;top:20px;transform:rotate(-1.6deg);z-index:3}
-.rp-wrap.back1{right:-170px;top:40px;transform:rotate(7deg);z-index:2}
-.rp-wrap.back2{right:260px;top:50px;transform:rotate(-8deg);z-index:1}
+.rp-wrap.back1{right:-215px;top:40px;transform:rotate(7deg);z-index:2}
+.rp-wrap.back2{right:305px;top:50px;transform:rotate(-8deg);z-index:1}
 .rp{background:#fbfbf7;color:var(--board);border:5px solid var(--ink);box-shadow:9px 10px 0 var(--ink);border-radius:8px;padding:20px 24px;text-align:right;font-size:17px}
 .rp.blur > *{filter:blur(5px)}
 .rp-top{display:flex;justify-content:space-between;align-items:center;background:var(--gd);color:var(--gl);border-radius:8px;padding:8px 14px;margin-bottom:12px}
@@ -169,9 +172,10 @@ h1,h2,h3,p{margin:0}
 .db{background:#e6ebe3;color:#9aa39e;border-radius:6px;padding:0 8px;font-size:13px;font-weight:900;letter-spacing:1px;border:2px solid #c9d3c5}
 .sk{display:block;height:9px;border-radius:5px;background:#dfe3e6}
 .rp-foot{margin-top:10px;font-size:14px;font-weight:800;color:#2f8f1e;text-align:center}
-.lock{position:absolute;top:44%;left:50%;transform:translate(-50%,-50%);background:var(--green);color:var(--board);border:4px solid var(--ink);box-shadow:5px 6px 0 var(--ink);border-radius:999px;padding:6px 20px;font-weight:900;font-size:22px;white-space:nowrap;z-index:5}
-.back1 .lock{left:34%}
-.back2 .lock{left:62%}
+.lock{position:absolute;top:46%;transform:translate(-50%,-50%) rotate(-4deg);background:var(--green);color:var(--board);border:4px solid var(--ink);box-shadow:5px 6px 0 var(--ink);border-radius:999px;padding:6px 20px;font-weight:900;font-size:22px;white-space:nowrap;z-index:5}
+.lock{font-size:20px;padding:6px 16px;z-index:6}
+.lock.l2{left:-95px}
+.lock.l1{left:655px;transform:translate(-50%,-50%) rotate(5deg)}
 
 /* placeholder for Ziv photo */
 .ziv{flex:none;border:4px dashed rgba(201,237,138,.75);border-radius:26px;background:rgba(13,18,22,.45);display:grid;place-items:center;color:var(--gl);font-weight:800}
@@ -180,30 +184,31 @@ h1,h2,h3,p{margin:0}
 .clock{display:flex;gap:16px;direction:ltr;justify-content:center}
 .unit{min-width:4.6em;text-align:center;background:var(--deep);border:2px solid rgba(126,217,87,.4);border-radius:18px;padding:10px 8px}
 .unit b{display:block;font-size:2.6em;font-weight:900;line-height:1.1}
-.unit span{color:var(--muted)}
+.unit > span{color:var(--muted)}
 
 /* hero desktop */
 .hd{flex-direction:row;align-items:stretch;padding:56px 100px 50px;gap:60px;text-align:right}
 .hd-main{flex:1 1 auto;display:flex;flex-direction:column;align-items:flex-start;min-width:0}
-.hd-act{display:flex;align-items:center;gap:40px;margin-top:auto}
-.hd-act .disc{max-width:340px;text-align:right}
+.hd-act{display:flex;flex-direction:column;align-items:flex-start;gap:16px;margin-top:auto}
+.hd-act .disc{text-align:right;white-space:nowrap}
 .hd-side{flex:none;display:flex;align-items:center;gap:40px}
 .hd-price{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
 
 /* mail */
 .mail{flex-direction:row;align-items:center;justify-content:space-between;padding:22px 30px;gap:20px;text-align:right}
-.m-txt{display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0}
+.mail-p .m-txt{flex:none}
+.m-txt{flex:1 1 auto;display:flex;flex-direction:column;align-items:flex-start;gap:14px;min-width:0}
 .mail .hbox{box-shadow:6px 7px 0 var(--ink);border-width:4px;border-radius:14px;white-space:nowrap}
-.m-sub{color:var(--gl);font-weight:800;font-size:19px}
+.m-sub{color:var(--gl);font-weight:800;font-size:18px}
 .mail .renew{box-shadow:4px 5px 0 var(--ink);border-width:3px;border-radius:9px}
-.m-pr{flex:none}
+.m-pr{flex:none;display:flex;flex-direction:column;align-items:center;gap:12px}
 </style></head><body>
 <section class="bn story" data-name="story-01-teaser" style="width:1080px;height:1920px">
   <div class="logo" style="width:330px" role="img" aria-label="סייקלס טריידינג"></div>
   <div class="grow col" style="gap:56px">
     <div class="tag" style="font-size:34px;">בלאק פריידי 2026 · קהילת הסוחרים</div>
     <div class="big-white" style="font-size:92px">אתם עוקבים<br>כבר מזמן.</div>
-    <h1 class="hbox" style="font-size:92px;max-width:900px">השנה <span class="hl">הדלת לקהילה</span> נפתחת</h1>
+    <h1 class="hbox" style="font-size:92px;max-width:900px">השנה <span class="hl">הדלת&nbsp;לקהילה</span> נפתחת</h1>
     <div class="date-card" style="margin-top:30px"><span class="dc-k">שמרו את התאריך</span><b><span class="n">23/11</span></b><span class="dc-s">מי שברשימה נכנס ראשון</span></div>
   </div>
   <div class="chips" style="font-size:30px;margin-bottom:44px"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div></div>
@@ -214,31 +219,34 @@ h1,h2,h3,p{margin:0}
   <div class="logo" style="width:330px" role="img" aria-label="סייקלס טריידינג"></div>
   <div class="grow col" style="gap:52px">
     <div class="tag" style="font-size:34px;">רשימת ההמתנה פתוחה · <span class="n">13–22/11</span></div>
-    <h1 class="hbox" style="font-size:100px;max-width:900px">מי שברשימה <span class="hl">נכנס ראשון</span></h1>
+    <h1 class="hbox" style="font-size:100px;max-width:900px">מי שברשימה <span class="hl">נכנס&nbsp;ראשון</span></h1>
     <p class="sub" style="font-size:42px;max-width:860px">גישה לקהילה <b class="g">24 שעות לפני כולם</b>, ב-<span class="n">23/11</span>.</p>
     <div class="card steps" style="font-size:38px;width:860px">
       <div class="st"><i><span class="n">1</span></i><span>נרשמים לרשימת ההמתנה</span></div>
       <div class="st"><i><span class="n">2</span></i><span>ב-<span class="n">23/11</span> מקבלים קישור להצטרפות</span></div>
       <div class="st"><i><span class="n">3</span></i><span>נכנסים לקהילה יום לפני שהיא נפתחת לכולם</span></div>
     </div>
+    <div class="chips" style="font-size:30px;"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div></div>
   </div>
   <div class="cta" style="font-size:46px;">אני רוצה להיות ברשימה ←</div>
   <div class="disc" style="font-size:26px;margin-top:44px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn sq" data-name="sq-w1-inside" style="width:1080px;height:1080px">
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:24px;">בלאק פריידי · רשימת המתנה</div></div>
-  <h1 class="hbox" style="font-size:70px;margin-top:44px">שבוע רגיל <span class="hl">בתוך הקהילה</span></h1>
-  <div style="margin-top:46px;width:100%"><div class="week" style="font-size:30px"><div class="live"><span class="when">ראשון</span><h3>זיו</h3><b>לייב הכנה למסחר</b></div><div class="live"><span class="when">שלישי</span><h3>מני</h3><b>לייב עומק על הסייקלים</b></div><div class="live"><span class="when">רביעי</span><h3>רועי</h3><b>תזמון עסקאות במניות</b></div><div class="live"><span class="when">חמישי</span><h3>גולן</h3><b>דיוק בהבנת הגרף</b></div></div></div>
-  <div class="strip" style="font-size:28px;margin-top:34px">ובין הלייבים: כל חדרי הדיסקורד · <span class="n">2,000+</span> סוחרים · <span class="n">9</span> מנטורים</div>
+  <h1 class="hbox" style="font-size:70px;margin-top:44px">שבוע רגיל <span class="hl">בתוך&nbsp;הקהילה</span></h1>
+  <div style="margin-top:44px;width:100%"><div class="week" style="font-size:30px"><div class="live"><span class="when">ראשון</span><h3>זיו</h3><b>לייב הכנה למסחר</b></div><div class="live"><span class="when">שלישי</span><h3>מני</h3><b>לייב עומק על הסייקלים</b></div><div class="live"><span class="when">רביעי</span><h3>רועי</h3><b>תזמון עסקאות במניות</b></div><div class="live"><span class="when">חמישי</span><h3>גולן</h3><b>דיוק בהבנת הגרף</b></div></div></div>
+  <div class="strip" style="font-size:28px;margin-top:30px">ובין הלייבים: כל חדרי הדיסקורד · <span class="n">2,000+</span> סוחרים · <span class="n">9</span> מנטורים</div>
+  <div style="margin-top:22px"><div class="rooms" style="font-size:22px"><span class="room"># מומחי מניות</span><span class="room"># חדר לכל נכס</span><span class="room"># רעיונות מסחר</span><span class="room"># קריפטו</span><span class="room"># מט"ח</span><span class="room"># נוסטרו</span><span class="room"># טווח ארוך</span></div></div>
   <div class="grow"></div>
   <div class="disc" style="font-size:22px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn sq" data-name="sq-w2-report" style="width:1080px;height:1080px">
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:24px;">ובנוסף לקהילה</div></div>
-  <h1 class="hbox" style="font-size:76px;margin-top:44px"><span class="hl">הדוח החודשי</span></h1>
+  <h1 class="hbox" style="font-size:76px;margin-top:44px"><span class="hl">הדוח&nbsp;החודשי</span></h1>
   <p class="sub" style="font-size:34px;margin-top:34px">תאריכי המפנה הצפויים ב-<span class="n">5</span> נכסים, בתחילת כל חודש</p>
-  <div class="stat" style="margin-top:20px"><b class="n" style="font-size:190px">76.8%</b><span style="font-size:32px">פגיעה ב-<span class="n">12</span> החודשים האחרונים</span></div>
-  <div style="margin-top:30px"><div class="assets" style="font-size:30px"><span><span class="n">S&amp;P 500</span></span><span>ביטקוין</span><span>זהב</span><span>נפט</span><span>יורו-דולר</span></div></div>
+  <div class="stat" style="margin-top:20px"><b class="n" style="font-size:230px">76.8%</b><span style="font-size:34px">פגיעה ב-<span class="n">12</span> החודשים האחרונים</span></div>
+  <div style="margin-top:40px"><div class="assets" style="font-size:32px"><span><span class="n">S&amp;P 500</span></span><span>ביטקוין</span><span>זהב</span><span>נפט</span><span>יורו-דולר</span></div></div>
+  <p class="sub" style="font-size:28px;margin-top:40px">הדוח הוא חלק מהקהילה. עליו בנויים חלק מהלייבים והחדרים.</p>
   <div class="grow"></div>
   <div class="fine" style="font-size:22px;margin-bottom:8px">ממוצע של <span class="n">60</span> תחזיות. ביצועי עבר אינם מעידים על העתיד.</div>
   <div class="disc" style="font-size:22px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
@@ -252,7 +260,7 @@ h1,h2,h3,p{margin:0}
 </section>
 <section class="bn p45" data-name="p45-w1-follow" style="width:1080px;height:1350px">
   <div class="logo" style="width:260px" role="img" aria-label="סייקלס טריידינג"></div>
-  <h1 class="hbox" style="font-size:82px;margin-top:56px">עקבתם מבחוץ.<br><span class="hl">הגיע הזמן להיכנס</span></h1>
+  <h1 class="hbox" style="font-size:82px;margin-top:56px">עקבתם מבחוץ.<br><span class="hl">הגיע&nbsp;הזמן&nbsp;להיכנס</span></h1>
   <div class="io" style="font-size:32px;margin-top:64px">
     <div class="io-out"><h3>מבחוץ</h3><ul><li>פוסט פה, סרטון שם</li><li>לנחש לבד מה חשוב</li><li>לסחור לבד</li></ul></div>
     <div class="io-in card"><h3>בפנים</h3><ul><li><span class="n">4</span> לייבים בכל שבוע</li><li>כל חדרי הדיסקורד</li><li><span class="n">2,000+</span> סוחרים ו-<span class="n">9</span> מנטורים</li><li>ובנוסף, הדוח החודשי</li></ul></div>
@@ -264,7 +272,7 @@ h1,h2,h3,p{margin:0}
 </section>
 <section class="bn p45" data-name="p45-w2-fit" style="width:1080px;height:1350px">
   <div class="logo" style="width:260px" role="img" aria-label="סייקלס טריידינג"></div>
-  <h1 class="hbox" style="font-size:76px;margin-top:50px">למי זה מתאים, <span class="hl">ולמי לא</span></h1>
+  <h1 class="hbox" style="font-size:76px;margin-top:50px">למי זה מתאים, <span class="hl">ולמי&nbsp;לא</span></h1>
   <div style="margin-top:56px;width:100%"><div class="fit2" style="font-size:30px">
   <div class="fit yes"><h3>זה בשבילכם אם…</h3><ul>
     <li>אתם כבר סוחרים, או לומדים ברצינות ומכירים את הבסיס: תמיכה, התנגדות וסטופ.</li>
@@ -282,39 +290,41 @@ h1,h2,h3,p{margin:0}
 <section class="bn p45" data-name="p45-w3-waiting" style="width:1080px;height:1350px">
   <div class="logo" style="width:260px" role="img" aria-label="סייקלס טריידינג"></div>
   <h1 class="hbox" style="font-size:84px;margin-top:50px">מה מחכה <span class="hl">ברשימה</span></h1>
-  <div class="vps" style="font-size:32px;margin-top:56px">
+  <div class="vps" style="font-size:34px;margin-top:56px;gap:36px">
     <div class="vp"><i><span class="n">1</span></i><div><h3>גישה מוקדמת ב-<span class="n">23/11</span></h3><p>נכנסים לקהילה 24 שעות לפני שהיא נפתחת לכולם.</p></div></div>
     <div class="vp"><i><span class="n">2</span></i><div><h3>קישור הצטרפות אישי</h3><p>ביום הפתיחה, בלי לחפש ובלי לפספס.</p></div></div>
-    <div class="vp"><i><span class="n">3</span></i><div><h3>מחיר בלאק פריידי</h3><p>חודש ראשון בקהילה ב-<span class="n">197 ₪</span> במקום <span class="n">450 ₪</span>.</p></div></div>
+    <div class="vp"><i><span class="n">3</span></i><div><h3>מחיר בלאק פריידי</h3><p>חודש ראשון בקהילה ב-<span class="n">197</span>&nbsp;₪ במקום <span class="n">450</span>&nbsp;₪.</p></div></div>
   </div>
-  <div class="renew" style="font-size:34px;margin-top:44px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="renew" style="font-size:36px;margin-top:56px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
+  <div class="chips" style="font-size:28px;margin:40px 0 44px"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div></div>
   <div class="cta" style="font-size:40px;">להרשמה לרשימת ההמתנה ←</div>
   <div class="disc" style="font-size:23px;margin-top:34px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn p45" data-name="report-peek-waitlist" style="width:1080px;height:1350px">
   <div class="logo" style="width:240px" role="img" aria-label="סייקלס טריידינג"></div>
-  <h1 class="hbox" style="font-size:74px;margin-top:40px">הצצה <span class="hl">לדוח החודשי</span></h1>
+  <h1 class="hbox" style="font-size:74px;margin-top:40px">הצצה <span class="hl">לדוח&nbsp;החודשי</span></h1>
   <p class="sub" style="font-size:30px;margin-top:26px">ככה בנוי הדוח. התוכן עצמו נשמר לחברי הקהילה.</p>
-  <div class="rbox" style="height:690px;margin-top:20px"><div class="rstack" style="transform:scale(1)">
+  <div class="rbox" style="height:760px;margin-top:20px"><div class="rstack" style="transform:scale(1.08)">
   <div class="rp-wrap back2"><div class="rp blur">
   <div class="rp-top"><b>הדוח החודשי</b><span>מבנה הדוח</span></div>
   <div class="rp-sec"><b>סיכום תאריכי החודש הקודם</b><span class="sk" style="width:92%"></span><span class="sk" style="width:70%"></span></div>
   <div class="rp-sec"><div class="rp-h"><b><span class="n">S&amp;P 500</span></b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>ביטקוין</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>זהב</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>נפט</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>יורו-דולר</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div>
   
-</div><span class="lock">לחברי הקהילה</span></div>
+</div></div>
   <div class="rp-wrap back1"><div class="rp blur">
   <div class="rp-top"><b>הדוח החודשי</b><span>מבנה הדוח</span></div>
   <div class="rp-sec"><b>סיכום תאריכי החודש הקודם</b><span class="sk" style="width:92%"></span><span class="sk" style="width:70%"></span></div>
   <div class="rp-sec"><div class="rp-h"><b><span class="n">S&amp;P 500</span></b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>ביטקוין</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>זהב</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>נפט</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>יורו-דולר</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div>
   
-</div><span class="lock">לחברי הקהילה</span></div>
+</div></div>
   <div class="rp-wrap front"><div class="rp ">
   <div class="rp-top"><b>הדוח החודשי</b><span>מבנה הדוח</span></div>
   <div class="rp-sec"><b>סיכום תאריכי החודש הקודם</b><span class="sk" style="width:92%"></span><span class="sk" style="width:70%"></span></div>
   <div class="rp-sec"><div class="rp-h"><b><span class="n">S&amp;P 500</span></b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>ביטקוין</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>זהב</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>נפט</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>יורו-דולר</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div>
   <div class="rp-foot">בכל נכס: תאריכי המפנה, תרחישים ורמות לבדיקה</div>
 </div></div>
+  <span class="lock l2">לחברי הקהילה</span><span class="lock l1">לחברי הקהילה</span>
 </div></div>
   <div class="strip" style="font-size:30px">מי שברשימה נכנס ראשון ב-<span class="n">23/11</span></div>
   <div class="grow"></div>
@@ -324,19 +334,19 @@ h1,h2,h3,p{margin:0}
   <div class="hd-main">
     <div class="logo" style="width:240px" role="img" aria-label="סייקלס טריידינג"></div>
     <div class="tag" style="font-size:24px;margin-top:26px">בלאק פריידי · רשימת המתנה <span class="n">13–22/11</span></div>
-    <h1 class="hbox" style="font-size:66px;margin-top:28px">מי שברשימה <span class="hl">נכנס ראשון</span> לקהילה</h1>
-    <p class="sub" style="font-size:27px;margin-top:28px;max-width:960px"><span class="n">4</span> לייבים בשבוע, כל חדרי הדיסקורד, <span class="n">2,000+</span> סוחרים ו-<span class="n">9</span> מנטורים. ובנוסף, הדוח החודשי.</p>
+    <h1 class="hbox" style="font-size:72px;margin-top:24px">מי שברשימה<br><span class="hl">נכנס&nbsp;ראשון</span> לקהילה</h1>
+    <p class="sub" style="font-size:26px;margin-top:26px;max-width:860px"><span class="n">4</span> לייבים בשבוע, כל חדרי הדיסקורד, <span class="n">2,000+</span> סוחרים ו-<span class="n">9</span> מנטורים. ובנוסף, הדוח החודשי.</p>
     <div class="hd-act"><div class="cta" style="font-size:30px;">להרשמה לרשימת ההמתנה ←</div><div class="disc" style="font-size:18px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div></div>
   </div>
   <div class="hd-side">
     <div class="date-card sm"><span class="dc-k">גישה מוקדמת</span><b><span class="n">23/11</span></b><span class="dc-s">24 שעות לפני כולם</span></div>
-    <div class="ziv" style="width:400px;height:520px;font-size:28px"><span>תמונה של זיו</span></div>
+    <div class="ziv" style="width:340px;height:560px;font-size:26px"><span>תמונה של זיו</span></div>
   </div>
 </section>
 <section class="bn p45" data-name="hero-mobile-waitlist" style="width:1080px;height:1350px">
   <div class="logo" style="width:270px" role="img" aria-label="סייקלס טריידינג"></div>
   <div class="tag" style="font-size:28px;margin-top:44px">בלאק פריידי · רשימת המתנה <span class="n">13–22/11</span></div>
-  <h1 class="hbox" style="font-size:86px;margin-top:44px">מי שברשימה <span class="hl">נכנס ראשון</span> לקהילה</h1>
+  <h1 class="hbox" style="font-size:86px;margin-top:44px">מי שברשימה <span class="hl">נכנס&nbsp;ראשון</span> לקהילה</h1>
   <p class="sub" style="font-size:34px;margin-top:44px;max-width:900px"><span class="n">4</span> לייבים בשבוע, כל חדרי הדיסקורד, <span class="n">2,000+</span> סוחרים ו-<span class="n">9</span> מנטורים. ובנוסף, הדוח החודשי.</p>
   <div class="date-card" style="margin-top:56px"><span class="dc-k">גישה מוקדמת לרשימה</span><b><span class="n">23/11</span></b><span class="dc-s">24 שעות לפני כולם</span></div>
   <div class="grow"></div>
@@ -344,16 +354,16 @@ h1,h2,h3,p{margin:0}
   <div class="disc" style="font-size:23px;margin-top:34px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn mail" data-name="mail-w1-list" style="width:600px;height:200px">
-  <div class="m-txt"><h1 class="hbox" style="font-size:38px;">רשימת בלאק פריידי <span class="hl">נפתחה</span></h1><span class="m-sub">נכנסים ראשונים ב-<span class="n">23/11</span></span></div>
-  <div class="logo" style="width:150px" role="img" aria-label="סייקלס טריידינג"></div>
+  <div class="m-txt"><h1 class="hbox" style="font-size:30px;">רשימת בלאק פריידי <span class="hl">נפתחה</span></h1><span class="m-sub">נכנסים ראשונים ב-<span class="n">23/11</span></span></div>
+  <div class="logo" style="width:124px" role="img" aria-label="סייקלס טריידינג"></div>
 </section>
 <section class="bn mail" data-name="mail-w2-report" style="width:600px;height:200px">
-  <div class="m-txt"><h1 class="hbox" style="font-size:38px;">הצצה <span class="hl">לדוח</span></h1><span class="m-sub">ככה בנוי הדוח החודשי</span></div>
-  <div class="logo" style="width:150px" role="img" aria-label="סייקלס טריידינג"></div>
+  <div class="m-txt"><h1 class="hbox" style="font-size:40px;">הצצה <span class="hl">לדוח</span></h1><span class="m-sub">ככה בנוי הדוח החודשי</span></div>
+  <div class="logo" style="width:124px" role="img" aria-label="סייקלס טריידינג"></div>
 </section>
 <section class="bn mail" data-name="mail-w3-tomorrow" style="width:600px;height:200px">
-  <div class="m-txt"><h1 class="hbox" style="font-size:38px;">מחר <span class="hl">נפתח</span></h1><span class="m-sub"><span class="n">23/11</span> · גישה מוקדמת לרשימה</span></div>
-  <div class="logo" style="width:150px" role="img" aria-label="סייקלס טריידינג"></div>
+  <div class="m-txt"><h1 class="hbox" style="font-size:40px;">מחר <span class="hl">נפתח</span></h1><span class="m-sub"><span class="n">23/11</span> · גישה מוקדמת לרשימה</span></div>
+  <div class="logo" style="width:124px" role="img" aria-label="סייקלס טריידינג"></div>
 </section>
 <section class="bn story" data-name="story-03-early" style="width:1080px;height:1920px">
   <div class="logo" style="width:320px" role="img" aria-label="סייקלס טריידינג"></div>
@@ -362,8 +372,8 @@ h1,h2,h3,p{margin:0}
     <h1 class="hbox" style="font-size:92px;max-width:920px">הדלת <span class="hl">נפתחה</span> בשבילכם</h1>
     <div class="chips" style="font-size:30px;"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div></div>
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow"><div class="price" style="--p:290px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-    <div class="renew" style="font-size:40px;">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+    <div class="glow"><div class="price" style="--p:250px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+    <div class="renew" style="font-size:40px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="cta" style="font-size:46px;">להצטרפות לקהילה ←</div>
   <div class="fine" style="font-size:30px;margin-top:34px">24 שעות לפני כולם · נסגר ב-<span class="n">30/11</span> בשעה <span class="n">23:59</span></div>
@@ -373,11 +383,11 @@ h1,h2,h3,p{margin:0}
   <div class="logo" style="width:320px" role="img" aria-label="סייקלס טריידינג"></div>
   <div class="grow col" style="gap:46px">
     <div class="tag" style="font-size:34px;">בלאק פריידי · מ-<span class="n">24/11</span></div>
-    <h1 class="hbox" style="font-size:92px;max-width:920px">הקהילה <span class="hl">פתוחה לכולם</span></h1>
+    <h1 class="hbox" style="font-size:92px;max-width:920px">הקהילה <span class="hl">פתוחה&nbsp;לכולם</span></h1>
     <div class="chips" style="font-size:30px;"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div></div>
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow"><div class="price" style="--p:290px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-    <div class="renew" style="font-size:40px;">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+    <div class="glow"><div class="price" style="--p:250px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+    <div class="renew" style="font-size:40px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="cta" style="font-size:46px;">אני רוצה להיכנס לקהילה ←</div>
   <div class="fine" style="font-size:30px;margin-top:34px">המבצע נסגר ב-<span class="n">30/11</span> בשעה <span class="n">23:59</span></div>
@@ -387,11 +397,11 @@ h1,h2,h3,p{margin:0}
   <div class="logo" style="width:320px" role="img" aria-label="סייקלס טריידינג"></div>
   <div class="grow col" style="gap:46px">
     <div class="tag" style="font-size:34px;">בלאק פריידי · היום האחרון מתקרב</div>
-    <h1 class="hbox" style="font-size:92px;max-width:920px">נשארו <span class="hl">24 שעות</span></h1>
+    <h1 class="hbox" style="font-size:92px;max-width:920px">נשארו <span class="hl">24&nbsp;שעות</span></h1>
     <div class="clock" style="font-size:30px"><div class="unit"><b><span class="n">24</span></b><span>שעות</span></div><div class="unit"><b><span class="n">00</span></b><span>דקות</span></div><div class="unit"><b><span class="n">00</span></b><span>שניות</span></div></div>
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow"><div class="price" style="--p:290px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-    <div class="renew" style="font-size:40px;">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+    <div class="glow"><div class="price" style="--p:250px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+    <div class="renew" style="font-size:40px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="cta" style="font-size:46px;">להצטרפות לפני שנסגר ←</div>
   <div class="fine" style="font-size:30px;margin-top:34px">המבצע נסגר ב-<span class="n">30/11</span> בשעה <span class="n">23:59</span></div>
@@ -404,51 +414,51 @@ h1,h2,h3,p{margin:0}
     <h1 class="hbox" style="font-size:92px;max-width:920px">נסגר <span class="hl">הלילה</span></h1>
     <div class="date-card"><span class="dc-k">המבצע נסגר בשעה</span><b><span class="n">23:59</span></b></div>
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow"><div class="price" style="--p:290px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-    <div class="renew" style="font-size:40px;">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+    <div class="glow"><div class="price" style="--p:250px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+    <div class="renew" style="font-size:40px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="cta" style="font-size:46px;">להצטרפות עכשיו ←</div>
-  <div class="fine" style="font-size:30px;margin-top:34px">אחרי הלילה המחיר חוזר ל-<span class="n">450 ₪</span> לחודש</div>
+  <div class="fine" style="font-size:30px;margin-top:34px">אחרי הלילה המחיר חוזר ל-<span class="n">450</span>&nbsp;₪ לחודש</div>
   <div class="disc" style="font-size:26px;margin-top:20px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn sq" data-name="sq-o1-inside" style="width:1080px;height:1080px">
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:24px;">בלאק פריידי</div></div>
-  <h1 class="hbox" style="font-size:72px;margin-top:40px">מה מקבלים <span class="hl">ב-<span class="n">197 ₪</span></span></h1>
+  <h1 class="hbox" style="font-size:72px;margin-top:40px">מה מקבלים <span class="hl">ב-<span class="n">197</span>&nbsp;₪</span></h1>
   <div class="pillars3" style="font-size:30px;margin-top:44px">
     <div class="pc"><i><span class="n">1</span></i><div><h3><span class="n">4</span> לייבים בשבוע</h3><p>זיו, מני, רועי וגולן. ניתוחים, תרחישים ושאלות.</p></div></div>
     <div class="pc"><i><span class="n">2</span></i><div><h3>כל חדרי הדיסקורד</h3><p>מומחי מניות, חדר לכל נכס, רעיונות מסחר, קריפטו, מט"ח, נוסטרו וטווח ארוך.</p></div></div>
     <div class="pc"><i><span class="n">3</span></i><div><h3>ובנוסף: הדוח החודשי</h3><p>תאריכי מפנה ב-<span class="n">5</span> נכסים, בתחילת כל חודש.</p></div></div>
   </div>
   <div class="grow"></div>
-  <div class="renew" style="font-size:32px;">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="renew" style="font-size:32px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="disc" style="font-size:22px;margin-top:26px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn sq" data-name="sq-o2-report" style="width:1080px;height:1080px">
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:24px;">ובנוסף לקהילה</div></div>
-  <h1 class="hbox" style="font-size:72px;margin-top:40px"><span class="hl">הדוח החודשי</span> כלול</h1>
+  <h1 class="hbox" style="font-size:72px;margin-top:40px"><span class="hl">הדוח&nbsp;החודשי</span> כלול</h1>
   <p class="sub" style="font-size:32px;margin-top:28px">תאריכי המפנה הצפויים ב-<span class="n">5</span> נכסים, בתחילת כל חודש</p>
   <div class="stat" style="margin-top:10px"><b class="n" style="font-size:170px">76.8%</b><span style="font-size:30px">פגיעה ב-<span class="n">12</span> החודשים האחרונים</span></div>
   <div style="margin-top:24px"><div class="assets" style="font-size:28px"><span><span class="n">S&amp;P 500</span></span><span>ביטקוין</span><span>זהב</span><span>נפט</span><span>יורו-דולר</span></div></div>
   <div class="grow"></div>
-  <div class="mini-price"><span>חודש ראשון בקהילה, כולל הדוח</span><div class="price" style="--p:96px;gap:26px"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-  <div class="renew" style="font-size:30px;margin-top:18px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="mini-price"><span>חודש ראשון בקהילה, כולל הדוח</span><div class="price" style="--p:96px;gap:26px"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+  <div class="renew" style="font-size:30px;margin-top:18px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="fine" style="font-size:20px;margin-top:16px">ממוצע של <span class="n">60</span> תחזיות. ביצועי עבר אינם מעידים על העתיד.</div>
   <div class="disc" style="font-size:20px;margin-top:4px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn sq" data-name="sq-o3-noprint" style="width:1080px;height:1080px">
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:24px;">בלאק פריידי</div></div>
   <h1 class="hbox" style="font-size:76px;margin-top:40px"><span class="hl">בלי</span> אותיות קטנות</h1>
-  <div style="margin-top:46px;width:100%"><div class="terms" style="font-size:30px;grid-template-columns:repeat(2,1fr)"><div class="term"><div class="tn"><i><span class="n">1</span></i><b>היום</b></div><p><span class="n">197 ₪</span> על החודש הראשון, במקום <span class="n">450 ₪</span>.</p></div><div class="term"><div class="tn"><i><span class="n">2</span></i><b>לפני החיוב הבא</b></div><p>תזכורת לפני שהמנוי מתחדש.</p></div><div class="term"><div class="tn"><i><span class="n">3</span></i><b>מהחודש השני</b></div><p>חידוש אוטומטי ב-<span class="n">450 ₪</span> לחודש.</p></div><div class="term"><div class="tn"><i><span class="n">4</span></i><b>ביטול</b></div><p>בכל עת, בלחיצה אחת מהאזור האישי.</p></div></div></div>
+  <div style="margin-top:46px;width:100%"><div class="terms" style="font-size:30px;grid-template-columns:repeat(2,1fr)"><div class="term"><div class="tn"><i><span class="n">1</span></i><b>היום</b></div><p><span class="n">197</span>&nbsp;₪ על החודש הראשון, במקום <span class="n">450</span>&nbsp;₪.</p></div><div class="term"><div class="tn"><i><span class="n">2</span></i><b>לפני החיוב הבא</b></div><p>תזכורת לפני שהמנוי מתחדש.</p></div><div class="term"><div class="tn"><i><span class="n">3</span></i><b>מהחודש השני</b></div><p>חידוש אוטומטי ב-<span class="n">450</span>&nbsp;₪ לחודש.</p></div><div class="term"><div class="tn"><i><span class="n">4</span></i><b>ביטול</b></div><p>בכל עת, בלחיצה אחת מהאזור האישי.</p></div></div></div>
   <div class="grow"></div>
-  <div class="renew" style="font-size:32px;">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="renew" style="font-size:32px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="disc" style="font-size:22px;margin-top:26px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn p45" data-name="p45-o1-hero" style="width:1080px;height:1350px">
   <div class="logo" style="width:250px" role="img" aria-label="סייקלס טריידינג"></div>
-  <h1 class="hbox" style="font-size:72px;margin-top:40px;max-width:900px">חודש שלם בתוך <span class="hl">קהילת הסוחרים</span></h1>
-  <div class="glow" style="margin-top:56px"><div class="price" style="--p:230px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
+  <h1 class="hbox" style="font-size:72px;margin-top:40px;max-width:900px">חודש שלם בתוך <span class="hl">קהילת&nbsp;הסוחרים</span></h1>
+  <div class="glow" style="margin-top:56px"><div class="price" style="--p:230px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
   <p class="per" style="font-size:32px;margin-top:22px">לחודש הראשון · בלאק פריידי</p>
-  <div class="renew" style="font-size:34px;margin-top:24px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="renew" style="font-size:34px;margin-top:24px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div style="margin-top:50px;width:100%"><div class="pillars" style="font-size:27px;grid-template-columns:repeat(3,1fr)">
   <div class="pl"><i>1</i><h3><span class="n">4</span> לייבים בשבוע</h3><p>זיו, מני, רועי וגולן</p></div>
   <div class="pl"><i>2</i><h3>כל חדרי הדיסקורד</h3><p><span class="n">2,000+</span> סוחרים ו-<span class="n">9</span> מנטורים</p></div>
@@ -460,7 +470,7 @@ h1,h2,h3,p{margin:0}
 </section>
 <section class="bn p45" data-name="p45-o2-fit" style="width:1080px;height:1350px">
   <div class="logo" style="width:240px" role="img" aria-label="סייקלס טריידינג"></div>
-  <h1 class="hbox" style="font-size:72px;margin-top:40px">למי זה מתאים, <span class="hl">ולמי לא</span></h1>
+  <h1 class="hbox" style="font-size:72px;margin-top:40px">למי זה מתאים, <span class="hl">ולמי&nbsp;לא</span></h1>
   <div style="margin-top:46px;width:100%"><div class="fit2" style="font-size:28px">
   <div class="fit yes"><h3>זה בשבילכם אם…</h3><ul>
     <li>אתם כבר סוחרים, או לומדים ברצינות ומכירים את הבסיס: תמיכה, התנגדות וסטופ.</li>
@@ -472,22 +482,22 @@ h1,h2,h3,p{margin:0}
     <li>אתם מחפשים הבטחה לרווח. אין כזו.</li></ul></div>
 </div></div>
   <div class="grow"></div>
-  <div class="mini-price"><span>מתאים לכם? חודש ראשון ב-</span><div class="price" style="--p:100px;gap:26px"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-  <div class="renew" style="font-size:32px;margin-top:20px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="mini-price"><span>מתאים לכם? חודש ראשון ב-</span><div class="price" style="--p:100px;gap:26px"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+  <div class="renew" style="font-size:32px;margin-top:20px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="disc" style="font-size:23px;margin-top:28px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn p45" data-name="p45-o3-payment" style="width:1080px;height:1350px">
   <div class="logo" style="width:240px" role="img" aria-label="סייקלס טריידינג"></div>
-  <h1 class="hbox" style="font-size:68px;margin-top:40px;max-width:940px">מה קורה עם התשלום, <span class="hl">בלי אותיות קטנות</span></h1>
-  <div style="margin-top:54px;width:100%"><div class="terms" style="font-size:32px;grid-template-columns:repeat(1,1fr)"><div class="term"><div class="tn"><i><span class="n">1</span></i><b>היום</b></div><p><span class="n">197 ₪</span> על החודש הראשון, במקום <span class="n">450 ₪</span>.</p></div><div class="term"><div class="tn"><i><span class="n">2</span></i><b>לפני החיוב הבא</b></div><p>תזכורת לפני שהמנוי מתחדש.</p></div><div class="term"><div class="tn"><i><span class="n">3</span></i><b>מהחודש השני</b></div><p>חידוש אוטומטי ב-<span class="n">450 ₪</span> לחודש.</p></div><div class="term"><div class="tn"><i><span class="n">4</span></i><b>ביטול</b></div><p>בכל עת, בלחיצה אחת מהאזור האישי.</p></div></div></div>
+  <h1 class="hbox" style="font-size:68px;margin-top:40px;max-width:940px">מה קורה עם התשלום, <span class="hl">בלי&nbsp;אותיות&nbsp;קטנות</span></h1>
+  <div style="margin-top:54px;width:100%"><div class="terms" style="font-size:32px;grid-template-columns:repeat(1,1fr)"><div class="term"><div class="tn"><i><span class="n">1</span></i><b>היום</b></div><p><span class="n">197</span>&nbsp;₪ על החודש הראשון, במקום <span class="n">450</span>&nbsp;₪.</p></div><div class="term"><div class="tn"><i><span class="n">2</span></i><b>לפני החיוב הבא</b></div><p>תזכורת לפני שהמנוי מתחדש.</p></div><div class="term"><div class="tn"><i><span class="n">3</span></i><b>מהחודש השני</b></div><p>חידוש אוטומטי ב-<span class="n">450</span>&nbsp;₪ לחודש.</p></div><div class="term"><div class="tn"><i><span class="n">4</span></i><b>ביטול</b></div><p>בכל עת, בלחיצה אחת מהאזור האישי.</p></div></div></div>
   <div class="grow"></div>
-  <div class="renew" style="font-size:34px;">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
-  <div class="cta" style="font-size:38px;margin-top:36px">להצטרפות ב-<span class="n">197 ₪</span> ←</div>
+  <div class="renew" style="font-size:34px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
+  <div class="cta" style="font-size:38px;margin-top:36px">להצטרפות ב-<span class="n">197</span>&nbsp;₪ ←</div>
   <div class="disc" style="font-size:23px;margin-top:28px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn p45" data-name="report-peek-open" style="width:1080px;height:1350px">
   <div class="logo" style="width:230px" role="img" aria-label="סייקלס טריידינג"></div>
-  <h1 class="hbox" style="font-size:70px;margin-top:34px">הצצה <span class="hl">לדוח החודשי</span></h1>
+  <h1 class="hbox" style="font-size:70px;margin-top:34px">הצצה <span class="hl">לדוח&nbsp;החודשי</span></h1>
   <p class="sub" style="font-size:28px;margin-top:20px">כלול בחודש בקהילה. התוכן עצמו נשמר לחברים.</p>
   <div class="rbox" style="height:600px;margin-top:6px"><div class="rstack" style="transform:scale(0.88)">
   <div class="rp-wrap back2"><div class="rp blur">
@@ -495,22 +505,23 @@ h1,h2,h3,p{margin:0}
   <div class="rp-sec"><b>סיכום תאריכי החודש הקודם</b><span class="sk" style="width:92%"></span><span class="sk" style="width:70%"></span></div>
   <div class="rp-sec"><div class="rp-h"><b><span class="n">S&amp;P 500</span></b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>ביטקוין</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>זהב</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>נפט</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>יורו-דולר</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div>
   
-</div><span class="lock">לחברי הקהילה</span></div>
+</div></div>
   <div class="rp-wrap back1"><div class="rp blur">
   <div class="rp-top"><b>הדוח החודשי</b><span>מבנה הדוח</span></div>
   <div class="rp-sec"><b>סיכום תאריכי החודש הקודם</b><span class="sk" style="width:92%"></span><span class="sk" style="width:70%"></span></div>
   <div class="rp-sec"><div class="rp-h"><b><span class="n">S&amp;P 500</span></b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>ביטקוין</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>זהב</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>נפט</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>יורו-דולר</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div>
   
-</div><span class="lock">לחברי הקהילה</span></div>
+</div></div>
   <div class="rp-wrap front"><div class="rp ">
   <div class="rp-top"><b>הדוח החודשי</b><span>מבנה הדוח</span></div>
   <div class="rp-sec"><b>סיכום תאריכי החודש הקודם</b><span class="sk" style="width:92%"></span><span class="sk" style="width:70%"></span></div>
   <div class="rp-sec"><div class="rp-h"><b><span class="n">S&amp;P 500</span></b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>ביטקוין</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>זהב</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>נפט</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div><div class="rp-sec"><div class="rp-h"><b>יורו-דולר</b><span>תאריכי מפנה</span><span class="db">••.••</span><span class="db">••.••</span><span class="db">••.••</span></div><span class="sk" style="width:88%"></span><span class="sk" style="width:60%"></span></div>
   <div class="rp-foot">בכל נכס: תאריכי המפנה, תרחישים ורמות לבדיקה</div>
 </div></div>
+  <span class="lock l2">לחברי הקהילה</span><span class="lock l1">לחברי הקהילה</span>
 </div></div>
-  <div class="mini-price"><div class="price" style="--p:100px;gap:26px"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div><span>חודש ראשון בקהילה, כולל הדוח</span></div>
-  <div class="renew" style="font-size:30px;margin-top:16px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="mini-price"><div class="price" style="--p:100px;gap:26px"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div><span>חודש ראשון בקהילה, כולל הדוח</span></div>
+  <div class="renew" style="font-size:30px;margin-top:16px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
   <div class="disc" style="font-size:22px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
@@ -518,57 +529,57 @@ h1,h2,h3,p{margin:0}
   <div class="hd-main">
     <div class="logo" style="width:230px" role="img" aria-label="סייקלס טריידינג"></div>
     <div class="tag" style="font-size:24px;margin-top:24px">בלאק פריידי · נסגר ב-<span class="n">30/11</span> בשעה <span class="n">23:59</span></div>
-    <h1 class="hbox" style="font-size:62px;margin-top:26px">חודש שלם בתוך <span class="hl">קהילת הסוחרים</span></h1>
+    <h1 class="hbox" style="font-size:62px;margin-top:26px">חודש שלם בתוך <span class="hl">קהילת&nbsp;הסוחרים</span></h1>
     <p class="sub" style="font-size:25px;margin-top:24px;max-width:900px"><span class="n">4</span> לייבים בשבוע, כל חדרי הדיסקורד, <span class="n">2,000+</span> סוחרים ו-<span class="n">9</span> מנטורים. ובנוסף, הדוח החודשי.</p>
     <div class="hd-act"><div class="cta" style="font-size:28px;">אני רוצה להיכנס לקהילה ←</div><div class="disc" style="font-size:18px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div></div>
   </div>
   <div class="hd-price">
     <p class="per" style="font-size:28px">חודש ראשון</p>
-    <div class="glow"><div class="price" style="--p:200px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-    <div class="renew" style="font-size:26px;margin-top:18px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+    <div class="glow"><div class="price" style="--p:200px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+    <div class="renew" style="font-size:26px;margin-top:18px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="hd-side"><div class="ziv" style="width:360px;height:520px;font-size:26px"><span>תמונה של זיו</span></div></div>
 </section>
 <section class="bn p45" data-name="hero-mobile-open" style="width:1080px;height:1350px">
   <div class="logo" style="width:260px" role="img" aria-label="סייקלס טריידינג"></div>
   <div class="tag" style="font-size:28px;margin-top:36px">בלאק פריידי · נסגר ב-<span class="n">30/11</span> בשעה <span class="n">23:59</span></div>
-  <h1 class="hbox" style="font-size:74px;margin-top:40px;max-width:920px">חודש שלם בתוך <span class="hl">קהילת הסוחרים</span></h1>
-  <div class="glow" style="margin-top:60px"><div class="price" style="--p:240px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
+  <h1 class="hbox" style="font-size:74px;margin-top:40px;max-width:920px">חודש שלם בתוך <span class="hl">קהילת&nbsp;הסוחרים</span></h1>
+  <div class="glow" style="margin-top:60px"><div class="price" style="--p:240px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
   <p class="per" style="font-size:32px;margin-top:22px">לחודש הראשון</p>
-  <div class="renew" style="font-size:34px;margin-top:22px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="renew" style="font-size:34px;margin-top:22px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="chips" style="font-size:26px;margin-top:44px"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div><div class="chip"><b>+</b><span>הדוח החודשי</span></div></div>
   <div class="grow"></div>
   <div class="cta" style="font-size:40px;">אני רוצה להיכנס לקהילה ←</div>
   <div class="disc" style="font-size:23px;margin-top:30px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn mail" data-name="mail-o1-open" style="width:600px;height:200px">
-  <div class="m-txt"><h1 class="hbox" style="font-size:38px;">הקהילה <span class="hl">נפתחה</span></h1><span class="m-sub">בלאק פריידי · עד <span class="n">30/11</span></span></div>
-  <div class="logo" style="width:150px" role="img" aria-label="סייקלס טריידינג"></div>
+  <div class="m-txt"><h1 class="hbox" style="font-size:40px;">הקהילה <span class="hl">נפתחה</span></h1><span class="m-sub">בלאק פריידי · עד <span class="n">30/11</span></span></div>
+  <div class="logo" style="width:124px" role="img" aria-label="סייקלס טריידינג"></div>
 </section>
 <section class="bn mail mail-p" data-name="mail-o2-bf" style="width:600px;height:200px">
-  <div class="m-txt"><h1 class="hbox" style="font-size:34px;"><span class="hl">בלאק פריידי</span></h1><div class="renew" style="font-size:16px;margin-top:14px;padding:6px 12px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div></div>
-  <div class="m-pr"><div class="price" style="--p:66px;gap:12px"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
+  <div class="m-txt"><h1 class="hbox" style="font-size:34px;"><span class="hl">בלאק&nbsp;פריידי</span></h1><div class="renew" style="font-size:15px;margin-top:14px;padding:6px 10px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div></div>
+  <div class="m-pr"><div class="logo" style="width:104px" role="img" aria-label="סייקלס טריידינג"></div><div class="price" style="--p:58px;gap:14px"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
 </section>
 <section class="bn mail" data-name="mail-o3-tonight" style="width:600px;height:200px">
-  <div class="m-txt"><h1 class="hbox" style="font-size:38px;">נסגר <span class="hl">הלילה</span></h1><span class="m-sub">המבצע נסגר ב-<span class="n">23:59</span></span></div>
-  <div class="logo" style="width:150px" role="img" aria-label="סייקלס טריידינג"></div>
+  <div class="m-txt"><h1 class="hbox" style="font-size:40px;">נסגר <span class="hl">הלילה</span></h1><span class="m-sub">המבצע נסגר ב-<span class="n">23:59</span></span></div>
+  <div class="logo" style="width:124px" role="img" aria-label="סייקלס טריידינג"></div>
 </section>
 <section class="bn sq wa" data-name="wa-1-early" style="width:1080px;height:1080px">
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:26px;"><span class="n">23/11</span> · רק לרשימה</div></div>
   <h1 class="hbox" style="font-size:80px;margin-top:46px">הגישה המוקדמת <span class="hl">נפתחה</span></h1>
   <p class="per" style="font-size:32px;margin-top:44px">חודש ראשון בקהילת הסוחרים</p>
-  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-  <div class="renew" style="font-size:34px;margin-top:30px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+  <div class="renew" style="font-size:34px;margin-top:30px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
   <div class="fine" style="font-size:26px;margin-bottom:14px"><span class="n">4</span> לייבים בשבוע · כל חדרי הדיסקורד · <span class="n">2,000+</span> סוחרים · ובנוסף, הדוח החודשי</div>
   <div class="disc" style="font-size:22px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
 <section class="bn sq wa" data-name="wa-2-bf" style="width:1080px;height:1080px">
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:26px;"><span class="n">27/11</span></div></div>
-  <h1 class="hbox" style="font-size:80px;margin-top:46px">היום <span class="hl">בלאק פריידי</span></h1>
+  <h1 class="hbox" style="font-size:80px;margin-top:46px">היום <span class="hl">בלאק&nbsp;פריידי</span></h1>
   <p class="per" style="font-size:32px;margin-top:44px">חודש ראשון בקהילת הסוחרים</p>
-  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-  <div class="renew" style="font-size:34px;margin-top:30px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+  <div class="renew" style="font-size:34px;margin-top:30px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
   <div class="fine" style="font-size:26px;margin-bottom:14px">המבצע נסגר ב-<span class="n">30/11</span> בשעה <span class="n">23:59</span></div>
   <div class="disc" style="font-size:22px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
@@ -577,8 +588,8 @@ h1,h2,h3,p{margin:0}
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:26px;"><span class="n">30/11</span> · הזדמנות אחרונה</div></div>
   <h1 class="hbox" style="font-size:80px;margin-top:46px">נסגר <span class="hl">הלילה</span> ב-<span class="n">23:59</span></h1>
   <p class="per" style="font-size:32px;margin-top:44px">חודש ראשון בקהילת הסוחרים</p>
-  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><span class="old"><span class="n">450 ₪</span><svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b class="n">197<small> ₪</small></b></span></div></div>
-  <div class="renew" style="font-size:34px;margin-top:30px">מהחודש השני <span class="n">450 ₪</span> לחודש, ביטול בכל עת</div>
+  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><span class="old"><span class="n">450</span>&nbsp;₪<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg></span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div></div>
+  <div class="renew" style="font-size:34px;margin-top:30px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
   <div class="fine" style="font-size:26px;margin-bottom:14px"><span class="n">4</span> לייבים בשבוע · כל חדרי הדיסקורד · <span class="n">9</span> מנטורים · ובנוסף, הדוח החודשי</div>
   <div class="disc" style="font-size:22px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>

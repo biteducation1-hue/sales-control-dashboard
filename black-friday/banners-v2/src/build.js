@@ -4,14 +4,16 @@ const path = require('path');
 const LOGO = fs.readFileSync('/tmp/claude-0/-home-user-sales-control-dashboard/14c85a98-2788-5150-9990-4b12814891c7/scratchpad/logo/logo.b64', 'utf8').trim();
 
 const n = (t) => `<span class="n">${t}</span>`;
-const RENEW = `מהחודש השני ${n('450 ₪')} לחודש, ביטול בכל עת`;
+const RENEW = `מהחודש השני ${n('450') + '&nbsp;₪'} לחודש, ביטול בכל עת`;
 const DISC = 'התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.';
 
 // ---------- components ----------
 const logo = (w) => `<div class="logo" style="width:${w}px" role="img" aria-label="סייקלס טריידינג"></div>`;
-const head = (html, fs, extra = '') => `<h1 class="hbox" style="font-size:${fs}px;${extra}">${html}</h1>`;
+// keep each highlighted phrase on one line (non-breaking spaces in its text, not inside tags)
+const keepHl = (html) => html.replace(/<span class="hl">([\s\S]*?)<\/span>(?![^<]*<\/span>)/g, (m, inner) => '<span class="hl">' + inner.split(/(<[^>]+>)/).map(t => t.startsWith('<') ? t : t.replace(/ /g, '&nbsp;')).join('') + '</span>');
+const head = (html, fs, extra = '') => `<h1 class="hbox" style="font-size:${fs}px;${extra}">${keepHl(html)}</h1>`;
 const strike = `<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg>`;
-const price = (p, gap) => `<div class="price" style="--p:${p}px;${gap ? 'gap:' + gap + 'px' : ''}"><span class="old"><span class="n">450 ₪</span>${strike}</span><span class="new"><b class="n">197<small> ₪</small></b></span></div>`;
+const price = (p, gap) => `<div class="price" style="--p:${p}px;${gap ? 'gap:' + gap + 'px' : ''}"><span class="old"><span class="n">450</span>&nbsp;₪${strike}</span><span class="new"><b><span class="n">197</span><small> ₪</small></b></span></div>`;
 const renew = (fs, extra = '') => `<div class="renew" style="font-size:${fs}px;${extra}">${RENEW}</div>`;
 const cta = (t, fs, extra = '') => `<div class="cta" style="font-size:${fs}px;${extra}">${t} ←</div>`;
 const disc = (fs, extra = '') => `<div class="disc" style="font-size:${fs}px;${extra}">${DISC}</div>`;
@@ -50,9 +52,9 @@ const fit = (fs) => `<div class="fit2" style="font-size:${fs}px">
 </div>`;
 
 const TERMS = [
-  ['היום', `${n('197 ₪')} על החודש הראשון, במקום ${n('450 ₪')}.`],
+  ['היום', `${n('197') + '&nbsp;₪'} על החודש הראשון, במקום ${n('450') + '&nbsp;₪'}.`],
   ['לפני החיוב הבא', 'תזכורת לפני שהמנוי מתחדש.'],
-  ['מהחודש השני', `חידוש אוטומטי ב-${n('450 ₪')} לחודש.`],
+  ['מהחודש השני', `חידוש אוטומטי ב-${n('450') + '&nbsp;₪'} לחודש.`],
   ['ביטול', 'בכל עת, בלחיצה אחת מהאזור האישי.'],
 ];
 const terms = (fs, cols) => `<div class="terms" style="font-size:${fs}px;grid-template-columns:repeat(${cols},1fr)">${TERMS.map(([b, p], i) => `<div class="term"><div class="tn"><i>${n(i + 1)}</i><b>${b}</b></div><p>${p}</p></div>`).join('')}</div>`;
@@ -76,9 +78,10 @@ const reportPage = (cls = '', blurred = false) => `<div class="rp ${cls}">
   ${blurred ? '' : '<div class="rp-foot">בכל נכס: תאריכי המפנה, תרחישים ורמות לבדיקה</div>'}
 </div>`;
 const reportStack = (scale) => `<div class="rstack" style="transform:scale(${scale})">
-  <div class="rp-wrap back2">${reportPage('blur', true)}<span class="lock">לחברי הקהילה</span></div>
-  <div class="rp-wrap back1">${reportPage('blur', true)}<span class="lock">לחברי הקהילה</span></div>
+  <div class="rp-wrap back2">${reportPage('blur', true)}</div>
+  <div class="rp-wrap back1">${reportPage('blur', true)}</div>
   <div class="rp-wrap front">${reportPage()}</div>
+  <span class="lock l2">לחברי הקהילה</span><span class="lock l1">לחברי הקהילה</span>
 </div>`;
 
 // ---------- banners ----------
@@ -110,6 +113,7 @@ add('story-02-waitlist', 1080, 1920, 'story', `
       <div class="st"><i>${n('2')}</i><span>ב-${n('23/11')} מקבלים קישור להצטרפות</span></div>
       <div class="st"><i>${n('3')}</i><span>נכנסים לקהילה יום לפני שהיא נפתחת לכולם</span></div>
     </div>
+    ${chips(COMM_CHIPS, 30)}
   </div>
   ${cta('אני רוצה להיות ברשימה', 46)}
   ${disc(26, 'margin-top:44px')}
@@ -118,8 +122,9 @@ add('story-02-waitlist', 1080, 1920, 'story', `
 add('sq-w1-inside', 1080, 1080, 'sq', `
   <div class="row-top">${logo(220)}${tag('בלאק פריידי · רשימת המתנה', 24)}</div>
   ${head('שבוע רגיל <span class="hl">בתוך הקהילה</span>', 70, 'margin-top:44px')}
-  <div style="margin-top:46px;width:100%">${lives(30)}</div>
-  <div class="strip" style="font-size:28px;margin-top:34px">ובין הלייבים: כל חדרי הדיסקורד · ${n('2,000+')} סוחרים · ${n('9')} מנטורים</div>
+  <div style="margin-top:44px;width:100%">${lives(30)}</div>
+  <div class="strip" style="font-size:28px;margin-top:30px">ובין הלייבים: כל חדרי הדיסקורד · ${n('2,000+')} סוחרים · ${n('9')} מנטורים</div>
+  <div style="margin-top:22px">${rooms(22)}</div>
   <div class="grow"></div>
   ${disc(22)}
 `);
@@ -128,8 +133,9 @@ add('sq-w2-report', 1080, 1080, 'sq', `
   <div class="row-top">${logo(220)}${tag('ובנוסף לקהילה', 24)}</div>
   ${head('<span class="hl">הדוח החודשי</span>', 76, 'margin-top:44px')}
   <p class="sub" style="font-size:34px;margin-top:34px">תאריכי המפנה הצפויים ב-${n('5')} נכסים, בתחילת כל חודש</p>
-  <div class="stat" style="margin-top:20px"><b class="n" style="font-size:190px">76.8%</b><span style="font-size:32px">פגיעה ב-${n('12')} החודשים האחרונים</span></div>
-  <div style="margin-top:30px">${assets(30)}</div>
+  <div class="stat" style="margin-top:20px"><b class="n" style="font-size:230px">76.8%</b><span style="font-size:34px">פגיעה ב-${n('12')} החודשים האחרונים</span></div>
+  <div style="margin-top:40px">${assets(32)}</div>
+  <p class="sub" style="font-size:28px;margin-top:40px">הדוח הוא חלק מהקהילה. עליו בנויים חלק מהלייבים והחדרים.</p>
   <div class="grow"></div>
   <div class="fine" style="font-size:22px;margin-bottom:8px">ממוצע של ${n('60')} תחזיות. ביצועי עבר אינם מעידים על העתיד.</div>
   ${disc(22)}
@@ -168,13 +174,14 @@ add('p45-w2-fit', 1080, 1350, 'p45', `
 add('p45-w3-waiting', 1080, 1350, 'p45', `
   ${logo(260)}
   ${head('מה מחכה <span class="hl">ברשימה</span>', 84, 'margin-top:50px')}
-  <div class="vps" style="font-size:32px;margin-top:56px">
+  <div class="vps" style="font-size:34px;margin-top:56px;gap:36px">
     <div class="vp"><i>${n('1')}</i><div><h3>גישה מוקדמת ב-${n('23/11')}</h3><p>נכנסים לקהילה 24 שעות לפני שהיא נפתחת לכולם.</p></div></div>
     <div class="vp"><i>${n('2')}</i><div><h3>קישור הצטרפות אישי</h3><p>ביום הפתיחה, בלי לחפש ובלי לפספס.</p></div></div>
-    <div class="vp"><i>${n('3')}</i><div><h3>מחיר בלאק פריידי</h3><p>חודש ראשון בקהילה ב-${n('197 ₪')} במקום ${n('450 ₪')}.</p></div></div>
+    <div class="vp"><i>${n('3')}</i><div><h3>מחיר בלאק פריידי</h3><p>חודש ראשון בקהילה ב-${n('197') + '&nbsp;₪'} במקום ${n('450') + '&nbsp;₪'}.</p></div></div>
   </div>
-  ${renew(34, 'margin-top:44px')}
+  ${renew(36, 'margin-top:56px')}
   <div class="grow"></div>
+  ${chips(COMM_CHIPS, 28, 'margin:40px 0 44px')}
   ${cta('להרשמה לרשימת ההמתנה', 40)}
   ${disc(23, 'margin-top:34px')}
 `);
@@ -183,7 +190,7 @@ add('report-peek-waitlist', 1080, 1350, 'p45', `
   ${logo(240)}
   ${head('הצצה <span class="hl">לדוח החודשי</span>', 74, 'margin-top:40px')}
   <p class="sub" style="font-size:30px;margin-top:26px">ככה בנוי הדוח. התוכן עצמו נשמר לחברי הקהילה.</p>
-  <div class="rbox" style="height:690px;margin-top:20px">${reportStack(1)}</div>
+  <div class="rbox" style="height:760px;margin-top:20px">${reportStack(1.08)}</div>
   <div class="strip" style="font-size:30px">מי שברשימה נכנס ראשון ב-${n('23/11')}</div>
   <div class="grow"></div>
   ${disc(23)}
@@ -193,13 +200,13 @@ add('hero-desktop-waitlist', 1920, 700, 'hd', `
   <div class="hd-main">
     ${logo(240)}
     ${tag(`בלאק פריידי · רשימת המתנה ${n('13–22/11')}`, 24, 'margin-top:26px')}
-    ${head('מי שברשימה <span class="hl">נכנס ראשון</span> לקהילה', 66, 'margin-top:28px')}
-    <p class="sub" style="font-size:27px;margin-top:28px;max-width:960px">${n('4')} לייבים בשבוע, כל חדרי הדיסקורד, ${n('2,000+')} סוחרים ו-${n('9')} מנטורים. ובנוסף, הדוח החודשי.</p>
+    ${head('מי שברשימה<br><span class="hl">נכנס ראשון</span> לקהילה', 72, 'margin-top:24px')}
+    <p class="sub" style="font-size:26px;margin-top:26px;max-width:860px">${n('4')} לייבים בשבוע, כל חדרי הדיסקורד, ${n('2,000+')} סוחרים ו-${n('9')} מנטורים. ובנוסף, הדוח החודשי.</p>
     <div class="hd-act">${cta('להרשמה לרשימת ההמתנה', 30)}${disc(18)}</div>
   </div>
   <div class="hd-side">
     <div class="date-card sm"><span class="dc-k">גישה מוקדמת</span><b>${n('23/11')}</b><span class="dc-s">24 שעות לפני כולם</span></div>
-    ${ziv(400, 520, 28)}
+    ${ziv(340, 560, 26)}
   </div>
 `);
 
@@ -214,11 +221,11 @@ add('hero-mobile-waitlist', 1080, 1350, 'p45', `
   ${disc(23, 'margin-top:34px')}
 `);
 
-const mail = (name, h, sub) => add(name, 600, 200, 'mail', `
-  <div class="m-txt">${head(h, 38)}${sub ? `<span class="m-sub">${sub}</span>` : ''}</div>
-  ${logo(150)}
+const mail = (name, h, sub, fs = 40) => add(name, 600, 200, 'mail', `
+  <div class="m-txt">${head(h, fs)}${sub ? `<span class="m-sub">${sub}</span>` : ''}</div>
+  ${logo(124)}
 `);
-mail('mail-w1-list', 'רשימת בלאק פריידי <span class="hl">נפתחה</span>', `נכנסים ראשונים ב-${n('23/11')}`);
+mail('mail-w1-list', 'רשימת בלאק פריידי <span class="hl">נפתחה</span>', `נכנסים ראשונים ב-${n('23/11')}`, 30);
 mail('mail-w2-report', 'הצצה <span class="hl">לדוח</span>', 'ככה בנוי הדוח החודשי');
 mail('mail-w3-tomorrow', 'מחר <span class="hl">נפתח</span>', `${n('23/11')} · גישה מוקדמת לרשימה`);
 
@@ -230,7 +237,7 @@ const storyOffer = (name, tagT, headH, mid, ctaT, foot) => add(name, 1080, 1920,
     ${head(headH, 92, 'max-width:920px')}
     ${mid}
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow">${price(290)}</div>
+    <div class="glow">${price(250)}</div>
     ${renew(40)}
   </div>
   ${cta(ctaT, 46)}
@@ -247,11 +254,11 @@ const clock = (units, fs) => `<div class="clock" style="font-size:${fs}px">${uni
 storyOffer('story-05-24h', 'בלאק פריידי · היום האחרון מתקרב', 'נשארו <span class="hl">24 שעות</span>',
   clock([[n('24'), 'שעות'], [n('00'), 'דקות'], [n('00'), 'שניות']], 30), 'להצטרפות לפני שנסגר', `המבצע נסגר ב-${n('30/11')} בשעה ${n('23:59')}`);
 storyOffer('story-06-tonight', `${n('30/11')} · הזדמנות אחרונה`, 'נסגר <span class="hl">הלילה</span>',
-  `<div class="date-card"><span class="dc-k">המבצע נסגר בשעה</span><b>${n('23:59')}</b></div>`, 'להצטרפות עכשיו', 'אחרי הלילה המחיר חוזר ל-' + n('450 ₪') + ' לחודש');
+  `<div class="date-card"><span class="dc-k">המבצע נסגר בשעה</span><b>${n('23:59')}</b></div>`, 'להצטרפות עכשיו', 'אחרי הלילה המחיר חוזר ל-' + n('450') + '&nbsp;₪' + ' לחודש');
 
 add('sq-o1-inside', 1080, 1080, 'sq', `
   <div class="row-top">${logo(220)}${tag('בלאק פריידי', 24)}</div>
-  ${head(`מה מקבלים <span class="hl">ב-${n('197 ₪')}</span>`, 72, 'margin-top:40px')}
+  ${head(`מה מקבלים <span class="hl">ב-${n('197') + '&nbsp;₪'}</span>`, 72, 'margin-top:40px')}
   <div class="pillars3" style="font-size:30px;margin-top:44px">
     <div class="pc"><i>${n('1')}</i><div><h3>${n('4')} לייבים בשבוע</h3><p>זיו, מני, רועי וגולן. ניתוחים, תרחישים ושאלות.</p></div></div>
     <div class="pc"><i>${n('2')}</i><div><h3>כל חדרי הדיסקורד</h3><p>מומחי מניות, חדר לכל נכס, רעיונות מסחר, קריפטו, מט"ח, נוסטרו וטווח ארוך.</p></div></div>
@@ -312,7 +319,7 @@ add('p45-o3-payment', 1080, 1350, 'p45', `
   <div style="margin-top:54px;width:100%">${terms(32, 1)}</div>
   <div class="grow"></div>
   ${renew(34)}
-  ${cta('להצטרפות ב-' + n('197 ₪'), 38, 'margin-top:36px')}
+  ${cta('להצטרפות ב-' + n('197') + '&nbsp;₪', 38, 'margin-top:36px')}
   ${disc(23, 'margin-top:28px')}
 `);
 
@@ -358,8 +365,8 @@ add('hero-mobile-open', 1080, 1350, 'p45', `
 
 mail('mail-o1-open', 'הקהילה <span class="hl">נפתחה</span>', `בלאק פריידי · עד ${n('30/11')}`);
 add('mail-o2-bf', 600, 200, 'mail mail-p', `
-  <div class="m-txt">${head('<span class="hl">בלאק פריידי</span>', 34)}<div class="renew" style="font-size:16px;margin-top:14px;padding:6px 12px">${RENEW}</div></div>
-  <div class="m-pr">${price(66, 12)}</div>
+  <div class="m-txt">${head('<span class="hl">בלאק פריידי</span>', 34)}<div class="renew" style="font-size:15px;margin-top:14px;padding:6px 10px">${RENEW}</div></div>
+  <div class="m-pr">${logo(104)}${price(58, 14)}</div>
 `);
 mail('mail-o3-tonight', 'נסגר <span class="hl">הלילה</span>', `המבצע נסגר ב-${n('23:59')}`);
 

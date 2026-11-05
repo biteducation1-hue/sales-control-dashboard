@@ -23,8 +23,8 @@ const path = require('path');
         if (!e.width) return;
         if (e.left < r.left - 1 || e.right > r.right + 1 || e.top < r.top - 1 || e.bottom > r.bottom + 1)
           out.push(`${bn.dataset.name}: outside <${el.className || el.tagName}> "${(el.textContent || '').trim().slice(0, 30)}"`);
-        if (el.scrollWidth > el.clientWidth + 2 && getComputedStyle(el).overflow !== 'visible')
-          out.push(`${bn.dataset.name}: clipped <${el.className}>`);
+        if (el.clientWidth && el.scrollWidth > el.clientWidth + 2 && !el.querySelector('svg') && !el.closest('.price'))
+          out.push(`${bn.dataset.name}: text overflows <${el.className}> ${el.scrollWidth}>${el.clientWidth}`);
       });
       const last = bn.lastElementChild.getBoundingClientRect();
       if (last.bottom > r.bottom - 20) out.push(`${bn.dataset.name}: content reaches bottom edge (${Math.round(last.bottom - r.top)}/${r.height})`);
