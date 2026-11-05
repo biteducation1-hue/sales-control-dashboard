@@ -81,8 +81,8 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
 .arow{position:absolute;right:30px;left:30px;height:118px;border-bottom:2px dashed #cfd5da}
 .arow .an{position:absolute;right:0;top:12px;font-size:32px;font-weight:900;white-space:nowrap}
 .arow .lb{position:absolute;right:0;top:58px;font-size:21px;font-weight:800;color:#2f8f1e;white-space:nowrap}
-.arow .dates{position:absolute;left:0;top:18px;display:flex;gap:10px;direction:ltr;filter:blur(9px)}
-.arow .dates span{font-size:30px;font-weight:900;background:#e8f6dd;border:2px solid #7ed957;border-radius:10px;padding:2px 12px;color:#1e332f}
+.arow .dates{position:absolute;left:0;top:22px;display:flex;gap:8px;direction:ltr;filter:blur(9px)}
+.arow .dates span{font-size:24px;font-weight:900;background:#e8f6dd;border:2px solid #7ed957;border-radius:10px;padding:2px 12px;color:#1e332f}
 .arow .sk{position:absolute;left:0;height:13px;border-radius:7px;background:#c9cfd4;filter:blur(3px)}
 .stamp{position:absolute;font-size:20px;font-weight:800;color:#b07a00;background:rgba(255,209,102,.25);border:2px dashed #d9a400;border-radius:8px;padding:2px 12px;white-space:nowrap}
 .bigpct{position:absolute;font-size:200px;font-weight:900;color:var(--green);line-height:1;direction:ltr;text-shadow:0 0 60px rgba(126,217,87,.35)}
@@ -97,6 +97,18 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
 .strike{position:absolute;height:5px;background:var(--coral);border-radius:3px;top:52%;right:-6px;transform-origin:right center}
 .now{position:absolute;font-size:300px;font-weight:900;color:var(--green);line-height:1;white-space:nowrap;text-shadow:0 0 70px rgba(126,217,87,.30)}
 .now small{font-size:.38em}
+.pb{position:absolute;display:flex;align-items:center;gap:44px;direction:rtl;white-space:nowrap}
+.pc{display:flex;flex-direction:column;align-items:center;text-align:center;border-radius:34px;gap:4px}
+.pc .pt{font-size:36px;font-weight:800}.pc .ps{font-size:34px;font-weight:700}
+.pc .pp{font-weight:900;line-height:1.05;white-space:nowrap;position:relative}
+.pc.reg{background:rgba(13,18,22,.6);border:3px solid rgba(255,255,255,.22);padding:34px 56px}
+.pc.reg .pt,.pc.reg .ps{color:rgba(255,255,255,.66)}
+.pc.reg .pp{font-size:120px;color:rgba(255,255,255,.88)}
+.pc.reg .strike{position:absolute;left:-6%;right:-6%;top:50%;height:6px;background:rgba(255,255,255,.85);border-radius:3px;transform-origin:right center}
+.pc.bfc{background:var(--green);color:#0f200e;border:5px solid var(--ink);box-shadow:12px 13px 0 var(--ink),0 0 70px rgba(126,217,87,.25);padding:34px 70px 38px}
+.pc.bfc .pp{font-size:250px}
+.arr{font-size:110px;font-weight:900;color:var(--green);line-height:1}
+.renewsm{position:absolute;font-size:34px;font-weight:500;color:rgba(255,255,255,.66);white-space:nowrap}
 .renew{position:absolute;background:#fff;color:var(--board);border:4px solid var(--ink);box-shadow:7px 8px 0 var(--ink);border-radius:14px;padding:14px 34px;font-weight:900;font-size:40px;white-space:nowrap}
 /* S8 */
 .cta{position:absolute;width:760px;height:124px;border-radius:24px;background:var(--green);color:#0f200e;border:5px solid var(--ink);box-shadow:8px 9px 0 var(--ink),0 0 50px rgba(126,217,87,.35);display:flex;align-items:center;justify-content:center;font-size:48px;font-weight:900;white-space:nowrap}
@@ -170,8 +182,8 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
     <div class="hbox a" style="font-size:80px;right:50%;top:70px" data-t="32.2" data-k="pop" data-cx="1"><span class="hl">9 מנטורים</span> שעונים כל יום</div>
     <div id="avs"></div>
     <div id="days"></div>
-    <div class="shot a" style="left:96px;top:330px;width:300px;border-radius:24px" data-t="35.6" data-k="pop" data-r="-3"><img src="../assets/site/site-community-box-mentors.png"></div>
-    <div class="src a" style="left:96px;top:722px" data-t="35.8" data-k="fade">מתוך עמוד הקהילה באתר</div>
+    <div class="shot a" style="left:190px;top:250px;width:400px;border-radius:24px" data-t="35.6" data-k="pop" data-r="-3"><img src="../assets/site/site-community-box-mentors.png"></div>
+    <div class="src a" style="left:200px;top:770px" data-t="35.8" data-k="fade">מתוך עמוד הקהילה באתר</div>
   </div>
 
   <!-- S5 REPORT 38.5-52.5 -->
@@ -203,7 +215,7 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
   <!-- S6 RECEIPT 52.5-60.5 -->
   <div class="scene" id="s6" data-s="52.5" data-e="60.5">
     <div class="hbox a" style="font-size:80px;right:110px;top:300px" data-t="52.7" data-k="pop"><span class="hl">הכל</span> בחודש אחד</div>
-    <div class="kick a" style="right:118px;top:470px;font-size:36px" data-t="53.1" data-k="up">וזה רק החודש הראשון שלך בפנים</div>
+    <div class="kick a" style="right:118px;top:470px;font-size:36px" data-t="53.1" data-k="up">כל זה כלול במנוי לקהילה</div>
     <div class="receipt a" style="left:150px;top:90px;width:820px" data-t="52.9" data-k="up" data-r="-1.4">
       <h3>סייקלס טריידינג · קבלה</h3><div class="sub">חודש אחד בקהילה</div>
       <div class="rrow a" data-t="53.6" data-k="right"><span>כ-17 לייבים עם 4 מנטורים</span><span class="yes">✓ כלול</span></div>
@@ -219,17 +231,18 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
   <!-- S7 PRICE 60.5-69.5 (simple, pending owner's choice) -->
   <div class="scene" id="s7" data-s="60.5" data-e="69.5">
     <div class="bf">
-      <div class="kick a" style="right:50%;top:120px;font-size:38px" data-t="60.7" data-k="up" data-cx="1">בלאק פריידי · החודש הראשון</div>
-      <div class="was a" id="was" style="right:50%;top:190px" data-t="61.0" data-k="up" data-cx="1">במקום <span class="ltr num" style="position:relative">450 ₪<i class="strike" id="strike" style="left:-6px;right:-6px"></i></span></div>
-      <div class="now a num" style="right:50%;top:300px" data-t="62.2" data-k="pop" data-cx="1"><span class="ltr">197 <small>₪</small></span></div>
-      <div class="kick a" style="right:50%;top:640px;font-size:46px;color:var(--gl)" data-t="63.6" data-k="up" data-cx="1">פחות מ-7 ₪ ליום</div>
-      <div class="renew a" style="right:50%;top:760px" data-t="64.8" data-k="up" data-cx="1">מהחודש השני 450 ₪ לחודש, ביטול בכל עת</div>
+      <div class="pb a" style="right:50%;top:230px" data-t="60.7" data-k="fade" data-cx="1">
+        <div class="pc reg a" data-t="60.8" data-k="up"><span class="pt">מחיר רגיל</span><span class="pp num"><span class="ltr">450 ₪</span><i class="strike" id="strike"></i></span><span class="ps">לחודש</span></div>
+        <span class="arr a" data-t="62.1" data-k="left">←</span>
+        <div class="pc bfc a" data-t="62.5" data-k="pop" data-r="-1.5"><span class="pt">בלאק פריידי · חודש ראשון</span><span class="pp num"><span class="ltr">197 ₪</span></span><span class="ps">פחות מ-7 ₪ ליום</span></div>
+      </div>
+      <div class="renewsm a" style="right:50%;top:800px" data-t="64.2" data-k="fade" data-cx="1">מהחודש השני 450 ₪ לחודש, ביטול בכל עת</div>
     </div>
     <div class="ev">
       <div class="kick a" style="right:50%;top:180px;font-size:40px" data-t="60.7" data-k="up" data-cx="1">כל מה שראיתם, במנוי חודשי</div>
       <div class="now a num" style="right:50%;top:270px" data-t="61.6" data-k="pop" data-cx="1"><span class="ltr">450 <small>₪</small></span></div>
       <div class="kick a" style="right:50%;top:610px;font-size:46px;color:var(--gl)" data-t="63.0" data-k="up" data-cx="1">לחודש · פחות מ-15 ₪ ליום</div>
-      <div class="renew a" style="right:50%;top:740px" data-t="64.4" data-k="up" data-cx="1">ביטול בכל עת</div>
+      <div class="renewsm a" style="right:50%;top:760px" data-t="64.4" data-k="fade" data-cx="1">ביטול בכל עת</div>
     </div>
   </div>
 
@@ -268,7 +281,7 @@ const eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
   // 3 x 3 grid, right block
   for(let i=0;i<9;i++){const r=Math.floor(i/3),c=i%3;
     const d=document.createElement('div');d.className='av a';
-    d.style.left=(1180+ (2-c)*200 - (r%2)*0)+'px';d.style.top=(260+r*190)+'px';
+    d.style.left=(1000+(2-c)*200)+'px';d.style.top=(260+r*190)+'px';
     d.dataset.t=(32.7+i*0.22).toFixed(2);d.dataset.k='pop';d.innerHTML=person;
     // chat bubble tick
     const bub=document.createElement('div');bub.className='abs';bub.style.cssText='left:-14px;top:-10px;width:54px;height:44px;border-radius:14px 14px 14px 4px;background:#fff;border:3px solid #0d1216;color:#2f8f1e;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center';bub.textContent='✓';
@@ -276,7 +289,7 @@ const eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
   const days=document.getElementById('days');
   ['א׳','ב׳','ג׳','ד׳','ה׳','ו׳'].forEach((n,i)=>{const d=document.createElement('div');d.className='day a';
     d.style.left=(1700-170-i*150 - 420)+'px';d.style.top='860px';
-    d.style.left=(1660-i*150-120)+'px';
+    d.style.left=(1500-i*150)+'px';
     d.dataset.t=(34.4+i*0.25).toFixed(2);d.dataset.k='up';d.dataset.r=(i%2?2:-2);
     d.innerHTML='<b>'+n+'</b><i>✓</i>';days.appendChild(d);});
 })();
@@ -328,7 +341,7 @@ window.render=function(t){
   }
   // S7 strike
   const st=document.getElementById('strike');
-  if(st){const p=eOut(prog(t,61.6,0.45));st.style.transform=`scaleX(${p})`;}
+  if(st){const p=eOut(prog(t,61.5,0.45));st.style.transform=`rotate(-8deg) scaleX(${p})`;}
   // S8 rings + cursor
   const r1=document.getElementById('ring1');
   if(r1){
