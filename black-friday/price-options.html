@@ -1,0 +1,88 @@
+<title>אפשרויות לבלוק המחיר</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap">
+<style>
+/* layout: three numbered options stacked, each on the landing-page board so they are judged in context */
+:root{color-scheme:dark;--board:#20272e;--deep:#151b20;--ink:#0d1216;--white:#fff;--muted:rgba(255,255,255,.66);
+--green:#7ed957;--green-dark:#1e332f;--green-light:#c9ed8a;--card-a:#21392f;--card-b:#16221d;--font:"Heebo",Arial,sans-serif}
+*{box-sizing:border-box}
+body{margin:0;background:var(--board);color:var(--white);font-family:var(--font);direction:rtl;
+ background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:90px 90px}
+.wrap{max-width:980px;margin:0 auto;padding-block:32px 80px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));display:flex;flex-direction:column;gap:30px}
+h1{margin:0;font-size:clamp(26px,4vw,36px);font-weight:900}
+.lead{color:var(--muted);margin:6px 0 0;max-width:60ch;line-height:1.6}
+.opt{border:1px solid rgba(126,217,87,.25);border-radius:22px;background:rgba(13,18,22,.35);padding:28px 20px 30px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.opt-label{align-self:flex-start;display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.opt-label b{background:var(--green);color:#0f200e;font-weight:900;border-radius:10px;padding:2px 12px;font-size:18px}
+.opt-label span{color:var(--muted);font-size:15px}
+.renew{background:var(--white);color:var(--board);border-radius:10px;padding:10px 18px;font-weight:900;font-size:clamp(15px,2vw,18px);text-align:center}
+.num{font-variant-numeric:tabular-nums;direction:ltr;unicode-bidi:isolate}
+
+/* A: stacked, clean */
+.a{display:flex;flex-direction:column;align-items:center;gap:6px}
+.a .was{font-size:22px;font-weight:700;color:var(--muted)}
+.a .was s{text-decoration-thickness:3px;text-decoration-color:rgba(255,255,255,.7);color:var(--white)}
+.a .now{font-size:clamp(88px,15vw,140px);font-weight:900;line-height:1;color:var(--green)}
+.a .now small{font-size:.38em;margin-inline-start:6px}
+.a .per{font-size:20px;font-weight:800;color:var(--green-light)}
+
+/* B: compare cards */
+.b{display:grid;grid-template-columns:1fr auto 1.25fr;gap:14px;align-items:center;width:100%;max-width:720px}
+.b .card{border-radius:20px;padding:20px;text-align:center;display:flex;flex-direction:column;gap:4px}
+.b .reg{background:rgba(13,18,22,.6);border:2px solid rgba(255,255,255,.18)}
+.b .reg .t{color:var(--muted);font-weight:700}
+.b .reg .p{font-size:46px;font-weight:900;color:rgba(255,255,255,.8);position:relative;display:inline-block;align-self:center}
+.b .reg .p::after{content:"";position:absolute;inset-inline:-6px;top:52%;height:4px;background:rgba(255,255,255,.75);border-radius:2px;transform:rotate(-8deg)}
+.b .reg .s{font-size:14px;color:var(--muted)}
+.b .arrow{font-size:34px;color:var(--green);font-weight:900}
+.b .bf{background:var(--green);color:#0f200e;border:4px solid var(--ink);box-shadow:7px 8px 0 var(--ink)}
+.b .bf .t{font-weight:900}
+.b .bf .p{font-size:76px;font-weight:900;line-height:1}
+.b .bf .s{font-weight:800}
+
+/* C: tag with saving */
+.c{display:flex;align-items:stretch;background:var(--white);color:var(--board);border:5px solid var(--ink);box-shadow:9px 10px 0 var(--ink);border-radius:24px;overflow:hidden;max-width:640px;width:100%}
+.c .main{flex:1;padding:22px 24px;display:flex;flex-direction:column;gap:4px;min-width:0}
+.c .t{font-weight:800;color:#3c4650}
+.c .row{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.c .p{font-size:clamp(70px,12vw,100px);font-weight:900;line-height:1}
+.c .was{font-size:24px;font-weight:800;color:#6b747c}
+.c .was s{text-decoration-thickness:3px;text-decoration-color:#20272e}
+.c .side{background:var(--green);display:flex;flex-direction:column;justify-content:center;align-items:center;padding:16px 20px;text-align:center;border-inline-start:5px solid var(--ink);min-width:140px}
+.c .side b{font-size:34px;font-weight:900;line-height:1}
+.c .side span{font-weight:800;font-size:14px}
+@media (max-width:640px){.b{grid-template-columns:1fr}.b .arrow{transform:rotate(-90deg);justify-self:center}.c{flex-direction:column}.c .side{border-inline-start:0;border-top:5px solid var(--ink)}}
+</style>
+
+<div class="wrap">
+  <header><h1>בלוק המחיר: 3 אפשרויות</h1><p class="lead">כל אפשרות מוצגת על הרקע של דף הנחיתה. בכולן ה-450 קריא, וה-197 ברור במבט אחד. אחרי שתבחר, אעדכן את הדף, את 33 הבאנרים ואת הסרטון.</p></header>
+
+  <section class="opt">
+    <div class="opt-label"><b>א</b><span>נקי ומדורג: המחיר הרגיל קטן למעלה, ה-197 ענק בירוק</span></div>
+    <div class="a">
+      <span class="was">במקום <s class="num">450 ₪</s></span>
+      <span class="now"><span class="num">197</span><small>₪</small></span>
+      <span class="per">לחודש הראשון · פחות מ-7 ₪ ליום</span>
+    </div>
+    <span class="renew">מהחודש השני 450 ₪ לחודש · ביטול בכל עת</span>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><b>ב</b><span>השוואה: כרטיס "מחיר רגיל" מול כרטיס "בלאק פריידי"</span></div>
+    <div class="b">
+      <div class="card reg"><span class="t">מחיר רגיל</span><span class="p num">450 ₪</span><span class="s">לחודש</span></div>
+      <div class="arrow" aria-hidden="true">←</div>
+      <div class="card bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="p"><span class="num">197</span> ₪</span><span class="s">פחות מ-7 ₪ ליום</span></div>
+    </div>
+    <span class="renew">מהחודש השני 450 ₪ לחודש · ביטול בכל עת</span>
+  </section>
+
+  <section class="opt">
+    <div class="opt-label"><b>ג</b><span>תגית: המחיר על כרטיס לבן, והחיסכון בצד</span></div>
+    <div class="c">
+      <div class="main"><span class="t">חודש ראשון בקהילה</span><div class="row"><span class="p"><span class="num">197</span> ₪</span><span class="was">במקום <s class="num">450 ₪</s></span></div></div>
+      <div class="side"><span>חוסכים</span><b class="num">253 ₪</b><span>בחודש הראשון</span></div>
+    </div>
+    <span class="renew">מהחודש השני 450 ₪ לחודש · ביטול בכל עת</span>
+  </section>
+</div>
