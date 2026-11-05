@@ -152,8 +152,15 @@ section.view[hidden]{display:none}
 .steps-row{display:grid;grid-template-columns:repeat(6,1fr);gap:8px}
 .steps-row div{background:var(--green-dark);border:2px solid var(--line);border-radius:14px;padding:12px;font-size:14px;position:relative}
 .steps-row b{display:block;color:var(--green);font-size:15px}
-.flow-box{background:#f6f8f5;border:4px solid var(--ink);box-shadow:7px 8px 0 var(--ink);border-radius:18px;padding:16px;overflow-x:auto}
-.flow-box pre{margin:0;text-align:center;color:#20272e;direction:ltr}
+.flow-box{background:#f6f8f5;direction:rtl;border:4px solid var(--ink);box-shadow:7px 8px 0 var(--ink);border-radius:18px;padding:16px;overflow-x:auto}
+.fc{display:flex;flex-direction:column;align-items:center;gap:0;min-width:0}
+.fn{background:#fff;color:#20272e;border:3px solid #0d1216;border-radius:12px;padding:8px 14px;font-weight:800;font-size:14.5px;text-align:center;max-width:260px;box-shadow:3px 4px 0 #0d1216}
+.fn.q{background:#20272e;color:#7ed957;border-color:#7ed957;border-radius:999px}
+.fn.key{background:#7ed957;color:#0f200e}.fn.ok{background:#c9ed8a}.fn.soft{background:#eef0f2;color:#4b5563;border-style:dashed}
+.fa{color:#3f7d33;font-weight:900;font-size:20px;line-height:1.4;text-align:center}
+.fb{display:flex;gap:18px;justify-content:center;align-items:flex-start;flex-wrap:wrap;margin-top:6px;width:100%}
+.fcol{display:flex;flex-direction:column;align-items:center;border-top:3px solid #7ed957;padding-top:6px;min-width:150px;flex:1 1 150px;max-width:340px}
+.fl{background:#1e332f;color:#c9ed8a;font-weight:800;font-size:13px;border-radius:999px;padding:2px 10px;margin-bottom:6px}
 .tbl-scroll{overflow-x:auto}
 .tbl{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
 .tbl th{text-align:right;color:var(--green-light);padding:8px;border-bottom:2px solid var(--line)}
@@ -311,7 +318,7 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
   <ul class="checklist"><li><b>קופונים אישיים בקופה:</b> אפשר לייצר אותם בכמות דרך WooCommerce, או להשתמש בתוסף שותפים כמו AffiliateWP. <span class="flag">[לבדוק עם אנאל]</span></li><li><b>חלוקת הקישורים:</b> טופס או בוט בדיסקורד שמחזיר לכל חבר את הקוד שלו.</li><li><b>גיליון מעקב:</b> קוד, שם, נרשמים ב-197, נשארו לחודש 2. בדשבורד יש לזה ערוץ נפרד, <code>referral</code>.</li><li><b>הרכישה של חבר קיים</b> בקוד של עצמו לא נספרת.</li></ul>
 </section>
 
-<section class="view off" id="v-process">
+<section class="view" id="v-process">
   <div class="cbox"><b>💬 איך מעירים הערות</b><ol><li><b>הצוות:</b> מסמנים טקסט או לוחצים על כל מקום בעמוד, וכותבים הערה. כולם רואים את כל ההערות, והן מתעדכנות בזמן אמת.</li><li><b>אישור:</b> הערה שבעל העסק מאשר מקבלת ממנו תשובה עם <b>Send to Claude</b>, או אזכור <b>@claude</b> בשרשור.</li><li><b>ביצוע:</b> אני מקבל את ההערה המאושרת, מבצע את השינוי, עונה בשרשור מה עשיתי, וסוגר אותו.</li></ol><p class="small">הערה שלא נשלחה ל-Claude נשארת פתוחה לדיון ולא מבוצעת.</p></div>
   <p class="intro">כל המהלך במבט אחד: השלבים, המסלול של לקוח מהמודעה ועד החידוש, איך עובדת תוכנית השגרירים, ומה חייב להיות מוכן ומתי.</p>
   <h3 class="mh">1 · השלבים</h3>
@@ -324,36 +331,9 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
     <div><b><bdi dir="ltr">1–30/12</bdi></b>קליטה ושימור, תזכורת לפני החיוב, חידוש</div>
   </div>
   <h3 class="mh">2 · המסלול של לקוח חדש</h3>
-  <div class="flow-box"><pre class="mermaid">
-flowchart TD
-  A["עוקב / ליד / חבר לשעבר"] --> B{"איך הגיע?"}
-  B -->|"סטורי / רילס / בוסט"| C["דף רשימת המתנה"]
-  B -->|"וואטסאפ / מייל"| C
-  B -->|"קישור של שגריר"| D["דף המכירה + קוד אישי"]
-  C --> E["23/11: קישור לגישה מוקדמת"]
-  E --> D
-  D --> F{"קנה ב-197 ₪?"}
-  F -->|"לא"| G["רצף תזכורות עד 30/11 + שיחת מוקד"]
-  G --> D
-  F -->|"כן"| H["מייל הרשמה + וואטסאפ קליטה"]
-  H --> I["שבוע 1: דיסקורד, לייב ראשון, שיחת צ'ק-אין"]
-  I --> J["הדוח החודשי בתחילת דצמבר"]
-  J --> K["תזכורת לפני החיוב ב-450 ₪"]
-  K --> L{"נשאר?"}
-  L -->|"כן"| M["מנוי ב-450 ₪ + הצעה למסלול שנתי"]
-  L -->|"לא"| N["ביטול בלחיצה + סקר קצר"]
-  </pre></div>
+  <div class="flow-box"><div class="fc"><div class="fn ">עוקב · ליד · חבר לשעבר</div><div class="fa">↓</div><div class="fn q">איך הגיע?</div><div class="fb"><div class="fcol"><span class="fl">סטורי · רילס · בוסט</span><div class="fn ">דף רשימת ההמתנה</div><div class="fa">↓</div><div class="fn ">23/11: קישור לגישה מוקדמת</div></div><div class="fcol"><span class="fl">וואטסאפ · מייל</span><div class="fn ">דף רשימת ההמתנה</div></div><div class="fcol"><span class="fl">קישור של שגריר</span><div class="fn ">דף המכירה + קוד אישי</div></div></div><div class="fa">↓</div><div class="fn key">דף המכירה</div><div class="fa">↓</div><div class="fn q">קנה ב-197 ₪?</div><div class="fb"><div class="fcol"><span class="fl">לא</span><div class="fn soft">תזכורות עד 30/11 + שיחת מוקד</div><div class="fa">↺ חוזר לדף המכירה</div></div><div class="fcol"><span class="fl">כן</span><div class="fn ">מייל הרשמה + וואטסאפ קליטה</div><div class="fa">↓</div><div class="fn ">שבוע 1: דיסקורד, לייב ראשון, שיחת צ'ק-אין</div><div class="fa">↓</div><div class="fn ">הדוח החודשי בתחילת דצמבר</div><div class="fa">↓</div><div class="fn ">תזכורת לפני החיוב ב-450 ₪</div><div class="fa">↓</div><div class="fn q">נשאר?</div><div class="fb"><div class="fcol"><span class="fl">כן</span><div class="fn ok">מנוי ב-450 ₪ + הצעה למסלול שנתי</div></div><div class="fcol"><span class="fl">לא</span><div class="fn soft">ביטול בלחיצה + סקר קצר</div></div></div></div></div></div></div>
   <h3 class="mh">3 · תוכנית השגרירים</h3>
-  <div class="flow-box"><pre class="mermaid">
-flowchart LR
-  A["חבר פעיל"] --> B["מקבל קוד אישי"]
-  B --> C["משתף בוואטסאפ"]
-  C --> D["חבר חדש קונה עם הקוד"]
-  D --> E["נספר בלוח המובילים"]
-  E --> F{"נשאר לחודש 2?"}
-  F -->|"כן"| G["השגריר מקבל חודש חינם"]
-  F -->|"לא"| H["לא נספר בתגמול"]
-  </pre></div>
+  <div class="flow-box"><div class="fc"><div class="fn ">חבר פעיל</div><div class="fa">↓</div><div class="fn ">מקבל קוד אישי</div><div class="fa">↓</div><div class="fn ">משתף בוואטסאפ</div><div class="fa">↓</div><div class="fn ">חבר חדש קונה עם הקוד</div><div class="fa">↓</div><div class="fn key">נספר בלוח המובילים</div><div class="fa">↓</div><div class="fn q">נשאר לחודש 2?</div><div class="fb"><div class="fcol"><span class="fl">כן</span><div class="fn ok">השגריר מקבל חודש חינם</div></div><div class="fcol"><span class="fl">לא</span><div class="fn soft">לא נספר בתגמול</div></div></div></div></div>
   <h3 class="mh">4 · מה חייב להיות מוכן, ומי אחראי</h3>
   <div class="tbl-scroll"><table class="tbl"><thead><tr><th>מה</th><th>עד</th><th>מי</th><th>מצב</th></tr></thead><tbody>
     <tr><td>תבניות וואטסאפ מאושרות במטא</td><td>10/11</td><td><span class="flag">[אחראי]</span></td><td><span class="st no">לא התחיל</span></td></tr>
