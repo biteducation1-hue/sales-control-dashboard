@@ -149,7 +149,8 @@ h1,h2,h3,p{margin:0}
 .tn b{color:#2f8f1e;font-weight:900}
 .term p{font-weight:700;line-height:1.38}
 .terms[style*="repeat(1"] .term{flex-direction:row;align-items:center;gap:24px}
-.terms[style*="repeat(1"] .tn{flex:none;width:9.9em}
+.terms[style*="repeat(1"] .tn{flex:none;width:8.9em}
+.terms[style*="repeat(1"] .tn b{font-size:.92em}
 
 /* report pages */
 .rbox{position:relative;width:100%;display:flex;justify-content:center;align-items:center}
@@ -199,3 +200,7 @@ h1,h2,h3,p{margin:0}
 .m-sub{color:var(--gl);font-weight:800;font-size:18px}
 .mail .renew{box-shadow:4px 5px 0 var(--ink);border-width:3px;border-radius:9px}
 .m-pr{flex:none;display:flex;flex-direction:column;align-items:center;gap:12px}
+
+.lives-sm .live{padding:18px 26px;gap:2px}
+.lives-sm .week{gap:18px}
+.rooms{gap:10px}

@@ -91,13 +91,13 @@ const add = (name, w, h, cls, html) => B.push({ name, w, h, cls, html });
 /* ===== WAITLIST PHASE ===== */
 add('story-01-teaser', 1080, 1920, 'story', `
   ${logo(330)}
-  <div class="grow col" style="gap:56px">
-    ${tag('בלאק פריידי 2026 · קהילת הסוחרים', 34)}
-    <div class="big-white" style="font-size:92px">אתם עוקבים<br>כבר מזמן.</div>
-    ${head('השנה <span class="hl">הדלת לקהילה</span> נפתחת', 92, 'max-width:900px')}
-    <div class="date-card" style="margin-top:30px"><span class="dc-k">שמרו את התאריך</span><b>${n('23/11')}</b><span class="dc-s">מי שברשימה נכנס ראשון</span></div>
+  <div class="grow col" style="gap:44px">
+    ${tag(`בלאק פריידי ${n('2026')} · קהילת הסוחרים`, 32)}
+    <div class="big-white" style="font-size:84px">אתם עוקבים כבר מזמן.</div>
+    ${head('השנה <span class="hl">הדלת לקהילה</span> נפתחת', 84, 'max-width:920px')}
+    <div class="date-card" style="margin-top:14px"><span class="dc-k">שמרו את התאריך</span><b>${n('23/11')}</b><span class="dc-s">מי שברשימה נכנס ראשון</span></div>
   </div>
-  ${chips(COMM_CHIPS, 30, 'margin-bottom:44px')}
+  ${chips(COMM_CHIPS, 28, 'margin:30px 0 40px')}
   ${cta('להרשמה לרשימת ההמתנה', 44)}
   ${disc(26, 'margin-top:44px')}
 `);
@@ -121,10 +121,10 @@ add('story-02-waitlist', 1080, 1920, 'story', `
 
 add('sq-w1-inside', 1080, 1080, 'sq', `
   <div class="row-top">${logo(220)}${tag('בלאק פריידי · רשימת המתנה', 24)}</div>
-  ${head('שבוע רגיל <span class="hl">בתוך הקהילה</span>', 70, 'margin-top:44px')}
-  <div style="margin-top:44px;width:100%">${lives(30)}</div>
-  <div class="strip" style="font-size:28px;margin-top:30px">ובין הלייבים: כל חדרי הדיסקורד · ${n('2,000+')} סוחרים · ${n('9')} מנטורים</div>
-  <div style="margin-top:22px">${rooms(22)}</div>
+  ${head('שבוע רגיל <span class="hl">בתוך הקהילה</span>', 66, 'margin-top:36px')}
+  <div style="margin-top:36px;width:100%" class="lives-sm">${lives(28)}</div>
+  <div class="strip" style="font-size:27px;margin-top:24px">ובין הלייבים: כל חדרי הדיסקורד · ${n('2,000+')} סוחרים · ${n('9')} מנטורים</div>
+  <div style="margin-top:18px">${rooms(21)}</div>
   <div class="grow"></div>
   ${disc(22)}
 `);
@@ -285,7 +285,7 @@ add('sq-o2-report', 1080, 1080, 'sq', `
 add('sq-o3-noprint', 1080, 1080, 'sq', `
   <div class="row-top">${logo(220)}${tag('בלאק פריידי', 24)}</div>
   ${head('<span class="hl">בלי</span> אותיות קטנות', 76, 'margin-top:40px')}
-  <div style="margin-top:54px;width:100%">${terms(33, 2)}</div>
+  <div style="margin-top:54px;width:100%">${terms(35, 2)}</div>
   <div class="grow"></div>
   ${renew(32)}
   ${disc(22, 'margin-top:26px')}
@@ -294,10 +294,10 @@ add('sq-o3-noprint', 1080, 1080, 'sq', `
 add('p45-o1-hero', 1080, 1350, 'p45', `
   ${logo(250)}
   ${head('חודש שלם בתוך <span class="hl">קהילת הסוחרים</span>', 66, 'margin-top:34px;max-width:900px')}
-  <div class="glow" style="margin-top:40px">${price(200)}</div>
+  <div class="glow" style="margin-top:44px">${price(220)}</div>
   <p class="per" style="font-size:30px;margin-top:14px">לחודש הראשון · בלאק פריידי</p>
   ${renew(32, 'margin-top:18px')}
-  <div style="margin-top:40px;width:100%">${pillars(25)}</div>
+  <div style="margin-top:44px;width:100%">${pillars(27)}</div>
   <div class="grow" style="min-height:36px"></div>
   ${cta('אני רוצה להיכנס לקהילה', 36)}
   ${disc(23, 'margin-top:30px')}
@@ -316,7 +316,7 @@ add('p45-o2-fit', 1080, 1350, 'p45', `
 add('p45-o3-payment', 1080, 1350, 'p45', `
   ${logo(240)}
   ${head('מה קורה עם התשלום, <span class="hl">בלי אותיות קטנות</span>', 68, 'margin-top:40px;max-width:940px')}
-  <div style="margin-top:54px;width:100%">${terms(32, 1)}</div>
+  <div style="margin-top:54px;width:100%">${terms(31, 1)}</div>
   <div class="grow"></div>
   ${renew(34)}
   ${cta('להצטרפות ב-' + n('197') + '&nbsp;₪', 38, 'margin-top:36px')}
@@ -354,11 +354,11 @@ add('hero-mobile-open', 1080, 1350, 'p45', `
   ${logo(260)}
   ${tag(`בלאק פריידי · נסגר ב-${n('30/11')} בשעה ${n('23:59')}`, 28, 'margin-top:36px')}
   ${head('חודש שלם בתוך <span class="hl">קהילת הסוחרים</span>', 74, 'margin-top:40px;max-width:920px')}
-  <div class="glow" style="margin-top:60px">${price(240)}</div>
+  <div class="glow" style="margin-top:50px">${price(230)}</div>
   <p class="per" style="font-size:32px;margin-top:22px">לחודש הראשון</p>
   ${renew(34, 'margin-top:22px')}
-  ${chips([[n('4'), 'לייבים בשבוע'], [n('2,000+'), 'סוחרים'], [n('9'), 'מנטורים'], ['+', 'הדוח החודשי']], 26, 'margin-top:44px')}
-  <div class="grow"></div>
+  ${chips([[n('4'), 'לייבים בשבוע'], [n('2,000+'), 'סוחרים'], [n('9'), 'מנטורים'], ['+', 'הדוח החודשי']], 26, 'margin-top:40px')}
+  <div class="grow" style="min-height:40px"></div>
   ${cta('אני רוצה להיכנס לקהילה', 40)}
   ${disc(23, 'margin-top:30px')}
 `);
