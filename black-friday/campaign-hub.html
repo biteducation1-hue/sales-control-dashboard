@@ -608,7 +608,12 @@ window.addEventListener('hashchange',route);route();
   targets.forEach(function(t){var b=document.createElement('button');b.type='button';b.className='cbtn';b.hidden=true;b.textContent='💬 להעיר כאן';
     b.addEventListener('click',function(){var c=window.__cm;if(!c)return;var el=t.tagName==='H3'?(t.nextElementSibling||t):t;c.openComposer({element:el}).catch(function(){});});
     t.appendChild(b);btns.push(b);});
-  if(!window.claude||!window.claude.use)return;
-  window.claude.use('comments').then(function(c){if(!c)return;window.__cm=c;btns.forEach(function(b){b.hidden=false;});});
+  var tries=0;
+  (function hook(){
+    if(window.claude&&window.claude.use){
+      window.claude.use('comments').then(function(c){if(!c)return;window.__cm=c;btns.forEach(function(b){b.hidden=false;});}).catch(function(){});
+      return;}
+    if(++tries<40)setTimeout(hook,250);
+  })();
 })();
 </script>
