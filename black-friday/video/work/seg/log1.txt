@@ -1,5 +1,0 @@
-bf frame 1200
-bf frame 600
-bf frame 0
-bf frame 1950
-bf frame 150
