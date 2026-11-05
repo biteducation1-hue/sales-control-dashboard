@@ -70,8 +70,11 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 .pc.reg .pt,.pc.reg .ps{color:rgba(255,255,255,.66)}
 .pc.reg .pp{font-size:clamp(40px,5.5vw,56px);color:rgba(255,255,255,.85);position:relative}
 .pc.reg .pp::after{content:"";position:absolute;inset-inline:-6%;top:52%;height:4px;background:rgba(255,255,255,.8);border-radius:2px;transform:rotate(-8deg)}
-.pc.bf{background:var(--green);color:#0f200e;border:4px solid var(--ink);box-shadow:7px 8px 0 var(--ink)}
-.pc.bf .pp{font-size:clamp(70px,11vw,104px)}
+.pc.bf{background:linear-gradient(160deg,#21392f,#16221d);color:var(--white);border:3px solid var(--green);box-shadow:0 0 50px rgba(126,217,87,.35)}
+.pc.bf .pt{color:var(--green-light)}
+.pc.bf .pp{display:flex;align-items:flex-start;gap:6px;color:var(--green);text-shadow:0 0 30px rgba(126,217,87,.45)}
+.pc.bf .dg{font-size:clamp(84px,12vw,128px);letter-spacing:-2px;line-height:.9}
+.pc.bf .cur{font-size:clamp(30px,4vw,44px);margin-top:.3em}
 .arr{font-size:40px;font-weight:900;color:var(--green)}
 @media (max-width:520px){.pb{flex-direction:column;gap:8px}.pc{padding:12px 20px}.arr{font-size:28px;transform:rotate(-90deg)}}
 /* buttons + clock */
@@ -203,7 +206,7 @@ footer .inner{padding-block:30px 110px}
   .hero .inner>*:nth-child(5){animation-delay:.45s}.hero .inner>*:nth-child(6){animation-delay:.55s}.hero .inner>*:nth-child(7){animation-delay:.65s}
   @keyframes rise{from{transform:translateY(16px);opacity:.25}to{transform:none;opacity:1}}
   .pc.bf{animation:glow 3.2s ease-in-out 1.2s infinite}
-  @keyframes glow{0%,100%{box-shadow:7px 8px 0 var(--ink),0 0 0 rgba(126,217,87,0)}50%{box-shadow:7px 8px 0 var(--ink),0 0 46px rgba(126,217,87,.45)}}
+  @keyframes glow{0%,100%{box-shadow:0 0 30px rgba(126,217,87,.25)}50%{box-shadow:0 0 64px rgba(126,217,87,.55)}}
   .arr{animation:nudge 1.6s ease-in-out infinite}
   @keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(-7px)}}
   .cta{position:relative;overflow:hidden}
@@ -229,7 +232,7 @@ footer .inner{padding-block:30px 110px}
   <h1>חודש שלם בתוך <span class="hl">קהילת הסוחרים</span> של סייקלס</h1>
   <p class="sub">4 לייבים בשבוע עם המנטורים, כל חדרי הדיסקורד, ומעל 2,000 סוחרים שמדברים את אותה שפה. ובנוסף, הדוח החודשי שמסמן מראש את תאריכי המפנה ב-5 נכסים.</p>
   <div class="price-hero">
-    <div class="pb"><div class="pc reg"><span class="pt">מחיר רגיל</span><span class="pp">450 ₪</span><span class="ps">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="pt">בלאק פריידי · חודש ראשון</span><span class="pp">197 ₪</span><span class="ps">פחות מ-7 ₪ ליום</span></div></div>
+    <div class="pb"><div class="pc reg"><span class="pt">מחיר רגיל</span><span class="pp">450 ₪</span><span class="ps">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="pt">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="dg">197</span><span class="cur">₪</span></span><span class="ps">פחות מ-7 ₪ ליום</span></div></div>
     <span class="renew">החודש הראשון ב-197 ₪, ומהחודש השני 450 ₪ לחודש. אפשר לבטל בכל עת.</span>
   </div>
   <a class="cta" href="#join">אני רוצה להיכנס לקהילה ←</a>
@@ -359,7 +362,7 @@ footer .inner{padding-block:30px 110px}
 <!-- CLOSING -->
 <section class="closing band"><div class="inner">
   <h2>חודש אחד בפנים. <span class="hl">ואתם מחליטים אם להישאר.</span></h2>
-  <div class="pb"><div class="pc reg"><span class="pt">מחיר רגיל</span><span class="pp">450 ₪</span><span class="ps">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="pt">בלאק פריידי · חודש ראשון</span><span class="pp">197 ₪</span></div></div>
+  <div class="pb"><div class="pc reg"><span class="pt">מחיר רגיל</span><span class="pp">450 ₪</span><span class="ps">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="pt">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="dg">197</span><span class="cur">₪</span></span></div></div>
   <span class="renew">מהחודש השני 450 ₪ לחודש, ביטול בכל עת</span>
   <div class="clock-wrap"><div class="clock" data-clock></div></div>
   <a class="cta" href="#join">אני רוצה להצטרף ב-197 ₪ ←</a>

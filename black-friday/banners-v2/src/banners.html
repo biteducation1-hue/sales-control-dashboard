@@ -209,8 +209,11 @@ h1,h2,h3,p{margin:0}
 .reg .t,.reg .s{color:rgba(255,255,255,.66)}
 .reg .pp{font-size:calc(var(--p)*.3);color:rgba(255,255,255,.85);position:relative}
 .reg .pp::after{content:"";position:absolute;inset-inline:-6%;top:52%;height:max(3px,calc(var(--p)*.018));background:rgba(255,255,255,.8);border-radius:2px;transform:rotate(-8deg)}
-.bf{background:var(--green);color:#0f200e;border:max(3px,calc(var(--p)*.018)) solid var(--ink);box-shadow:calc(var(--p)*.03) calc(var(--p)*.035) 0 var(--ink)}
-.bf .pp{font-size:calc(var(--p)*.5)}
+.bf{background:linear-gradient(160deg,#21392f,#16221d);color:var(--white);border:max(3px,calc(var(--p)*.014)) solid var(--green);box-shadow:0 0 calc(var(--p)*.2) rgba(126,217,87,.4)}
+.bf .t{color:var(--green-light)}
+.bf .pp{display:flex;align-items:flex-start;gap:calc(var(--p)*.03);color:var(--green);text-shadow:0 0 calc(var(--p)*.12) rgba(126,217,87,.45)}
+.bf .dg{font-size:calc(var(--p)*.6);letter-spacing:-.01em;line-height:.9}
+.bf .cur{font-size:calc(var(--p)*.2);margin-top:calc(var(--p)*.06)}
 .arr{font-size:calc(var(--p)*.24);font-weight:900;color:var(--green)}
 .price.compact .t,.price.compact .s{display:none}
 .price.compact .pc{padding:4px 10px}
@@ -384,7 +387,7 @@ h1,h2,h3,p{margin:0}
     <h1 class="hbox" style="font-size:92px;max-width:920px">הדלת <span class="hl">נפתחה</span> בשבילכם</h1>
     <div class="chips" style="font-size:30px;"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div></div>
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow"><div class="price" style="--p:250px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+    <div class="glow"><div class="price" style="--p:250px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
     <div class="renew" style="font-size:25px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="cta" style="font-size:46px;">להצטרפות לקהילה ←</div>
@@ -398,7 +401,7 @@ h1,h2,h3,p{margin:0}
     <h1 class="hbox" style="font-size:92px;max-width:920px">הקהילה <span class="hl">פתוחה&nbsp;לכולם</span></h1>
     <div class="chips" style="font-size:30px;"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div></div>
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow"><div class="price" style="--p:250px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+    <div class="glow"><div class="price" style="--p:250px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
     <div class="renew" style="font-size:25px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="cta" style="font-size:46px;">אני רוצה להיכנס לקהילה ←</div>
@@ -412,7 +415,7 @@ h1,h2,h3,p{margin:0}
     <h1 class="hbox" style="font-size:92px;max-width:920px">נשארו <span class="hl">24&nbsp;שעות</span></h1>
     <div class="clock" style="font-size:30px"><div class="unit"><b><span class="n">24</span></b><span>שעות</span></div><div class="unit"><b><span class="n">00</span></b><span>דקות</span></div><div class="unit"><b><span class="n">00</span></b><span>שניות</span></div></div>
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow"><div class="price" style="--p:250px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+    <div class="glow"><div class="price" style="--p:250px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
     <div class="renew" style="font-size:25px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="cta" style="font-size:46px;">להצטרפות לפני שנסגר ←</div>
@@ -426,7 +429,7 @@ h1,h2,h3,p{margin:0}
     <h1 class="hbox" style="font-size:92px;max-width:920px">נסגר <span class="hl">הלילה</span></h1>
     <div class="date-card"><span class="dc-k">המבצע נסגר בשעה</span><b><span class="n">23:59</span></b></div>
     <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
-    <div class="glow"><div class="price" style="--p:250px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+    <div class="glow"><div class="price" style="--p:250px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
     <div class="renew" style="font-size:25px;">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="cta" style="font-size:46px;">להצטרפות עכשיו ←</div>
@@ -452,7 +455,7 @@ h1,h2,h3,p{margin:0}
   <div class="stat" style="margin-top:10px"><b class="n" style="font-size:170px">76.8%</b><span style="font-size:30px">פגיעה ב-<span class="n">12</span> החודשים האחרונים</span></div>
   <div style="margin-top:24px"><div class="assets" style="font-size:28px"><span><span class="n">S&amp;P 500</span></span><span>ביטקוין</span><span>זהב</span><span>נפט</span><span>יורו-דולר</span></div></div>
   <div class="grow"></div>
-  <div class="mini-price"><span>חודש ראשון בקהילה, כולל הדוח</span><div class="price" style="--p:110px;gap:30px"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+  <div class="mini-price"><span>חודש ראשון בקהילה, כולל הדוח</span><div class="price" style="--p:110px;gap:30px"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
   <div class="renew" style="font-size:19px;margin-top:18px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="fine" style="font-size:20px;margin-top:16px">ממוצע של <span class="n">60</span> תחזיות. ביצועי עבר אינם מעידים על העתיד.</div>
   <div class="disc" style="font-size:20px;margin-top:4px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
@@ -468,7 +471,7 @@ h1,h2,h3,p{margin:0}
 <section class="bn p45" data-name="p45-o1-hero" style="width:1080px;height:1350px">
   <div class="logo" style="width:250px" role="img" aria-label="סייקלס טריידינג"></div>
   <h1 class="hbox" style="font-size:66px;margin-top:34px;max-width:900px">חודש שלם בתוך <span class="hl">קהילת&nbsp;הסוחרים</span></h1>
-  <div class="glow" style="margin-top:44px"><div class="price" style="--p:220px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+  <div class="glow" style="margin-top:44px"><div class="price" style="--p:220px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
   <p class="per" style="font-size:30px;margin-top:14px">לחודש הראשון · בלאק פריידי</p>
   <div class="renew" style="font-size:20px;margin-top:18px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div style="margin-top:44px;width:100%"><div class="pillars" style="font-size:27px;grid-template-columns:repeat(3,1fr)">
@@ -494,7 +497,7 @@ h1,h2,h3,p{margin:0}
     <li>אתם מחפשים הבטחה לרווח. אין כזו.</li></ul></div>
 </div></div>
   <div class="grow"></div>
-  <div class="mini-price"><span>מתאים לכם? חודש ראשון ב-</span><div class="price" style="--p:100px;gap:26px"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+  <div class="mini-price"><span>מתאים לכם? חודש ראשון ב-</span><div class="price" style="--p:100px;gap:26px"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
   <div class="renew" style="font-size:20px;margin-top:20px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="disc" style="font-size:23px;margin-top:28px">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
 </section>
@@ -532,7 +535,7 @@ h1,h2,h3,p{margin:0}
 </div></div>
   <span class="lock l2">לחברי הקהילה</span><span class="lock l1">לחברי הקהילה</span>
 </div></div>
-  <div class="mini-price"><div class="price" style="--p:100px;gap:26px"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div><span>חודש ראשון בקהילה, כולל הדוח</span></div>
+  <div class="mini-price"><div class="price" style="--p:100px;gap:26px"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div><span>חודש ראשון בקהילה, כולל הדוח</span></div>
   <div class="renew" style="font-size:19px;margin-top:16px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
   <div class="disc" style="font-size:22px;">התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.</div>
@@ -547,7 +550,7 @@ h1,h2,h3,p{margin:0}
   </div>
   <div class="hd-price">
     <p class="per" style="font-size:28px">חודש ראשון</p>
-    <div class="glow"><div class="price" style="--p:200px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+    <div class="glow"><div class="price" style="--p:200px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
     <div class="renew" style="font-size:16px;margin-top:18px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   </div>
   <div class="hd-side"><div class="ziv" style="width:360px;height:520px;font-size:26px"><span>תמונה של זיו</span></div></div>
@@ -556,7 +559,7 @@ h1,h2,h3,p{margin:0}
   <div class="logo" style="width:260px" role="img" aria-label="סייקלס טריידינג"></div>
   <div class="tag" style="font-size:28px;margin-top:36px">בלאק פריידי · נסגר ב-<span class="n">30/11</span> בשעה <span class="n">23:59</span></div>
   <h1 class="hbox" style="font-size:74px;margin-top:40px;max-width:920px">חודש שלם בתוך <span class="hl">קהילת&nbsp;הסוחרים</span></h1>
-  <div class="glow" style="margin-top:50px"><div class="price" style="--p:230px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+  <div class="glow" style="margin-top:50px"><div class="price" style="--p:230px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
   <p class="per" style="font-size:32px;margin-top:22px">לחודש הראשון</p>
   <div class="renew" style="font-size:21px;margin-top:22px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="chips" style="font-size:26px;margin-top:40px"><div class="chip"><b><span class="n">4</span></b><span>לייבים בשבוע</span></div><div class="chip"><b><span class="n">2,000+</span></b><span>סוחרים</span></div><div class="chip"><b><span class="n">9</span></b><span>מנטורים</span></div><div class="chip"><b>+</b><span>הדוח החודשי</span></div></div>
@@ -570,7 +573,7 @@ h1,h2,h3,p{margin:0}
 </section>
 <section class="bn mail mail-p" data-name="mail-o2-bf" style="width:600px;height:200px">
   <div class="m-txt"><h1 class="hbox" style="font-size:34px;"><span class="hl">בלאק&nbsp;פריידי</span></h1><div class="renew" style="font-size:12px;margin-top:10px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div></div>
-  <div class="m-pr"><div class="logo" style="width:104px" role="img" aria-label="סייקלס טריידינג"></div><div class="price compact" style="--p:58px;gap:14px"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+  <div class="m-pr"><div class="logo" style="width:104px" role="img" aria-label="סייקלס טריידינג"></div><div class="price compact" style="--p:58px;gap:14px"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
 </section>
 <section class="bn mail" data-name="mail-o3-tonight" style="width:600px;height:200px">
   <div class="m-txt"><h1 class="hbox" style="font-size:40px;">נסגר <span class="hl">הלילה</span></h1><span class="m-sub">המבצע נסגר ב-<span class="n">23:59</span></span></div>
@@ -580,7 +583,7 @@ h1,h2,h3,p{margin:0}
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:26px;"><span class="n">23/11</span> · רק לרשימה</div></div>
   <h1 class="hbox" style="font-size:80px;margin-top:46px">הגישה המוקדמת <span class="hl">נפתחה</span></h1>
   <p class="per" style="font-size:32px;margin-top:44px">חודש ראשון בקהילת הסוחרים</p>
-  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
   <div class="renew" style="font-size:21px;margin-top:30px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
   <div class="fine" style="font-size:26px;margin-bottom:14px"><span class="n">4</span> לייבים בשבוע · כל חדרי הדיסקורד · <span class="n">2,000+</span> סוחרים · ובנוסף, הדוח החודשי</div>
@@ -590,7 +593,7 @@ h1,h2,h3,p{margin:0}
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:26px;"><span class="n">27/11</span></div></div>
   <h1 class="hbox" style="font-size:80px;margin-top:46px">היום <span class="hl">בלאק&nbsp;פריידי</span></h1>
   <p class="per" style="font-size:32px;margin-top:44px">חודש ראשון בקהילת הסוחרים</p>
-  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
   <div class="renew" style="font-size:21px;margin-top:30px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
   <div class="fine" style="font-size:26px;margin-bottom:14px">המבצע נסגר ב-<span class="n">30/11</span> בשעה <span class="n">23:59</span></div>
@@ -600,7 +603,7 @@ h1,h2,h3,p{margin:0}
   <div class="row-top"><div class="logo" style="width:220px" role="img" aria-label="סייקלס טריידינג"></div><div class="tag" style="font-size:26px;"><span class="n">30/11</span> · הזדמנות אחרונה</div></div>
   <h1 class="hbox" style="font-size:80px;margin-top:46px">נסגר <span class="hl">הלילה</span> ב-<span class="n">23:59</span></h1>
   <p class="per" style="font-size:32px;margin-top:44px">חודש ראשון בקהילת הסוחרים</p>
-  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n">197</span>&nbsp;₪</span></div></div></div>
+  <div class="glow" style="margin-top:6px"><div class="price" style="--p:220px;"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div></div>
   <div class="renew" style="font-size:21px;margin-top:30px">מהחודש השני <span class="n">450</span>&nbsp;₪ לחודש, ביטול בכל עת</div>
   <div class="grow"></div>
   <div class="fine" style="font-size:26px;margin-bottom:14px"><span class="n">4</span> לייבים בשבוע · כל חדרי הדיסקורד · <span class="n">9</span> מנטורים · ובנוסף, הדוח החודשי</div>

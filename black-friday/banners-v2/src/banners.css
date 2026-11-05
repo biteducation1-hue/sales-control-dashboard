@@ -206,8 +206,11 @@ h1,h2,h3,p{margin:0}
 .reg .t,.reg .s{color:rgba(255,255,255,.66)}
 .reg .pp{font-size:calc(var(--p)*.3);color:rgba(255,255,255,.85);position:relative}
 .reg .pp::after{content:"";position:absolute;inset-inline:-6%;top:52%;height:max(3px,calc(var(--p)*.018));background:rgba(255,255,255,.8);border-radius:2px;transform:rotate(-8deg)}
-.bf{background:var(--green);color:#0f200e;border:max(3px,calc(var(--p)*.018)) solid var(--ink);box-shadow:calc(var(--p)*.03) calc(var(--p)*.035) 0 var(--ink)}
-.bf .pp{font-size:calc(var(--p)*.5)}
+.bf{background:linear-gradient(160deg,#21392f,#16221d);color:var(--white);border:max(3px,calc(var(--p)*.014)) solid var(--green);box-shadow:0 0 calc(var(--p)*.2) rgba(126,217,87,.4)}
+.bf .t{color:var(--green-light)}
+.bf .pp{display:flex;align-items:flex-start;gap:calc(var(--p)*.03);color:var(--green);text-shadow:0 0 calc(var(--p)*.12) rgba(126,217,87,.45)}
+.bf .dg{font-size:calc(var(--p)*.6);letter-spacing:-.01em;line-height:.9}
+.bf .cur{font-size:calc(var(--p)*.2);margin-top:calc(var(--p)*.06)}
 .arr{font-size:calc(var(--p)*.24);font-weight:900;color:var(--green)}
 .price.compact .t,.price.compact .s{display:none}
 .price.compact .pc{padding:4px 10px}
