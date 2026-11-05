@@ -114,15 +114,25 @@ section.view[hidden]{display:none}
 .bcard figcaption{padding:8px 10px;font-size:13px;display:flex;flex-direction:column;gap:2px}
 .bcard figcaption span{color:var(--muted);font-size:12px}
 .warn{background:#3a2a24;border:2px solid rgba(255,138,92,.55);border-radius:14px;padding:12px 16px;margin-bottom:20px;color:#ffd9c7}
+.openfull{font-weight:800;color:var(--green);text-decoration:none;align-self:center;margin-inline-start:6px}
+.lp-frame{border:3px solid #2c3540;border-radius:18px;overflow:hidden;box-shadow:8px 10px 0 var(--ink);height:78vh;min-height:520px;margin-inline:auto;background:#20272e;transition:max-width .2s}
+.lp-frame iframe{width:100%;height:100%;border:0;display:block}
+.lp-frame.mob{max-width:390px;border-radius:40px;border-width:10px;border-color:#000}
 @media (max-width:860px){.stage{grid-template-columns:1fr}.phone{position:relative;top:0;order:-1}}
 </style>
 
 <div class="wrap">
 <header class="top">
-  <div><h1>חדר המלחמה · <span class="hl">בלאק פריידי 2026</span></h1><p>כל מה שהקהל יראה, בדיוק כמו שהוא יראה את זה. לוח הימים, הוואטסאפ, הסטוריז והבאנרים, מ-13/11 עד 30/11.</p></div>
+  <div><h1>חדר המלחמה · <span class="hl">בלאק פריידי 2026</span></h1><p>כל מה שהקהל יראה, בדיוק כמו שהוא יראה את זה: דף הנחיתה, לוח הימים, הוואטסאפ, הסטוריז והבאנרים, מ-13/11 עד 30/11.</p></div>
   <div class="kpis"><div class="kpi"><b>18</b><span>ימי קמפיין</span></div><div class="kpi"><b>8</b><span>תפוצות וואטסאפ</span></div><div class="kpi"><b>67</b><span>פריימים של סטוריז</span></div><div class="kpi"><b>33</b><span>באנרים</span></div></div>
 </header>
-<nav class="tabs" aria-label="תצוגות"><a href="#timeline">לוח הימים</a><a href="#whatsapp">וואטסאפ</a><a href="#stories">סטוריז</a><a href="#banners">באנרים</a></nav>
+<nav class="tabs" aria-label="תצוגות"><a href="#landing">דף הנחיתה</a><a href="#timeline">לוח הימים</a><a href="#whatsapp">וואטסאפ</a><a href="#stories">סטוריז</a><a href="#banners">באנרים</a></nav>
+
+<section class="view" id="v-landing" hidden>
+  <p class="intro">זה דף המכירה שאליו מובילים כל הערוצים. אפשר להחליף בין תצוגת מחשב לתצוגת טלפון, או לפתוח אותו במסך מלא.</p>
+  <div class="pick" id="lp-pick" style="margin-bottom:16px"><button type="button" data-m="desk" aria-pressed="true">🖥 מחשב</button><button type="button" data-m="mob">📱 טלפון</button><a class="openfull" href="landing.html" target="_blank" rel="noopener">פתיחה במסך מלא ↗</a></div>
+  <div class="lp-frame" id="lp-frame"><iframe title="דף הנחיתה" src="landing.html" loading="lazy"></iframe></div>
+</section>
 
 <section class="view" id="v-timeline">
   <p class="intro">לחיצה על יום פותחת את הוואטסאפ ואת הסטוריז של אותו יום. הימים המודגשים הם רגעי השיא.</p>
@@ -241,9 +251,13 @@ stDay(0);
 /* banners */
 document.getElementById('bn').innerHTML=BANNERS.map(function(g){return '<div class="bgroup"><h3>'+g.g+' <span>'+g.s+'</span></h3><div class="bgrid">'+g.items.map(function(it){return '<figure class="bcard"><img loading="lazy" alt="'+it[1]+'" src="'+img(it[0])+'"><figcaption><b>'+it[1]+'</b><span>'+it[2]+'</span></figcaption></figure>';}).join('')+'</div></div>';}).join('');
 
+/* landing preview */
+document.getElementById('lp-pick').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+ [].forEach.call(this.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b);});
+ document.getElementById('lp-frame').classList.toggle('mob',b.dataset.m==='mob');});
 /* routing */
-var VIEWS=['timeline','whatsapp','stories','banners'];
-function route(){var v=(location.hash||'#timeline').slice(1);if(VIEWS.indexOf(v)<0)v='timeline';
+var VIEWS=['landing','timeline','whatsapp','stories','banners'];
+function route(){var v=(location.hash||'#landing').slice(1);if(VIEWS.indexOf(v)<0)v='landing';
  VIEWS.forEach(function(n){document.getElementById('v-'+n).hidden=n!==v;});
  document.querySelectorAll('nav.tabs a').forEach(function(a){if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
 window.addEventListener('hashchange',route);route();
