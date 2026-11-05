@@ -153,7 +153,7 @@ section.view[hidden]{display:none}
 .steps-row div{background:var(--green-dark);border:2px solid var(--line);border-radius:14px;padding:12px;font-size:14px;position:relative}
 .steps-row b{display:block;color:var(--green);font-size:15px}
 .flow-box{background:#f6f8f5;border:4px solid var(--ink);box-shadow:7px 8px 0 var(--ink);border-radius:18px;padding:16px;overflow-x:auto}
-.flow-box pre{margin:0;text-align:center}
+.flow-box pre{margin:0;text-align:center;color:#20272e;direction:ltr}
 .tbl-scroll{overflow-x:auto}
 .tbl{border-collapse:collapse;width:100%;min-width:640px;font-size:14.5px}
 .tbl th{text-align:right;color:var(--green-light);padding:8px;border-bottom:2px solid var(--line)}
@@ -161,6 +161,19 @@ section.view[hidden]{display:none}
 .st{font-size:12.5px;font-weight:800;border-radius:999px;padding:2px 10px;white-space:nowrap}
 .st.ok{background:var(--green);color:#0f200e}.st.mid{background:#c9ed8a;color:#0f200e}.st.no{background:#3a4650;color:#e6edf3}.st.warn{background:var(--coral);color:#2b1108}
 @media (max-width:900px){.steps-row{grid-template-columns:1fr 1fr}}
+.vidbox{border:4px solid var(--ink);box-shadow:8px 10px 0 var(--ink);border-radius:16px;overflow:hidden;background:#000;max-width:980px}
+.vidbox video{display:block;width:100%;height:auto;aspect-ratio:16/9}
+.tbl.sc td{vertical-align:top;line-height:1.55}.tbl.sc td:last-child{color:var(--green-light)}
+.say{margin:8px 0;border-inline-start:4px solid var(--green);padding:8px 14px;background:rgba(13,18,22,.5);border-radius:8px;font-size:17px}
+.sh4{margin:16px 0 6px;color:var(--green-light)}.li{margin:4px 0;color:var(--muted)}
+code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;padding:0 5px;font-size:13px}
+.cbox{background:var(--green-dark);border:2px solid var(--green);border-radius:16px;padding:14px 18px;margin-bottom:18px;max-width:900px}
+.cbox b{color:var(--green-light)}.cbox ol{margin:8px 0;padding-inline-start:20px;display:flex;flex-direction:column;gap:4px}
+.qgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px}
+.qgrid div{background:rgba(13,18,22,.5);border:1px solid var(--line);border-radius:14px;padding:12px;font-size:15px}
+.qgrid b{display:block;color:var(--green-light)}.qgrid .no{border-color:rgba(255,138,92,.55)}.qgrid .no b{color:#ffc3a8}
+.offer{background:linear-gradient(160deg,#21392f,#16221d);border:2px solid var(--line);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:10px;max-width:900px}
+.view a{color:var(--green)}
 @media (max-width:860px){.stage{grid-template-columns:1fr}.phone{position:relative;top:0;order:-1}}
 </style>
 
@@ -169,7 +182,7 @@ section.view[hidden]{display:none}
   <div><h1>חדר המלחמה · <span class="hl">בלאק פריידי 2026</span></h1><p>כל מה שהקהל יראה, בדיוק כמו שהוא יראה את זה: דף הנחיתה, לוח הימים, הוואטסאפ, הסטוריז והבאנרים, מ-13/11 עד 30/11.</p></div>
   <div class="kpis"><div class="kpi"><b>18</b><span>ימי קמפיין</span></div><div class="kpi"><b>8</b><span>תפוצות וואטסאפ</span></div><div class="kpi"><b>67</b><span>פריימים של סטוריז</span></div><div class="kpi"><b>33</b><span>באנרים</span></div></div>
 </header>
-<nav class="tabs" aria-label="תצוגות"><a href="#landing">דף הנחיתה</a><a href="#timeline">לוח הימים</a><a href="#whatsapp">וואטסאפ</a><a href="#stories">סטוריז</a><a href="#banners">באנרים</a><a href="#members">חברי הקהילה</a><a href="#referral">שגרירים</a><a href="#process">התהליך</a></nav>
+<nav class="tabs" aria-label="תצוגות"><a href="#process">התהליך</a><a href="#timeline">לוח הימים</a><a href="#landing">דף הנחיתה</a><a href="#sales">אנשי מכירות</a><a href="#whatsapp">וואטסאפ</a><a href="#stories">סטוריז</a><a href="#social">איש הסושיאל</a><a href="#banners">באנרים</a><a href="#video">סרטון ויוטיוב</a><a href="#members">חברי הקהילה</a><a href="#referral">שגרירים</a></nav>
 
 <section class="view" id="v-landing" hidden>
   <p class="intro">זה דף המכירה שאליו מובילים כל הערוצים. אפשר להחליף בין תצוגת מחשב לתצוגת טלפון, או לפתוח אותו במסך מלא.</p>
@@ -299,15 +312,16 @@ section.view[hidden]{display:none}
 </section>
 
 <section class="view off" id="v-process">
+  <div class="cbox"><b>💬 איך מעירים הערות</b><ol><li><b>הצוות:</b> מסמנים טקסט או לוחצים על כל מקום בעמוד, וכותבים הערה. כולם רואים את כל ההערות, והן מתעדכנות בזמן אמת.</li><li><b>אישור:</b> הערה שבעל העסק מאשר מקבלת ממנו תשובה עם <b>Send to Claude</b>, או אזכור <b>@claude</b> בשרשור.</li><li><b>ביצוע:</b> אני מקבל את ההערה המאושרת, מבצע את השינוי, עונה בשרשור מה עשיתי, וסוגר אותו.</li></ol><p class="small">הערה שלא נשלחה ל-Claude נשארת פתוחה לדיון ולא מבוצעת.</p></div>
   <p class="intro">כל המהלך במבט אחד: השלבים, המסלול של לקוח מהמודעה ועד החידוש, איך עובדת תוכנית השגרירים, ומה חייב להיות מוכן ומתי.</p>
   <h3 class="mh">1 · השלבים</h3>
   <div class="steps-row">
     <div><b>עד 18/11</b>הכנה: קופה, קופונים, תבניות וואטסאפ, עו"ד, בדיקה מקצה לקצה</div>
-    <div><b>13–22/11</b>חימום: תוכן אורגני וסטוריז, איסוף רשימת המתנה</div>
-    <div><b>20–22/11</b>חברי הקהילה: מייל, השקת השגרירים, לייב</div>
+    <div><b><bdi dir="ltr">13–22/11</bdi></b>חימום: תוכן אורגני וסטוריז, איסוף רשימת המתנה</div>
+    <div><b><bdi dir="ltr">20–22/11</bdi></b>חברי הקהילה: מייל, השקת השגרירים, לייב</div>
     <div><b>23/11</b>גישה מוקדמת לרשימת ההמתנה</div>
-    <div><b>24–30/11</b>המבצע פתוח: וואטסאפ, מייל, בוסטים, מוקד</div>
-    <div><b>1–30/12</b>קליטה ושימור, תזכורת לפני החיוב, חידוש</div>
+    <div><b><bdi dir="ltr">24–30/11</bdi></b>המבצע פתוח: וואטסאפ, מייל, בוסטים, מוקד</div>
+    <div><b><bdi dir="ltr">1–30/12</bdi></b>קליטה ושימור, תזכורת לפני החיוב, חידוש</div>
   </div>
   <h3 class="mh">2 · המסלול של לקוח חדש</h3>
   <div class="flow-box"><pre class="mermaid">
@@ -358,6 +372,139 @@ flowchart LR
     <tr><td>קהלים מותאמים במטא</td><td>12/11</td><td>בעל העסק</td><td><span class="st no">ממתין לאישור</span></td></tr>
     <tr><td>מחיקה מה-CRM של מספר כרטיס האשראי, והחלפת מפתח ה-API של Smoove</td><td>היום</td><td>בעל העסק</td><td><span class="st warn">דחוף</span></td></tr>
   </tbody></table></div>
+</section>
+
+<section class="view" id="v-video" hidden>
+  <p class="intro">סרטון מושן ליוטיוב, 1:18, בלי סאונד. זיו מדבר מעליו לפי התסריט שבהמשך. יש שתי גרסאות: גרסת המבצע עד 30/11, וגרסה קבועה לשימוש אחרי המבצע.</p>
+  <div class="pick" id="vid-pick" style="margin-bottom:12px"><button type="button" data-v="bf" aria-pressed="true">גרסת בלאק פריידי</button><button type="button" data-v="ev">גרסה קבועה</button></div>
+  <div class="vidbox"><video id="vid" controls preload="metadata" poster="video/poster.png" playsinline><source src="video/offer-bf26.mp4" type="video/mp4"></video></div>
+  <p class="intro" style="margin-top:10px">להורדה למחשב: את הקבצים <code>offer-bf26.mp4</code> ו-<code>offer-evergreen.mp4</code> אפשר להוריד מהריפו, מהתיקייה <code>black-friday/video</code>.</p>
+  <h3 class="mh">איך זיו מציג את המבצע ביוטיוב</h3>
+  <div class="ref-grid">
+   <div class="ref-card"><b>1 · איפה בסרטון</b><p>באמצע, אחרי שהצופה כבר קיבל ערך: בערך בדקה 3 עד 5 של סרטון רגיל. לא בפתיחה. זיו אומר את משפט הפתיחה למצלמה, מגיע הסרטון של 1:18, ואחריו משפט הסגירה.</p></div>
+   <div class="ref-card"><b>2 · באילו סרטונים</b><p>בכל סרטון שעולה בין 13/11 ל-30/11. עד 22/11 המסר הוא "רשימת המתנה", ומ-23/11 "המבצע פתוח". בנוסף, סרטון ייעודי קצר ב-24/11: "מה יש בתוך הקהילה".</p></div>
+   <div class="ref-card"><b>3 · תיאור הסרטון</b><div class="ref-msg" style="background:#1f2a24">🎯 בלאק פריידי: חודש ראשון בקהילה ב-197 ₪ (מהחודש השני 450 ₪, ביטול בכל עת)
+👉 [קישור]?utm_source=youtube&amp;utm_medium=video&amp;utm_campaign=bf26&amp;utm_content=[שם הסרטון]
+עד 30/11 בשעה 23:59 · התוכן לימודי ואינו ייעוץ השקעות</div></div>
+   <div class="ref-card"><b>4 · תגובה נעוצה וכרטיסים</b><p>תגובה נעוצה עם אותו קישור. כרטיס (Card) בזמן שהסרטון מופיע, ומסך סיום שמוביל לסרטון "מה יש בתוך הקהילה". פרק (Chapter) בשם "מה מקבלים בקהילה".</p></div>
+   <div class="ref-card"><b>5 · פוסטים בלשונית הקהילה ביוטיוב</b><p>19/11: סקר "על מה אתם רוצים לשמוע בלייב?". 23/11: פתיחת המבצע, עם התמונה <code>sq-o1-inside</code>. 29/11: "נשארו 24 שעות".</p></div>
+   <div class="ref-card"><b>6 · שורטס</b><p>לחתוך את הגרסה של 30 שניות (בתסריט למטה) לפורמט אנכי. 2–3 שורטס בשבוע המבצע.</p></div>
+  </div>
+  <h3 class="mh">התסריט של זיו</h3>
+<p class="intro"><b>הקבצים:</b></p>
+<p class="li">• <code>offer-bf26.mp4</code>: גרסת המבצע, 1:18 (78.4 שניות), 1920×1080, 30fps, בלי סאונד.</p>
+<p class="li">• <code>offer-evergreen.mp4</code>: אותו סרטון בלי ה-CTA של המבצע. אפשר להשתמש בו אחרי 30/11. ההבדלים מפורטים בהמשך.</p>
+<p class="li">• <code>poster.png</code>: פריים מייצג.</p>
+<p class="intro"><b>הקצב:</b> כ-2.3 מילים לשנייה. מספרים נספרו לפי איך שהם נאמרים (&quot;ארבע מאות חמישים&quot; = 3 מילים). אם ההקראה איטית יותר, אפשר להאט את הסרטון ב-5%–8% בעריכה, או להחזיק את הפריים האחרון של כל סצנה.</p>
+<p class="intro"><b>הכללים שנשמרו:</b> אין הבטחה לרווח. החידוש ל-450 ₪ נאמר פעם אחת, בסצנת המחיר.</p>
+<h3 class="mh">פתיח למצלמה (לפני הסרטון)</h3>
+<blockquote class="say">&quot;רגע לפני שנמשיך, אני רוצה להראות לכם בדקה מה בדיוק קורה בתוך הקהילה שלנו. כי זאת השאלה הכי נפוצה שאני מקבל.&quot;</blockquote>
+<h3 class="mh">הסרטון: גרסת בלאק פריידי (<code>offer-bf26.mp4</code>)</h3>
+<div class="tbl-scroll"><table class="tbl sc"><thead><tr><th>זמן</th><th>מה רואים על המסך</th><th>מה זיו אומר</th></tr></thead><tbody><tr><td><b>0:00–0:05</b><br>הוק</td><td>הלוגו. כותרת בתיבה לבנה: &quot;מה מקבלים בחודש <b>בקהילה?</b>&quot;. שלושה כרטיסי &quot;?&quot; מתנדנדים ומתהפכים ל&quot;לייבים / דיסקורד / הדוח החודשי&quot;.</td><td>&quot;אז מה בעצם מקבלים בחודש אחד בקהילה? בואו נראה.&quot;</td></tr><tr><td><b>0:05–0:17</b><br>4 לייבים</td><td>&quot;<b>4 לייבים</b> בכל שבוע&quot;. לוח שבועי שנבנה כרטיס אחרי כרטיס: ראשון זיו (הכנה למסחר, סייקלים ומניות), שלישי מני בריזל (עומק על הסייקלים), רביעי רועי בן חמו (תזמון עסקאות במניות), חמישי גולן עין צבי (דיוק בהבנת הגרף). בסוף מונה: &quot;כ-17 לייבים בחודש&quot;.</td><td>&quot;ארבעה לייבים בשבוע. בראשון אני, עם הכנה למסחר. בשלישי מני בריזל על הסייקלים, ברביעי רועי על תזמון במניות, ובחמישי גולן על דיוק בגרף. בערך שבעה עשר לייבים בחודש.&quot;</td></tr><tr><td><b>0:17–0:32</b><br>הדיסקורד</td><td>&quot;כל חדרי <b>הדיסקורד</b>&quot;. מונה &quot;2,000+ סוחרים בקהילה&quot;. פאנל חדרים שנדלקים אחד אחרי השני: מומחי מניות, חדר לכל נכס מהדוח (S&amp;P 500, ביטקוין, זהב, נפט, יורו-דולר), רעיונות מסחר ומניות חמות, טווח ארוך ופנסיה, קריפטו ומט&quot;ח, נוסטרו. משמאל נכנסים 4 צילומי מסך אמיתיים מהדיסקורד (אביחי, אלי, שובל, אדיר), עם שמות ותמונות פרופיל מטושטשים.</td><td>&quot;ובין הלייבים יש את הדיסקורד, עם יותר מאלפיים סוחרים. חדר של מומחי מניות עם סטאפים, חדר לכל נכס מהדוח, רעיונות מסחר ומניות חמות, טווח ארוך ופנסיה, קריפטו, מט&quot;ח ונוסטרו. ומה שהחברים כותבים שם מדבר בעד עצמו.&quot;</td></tr><tr><td><b>0:32–0:38.5</b><br>9 מנטורים</td><td>&quot;<b>9 מנטורים</b> שעונים כל יום&quot;. 9 אווטארים עם בועת ✓, שורת ימים א׳–ו׳ עם ✓, וכרטיס &quot;9 מנטורים שמגיבים ברמה יומית&quot; מצילום של עמוד הקהילה באתר.</td><td>&quot;ויש תשעה מנטורים שעונים כל יום. שואלים שאלה, ומקבלים מענה.&quot;</td></tr><tr><td><b>0:38.5–0:52.5</b><br>הדוח החודשי</td><td>&quot;ובנוסף: <b>הדוח החודשי</b>&quot;. עמוד דוח נובמבר 2026 (<b>שחזור גרפי</b>): 5 נכסים, &quot;תאריכי המפנה&quot;, התאריכים והטקסט מטושטשים. אחר כך צילום מסך אמיתי של &quot;תוצאות אחרונות מהדו&quot;ח&quot; מהאתר, והמספר 76.8% נספר (&quot;אחוזי פגיעה · ממוצע 12 החודשים האחרונים · לפי נתוני האתר&quot;).</td><td>&quot;ובנוסף, הדוח החודשי. בתחילת כל חודש, תאריכי המפנה לחמישה נכסים. וכמה זה עבד? לפי הנתונים באתר, 76.8 אחוז פגיעה בשנים-עשר החודשים האחרונים. לא כל תאריך עובד, ואנחנו מראים גם את זה.&quot;</td></tr><tr><td><b>0:52.5–1:00.5</b><br>&quot;קבלה&quot;</td><td>&quot;<b>הכל</b> בחודש אחד&quot; ו&quot;כל זה כלול במנוי לקהילה&quot;. קבלה שהשורות שלה נערמות עם &quot;✓ כלול&quot;: כ-17 לייבים, חדרי מומחי מניות, חדר לכל נכס ומניות חמות, טווח ארוך וקריפטו ומט&quot;ח ונוסטרו, 2,000+ סוחרים, 9 מנטורים, הדוח החודשי.</td><td>&quot;אז בואו נסכם: לייבים, כל החדרים, הקהילה, המנטורים והדוח. הכל כלול, בחודש אחד.&quot;</td></tr><tr><td><b>1:00.5–1:09.5</b><br>המחיר</td><td>שני כרטיסים. מימין כרטיס כהה &quot;מחיר רגיל&quot; עם 450 ₪ מחוק בקו לבן דק ו&quot;לחודש&quot;. חץ ירוק ←. משמאל כרטיס כהה עם מסגרת וזוהר ירוקים: &quot;בלאק פריידי · חודש ראשון&quot; בירוק בהיר, 197 גדול בירוק עם ₪ קטן ומורם, ו&quot;פחות מ-7 ₪ ליום&quot; (וריאציה ב2 שבעל העסק בחר). מתחת, בטקסט קטן אפור-לבן: &quot;מהחודש השני 450 ₪ לחודש, ביטול בכל עת&quot;.</td><td>&quot;במקום ארבע מאות חמישים שקל לחודש, החודש הראשון במאה תשעים ושבע. מהחודש השני זה ארבע מאות חמישים, ואפשר לבטל מתי שרוצים.&quot;</td></tr><tr><td><b>1:09.5–1:18.4</b><br>CTA</td><td>הלוגו. &quot;המבצע נסגר <b>ב-30/11</b> בשעה 23:59&quot;. כפתור ירוק &quot;אני רוצה להיכנס לקהילה ←&quot; עם טבעות וסמן שמקיש. גילוי נאות: &quot;התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון. ביצועי עבר אינם מעידים על העתיד.&quot; דעיכה לשחור.</td><td>&quot;המבצע נסגר בשלושים בנובמבר, באחת עשרה חמישים ותשע בלילה. הלינק בתיאור, ונתראה בפנים.&quot;</td></tr></tbody></table></div>
+<h3 class="mh">הגרסה הקבועה (<code>offer-evergreen.mp4</code>)</h3>
+<p class="intro">עד 1:00.5 הסרטון זהה לגרסת המבצע. ההבדל בשתי הסצנות האחרונות:</p>
+<div class="tbl-scroll"><table class="tbl sc"><thead><tr><th>זמן</th><th>מה רואים על המסך</th><th>מה זיו אומר</th></tr></thead><tbody><tr><td><b>1:00.5–1:09.5</b></td><td>&quot;כל מה שראיתם, במנוי חודשי&quot;. 450 ₪ גדול בירוק, &quot;לחודש · פחות מ-15 ₪ ליום&quot;, ומתחת בטקסט קטן &quot;ביטול בכל עת&quot;. בלי 197 ובלי מחיר מחוק.</td><td>&quot;כל זה במנוי של ארבע מאות חמישים שקל לחודש, פחות מחמישה עשר שקל ליום, ואפשר לבטל מתי שרוצים.&quot;</td></tr><tr><td><b>1:09.5–1:18.4</b></td><td>הלוגו, &quot;חודש שלם <b>בתוך הקהילה</b>&quot; וגילוי נאות. בלי תאריך, בלי שעה ובלי כפתור.</td><td>&quot;הלינק להצטרפות בתיאור. נתראה בפנים.&quot;</td></tr></tbody></table></div>
+<blockquote class="say">הבריף ביקש רק להוריד את טקסט ה-CTA. הורדתי גם את 197 ₪ מסצנת המחיר, כי אחרי 30/11 המחיר הזה כבר לא נכון. אם רוצים שסצנת המחיר תישאר כמו בגרסת המבצע, אפשר לשנות את זה בקלות.</blockquote>
+<h3 class="mh">סגיר למצלמה (אחרי הסרטון)</h3>
+<blockquote class="say">&quot;אם זה מרגיש לכם נכון, הלינק בתיאור, והחודש הראשון הוא דרך טובה לבדוק מבפנים אם זה מתאים לכם. ואם לא, הכל טוב, ממשיכים עם הסרטון.&quot;</blockquote>
+<h3 class="mh">גרסה קצרה: 30 שניות לשורטס</h3>
+<p class="intro">כ-65 מילים. מתאים לחיתוך מהסרטון הרוחבי, או כקריינות על ריל אנכי בהמשך.</p>
+<div class="tbl-scroll"><table class="tbl sc"><thead><tr><th>זמן</th><th>קטע מהסרטון</th><th>מה זיו אומר</th></tr></thead><tbody><tr><td>0–3</td><td>0:00–0:05 (הוק)</td><td>&quot;מה מקבלים בחודש בקהילה?&quot;</td></tr><tr><td>3–8</td><td>0:11–0:17 (לוח הלייבים המלא)</td><td>&quot;ארבעה לייבים בכל שבוע, עם ארבעה מנטורים.&quot;</td></tr><tr><td>8–14</td><td>0:25–0:31 (חדרים + צילומי דיסקורד)</td><td>&quot;כל חדרי הדיסקורד, יותר מאלפיים סוחרים, ותשעה מנטורים שעונים כל יום.&quot;</td></tr><tr><td>14–19</td><td>0:44–0:49 (דוח + 76.8%)</td><td>&quot;והדוח החודשי, עם תאריכי המפנה לחמישה נכסים.&quot;</td></tr><tr><td>19–26</td><td>1:02–1:08 (המחיר)</td><td>&quot;בבלאק פריידי, החודש הראשון במאה תשעים ושבע במקום ארבע מאות חמישים. מהחודש השני זה ארבע מאות חמישים, ואפשר לבטל מתי שרוצים.&quot;</td></tr><tr><td>26–30</td><td>1:10–1:15 (CTA)</td><td>&quot;עד שלושים בנובמבר. הלינק בתיאור.&quot;</td></tr></tbody></table></div>
+<h3 class="mh">מה להחליף ומה שוחזר</h3>
+<h4 class="sh4">Placeholder: להחליף בצילום אמיתי</h4>
+<p class="li">• <b>ארבעת כרטיסי הלייב (0:05–0:17).</b> בכל כרטיס יש מסגרת צהובה מקווקוות עם הכיתוב &quot;להחליף בצילום מסך אמיתי מלייב&quot;. צריך צילום מסך מהזום של כל אחד מהלייבים: זיו, מני, רועי וגולן. המסגרת היא <code>.live .ph</code> ב-<code>src/scene.html</code>, והתמונה צריכה להיות ביחס של כ-16:10.</p>
+<h4 class="sh4">שחזור גרפי: נבנה מחדש, לא צולם</h4>
+<p class="li">• <b>עמוד הדוח (0:38.5–0:45).</b> המבנה לקוח מדוח נובמבר 2026 ב-Drive: 5 נכסים, הכותרת &quot;תאריכי המפנה&quot; ומספר התאריכים בכל נכס. התאריכים והטקסט מטושטשים בכוונה. על המסך מופיעה תווית &quot;שחזור גרפי · התוכן מטושטש&quot;.</p>
+<p class="li">• <b>פאנל חדרי הדיסקורד (0:17–0:32).</b> החדרים לקוחים מהבריף ומדף הנחיתה. העיצוב בהשראת דיסקורד, ושמות החדרים לא הועתקו מהשרת. אם השמות בשרת שונים, כדאי להחליף בצילום מסך של רשימת הערוצים.</p>
+<p class="li">• <b>כרטיסי הלייב (0:05–0:17).</b> הימים, המנטורים והנושאים מהבריף. העיצוב גרפי.</p>
+<p class="li">• <b>אווטארים ושורת הימים בסצנת המנטורים (0:32–0:38.5).</b> איורים גנריים, לא המנטורים האמיתיים.</p>
+<p class="li">• <b>הקבלה (0:52.5–1:00.5), כרטיסי המחיר (1:00.5–1:09.5) והכפתור (1:09.5).</b> גרפיקה, לפי דף הנחיתה.</p>
+<p class="li">• <b>שלושת כרטיסי ה-&quot;?&quot; בהוק.</b> גרפיקה.</p>
+<h4 class="sh4">צילומי מסך אמיתיים</h4>
+<p class="li">• <b>דיסקורד (0:19–0:32):</b> 4 צילומים מהתיקייה &quot;צילומי מסך קהילה&quot; ב-Drive: shoval (חתוך לחלק העליון), Avihay, Adir ו-Eli. השמות ותמונות הפרופיל מטושטשים. העדות עצמה לא טושטשה. בעדות של שובל מופיע תיוג של המנטור רז שלומיאן. השארתי אותו, כי הוא חלק מהצוות. אם צריך, אפשר לטשטש גם אותו.</p>
+<p class="li">• <b>האתר (0:35, 0:45):</b> כרטיס &quot;9 מנטורים שמגיבים ברמה יומית&quot; מ-<code>cyclestrading.com/community/</code>, ו&quot;תוצאות אחרונות מהדו&quot;ח&quot; (כרטיסי אוגוסט 2026: 50%, 75%, 100%) מ-<code>cyclestrading.com/cycle-report/</code>. לא צולמו אזורי &quot;רווח: $...&quot; ולא עדויות עם סכומים.</p>
+<h4 class="sh4">לבדוק לפני פרסום</h4>
+<p class="li">• <b>76.8% מול 76.7%.</b> בכותרת של עמוד הדוח באתר כתוב &quot;76.7% אחוזי הצלחה&quot;. הנתון 76.8% הוא ממוצע 60 התוצאות החודשיות (אוקטובר 2025 עד ספטמבר 2026) שבטבלה באתר ובדף הנחיתה. החישוב יוצא 76.83%. כדאי ליישר את שני המקומות.</p>
+<p class="li">• <b>&quot;מענה כל יום&quot;.</b> האתר אומר &quot;מגיבים ברמה יומית&quot; ושורת הימים מראה א׳–ו׳. זה מתאים ל&quot;24/6&quot; שבאתר.</p>
+</section>
+
+<section class="view" id="v-sales" hidden>
+  <p class="intro">המוקד הטלפוני: מתי מתקשרים, למי, מה אומרים ומה מציעים. כלל אחד מעל כולם: <b>המדד הוא חודש 2, לא המכירה ב-197.</b> לקוח שלא מתאים ונסגר יבטל, ויעלה לנו כסף.</p>
+  <h3 class="mh">1 · מתי מתקשרים, ולמי</h3>
+  <div class="tbl-scroll"><table class="tbl"><thead><tr><th>תאריך</th><th>למי</th><th>מה המטרה</th></tr></thead><tbody>
+   <tr><td><bdi dir="ltr">13–22/11</bdi></td><td>לידים חמים מהשנה האחרונה</td><td>להכניס לרשימת ההמתנה. לא מוכרים עדיין</td></tr>
+   <tr><td><b>שני 23/11</b></td><td><b>רשימת ההמתנה, כולם</b></td><td>גישה מוקדמת. זה היום הכי חשוב לשיחות</td></tr>
+   <tr><td><bdi dir="ltr">24–26/11</bdi></td><td>לידים ישנים שלא סגרו, וחברים לשעבר</td><td>אבחון והצעה. מי שבפולואפ פעיל על התוכנית המלאה לא מקבל את ההצעה כפתיחה</td></tr>
+   <tr><td>שישי 27/11</td><td>מי שביקש שנחזור אליו</td><td>עד 13:00 בלבד</td></tr>
+   <tr><td>מוצ"ש 28/11</td><td>רק מי שביקש</td><td>וואטסאפ בלבד, משעה 20:45. בלי שיחות</td></tr>
+   <tr><td><bdi dir="ltr">29–30/11</bdi></td><td>כל מי שאמר "אחשוב על זה"</td><td>שיחה אחרונה. ב-30/11 בין 21:00 ל-21:30, הודעת "3 שעות אחרונות"</td></tr>
+  </tbody></table></div>
+  <h3 class="mh">2 · מבנה השיחה (8–12 דקות)</h3>
+  <div class="steps-row" style="grid-template-columns:repeat(5,1fr)">
+   <div><b>פתיחה</b>15 שניות. לא מציגים את החברה, כי הם כבר מכירים את זיו</div>
+   <div><b>אבחון</b>6 שאלות + שאלת פסילה. זה עיקר השיחה</div>
+   <div><b>שיקוף</b>"אז אם אני מסכם..."</div>
+   <div><b>הצעה</b>רק מה שעונה על מה שהוא אמר</div>
+   <div><b>מחיר וסגירה</b>197, החידוש פעם אחת וברור, קישור</div>
+  </div>
+  <h3 class="mh">3 · שאלות האבחון</h3>
+  <div class="qgrid">
+   <div><b>מטרה</b>"מה אתה רוצה שיקרה אצלך בשוק ההון בחצי השנה הקרובה?"</div>
+   <div><b>ניסיון</b>"איפה אתה היום: אפס, למדת קצת, או כבר סוחר בפועל?"</div>
+   <div><b>מה ראה מאיתנו</b>"מה ראית עד עכשיו? רילס, יוטיוב, וובינר, הדוח?"</div>
+   <div><b>זמן</b>"כמה זמן אמיתי יש לך בשבוע, ובאילו שעות?" (להתאים לו לייב)</div>
+   <div><b>מה מחפש</b>"מה אתה מצפה לקבל בקהילה שאין לך היום מהתוכן החינמי?"</div>
+   <div><b>מה יגרום לו להישאר</b>"מה צריך לקרות בחודש הזה כדי שתגיד 'שווה להמשיך'?"</div>
+   <div class="no"><b>שאלת פסילה</b>"אתה מחפש מישהו שיגיד לך מה לקנות ומתי, או ללמוד לקבל החלטות לבד?"</div>
+  </div>
+  <h3 class="mh">4 · מה מציעים</h3>
+  <div class="offer"><p><b>"חודש שלם בקהילה, בדיוק מה שהחברים מקבלים:</b> 4 לייבים בשבוע (ראשון זיו, שלישי מני, רביעי רועי, חמישי גולן), כל חדרי הדיסקורד עם 2,000+ סוחרים ו-9 מנטורים, והדוח החודשי. המנוי עולה 450 ₪ לחודש. בבלאק פריידי החודש הראשון ב-197 ₪."</p>
+  <p><b>משפט החידוש, פעם אחת, ברור:</b> "רק שיהיה לך ברור: מהחודש השני זה 450 ₪ לחודש, ואפשר לבטל בכל עת. נשלח לך תזכורת לפני החיוב." ← מחכים ל"כן".</p>
+  <p><b>חיבור לשימור:</b> "אז בסוף החודש תבדוק אם [מה שאמר שיגרום לו להישאר] קרה. אם כן, ממשיכים."</p></div>
+  <h3 class="mh">5 · התנגדויות נפוצות</h3>
+  <div class="tbl-scroll"><table class="tbl"><thead><tr><th>הלקוח אומר</th><th>הנציג עונה</th></tr></thead><tbody>
+   <tr><td>"ומה אחרי החודש?"</td><td>"450 ₪ לחודש, ואפשר לבטל בכל עת. בגלל זה עשינו חודש ב-197: אתה בודק מבפנים, ואם זה לא שווה לך 450, אתה מבטל."</td></tr>
+   <tr><td>"אני אבטל אחרי חודש"</td><td>"לגיטימי. אז בוא נגדיר מה אתה רוצה להספיק בחודש הזה, כדי שהוא יהיה שווה לך בכל מקרה."</td></tr>
+   <tr><td>"אין לי זמן"</td><td>"כמה זמן יש לך בשבוע? שעה אחת זה לייב אחד. יש גם הקלטות. ואם אין לך אפילו שעה, אני מעדיף שתחזור כשיהיה לך."</td></tr>
+   <tr><td>"ניסיתי קהילות אחרות"</td><td>"מה חסר לך שם? [להקשיב] כאן זה 4 לייבים קבועים ו-9 מנטורים שעונים כל יום. חודש אחד מבפנים, ותשפוט בעצמך."</td></tr>
+   <tr><td>"אני מתחיל מאפס"</td><td>"הדוח והחדרים המתקדמים בנויים למי שמכיר ניתוח טכני. אם אתה ממש מאפס, נכון יותר להתחיל מהוובינר או מתוכנית ההכשרה." (לא סוגרים מתחיל מוחלט)</td></tr>
+   <tr><td>"זה מבטיח רווחים?"</td><td>"לא, ואני ממליץ להתרחק ממי שמבטיח. אנחנו מלמדים שיטה ונותנים סביבה. ההחלטות שלך."</td></tr>
+  </tbody></table></div>
+  <h3 class="mh">6 · מתי לא סוגרים</h3>
+  <ul class="checklist"><li>מחפש איתותים, או "תגיד לי מה לקנות".</li><li>מצפה להרוויח כבר בחודש הראשון.</li><li>אין לו אפילו שעה בשבוע.</li><li>450 ₪ בחודש לא בתקציב שלו.</li><li>נמצא במצוקה כלכלית, או רוצה "לסחור כדי לכסות חובות".</li></ul>
+  <h3 class="mh">7 · אחרי השיחה</h3>
+  <ul class="checklist"><li><b>Pipedrive:</b> לרשום BF26, הסגמנט, ההתאמה, "החידוש הוסבר ✔" ו"מה יגרום לו להישאר".</li><li><b>וואטסאפ פולואפ:</b> נוסחי ה-1 על 1 בלשונית <a href="#whatsapp">וואטסאפ</a>.</li><li><b>הבונוס לנציג:</b> לפי מי שנשאר לחודש 2, לא רק לפי מכירות ב-197.</li><li><b>אסור:</b> להבטיח תשואה, לתת המלצה על נייר ערך, או להגיד "בלי התחייבות" בלי להסביר את החידוש.</li></ul>
+</section>
+
+<section class="view" id="v-social" hidden>
+  <p class="intro">הנחיות לאיש הסושיאל: מה עולה, מתי, איך, ומה אסור. התוכן המלא, יום אחרי יום, נמצא בלשונית <a href="#stories">סטוריז</a>, והבאנרים בלשונית <a href="#banners">באנרים</a>.</p>
+  <h3 class="mh">1 · הקצב היומי</h3>
+  <div class="tbl-scroll"><table class="tbl"><thead><tr><th>מה</th><th>כמה</th><th>מתי</th></tr></thead><tbody>
+   <tr><td>סטוריז</td><td>3–5 פריימים ביום</td><td>בוקר ו/או ערב, לפי הלוח בלשונית סטוריז</td></tr>
+   <tr><td>ריל</td><td>3–4 בשבוע</td><td>בין 19:00 ל-21:00</td></tr>
+   <tr><td>פוסט או קרוסלה</td><td>2–3 בשבוע</td><td>צהריים</td></tr>
+   <tr><td>יוטיוב: קהילה ושורטס</td><td>2 בשבוע + הסרטון של זיו</td><td>לפי לשונית סרטון ויוטיוב</td></tr>
+  </tbody></table></div>
+  <h3 class="mh">2 · כללי ברזל</h3>
+  <ul class="checklist">
+   <li><b>שבת:</b> בימי שישי מעלים עד 13:00. בשבת לא עולה כלום. במוצאי שבת מתחילים אחרי 18:00.</li>
+   <li><b>מחיר:</b> בכל פוסט או ריל שמופיע בו 197, הכיתוב כולל בסוף שורה אחת: "מהחודש השני 450 ₪ לחודש, ביטול בכל עת."</li>
+   <li><b>דיסקליימר:</b> בכיתוב של כל פוסט עם הצעה: "התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון."</li>
+   <li><b>אסור:</b> סכומי רווח, צילומי P&amp;L, "הרווחתי X", או עדויות עם תשואה. גם כשחבר מפרסם, לא משתפים מחדש.</li>
+   <li><b>קישורים:</b> תמיד עם UTM. באינסטגרם: <code>?utm_source=instagram&amp;utm_medium=organic&amp;utm_campaign=bf26</code>. בפייסבוק: <code>utm_source=facebook</code>.</li>
+   <li><b>ספירה לאחור:</b> משתמשים באותו סטיקר כל פעם, כדי שמי שלחץ "הזכר לי" יקבל התראה.</li>
+   <li><b>בוסט:</b> רק לפוסט שהצליח באורגני, כלומר במעורבות גבוהה מהרגיל ב-24 השעות הראשונות. הכיתוב כולל את שורת המחיר ואת הדיסקליימר.</li>
+  </ul>
+  <h3 class="mh">3 · תגובות והודעות</h3>
+  <div class="tbl-scroll"><table class="tbl"><thead><tr><th>מישהו כותב</th><th>עונים</th></tr></thead><tbody>
+   <tr><td>"כמה זה?"</td><td>"חודש ראשון בקהילה ב-197 ₪, ומהחודש השני 450 ₪ לחודש, ביטול בכל עת. שלחתי לך קישור בפרטי 🙏"</td></tr>
+   <tr><td>"זה מתאים למתחילים?"</td><td>"הדוח והחדרים המתקדמים בנויים למי שמכיר ניתוח טכני. שלחתי לך בפרטי מאיפה הכי נכון להתחיל."</td></tr>
+   <tr><td>"זה עובד? כמה הרווחתם?"</td><td>"לא מבטיחים רווחים. בדף יש 12 חודשים של תוצאות של הדוח, כולל מה שלא עבד."</td></tr>
+   <tr><td>תגובה שלילית או ספקנית</td><td>עונים פעם אחת בנימוס ולא מוחקים. אם יש קללות או ספאם, מסתירים.</td></tr>
+   <tr><td>הודעה פרטית עם כוונת קנייה</td><td>מעבירים מיד למוקד ומתייגים BF26 ב-ManyChat.</td></tr>
+  </tbody></table></div>
+  <h3 class="mh">4 · צ'קליסט לפני כל העלאה</h3>
+  <ul class="checklist"><li>☐ התאריך והשעה נכונים (ובלי שבת)</li><li>☐ שורת המחיר והדיסקליימר בכיתוב</li><li>☐ הקישור עם UTM</li><li>☐ אין סכומים ואין P&amp;L</li><li>☐ הבאנר הנכון לשלב: רשימת המתנה עד 22/11, מבצע מ-23/11</li><li>☐ ב-30/11 בחצות: להסיר את סטיקר הקישור מכל הסטוריז ומהביו</li></ul>
 </section>
 
 <section class="view" id="v-banners" hidden>
@@ -454,9 +601,13 @@ document.getElementById('bn').innerHTML=BANNERS.map(function(g){return '<div cla
 document.getElementById('lp-pick').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
  [].forEach.call(this.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b);});
  document.getElementById('lp-frame').classList.toggle('mob',b.dataset.m==='mob');});
+/* video */
+document.getElementById('vid-pick').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;
+ [].forEach.call(this.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b);});
+ var v=document.getElementById('vid');v.pause();v.querySelector('source').src=b.dataset.v==='bf'?'video/offer-bf26.mp4':'video/offer-evergreen.mp4';v.load();});
 /* routing */
-var VIEWS=['landing','timeline','whatsapp','stories','banners','members','referral','process'];
-function route(){var v=(location.hash||'#landing').slice(1);if(VIEWS.indexOf(v)<0)v='landing';
+var VIEWS=['process','timeline','landing','sales','whatsapp','stories','social','banners','video','members','referral'];
+function route(){var v=(location.hash||'#process').slice(1);if(VIEWS.indexOf(v)<0)v='process';
  VIEWS.forEach(function(n){var el=document.getElementById('v-'+n);if(n==='process'){el.classList.toggle('off',n!==v);}else{el.hidden=n!==v;}});
  document.querySelectorAll('nav.tabs a').forEach(function(a){if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
 window.addEventListener('hashchange',route);route();
