@@ -88,7 +88,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 .ctlp .cd b{display:block;font-family:Montserrat,sans-serif;font-size:24px;line-height:1.1;direction:ltr}
 .ctlp .cd span{font-size:12px;color:var(--muted)}
 
-.ctlp .hero-visual{position:relative;align-self:center;display:flex;align-items:center;justify-content:center;min-height:0}
+.ctlp .hero-visual{position:relative;align-self:start;margin-top:64px;display:flex;align-items:center;justify-content:center;min-height:0}
 .ctlp .hero-visual .halo{position:absolute;left:50%;top:50%;width:min(520px,100%);aspect-ratio:1;transform:translate(-50%,-50%);animation:halo 6s ease-in-out infinite;border-radius:50%;background:radial-gradient(circle,rgba(126,217,87,.45),rgba(126,217,87,.08) 55%,transparent 70%)}
 .ctlp .hero-visual .ring{position:absolute;left:50%;top:50%;width:min(440px,90%);aspect-ratio:1;transform:translate(-50%,-50%);border-radius:50%;border:1.5px solid rgba(126,217,87,.35)}
 .ctlp .hero-visual .ring::before{content:"";position:absolute;inset:-34px;border-radius:50%;border:1px dashed rgba(126,217,87,.35);animation:spin 60s linear infinite}
@@ -334,6 +334,33 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 .ctlp .pain{transition:transform .25s,box-shadow .25s}.ctlp .pain:hover{transform:translateY(-4px)}
 .ctlp .t{transition:transform .25s,box-shadow .25s}.ctlp .t:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px rgba(126,217,87,.45)}
 .ctlp .rv.in .card,.ctlp .cards .card.rv.in{transition:opacity .7s ease,transform .7s ease,box-shadow .25s}
+/* light sections – like the brand homepage */
+.ctlp section.light{background:#fff;color:#1b212d;--muted:#5b6670;--line:rgba(63,155,37,.22)}
+.ctlp section.light .b{color:#3a9a22}.ctlp section.light .g{color:#3a9a22}
+.ctlp section.light .eyebrow{color:#2f7d1a;background:rgba(126,217,87,.16);box-shadow:inset 0 0 0 1px rgba(63,155,37,.3)}
+.ctlp section.light .lead{color:#5b6670}
+.ctlp .learn.light::before{background:linear-gradient(rgba(0,0,0,.035) 1px,transparent 1px) 0 0/90px 90px,linear-gradient(90deg,rgba(0,0,0,.035) 1px,transparent 1px) 0 0/90px 90px}
+.ctlp section.light .card{background:#f5f9f2;box-shadow:inset 0 0 0 1px rgba(63,155,37,.18),0 18px 40px -28px rgba(27,33,45,.35)}
+.ctlp section.light .card:hover{box-shadow:inset 0 0 0 1.5px rgba(63,155,37,.55),0 26px 50px -24px rgba(27,33,45,.4)}
+.ctlp section.light .card h3{color:#1b212d}.ctlp section.light .card p{color:#5b6670}
+.ctlp section.light .live{background:linear-gradient(90deg,#e9f6e2,#f2f9ee);box-shadow:inset 0 0 0 1px rgba(63,155,37,.35)}
+.ctlp section.light .live p,.ctlp section.light .live p b{color:#1b212d}
+.ctlp section.light .fomo{background:#fff4ef;box-shadow:inset 0 0 0 1px rgba(255,138,92,.45)}
+.ctlp section.light .fomo b{color:#1b212d}.ctlp section.light .fomo span{color:#5b6670}
+.ctlp .method.light{background:#fff}
+.ctlp section.light.method p{color:#3b444d}.ctlp section.light.method p b{color:#1b212d}
+.ctlp section.light .quote{color:#2f7d1a}
+.ctlp section.light .feat{background:#f2f7ef;box-shadow:inset 0 0 0 1px rgba(63,155,37,.2);color:#1b212d}
+.ctlp section.light .feat svg{color:#3a9a22}
+.ctlp .about.light{background:#f6f8f5}
+.ctlp section.light.about p{color:#3b444d}.ctlp section.light.about p b{color:#1b212d}
+.ctlp section.light .hammer{background:#fff;color:#1b212d;box-shadow:inset 0 0 0 1px rgba(63,155,37,.3),0 18px 40px -28px rgba(27,33,45,.3)}
+.ctlp section.light .sig span{color:#5b6670}
+.ctlp .faq-sec.light{background:#fff}
+.ctlp .gann-card figcaption{color:#fff}
+.ctlp section.light details{background:#f5f7f5;box-shadow:inset 0 0 0 1px rgba(27,33,45,.08)}
+.ctlp section.light details[open]{box-shadow:inset 0 0 0 1px rgba(63,155,37,.45)}
+.ctlp section.light summary{color:#1b212d}.ctlp section.light details p{color:#5b6670}
 /* guard against Elementor kit/theme globals */
 .ctlp{font-size:18px;line-height:1.7;color:var(--ink)}
 @media (max-width:640px){.ctlp{font-size:17px}}
@@ -425,25 +452,8 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
   </div>
 </section>
 
-<!-- ============ PROBLEM ============ -->
-<section class="problem">
-  <div class="wrap">
-    <div class="center rv">
-      <span class="eyebrow">למה זה לא עובד לרוב הסוחרים</span>
-      <h2 class="h2">שוק ההון הוא לא הבעיה.<br><span class="b">הגישה היא הבעיה.</span></h2>
-      <p class="lead">שלושה הרגלים שחוזרים אצל כמעט כל מי שמנסה לסחור לבד:</p>
-    </div>
-    <div class="pains">
-      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16v12H4zM8 20h8M12 16v4"/></svg></div><h3>מסתכלים רק על המחיר</h3><p>מנתחים לאן המחיר הולך, ומתעלמים מהשאלה מתי. כיוון נכון בזמן הלא נכון הוא עדיין הפסד.</p></div>
-      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div><h3>רודפים אחרי חדשות</h3><p>עד שהכותרת מתפרסמת, המהלך כבר קרה. מי שמגיב לחדשות נכנס מאוחר ויוצא מאוחר.</p></div>
-      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></svg></div><h3>בלי ניהול סיכונים</h3><p>בלי הפסד מקסימלי שמוגדר מראש, עסקה אחת לא מוצלחת יכולה למחוק חודשים של עבודה.</p></div>
-    </div>
-    <p class="bridge rv">סוחרים מקצועיים עובדים עם <span class="g">גישת מסחר מוגדרת וסטנדרט קבוע</span>. בהדרכה תכירו את הגישה שלנו – ותבינו מה היא רואה שאחרים מפספסים.</p>
-  </div>
-</section>
-
 <!-- ============ LEARN ============ -->
-<section class="learn" id="learn">
+<section class="learn light" id="learn">
   <div class="wrap">
     <div class="center rv">
       <span class="eyebrow">מה תגלו בהדרכה</span>
@@ -469,8 +479,25 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
   </div>
 </section>
 
+<!-- ============ PROBLEM ============ -->
+<section class="problem">
+  <div class="wrap">
+    <div class="center rv">
+      <span class="eyebrow">למה זה לא עובד לרוב הסוחרים</span>
+      <h2 class="h2">שוק ההון הוא לא הבעיה.<br><span class="b">הגישה היא הבעיה.</span></h2>
+      <p class="lead">שלושה הרגלים שחוזרים אצל כמעט כל מי שמנסה לסחור לבד:</p>
+    </div>
+    <div class="pains">
+      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16v12H4zM8 20h8M12 16v4"/></svg></div><h3>מסתכלים רק על המחיר</h3><p>מנתחים לאן המחיר הולך, ומתעלמים מהשאלה מתי. כיוון נכון בזמן הלא נכון הוא עדיין הפסד.</p></div>
+      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div><h3>רודפים אחרי חדשות</h3><p>עד שהכותרת מתפרסמת, המהלך כבר קרה. מי שמגיב לחדשות נכנס מאוחר ויוצא מאוחר.</p></div>
+      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></svg></div><h3>בלי ניהול סיכונים</h3><p>בלי הפסד מקסימלי שמוגדר מראש, עסקה אחת לא מוצלחת יכולה למחוק חודשים של עבודה.</p></div>
+    </div>
+    <p class="bridge rv">סוחרים מקצועיים עובדים עם <span class="g">גישת מסחר מוגדרת וסטנדרט קבוע</span>. בהדרכה תכירו את הגישה שלנו – ותבינו מה היא רואה שאחרים מפספסים.</p>
+  </div>
+</section>
+
 <!-- ============ METHOD ============ -->
-<section class="method">
+<section class="method light">
   <div class="wrap method-grid">
     <div class="rv">
       <span class="eyebrow">הגישה המחזורית</span>
@@ -523,7 +550,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 </section>
 
 <!-- ============ ABOUT ============ -->
-<section class="about">
+<section class="about light">
   <div class="wrap about-grid">
     <div class="about-photo rv"><img src="assets/ziv-cut.webp" alt="זיו חקשוריאן" loading="lazy"></div>
     <div class="rv">
@@ -595,7 +622,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 </section>
 
 <!-- ============ FAQ ============ -->
-<section class="faq-sec">
+<section class="faq-sec light">
   <div class="wrap">
     <div class="center rv">
       <span class="eyebrow">שאלות נפוצות</span>
