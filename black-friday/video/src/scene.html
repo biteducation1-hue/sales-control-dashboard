@@ -49,12 +49,12 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
 .mcard .b b{font-size:44px;font-weight:900}
 .mcard .b i{font-style:normal;font-size:28px;color:var(--gl);font-weight:700}
 /* S2 lives */
-.live{position:absolute;width:396px;height:610px;padding:26px 24px;display:flex;flex-direction:column;gap:12px}
-.live .pill{align-self:flex-start;font-size:30px;padding:2px 24px}
+.live{position:absolute;width:316px;height:610px;padding:24px 20px;display:flex;flex-direction:column;gap:12px}
+.live .pill{align-self:flex-start;font-size:26px;padding:2px 20px;white-space:nowrap}
 .live .ph{position:relative;height:232px;font-size:22px;margin-top:6px}
 .live .ph svg{width:62px;height:62px}
-.live h3{font-size:46px;font-weight:900;margin-top:10px;white-space:nowrap}
-.live .topic{font-size:30px;font-weight:800;color:var(--gl);line-height:1.25}
+.live h3{font-size:38px;font-weight:900;margin-top:10px;white-space:nowrap}
+.live .topic{font-size:27px;font-weight:800;color:var(--gl);line-height:1.25}
 .dot{display:inline-block;width:16px;height:16px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(126,217,87,.25);vertical-align:middle;margin-left:10px}
 /* S3 discord */
 .dpanel{position:absolute;background:#2b2d31;border:5px solid var(--ink);box-shadow:10px 12px 0 var(--ink);border-radius:20px;overflow:hidden}
@@ -129,7 +129,7 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
     <img class="abs a" src="../assets/logo-white.png" style="left:810px;top:56px;width:300px" data-t="0.1" data-k="fade">
     <div class="hbox a" style="font-size:96px;right:50%;top:190px;transform-origin:50% 50%" data-t="0.25" data-k="pop" data-cx="1">מה מקבלים בחודש <span class="hl">בקהילה?</span></div>
     <div class="mcard a" id="m1" style="left:1290px;top:520px" data-t="0.9" data-k="right" data-r="4"><div class="f"><span>?</span></div><div class="b">
-      <svg viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg><b>לייבים</b><i>4 בשבוע</i></div></div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="14" height="12" rx="2"/><path d="M16 10l6-3v10l-6-3z"/></svg><b>לייבים</b><i>5 בשבוע</i></div></div>
     <div class="mcard a" id="m2" style="left:800px;top:540px" data-t="1.1" data-k="up" data-r="-2"><div class="f"><span>?</span></div><div class="b">
       <svg viewBox="0 0 24 24" fill="none" stroke="#7ed957" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg><b>דיסקורד</b><i>כל החדרים</i></div></div>
     <div class="mcard a" id="m3" style="left:310px;top:520px" data-t="1.3" data-k="left" data-r="-4"><div class="f"><span>?</span></div><div class="b">
@@ -138,23 +138,26 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
 
   <!-- S2 LIVES 5-17 -->
   <div class="scene" id="s2" data-s="5.0" data-e="17.0">
-    <div class="hbox a" style="font-size:72px;right:110px;top:62px" data-t="5.2" data-k="pop"><span class="hl">4 לייבים</span> בכל שבוע</div>
+    <div class="hbox a" style="font-size:72px;right:110px;top:62px" data-t="5.2" data-k="pop"><span class="hl">5 לייבים</span> בכל שבוע</div>
     <div class="abs a" style="left:110px;top:84px;display:flex;align-items:center;gap:18px" data-t="13.6" data-k="pop">
-      <span class="pill" style="font-size:40px;padding:6px 30px">כ-<span class="cnt num" data-t="13.7" data-d="1.4" data-to="17">0</span> לייבים בחודש</span>
+      <span class="pill" style="font-size:40px;padding:6px 30px">יותר מ-<span class="cnt num" data-t="13.7" data-d="1.4" data-to="20">0</span> לייבים בחודש</span>
     </div>
     <!-- cards right to left -->
-    <div class="card live a" style="left:1410px;top:300px" data-t="6.2" data-k="up" data-r="1.2"><span class="pill">ראשון</span>
+    <div class="card live a" style="left:1504px;top:300px" data-t="6.0" data-k="up" data-r="1.2"><span class="pill">ראשון · ערב</span>
       <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
       <h3>זיו</h3><div class="topic">לייב הכנה למסחר<br>סייקלים ומניות</div></div>
-    <div class="card live a" style="left:976px;top:300px" data-t="8.1" data-k="up" data-r="-1"><span class="pill">שלישי</span>
+    <div class="card live a" style="left:1153px;top:300px" data-t="7.5" data-k="up" data-r="-1"><span class="pill">שלישי · ערב</span>
       <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
       <h3>מני בריזל</h3><div class="topic">לייב עומק<br>על הסייקלים</div></div>
-    <div class="card live a" style="left:542px;top:300px" data-t="10.0" data-k="up" data-r="1"><span class="pill">רביעי</span>
+    <div class="card live a" style="left:802px;top:300px" data-t="9.0" data-k="up" data-r="1"><span class="pill">רביעי · ערב</span>
       <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
       <h3>רועי בן חמו</h3><div class="topic">תזמון עסקאות<br>במניות</div></div>
-    <div class="card live a" style="left:108px;top:300px" data-t="11.9" data-k="up" data-r="-1.2"><span class="pill">חמישי</span>
+    <div class="card live a" style="left:451px;top:300px" data-t="10.5" data-k="up" data-r="-1.2"><span class="pill">חמישי · בוקר</span>
       <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
       <h3>גולן עין צבי</h3><div class="topic">דיוק בהבנת<br>הגרף</div></div>
+    <div class="card live a" style="left:100px;top:300px" data-t="12.0" data-k="up" data-r="1"><span class="pill">חמישי · צהריים</span>
+      <div class="ph"><svg viewBox="0 0 24 24" fill="none" stroke="#ffd166" stroke-width="1.8"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z" fill="#ffd166"/></svg>להחליף בצילום מסך<br>אמיתי מלייב</div>
+      <h3>שגיא אוסקר</h3><div class="topic">לייב שאלות<br>והבנה</div></div>
   </div>
 
   <!-- S3 DISCORD 17-32 -->
@@ -222,13 +225,13 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
     <div class="kick a" style="right:118px;top:470px;font-size:36px" data-t="53.1" data-k="up">כל זה כלול במנוי לקהילה</div>
     <div class="receipt a" style="left:150px;top:90px;width:820px" data-t="52.9" data-k="up" data-r="-1.4">
       <h3>סייקלס טריידינג · קבלה</h3><div class="sub">חודש אחד בקהילה</div>
-      <div class="rrow a" data-t="53.6" data-k="right"><span>כ-17 לייבים עם 4 מנטורים</span><span class="yes">✓ כלול</span></div>
+      <div class="rrow a" data-t="53.6" data-k="right"><span>יותר מ-20 לייבים עם 5 מנטורים</span><span class="yes">✓ כלול</span></div>
       <div class="rrow a" data-t="54.4" data-k="right"><span>חדרי מומחי מניות וסטאפים</span><span class="yes">✓ כלול</span></div>
       <div class="rrow a" data-t="55.2" data-k="right"><span>חדר לכל נכס, רעיונות ומניות חמות</span><span class="yes">✓ כלול</span></div>
       <div class="rrow a" data-t="56.0" data-k="right"><span>טווח ארוך, קריפטו, מט"ח ונוסטרו</span><span class="yes">✓ כלול</span></div>
       <div class="rrow a" data-t="56.8" data-k="right"><span>קהילה של <span class="ltr">2,000+</span> סוחרים</span><span class="yes">✓ כלול</span></div>
       <div class="rrow a" data-t="57.6" data-k="right"><span>מענה יומי מ-9 מנטורים</span><span class="yes">✓ כלול</span></div>
-      <div class="rrow a" data-t="58.4" data-k="right" style="border-bottom:0"><span>הדוח החודשי, 5 נכסים</span><span class="yes">✓ כלול</span></div>
+      <div class="rrow a" data-t="58.4" data-k="right" style="border-bottom:0"><span>הדוח החודשי + ארכיון הדוחות</span><span class="yes">✓ כלול</span></div>
     </div>
   </div>
 

@@ -109,6 +109,18 @@ body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset
 /* results heatmap */
 .results{background:rgba(13,18,22,.38)}
 .heat-scroll{overflow-x:auto;padding-bottom:6px}
+.heat-wrap{position:relative}
+.heat-hint{display:none}
+@media (max-width:700px){
+  .heat-hint{display:flex;align-items:center;justify-content:center;gap:8px;margin:0 0 10px;font-size:14.5px;font-weight:800;color:var(--green-light);transition:opacity .4s}
+  .heat-hint .sw{display:inline-block;font-size:18px;animation:sw 1.4s ease-in-out infinite}
+  .heat-wrap::after{content:"";position:absolute;top:0;bottom:6px;left:0;width:64px;background:linear-gradient(to right,#191f25 15%,rgba(25,31,37,0));pointer-events:none;transition:opacity .3s}
+  .heat-wrap.end::after{opacity:0}
+  .heat-hint.done{opacity:.35}
+  .heat th.m{position:sticky;right:0;z-index:1;background:#191f25}
+}
+@keyframes sw{0%,100%{transform:translateX(0)}50%{transform:translateX(-7px)}}
+
 .heat{border-collapse:separate;border-spacing:6px;min-width:620px;width:100%}
 .heat th{font-size:14px;font-weight:700;color:var(--muted);text-align:center;padding:4px}
 .heat th.m{text-align:right;white-space:nowrap;color:var(--white)}
@@ -234,12 +246,12 @@ footer .inner{padding-block:30px 110px}
   <p class="sub">5 לייבים בשבוע, בבוקר ובערב, עם המנטורים, כל חדרי הדיסקורד, ומעל 2,000 סוחרים שמדברים את אותה שפה. ובנוסף, הדוח החודשי שמסמן מראש את תאריכי המפנה ב-5 נכסים.</p>
   <div class="price-hero">
     <div class="pb"><div class="pc reg"><span class="pt">מחיר רגיל</span><span class="pp">450 ₪</span><span class="ps">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="pt">בלאק פריידי · חודש בקהילה</span><span class="pp"><span class="dg">197</span><span class="cur">₪</span></span><span class="ps">פחות מ-7 ₪ ליום</span></div></div>
-    <span class="renew">תשלום חד-פעמי של 197 ₪, בלי חידוש אוטומטי. בסוף החודש מחליטים אם להמשיך.</span>
+    <span class="renew">תשלום חד-פעמי של 197 ₪, בלי חידוש אוטומטי. הגישה פתוחה עד 31/12, כך שמי שנכנס מוקדם מקבל יותר מחודש.</span>
   </div>
   <a class="cta" href="#join">אני רוצה להיכנס לקהילה ←</a>
   <div class="clock-wrap"><span class="fine">המבצע נסגר בעוד</span><div class="clock" data-clock></div></div>
   <div class="chips">
-    <div class="chip"><b>4</b><span>לייבים בכל שבוע</span></div>
+    <div class="chip"><b>5</b><span>לייבים בכל שבוע</span></div>
     <div class="chip"><b>2,000+</b><span>סוחרים בדיסקורד</span></div>
     <div class="chip"><b>9</b><span>מנטורים שעונים כל יום</span></div>
     <div class="chip"><b>76.8%</b><span>פגיעה של הדוח ב-12 חודשים</span></div>
@@ -250,19 +262,20 @@ footer .inner{padding-block:30px 110px}
 <section class="band" id="value"><div class="inner receipt-wrap">
   <div class="val-points">
     <div class="sec-head" style="margin-bottom:6px"><span class="kicker">מה מקבלים ב-197 ₪</span><h2>שלושה דברים, <span class="hl">במחיר של פחות מחצי</span></h2></div>
-    <div class="vp"><i>1</i><div><h3>5 לייבים בשבוע, בבוקר ובערב</h3><p>זיו, מני, רועי, גולן ושגיא. בכל שבוע 5 שידורים חיים עם ניתוחים, תרחישים ומענה לשאלות. בחודש אחד זה יותר מ-20 לייבים.</p></div></div>
+    <div class="vp"><i>1</i><div><h3>5 לייבים בשבוע, בבוקר ובערב</h3><p>זיו, מני, רועי, גולן ושגיא. 5 שידורים חיים בשבוע: שלושה בערב, אחד בבוקר ואחד בצהריים. עם ניתוחים, תרחישים ומענה לשאלות. עד 31/12 זה יותר מ-20 לייבים.</p></div></div>
     <div class="vp"><i>2</i><div><h3>כל חדרי הדיסקורד</h3><p>חדרים של מומחי מניות, חדר לכל נכס מהדוח, רעיונות מסחר ומניות חמות, השקעות לטווח ארוך, קריפטו, מט"ח ונוסטרו.</p></div></div>
-    <div class="vp"><i>3</i><div><h3>הדוח החודשי</h3><p>תאריכי המפנה הצפויים ב-5 נכסים, בתחילת החודש, כשהם עוד לפניכם. הוא חלק מהקהילה, ועליו בנויים חלק מהלייבים והחדרים.</p></div></div>
+    <div class="vp"><i>3</i><div><h3>הדוח החודשי, וכל הדוחות הקודמים</h3><p>תאריכי המפנה הצפויים ב-5 נכסים, בתחילת החודש, כשהם עוד לפניכם. ובנוסף גישה לארכיון של כל הדוחות הקודמים, כדי לראות בעצמכם איך זה עבד לאורך זמן.</p></div></div>
   </div>
   <div class="receipt" role="figure" aria-label="סיכום ההצעה">
     <h3>סייקלס טריידינג · קבלה</h3>
-    <p class="sub">בלאק פריידי 2026 · חודש אחד</p>
+    <p class="sub">בלאק פריידי 2026 · גישה עד 31/12</p>
     <div class="r-row"><span>יותר מ-20 לייבים עם 5 מנטורים</span><span class="yes">כלול ✓</span></div>
     <div class="r-row"><span>חדרי מומחי מניות וסטאפים</span><span class="yes">כלול ✓</span></div>
     <div class="r-row"><span>חדר לכל נכס, רעיונות מסחר ומניות חמות</span><span class="yes">כלול ✓</span></div>
     <div class="r-row"><span>טווח ארוך, קריפטו, מט"ח ונוסטרו</span><span class="yes">כלול ✓</span></div>
     <div class="r-row"><span>מענה יומי מ-9 מנטורים</span><span class="yes">כלול ✓</span></div>
     <div class="r-row"><span>הדוח החודשי, 5 נכסים</span><span class="yes">כלול ✓</span></div>
+    <div class="r-row"><span>ארכיון כל הדוחות הקודמים</span><span class="yes">כלול ✓</span></div>
     <div class="r-row"><span>מחיר מנוי חודשי רגיל</span><span>450 ₪</span></div>
     <div class="r-row"><span>מחיר לחודש במסלול השנתי</span><span>299 ₪</span></div>
     <div class="r-total"><span>אתם משלמים</span><span><span class="was">450</span> <span class="now">197 ₪</span></span></div>
@@ -272,13 +285,13 @@ footer .inner{padding-block:30px 110px}
 
 <!-- COMMUNITY -->
 <section class="band" id="community"><div class="inner">
-  <div class="sec-head"><span class="kicker">החלק הגדול של החבילה</span><h2>שבוע רגיל <span class="hl">בתוך הקהילה</span></h2><p class="muted">כך נראה השבוע שלכם בחודש הזה: 5 לייבים, חלקם בבוקר וחלקם בערב. מצטרפים לשידור חי, שואלים ויוצאים עם תרחישים לשבוע.</p></div>
+  <div class="sec-head"><span class="kicker">החלק הגדול של החבילה</span><h2>שבוע רגיל <span class="hl">בתוך הקהילה</span></h2><p class="muted">כך נראה השבוע שלכם בחודש הזה: 5 לייבים, שלושה בערב, אחד בבוקר ואחד בצהריים. מצטרפים לשידור חי, שואלים ויוצאים עם תרחישים לשבוע.</p></div>
   <div class="week">
-    <article class="live"><span class="when">ראשון · <span class="ph">[בוקר/ערב]</span></span><h3>זיו</h3><b>לייב הכנה למסחר</b><p>תאריכי המפנה מהדוח, בדיקת הסייקלים ומניות. איזה תרחיש מתאים לאיזה מהלך.</p></article>
-    <article class="live"><span class="when">שלישי · <span class="ph">[בוקר/ערב]</span></span><h3>מני בריזל</h3><b>לייב עומק על הסייקלים</b><p>סוחר עם יותר מ-35 שנות ניסיון. מנתח את תאריכי המפנה הקרובים ומחבר בין התיאוריה ליישום.</p></article>
-    <article class="live"><span class="when">רביעי · <span class="ph">[בוקר/ערב]</span></span><h3>רועי בן חמו</h3><b>תזמון עסקאות במניות</b><p>פותחים את הגרף החי, עוברים על מניות שהעלו החברים ובודקים כניסה, סיכון וניהול.</p></article>
-    <article class="live"><span class="when">חמישי · <span class="ph">[בוקר/ערב]</span></span><h3>גולן עין צבי</h3><b>דיוק בהבנת הגרף</b><p>מענה לשאלות מהמסחר היומיומי, יחד עם תרחישים שמבוססים על התזמון.</p></article>
-    <article class="live"><span class="when"><span class="ph">[יום · בוקר/ערב]</span></span><h3>שגיא אוסקר</h3><b>לייב שאלות והבנה</b><p>מוקדש למי שעדיין מעבד את החומר. מחדדים נושאים מהקורס ועונים על כל שאלה עד שזה יושב.</p></article>
+    <article class="live"><span class="when">ראשון · ערב</span><h3>זיו</h3><b>לייב הכנה למסחר</b><p>תאריכי המפנה מהדוח, בדיקת הסייקלים ומניות. איזה תרחיש מתאים לאיזה מהלך.</p></article>
+    <article class="live"><span class="when">שלישי · ערב</span><h3>מני בריזל</h3><b>לייב עומק על הסייקלים</b><p>סוחר עם יותר מ-35 שנות ניסיון. מנתח את תאריכי המפנה הקרובים ומחבר בין התיאוריה ליישום.</p></article>
+    <article class="live"><span class="when">רביעי · ערב</span><h3>רועי בן חמו</h3><b>תזמון עסקאות במניות</b><p>פותחים את הגרף החי, עוברים על מניות שהעלו החברים ובודקים כניסה, סיכון וניהול.</p></article>
+    <article class="live"><span class="when">חמישי · בוקר</span><h3>גולן עין צבי</h3><b>דיוק בהבנת הגרף</b><p>מענה לשאלות מהמסחר היומיומי, יחד עם תרחישים שמבוססים על התזמון.</p></article>
+    <article class="live"><span class="when">חמישי · צהריים</span><h3>שגיא אוסקר</h3><b>לייב שאלות והבנה</b><p>מוקדש למי שעדיין מעבד את החומר. מחדדים נושאים מהקורס ועונים על כל שאלה עד שזה יושב.</p></article>
   </div>
   <h3 class="rooms-title">ובין הלייבים: הדיסקורד, 24/6</h3>
   <div class="rooms">
@@ -297,7 +310,7 @@ footer .inner{padding-block:30px 110px}
 <section class="results band" id="results"><div class="inner">
   <div class="sec-head"><span class="kicker">ובנוסף: הדוח החודשי. לא מבטיחים, מראים.</span><h2>12 חודשים של תוצאות, <span class="hl">כל נכס, כל חודש</span></h2>
     <p class="muted">אחוז התאריכים שבהם השוק אכן התהפך מתוך התאריכים שסומנו מראש בדוח, לפי נכס ולפי חודש.</p></div>
-  <div class="heat-scroll"><table class="heat" id="heat"><thead><tr><th class="m">חודש</th><th>S&amp;P 500</th><th>ביטקוין</th><th>יורו-דולר</th><th>זהב</th><th>נפט</th></tr></thead><tbody></tbody></table></div>
+  <p class="heat-hint" aria-hidden="true">גוללים הצידה לביטקוין, יורו-דולר, זהב ונפט <span class="sw">←</span></p><div class="heat-wrap"><div class="heat-scroll"><table class="heat" id="heat"><thead><tr><th class="m">חודש</th><th>S&amp;P 500</th><th>ביטקוין</th><th>יורו-דולר</th><th>זהב</th><th>נפט</th></tr></thead><tbody></tbody></table></div></div>
   <div class="avg-row">
     <div><div class="big-avg">76.8%</div><span class="fine">ממוצע 12 החודשים האחרונים, 60 תחזיות</span></div>
     <div class="legend"><span class="l100"></span>100% <span class="l80"></span>80% <span class="l75"></span>75% <span class="l60"></span>60–66% <span class="l50"></span>עד 50%</div>
@@ -354,7 +367,8 @@ footer .inner{padding-block:30px 110px}
 <!-- FAQ -->
 <section class="band"><div class="inner faq">
   <h2 style="margin-bottom:14px">שאלות קצרות</h2>
-  <details><summary>מתי אקבל את הדוח הראשון?</summary><p><span class="ph">[לאשר: דוח דצמבר יוצא בתחילת דצמבר, ומי שמצטרף ב-23–30/11 מקבל אותו?]</span> הדוח מופיע באזור האישי באתר.</p></details>
+  <details><summary>מתי אקבל את הדוח הראשון?</summary><p><span class="ph">[לאשר: דוח דצמבר יוצא בתחילת דצמבר, ומי שמצטרף ב-23–30/11 מקבל אותו?]</span> הדוח מופיע באזור האישי באתר, ולידו הארכיון של כל הדוחות הקודמים.</p></details>
+  <details><summary>מתי כדאי להצטרף?</summary><p>כמה שיותר מוקדם. הגישה של כל מצטרפי בלאק פריידי פתוחה עד 31/12, לא משנה מתי קניתם. מי שנכנס ב-23/11 מקבל כחמישה שבועות, ומי שנכנס ב-30/11 מקבל חודש.</p></details>
   <details><summary>כמה אשלם בפועל?</summary><p>197 ₪, פעם אחת. אין חידוש אוטומטי ואין חיוב נוסף. אם תרצו להמשיך אחרי החודש, תבחרו מסלול: חודשי ב-450 ₪, או שנתי ב-299 ₪ לחודש.</p></details>
   <details><summary>צריך לבטל משהו בסוף החודש?</summary><p>לא. זה תשלום חד-פעמי. אם לא תבחרו להמשיך, הגישה פשוט מסתיימת ב-31/12, בלי חיוב.</p></details>
   <details><summary>אפשר לסחור רק לפי הדוח?</summary><p>לא. כל תאריך יכול לזוז ביום אחד לכל כיוון, ולפעמים התנועה ממשיכה עד התאריך הבא במקום להתהפך. בלי ידע בניתוח טכני ובלי סטופ, אפשר להפסיד כסף.</p></details>
@@ -400,5 +414,17 @@ footer .inner{padding-block:30px 110px}
   if(heat){var hio=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;
     heat.querySelectorAll('td').forEach(function(td,i){td.style.animationDelay=(i*.025)+'s';td.classList.add('pop');});hio.disconnect();},{threshold:.2});
     if(heat.getBoundingClientRect().top>innerHeight)hio.observe(heat);}
+})();
+</script>
+
+<script>
+(function(){
+  var w=document.querySelector('.heat-wrap');if(!w)return;var s=w.querySelector('.heat-scroll'),h=document.querySelector('.heat-hint');
+  function upd(){var max=s.scrollWidth-s.clientWidth;var at=Math.abs(s.scrollLeft)>=max-4;w.classList.toggle('end',max<=0||at);if(at&&max>0&&h)h.classList.add('done');}
+  s.addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+  if(!('IntersectionObserver' in window)||matchMedia('(prefers-reduced-motion: reduce)').matches||innerWidth>700)return;
+  var io=new IntersectionObserver(function(es){if(!es[0].isIntersecting)return;io.disconnect();
+    setTimeout(function(){s.scrollTo({left:-90,behavior:'smooth'});setTimeout(function(){s.scrollTo({left:0,behavior:'smooth'});},700);},500);},{threshold:.5});
+  io.observe(s);
 })();
 </script>
