@@ -33,7 +33,7 @@ section.view[hidden]{display:none}
 .legend{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:16px;font-size:14px;color:var(--muted)}
 .dot{display:inline-flex;align-items:center;gap:6px}
 .dot i{width:12px;height:12px;border-radius:50%;display:inline-block}
-.c-wa{background:#25d366}.c-st{background:#e1306c}.c-ml{background:#6ab7ff}.c-bo{background:var(--flag)}.c-ph{background:var(--green-light)}
+.c-mb{background:#a5b4fc}.c-wa{background:#25d366}.c-st{background:#e1306c}.c-ml{background:#6ab7ff}.c-bo{background:var(--flag)}.c-ph{background:var(--green-light)}
 .phase{margin-top:22px;margin-bottom:10px;font-weight:900;font-size:18px;display:flex;gap:10px;align-items:center}
 .phase span{font-size:13px;font-weight:700;color:var(--green-light);background:var(--green-dark);border-radius:999px;padding:2px 12px}
 .days{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
@@ -186,6 +186,15 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
 .moffer{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:linear-gradient(160deg,#21392f,#16221d);border:3px solid var(--green);box-shadow:0 0 40px rgba(126,217,87,.25);border-radius:20px;padding:18px 22px;margin-bottom:24px}
 .moffer .kick{color:var(--green-light);font-weight:800;font-size:14px}
 .cta-s{background:var(--green);color:#0f200e!important;font-weight:900;text-decoration:none;border-radius:14px;padding:12px 22px;border:3px solid var(--ink);box-shadow:4px 5px 0 var(--ink);white-space:nowrap}
+.mlist{display:flex;flex-direction:column;gap:10px;max-width:980px}
+.mrow{display:grid;grid-template-columns:120px 1fr;gap:14px;align-items:start;background:rgba(13,18,22,.5);border:1px solid var(--line);border-radius:14px;padding:12px}
+.mwhen{display:flex;flex-direction:column}.mwhen b{color:var(--green-light)}.mwhen span{font-size:13px;color:var(--muted)}
+.mbody{display:flex;flex-direction:column;gap:4px;min-width:0}
+.mtext{white-space:pre-line;font-size:14.5px;color:#dbe3ea;background:rgba(0,0,0,.18);border-radius:10px;padding:8px 10px;margin-top:4px}
+.mtext.dct{background:#313338}
+.ch{align-self:flex-start;font-size:12px;font-weight:800;border-radius:999px;padding:1px 10px;color:#0d1216}
+.ch.ml{background:#6ab7ff}.ch.dcch{background:#a5b4fc}.ch.lvch{background:var(--green-light)}
+@media (max-width:600px){.mrow{grid-template-columns:1fr}}
 @media (max-width:860px){.stage{grid-template-columns:1fr}.phone{position:relative;top:0;order:-1}}
 </style>
 
@@ -194,7 +203,7 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
   <div><h1>חדר המלחמה · <span class="hl">בלאק פריידי 2026</span></h1><p>כל מה שהקהל יראה, בדיוק כמו שהוא יראה את זה: דף הנחיתה, לוח הימים, הוואטסאפ, הסטוריז והבאנרים, מ-13/11 עד 30/11.</p></div>
   <div class="kpis"><div class="kpi"><b>18</b><span>ימי קמפיין</span></div><div class="kpi"><b>8</b><span>תפוצות וואטסאפ</span></div><div class="kpi"><b>67</b><span>פריימים של סטוריז</span></div><div class="kpi"><b>33</b><span>באנרים</span></div></div>
 </header>
-<nav class="tabs" aria-label="תצוגות"><a href="#process">התהליך</a><a href="#timeline">לוח הימים</a><a href="#landing">דף הנחיתה</a><a href="#sales">אנשי מכירות</a><a href="#whatsapp">וואטסאפ</a><a href="#stories">סטוריז</a><a href="#social">איש הסושיאל</a><a href="#banners">באנרים</a><a href="#video">סרטון ויוטיוב</a><a href="#members">חברי הקהילה</a><a href="#referral">שגרירים</a></nav>
+<nav class="tabs" aria-label="תצוגות"><a href="#process">התהליך</a><a href="#timeline">לוח הימים</a><a href="#landing">דף הנחיתה</a><a href="#sales">אנשי מכירות</a><a href="#whatsapp">וואטסאפ</a><a href="#stories">סטוריז</a><a href="#social">איש הסושיאל</a><a href="#banners">באנרים</a><a href="#video">סרטון ויוטיוב</a><a href="#members">חברי הקהילה</a><a href="#memberoffer">מבצע לחברים</a><a href="#referral">שגרירים</a></nav>
 
 <section class="view" id="v-landing" hidden>
   <p class="intro">זה דף המכירה שאליו מובילים כל הערוצים. אפשר להחליף בין תצוגת מחשב לתצוגת טלפון, או לפתוח אותו במסך מלא.</p>
@@ -204,7 +213,7 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
 
 <section class="view" id="v-timeline">
   <p class="intro">לחיצה על יום פותחת את הוואטסאפ ואת הסטוריז של אותו יום. הימים המודגשים הם רגעי השיא.</p>
-  <div class="legend"><span class="dot"><i class="c-wa"></i>תפוצת וואטסאפ</span><span class="dot"><i class="c-st"></i>סטוריז</span><span class="dot"><i class="c-bo"></i>בוסט</span><span class="dot"><i class="c-ph"></i>שיחות 1 על 1</span></div>
+  <div class="legend"><span class="dot"><i class="c-wa"></i>תפוצת וואטסאפ</span><span class="dot"><i class="c-st"></i>סטוריז</span><span class="dot"><i class="c-bo"></i>בוסט</span><span class="dot"><i class="c-ph"></i>שיחות 1 על 1</span><span class="dot"><i class="c-mb"></i>מבצע לחברים</span></div>
   <div id="tl"></div>
 </section>
 
@@ -229,11 +238,59 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
   </div>
 </section>
 
+<section class="view" id="v-memberoffer" hidden>
+  <div class="moffer"><div><span class="kick">מבצע לחברים קיימים · <bdi dir="ltr">15/11–30/11</bdi></span><h3 style="margin:4px 0 6px;font-size:26px">מנוי שנתי ב-2,890 ₪ במקום 3,590 ₪</h3><p>כ-241 ₪ לחודש במקום 450 ₪ · עד 12 תשלומים · המבצע פונה למנויים החודשיים</p></div><a class="cta-s" href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">לדף הרכישה ↗</a></div>
+  <p class="intro">המבצע לחברים מתחיל שבוע לפני המבצע לחדשים. כך החברים שומעים עליו ראשונים, ולא מתוך מודעה. יש ארבעה ערוצים: <span class="ch ml">מייל</span> <span class="ch dcch">דיסקורד</span> <span class="ch lvch">לייב</span>, ואת הפולואפ מנהל התהליך שכבר מוכן ב-Pipedrive.</p>
+  <h3 class="mh">לוח הזמנים</h3>
+  <div class="mlist"><div class="mrow"><div class="mwhen"><b>ראשון 15/11</b><span>09:30</span></div><div class="mbody"><span class="ch ml">מייל</span><b>🎁 לחברי הקהילה בלבד: השנה הבאה שלכם, ב-700 ₪ פחות</b><span class="small">חלופה: רק לחברים: מנוי שנתי ב-2,890 ₪</span><div class="mtext">היי {שם},
+
+לפני שכל העולם מתחיל עם בלאק פריידי, רציתי שאתם תשמעו את זה ראשונים.
+
+לחברים שכבר בפנים פתחנו <b>מנוי שנתי ב-2,890 ₪ במקום 3,590 ₪</b>. זה יוצא כ-241 ₪ לחודש במקום 450 ₪, ואפשר לשלם בעד 12 תשלומים.
+
+בשנה אחת: 12 דוחות חודשיים, כ-200 לייבים עם זיו, מני, רועי וגולן, וכל החדרים בדיסקורד.
+
+👈 <a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">cyclestrading-course.com/black-friday-3</a>
+פתוח עד 30/11 בשעה 23:59.
+
+זיו</div></div></div><div class="mrow"><div class="mwhen"><b>ראשון 15/11</b><span>10:00</span></div><div class="mbody"><span class="ch dcch">דיסקורד</span><b>#📢・הודעות (נעוץ)</b><div class="mtext dct">@everyone
+<b>🎁 לחברים בלבד: מנוי שנתי ב-2,890 ₪ במקום 3,590 ₪</b>
+≈241 ₪ לחודש · עד 12 תשלומים · עד 30/11
+👈 <span class="dc-ch">cyclestrading-course.com/black-friday-3</span>
+שאלות? כאן בשרשור 👇</div></div></div><div class="mrow"><div class="mwhen"><b>ראשון 15/11</b><span>בלייב</span></div><div class="mbody"><span class="ch lvch">לייב · זיו</span><div class="mtext">בסוף הלייב, דקה אחת: "לפני שנסיים, לכם החברים יש מהיום מבצע: המנוי השנתי ב-2,890 ₪ במקום 3,590 ₪. זה יוצא 241 ₪ לחודש. הקישור נעוץ בדיסקורד, ופתוח עד 30/11."</div></div></div><div class="mrow"><div class="mwhen"><b>שלישי 17/11</b><span>בלייב</span></div><div class="mbody"><span class="ch lvch">לייב · מני</span><div class="mtext">בתחילת הלייב: "תזכורת קטנה: המבצע השנתי לחברים פתוח עד סוף החודש, והקישור בדיסקורד."</div></div></div><div class="mrow"><div class="mwhen"><b>רביעי 18/11</b><span>בלייב</span></div><div class="mbody"><span class="ch lvch">לייב · רועי</span><div class="mtext">בסוף הלייב: "מי שמתלבט לגבי השנתי, תשאלו אותי כאן. ב-2,890 ₪ זה יוצא 241 ₪ לחודש."</div></div></div><div class="mrow"><div class="mwhen"><b>חמישי 19/11</b><span>20:00</span></div><div class="mbody"><span class="ch ml">מייל</span><b>מה מקבלים בשנה אחת בקהילה (ולמה זה זול יותר)</b><span class="small">חלופה: 12 דוחות, 200 לייבים, מחיר אחד</span><div class="mtext">היי {שם},
+
+שאלו אותי השבוע אם השנתי באמת משתלם. הנה החשבון:
+• חודשי: 450 ₪ × 12 = 5,400 ₪
+• שנתי רגיל: 3,590 ₪
+• <b>שנתי בבלאק פריידי: 2,890 ₪</b>
+
+בשנה הזו מקבלים 12 דוחות חודשיים, 4 לייבים בכל שבוע וכל חדרי הדיסקורד. ובעיקר, לא צריך לחשוב על זה כל חודש מחדש.
+
+👈 <a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">cyclestrading-course.com/black-friday-3</a></div></div></div><div class="mrow"><div class="mwhen"><b>חמישי 19/11</b><span>בלייב</span></div><div class="mbody"><span class="ch lvch">לייב · גולן</span><div class="mtext">בסוף הלייב: "רק שתדעו, המבצע השנתי לחברים פתוח עד 30/11."</div></div></div><div class="mrow"><div class="mwhen"><b>שישי 20/11</b><span>09:00</span></div><div class="mbody"><span class="ch ml">מייל</span><b>שבוע הבא הקהילה שלנו הולכת לגדול. ואני צריך אתכם</b><span class="small">חלופה: (המייל על המצטרפים החדשים, מלשונית "חברי הקהילה")</span><div class="mtext">המייל על החברים החדשים שמצטרפים ב-23/11. הוא כולל את הפסקה "ויש גם משהו בשבילכם 🎁" עם המבצע השנתי.</div></div></div><div class="mrow"><div class="mwhen"><b>ראשון 22/11</b><span>בלייב</span></div><div class="mbody"><span class="ch lvch">לייב · זיו</span><div class="mtext">שני מסרים: (1) "מחר מצטרפים חברים חדשים. תקבלו אותם בחום ותהיו סבלניים עם השאלות." (2) "ולכם: נשאר שבוע למבצע השנתי, 2,890 ₪."</div></div></div><div class="mrow"><div class="mwhen"><b>שני 23/11</b><span>09:30</span></div><div class="mbody"><span class="ch dcch">דיסקורד</span><b>#📢・הודעות (נעוץ)</b><div class="mtext dct">ההודעה על המצטרפים החדשים, מלשונית "חברי הקהילה". כוללת שורה על המבצע השנתי לחברים.</div></div></div><div class="mrow"><div class="mwhen"><b>רביעי 25/11</b><span>20:00</span></div><div class="mbody"><span class="ch ml">מייל</span><b>"עברתי לשנתי ושכחתי מזה" — חברים מספרים</b><span class="small">חלופה: למה חברים בחרו בשנתי</span><div class="mtext">היי {שם},
+
+[2–3 ציטוטים של חברים שעברו לשנתי, באישור, ובלי תשואות]
+
+המבצע השנתי לחברים, מנוי שנתי ב-2,890 ₪ במקום 3,590 ₪, פתוח עד יום שני.
+👈 <a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">cyclestrading-course.com/black-friday-3</a></div></div></div><div class="mrow"><div class="mwhen"><b>שישי 27/11</b><span>10:00</span></div><div class="mbody"><span class="ch ml">מייל</span><b>בלאק פריידי 🖤 גם לכם</b><span class="small">חלופה: הבלאק פריידי של החברים</span><div class="mtext">היי {שם},
+
+היום בלאק פריידי, והמבצע שלכם בתוקף עד יום שני ב-23:59:
+<b>מנוי שנתי ב-2,890 ₪ במקום 3,590 ₪</b>, עד 12 תשלומים.
+👈 <a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">cyclestrading-course.com/black-friday-3</a>
+
+שבת שלום,
+זיו</div></div></div><div class="mrow"><div class="mwhen"><b>שישי 27/11</b><span>11:00</span></div><div class="mbody"><span class="ch dcch">דיסקורד</span><b>#📢・הודעות</b><div class="mtext dct">🖤 בלאק פריידי לחברים: המנוי השנתי ב-2,890 ₪. נשאר עד יום שני 23:59. שבת שלום!</div></div></div><div class="mrow"><div class="mwhen"><b>ראשון 29/11</b><span>בלייב</span></div><div class="mbody"><span class="ch lvch">לייב · זיו</span><div class="mtext">"מחר בלילה נסגר המבצע השנתי לחברים. מי שמתכנן, זה הזמן. הקישור בדיסקורד."</div></div></div><div class="mrow"><div class="mwhen"><b>ראשון 29/11</b><span>20:30</span></div><div class="mbody"><span class="ch ml">מייל</span><b>נשארו 24 שעות למבצע השנתי</b><span class="small">חלופה: מחר בלילה זה נגמר</span><div class="mtext">{שם}, מחר ב-23:59 נסגר המנוי השנתי לחברים ב-2,890 ₪.
+אחרי זה המחיר חוזר ל-3,590 ₪.
+👈 <a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">cyclestrading-course.com/black-friday-3</a></div></div></div><div class="mrow"><div class="mwhen"><b>שני 30/11</b><span>13:00</span></div><div class="mbody"><span class="ch ml">מייל</span><b>היום יום אחרון: 2,890 ₪ במקום 3,590 ₪</b><span class="small">חלופה: נסגר הלילה</span><div class="mtext">{שם}, הלילה ב-23:59 נסגר המבצע השנתי לחברים.
+👈 <a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">cyclestrading-course.com/black-friday-3</a></div></div></div><div class="mrow"><div class="mwhen"><b>שני 30/11</b><span>20:00</span></div><div class="mbody"><span class="ch dcch">דיסקורד</span><b>#📢・הודעות</b><div class="mtext dct">⏳ נשארו 4 שעות למבצע השנתי לחברים, 2,890 ₪. הקישור למעלה בהודעה הנעוצה.</div></div></div></div>
+  <h3 class="mh">כללים</h3>
+  <ul class="checklist"><li>מי שקנה יוצא מהדיוור. להחריג את רוכשי המוצר "מנוי שנתי – בלאק פריידי" לפני כל מייל.</li><li>בלייבים אומרים את זה בקצרה, דקה אחת לכל היותר, בסוף או בתחילת הלייב ולא באמצע.</li><li>בשבת לא יוצא כלום. ביום שישי הכול עד 12:00.</li><li>בדיסקורד: הודעה נעוצה אחת, ומעדכנים אותה. לא פותחים הודעה חדשה בכל פעם.</li><li>בלי תשואות ובלי "תחזיר את זה מעסקה אחת".</li></ul>
+</section>
+
 <section class="view" id="v-members" hidden>
   <div class="moffer">
     <div><span class="kick">המבצע לחברים הקיימים</span><h3 style="margin:4px 0 6px;font-size:26px">מנוי שנתי ב-<span class="hl">2,890 ₪</span> במקום 3,590 ₪</h3>
     <p>חיסכון של 700 ₪, כלומר כ-241 ₪ לחודש במקום 450 ₪. אפשר לשלם בעד 12 תשלומים.</p>
-    <p class="small">דף הרכישה: <a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">cyclestrading-course.com/black-friday-3</a> · המוצר "מנוי שנתי – בלאק פריידי". את הפולואפ לחברים מנהלים לפי התהליך שכבר מוכן ב-Pipedrive. <span class="flag">[תאריכי המבצע לחברים: לאשר. כרגע ההנחה היא אותו חלון, 23–30/11]</span></p></div>
+    <p class="small">דף הרכישה: <a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">cyclestrading-course.com/black-friday-3</a> · המוצר "מנוי שנתי – בלאק פריידי". את הפולואפ לחברים מנהלים לפי התהליך שכבר מוכן ב-Pipedrive. <b><bdi dir="ltr">15/11–30/11</bdi>.</b> לו"ז מלא בלשונית <a href="#memberoffer">מבצע לחברים</a>.</p></div>
     <a class="cta-s" href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">לדף הרכישה ↗</a>
   </div>
   <p class="intro">החברים הקיימים צריכים לשמוע על המבצע מאיתנו לפני שהם רואים אותו במודעה. גם להם יש הצעה: המנוי השנתי במחיר בלאק פריידי. המטרה: שיקבלו את החדשים בחום, שיבינו למה המבצע לא חל עליהם, ושירגישו שהם עמוד התווך של הקהילה. בשלושה ערוצים, בסדר הזה:</p>
@@ -265,7 +322,7 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
 
 <b>ויש גם משהו בשבילכם 🎁</b>
 החודש ב-197 ₪ מיועד רק למי שעוד לא היה חבר. לכם, החברים שכבר בפנים, יש הצעה משלכם: <b>מנוי שנתי ב-2,890 ₪ במקום 3,590 ₪</b>. זה יוצא כ-241 ₪ לחודש, ואפשר לשלם בעד 12 תשלומים.
-👈 <a href="https://cyclestrading-course.com/black-friday-3/">cyclestrading-course.com/black-friday-3</a> <span class="flag">[עד תאריך: לאשר]</span>
+👈 <a href="https://cyclestrading-course.com/black-friday-3/">cyclestrading-course.com/black-friday-3</a> עד 30/11 ב-23:59
 
 <b>מה ישתנה אצלכם?</b>
 כלום, חוץ מיותר אנשים בחדרים. הלייבים ממשיכים כרגיל: ראשון עם זיו, שלישי עם מני, רביעי עם רועי וחמישי עם גולן. <span class="flag">[אם פותחים ערוץ "שאלות של חדשים" בדיסקורד, לציין כאן]</span> כדי שהשאלות הבסיסיות לא יעמיסו על הערוצים המקצועיים.
@@ -304,7 +361,7 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
     <div><b>ההצעה לחברים</b>"ולכם, שכבר בפנים: המנוי השנתי ב-2,890 ₪ במקום 3,590 ₪. הקישור בדיסקורד."</div>
     <div><b>סגירה</b>"החודש הזה הוא מבחן לכולנו: האם אנחנו הקהילה שאנחנו אומרים שאנחנו."</div>
   </div>
-  <p class="intro" style="margin-top:14px"><b>שני דברים שכדאי להחליט עליהם:</b> (1) האם פותחים ערוץ נפרד לשאלות של חדשים, כדי שהחדרים המקצועיים לא יוצפו. (2) מה תאריכי המבצע השנתי לחברים: אותו חלון של 23–30/11, או חלון אחר?</p>
+  <p class="intro" style="margin-top:14px"><b>שני דברים שכדאי להחליט עליהם:</b> (1) האם פותחים ערוץ נפרד לשאלות של חדשים, כדי שהחדרים המקצועיים לא יוצפו. (2) האם המבצע השנתי פתוח גם לחברים במסלול רבעוני, או רק למנויים החודשיים?</p>
 </section>
 
 <section class="view" id="v-referral" hidden>
@@ -559,9 +616,9 @@ var WA=[
 ];
 var STB={"13/11":"story-01-teaser","16/11":"story-02-waitlist","23/11":"story-03-early","24/11":"story-04-open","29/11":"story-05-24h","30/11":"story-06-tonight"};
 var DAYS=[
- ["13/11","שישי","פתיחת רשימת ההמתנה",["wa","st","ph","bo"],1],["14/11","מוצ\"ש","",["st"]],["15/11","ראשון","",["st","bo"]],["16/11","שני","הצצה לדוח",["wa","st","ph"],0],["17/11","שלישי","",["st","bo"]],["18/11","רביעי","מאחורי הקלעים של הדוח",["st"]],["19/11","חמישי","",["st","ph"]],["20/11","שישי","עד 13:00",["st"]],["21/11","מוצ\"ש","",["st"]],["22/11","ראשון","\"מחר זה נפתח\"",["wa","st","ph"],0],
- ["23/11","שני","גישה מוקדמת לרשימה",["wa","st","ph","bo"],1],["24/11","שלישי","פתוח לכל העוקבים",["st","ph","bo"],1],["25/11","רביעי","טיפול בהתנגדויות",["st","ph","bo"]],["26/11","חמישי","",["st","ph","bo"]],["27/11","שישי","בלאק פריידי · עד 13:00",["wa","st","ph","bo"],1],["28/11","מוצ\"ש","48 שעות אחרונות",["st","ph"]],["29/11","ראשון","נשארו 24 שעות",["wa","st","ph","bo"]],["30/11","שני","נסגר ב-23:59",["wa","st","ph","bo"],1]];
-var TAG={wa:["c-wa","וואטסאפ"],st:["c-st","סטוריז"],bo:["c-bo","בוסט"],ph:["c-ph","1 על 1"]};
+ ["13/11","שישי","פתיחת רשימת ההמתנה",["wa","st","ph","bo"],1],["14/11","מוצ\"ש","",["st"]],["15/11","ראשון","",["st","bo","mb"]],["16/11","שני","הצצה לדוח",["wa","st","ph"],0],["17/11","שלישי","",["st","bo","mb"]],["18/11","רביעי","מאחורי הקלעים של הדוח",["st","mb"]],["19/11","חמישי","",["st","ph","mb"]],["20/11","שישי","עד 13:00",["st","mb"]],["21/11","מוצ\"ש","",["st"]],["22/11","ראשון","\"מחר זה נפתח\"",["wa","st","ph","mb"],0],
+ ["23/11","שני","גישה מוקדמת לרשימה",["wa","st","ph","bo","mb"],1],["24/11","שלישי","פתוח לכל העוקבים",["st","ph","bo"],1],["25/11","רביעי","טיפול בהתנגדויות",["st","ph","bo","mb"]],["26/11","חמישי","",["st","ph","bo"]],["27/11","שישי","בלאק פריידי · עד 13:00",["wa","st","ph","bo","mb"],1],["28/11","מוצ\"ש","48 שעות אחרונות",["st","ph"]],["29/11","ראשון","נשארו 24 שעות",["wa","st","ph","bo","mb"]],["30/11","שני","נסגר ב-23:59",["wa","st","ph","bo","mb"],1]];
+var TAG={wa:["c-wa","וואטסאפ"],st:["c-st","סטוריז"],bo:["c-bo","בוסט"],ph:["c-ph","1 על 1"],mb:["c-mb","חברים"]};
 function img(n){return "banners/"+n+".png";}
 function esc(s){return s.replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c];});}
 
@@ -624,7 +681,7 @@ document.getElementById('vid-pick').addEventListener('click',function(e){var b=e
  [].forEach.call(this.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b);});
  var v=document.getElementById('vid');v.pause();v.querySelector('source').src=b.dataset.v==='bf'?'video/offer-bf26.mp4':'video/offer-evergreen.mp4';v.load();});
 /* routing */
-var VIEWS=['process','timeline','landing','sales','whatsapp','stories','social','banners','video','members','referral'];
+var VIEWS=['process','timeline','landing','sales','whatsapp','stories','social','banners','video','members','memberoffer','referral'];
 function route(){var v=(location.hash||'#process').slice(1);if(VIEWS.indexOf(v)<0)v='process';
  VIEWS.forEach(function(n){var el=document.getElementById('v-'+n);if(n==='process'){el.classList.toggle('off',n!==v);}else{el.hidden=n!==v;}});
  document.querySelectorAll('nav.tabs a').forEach(function(a){if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
