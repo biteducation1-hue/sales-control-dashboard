@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>שיטת המסחר המחזורי · הדרכה חיה ללא עלות | CyclesTrading</title>
-<meta name="description" content="הדרכה חיה ב-ZOOM עם זיו חקשוריאן: שיטת המסחר המחזורי של וויליאם גאן. 200 מקומות, ללא עלות, ללא הקלטה.">
+<title>הגישה המחזורית · הדרכה חיה ללא עלות | Cycles Trading</title>
+<meta name="description" content="הדרכה חיה ב-ZOOM עם זיו חקשוריאן: הגישה המחזורית – מחיר, זמן ודפוסים. ללא עלות, ללא הקלטה.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
@@ -65,7 +65,7 @@ section{position:relative;padding:120px 0}
 .hdr .btn{padding:11px 22px;font-size:16px}
 
 /* hero */
-.hero{min-height:100vh;padding:140px 0 70px;display:flex;align-items:center;overflow:hidden;background:var(--bg-0)}
+.hero{min-height:100vh;padding:180px 0 70px;display:flex;align-items:center;overflow:hidden;background:var(--bg-0)}
 .hero-bg{position:absolute;inset:0;background:radial-gradient(55% 60% at 22% 55%,rgba(126,217,87,.16),transparent 70%),linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0/90px 90px,linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px) 0 0/90px 90px,linear-gradient(180deg,var(--bg-1),var(--bg-2) 60%,var(--bg-0));animation:grid 40s linear infinite}
 @keyframes grid{to{background-position:0 0,0 90px,90px 0,0 0}}
 .hero::after{content:"";position:absolute;inset:0;background:
@@ -251,12 +251,22 @@ footer details p{padding:0}
 .sticky.on{transform:none}
 .sticky .btn{width:100%;font-size:17px;padding:15px}
 
+
+/* urgency – real data only */
+.topbar{background:linear-gradient(90deg,#3f9b25,var(--green) 50%,#3f9b25);color:#0f200e;font-weight:800;text-align:center;padding:9px 16px;font-size:15.5px;line-height:1.4}
+.topbar b{font-weight:900}
+.topbar .pill{display:inline-block;background:#0f200e;color:var(--green-light);font-weight:900;padding:1px 10px;border-radius:999px;margin:0 2px;direction:ltr;unicode-bidi:isolate}
+.toast{position:fixed;right:16px;bottom:16px;z-index:70;display:flex;align-items:center;gap:10px;background:var(--bg-2);box-shadow:0 0 0 1px var(--line),0 18px 40px -12px rgba(0,0,0,.6);border-radius:12px;padding:12px 16px;font-size:15px;color:var(--ink);max-width:calc(100vw - 32px);opacity:0;transform:translateY(20px);transition:opacity .35s,transform .35s;pointer-events:none}
+.toast.on{opacity:1;transform:none}
+.toast b{color:var(--green-light);font-weight:800}
+.toast i{width:9px;height:9px;border-radius:50%;background:var(--green);flex:none;box-shadow:0 0 0 4px rgba(126,217,87,.2)}
+@media (max-width:1020px){.toast{bottom:84px;right:12px;left:12px}.topbar{font-size:14px}}
 .rv{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 
 @media (max-width:1020px){
   section{padding:84px 0}
-  .hero{padding:110px 0 0;min-height:0}
+  .hero{padding:150px 0 0;min-height:0}
   .hero::after{background:linear-gradient(180deg,rgba(18,24,28,.6),var(--bg-0) 70%)}
   .hero .wrap,.method-grid,.about-grid,.reg,.fit-grid{grid-template-columns:1fr}
   .hero-visual{min-height:460px;max-width:460px;margin:10px auto 0;width:100%}
@@ -304,8 +314,9 @@ footer details p{padding:0}
 </svg>
 
 <header class="hdr" id="hdr">
+  <div class="topbar" id="topbar" role="status" hidden>כבר נרשמו <span class="pill" data-reg-total>0</span> לשידור החי · <span data-reg-24h>0</span> ביממה האחרונה</div>
   <div class="wrap">
-    <img src="assets/logo-white.png" alt="CyclesTrading – מתזמנים את שוק ההון" width="900" height="288">
+    <img src="assets/logo-white.png" alt="Cycles Trading – מתזמנים את שוק ההון" width="900" height="288">
     <div class="when">הדרכה חיה · <b>יום שני 09.11 · 20:30</b></div>
     <a href="#register" class="btn btn-cta">שריינו מקום</a>
   </div>
@@ -319,11 +330,11 @@ footer details p{padding:0}
     <div>
       <span class="eyebrow"><i></i>הדרכה חיה ב-ZOOM · ללא עלות</span>
       <h1>
-        <span>הכנסה נוספת</span>
-        <span>משוק ההון.</span>
-        <span class="g">בלי שעות נוספות.</span>
+        <span>רוב הסוחרים</span>
+        <span>רואים רק מחיר.</span>
+        <span class="g">תתחילו לראות גם זמן.</span>
       </h1>
-      <p class="sub">בשעה אחת, זיו חקשוריאן יראה לכם את <b>שיטת המסחר המחזורי של וויליאם גאן</b>: איך מזהים מראש את נקודות המפנה בשוק, סוחרים בעסקאות ספורות בחודש, ומשקיעים בזה <b>כ-30 דקות ביום</b> – במקביל לעבודה, לעסק ולמשפחה.</p>
+      <p class="sub">בהדרכה חיה של שעה, זיו חקשוריאן, המנטור הראשי של Cycles Trading, יציג את <b>הגישה המחזורית</b>: איך משלבים מחיר, זמן ודפוסים כדי לזהות היכן הסבירות לשינוי מגמה גבוהה במיוחד – ואיך בונים שגרת מסחר של <b>כמה שעות בשבוע</b>, לצד העבודה והמשפחה ולא במקומן.</p>
 
       <div class="facts">
         <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><div><small>מתי</small><b>יום שני, <span class="ltr">09.11.26</span></b></div></div>
@@ -333,7 +344,7 @@ footer details p{padding:0}
 
       <a href="#register" class="btn btn-cta">שריינו לי מקום בחינם <svg><use href="#i-arrow"/></svg></a>
       <div class="micro">
-        <span><svg><use href="#i-check"/></svg>200 מקומות בלבד</span>
+        <span><svg><use href="#i-check"/></svg>200 מקומות בשידור</span>
         <span><svg><use href="#i-check"/></svg>ללא עלות</span>
         <span><svg><use href="#i-check"/></svg>לא תהיה הקלטה</span>
       </div>
@@ -351,9 +362,9 @@ footer details p{padding:0}
       <div class="halo"></div>
       <div class="ring"></div>
       <img class="person" src="assets/ziv-cut.webp" alt="זיו חקשוריאן">
-      <div class="badge b1"><span class="n b">~5,000</span><small>תלמידים<br>הוכשרו</small></div>
-      <div class="badge b2"><span class="n g">2007</span><small>מתפרנס<br>מהמסחר מאז</small></div>
-      <div class="name-tag">זיו חקשוריאן · מייסד CyclesTrading</div>
+      <div class="badge b1"><span class="n b">24</span><small>שנות מסחר<br>בשוק ההון</small></div>
+      <div class="badge b2"><span class="n g">120+</span><small>שנים של<br>גישה מחזורית</small></div>
+      <div class="name-tag">זיו חקשוריאן · המנטור הראשי</div>
     </div>
   </div>
 </section>
@@ -361,10 +372,10 @@ footer details p{padding:0}
 <!-- ============ TRUST ============ -->
 <section class="trust">
   <div class="wrap">
-    <div class="it"><b><span class="num">23+</span></b><span>שנות מסחר בשווקים הגלובליים</span></div>
+    <div class="it"><b><span class="num">24</span></b><span>שנות מסחר בשווקים הגלובליים</span></div>
     <div class="it"><b><span class="num">~5,000</span></b><span>תלמידים במכללות מובילות</span></div>
-    <div class="it"><b class="b"><span class="num">100</span> שנה</b><span>שהשיטה מוכיחה את עצמה</span></div>
-    <div class="it"><b class="g">רדיו</b><span>פרשן כלכלי בגלי ישראל ורדיו ירושלים</span></div>
+    <div class="it"><b class="b"><span class="num">120+</span> שנה</b><span>שהגישה המחזורית נבחנת בשוק</span></div>
+    <div class="it"><b class="g">מיליארדים</b><span>היקף ההון שניהלו סוחרי הצוות</span></div>
   </div>
 </section>
 
@@ -372,16 +383,16 @@ footer details p{padding:0}
 <section class="problem">
   <div class="wrap">
     <div class="center rv">
-      <span class="eyebrow">למה זה לא עובד לרוב האנשים</span>
-      <h2 class="h2">הבעיה היא לא אתם.<br><span class="b">הבעיה היא מסחר בלי שיטה.</span></h2>
-      <p class="lead">שלושה הרגלים שתוקעים כמעט כל מי שמנסה לסחור לבד:</p>
+      <span class="eyebrow">למה זה לא עובד לרוב הסוחרים</span>
+      <h2 class="h2">שוק ההון הוא לא הבעיה.<br><span class="b">הגישה היא הבעיה.</span></h2>
+      <p class="lead">שלושה הרגלים שחוזרים אצל כמעט כל מי שמנסה לסחור לבד:</p>
     </div>
     <div class="pains">
-      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16v12H4zM8 20h8M12 16v4"/></svg></div><h3>נדבקים למסך</h3><p>שעות של מעקב שגוזלות זמן מהבית, מהעבודה ומהמשפחה, ובסוף מובילות להחלטות רגשיות.</p></div>
+      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 4h16v12H4zM8 20h8M12 16v4"/></svg></div><h3>מסתכלים רק על המחיר</h3><p>מנתחים לאן המחיר הולך, ומתעלמים מהשאלה מתי. כיוון נכון בזמן הלא נכון הוא עדיין הפסד.</p></div>
       <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M4 6h16M4 12h10M4 18h7"/></svg></div><h3>רודפים אחרי חדשות</h3><p>עד שהכותרת מתפרסמת, המהלך כבר קרה. מי שמגיב לחדשות נכנס מאוחר ויוצא מאוחר.</p></div>
-      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></svg></div><h3>בלי ניהול סיכון</h3><p>בלי הפסד שמוגדר מראש, כל עסקה היא הימור – וטעות אחת מוחקת חודשים של רווחים.</p></div>
+      <div class="pain rv"><div class="x"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 3 2 20h20L12 3zM12 10v4M12 17h.01"/></svg></div><h3>בלי ניהול סיכונים</h3><p>בלי הפסד מקסימלי שמוגדר מראש, עסקה אחת לא מוצלחת יכולה למחוק חודשים של עבודה.</p></div>
     </div>
-    <p class="bridge rv">סוחרים שמצליחים לאורך זמן עובדים לפי <span class="g">שיטה סדורה</span> שאומרת להם מה לעשות בכל רגע נתון. בהדרכה תכירו שיטה כזו.</p>
+    <p class="bridge rv">סוחרים מקצועיים עובדים עם <span class="g">גישת מסחר מוגדרת וסטנדרט קבוע</span>. בהדרכה תכירו את הגישה שלנו – ותבינו מה היא רואה שאחרים מפספסים.</p>
   </div>
 </section>
 
@@ -389,21 +400,21 @@ footer details p{padding:0}
 <section class="method">
   <div class="wrap method-grid">
     <div class="rv">
-      <span class="eyebrow">השיטה</span>
-      <h2 class="h2">השוק לא מגיב רק לחדשות.<br><span class="b">הוא מגיב לזמן.</span></h2>
-      <p><b>וויליאם גאן (1878–1955)</b>, מאבות הניתוח הטכני ומהסוחרים המצליחים בהיסטוריה של וול סטריט, חזה מראש ובדיוק של ימים את המפולת הגדולה של 1929. הוא גילה שהשוק נע במחזורים קבועים – ופיענח את החוקיות שבה הדברים קורים שוב ושוב.</p>
-      <p>הכלים שלו, כמו ״מניפת גאן״ ו״ריבוע גאן״, נמצאים כמעט בכל תוכנת מסחר. אבל רוב הסוחרים משתמשים בהם באופן שטחי ומפספסים את העיקרון שמאחוריהם.</p>
-      <div class="quote">הטבע האנושי לא השתנה ב-100 שנה.<br>ולכן גם הדפוסים לא.</div>
+      <span class="eyebrow">הגישה המחזורית</span>
+      <h2 class="h2">מחיר × זמן × דפוסים.<br><span class="b">התמונה המלאה של השוק.</span></h2>
+      <p><b>וויליאם ד. גאן (1878–1955)</b>, מאבות הניתוח הטכני, זיהה שהשוק לא נע רק לפי מחיר – אלא גם לפי זמן, ושדפוסי התנהגות אנושיים חוזרים על עצמם במחזורים. הגישה שפיתח נבחנת בשווקים כבר יותר מ-120 שנה.</p>
+      <p>הכלים שלו, כמו ״מניפת גאן״ ו״ריבוע גאן״, נמצאים כמעט בכל תוכנת מסחר. רוב הסוחרים משתמשים בהם באופן שטחי. <b>Cycles Trading משלבת את הגישה המחזורית עם הסטנדרט של סוחרים מקצועיים</b> שניהלו הון בהיקף של מיליארדי דולרים.</p>
+      <div class="quote">הטבע האנושי לא השתנה ב-120 שנה.<br>ולכן גם הדפוסים לא.</div>
       <div class="feats">
-        <div class="feat"><svg><use href="#i-check"/></svg>עובדת כשהשוק עולה, יורד ואפילו מדשדש</div>
-        <div class="feat"><svg><use href="#i-check"/></svg>מתאימה לכל נכס סחיר: מניות, מדדים, סחורות וקריפטו</div>
-        <div class="feat"><svg><use href="#i-check"/></svg>עסקאות ספורות בחודש, עם סיכון ידוע מראש</div>
+        <div class="feat"><svg><use href="#i-check"/></svg>רלוונטית כשהשוק עולה, יורד ומדשדש</div>
+        <div class="feat"><svg><use href="#i-check"/></svg>לכל נכס סחיר: מניות, מדדים, סחורות וקריפטו</div>
+        <div class="feat"><svg><use href="#i-check"/></svg>עסקאות ספורות, עם סיכון שמוגדר מראש</div>
       </div>
     </div>
     <figure class="gann-card rv">
       <span class="yr">1878–1955</span>
       <img src="assets/gann.webp" alt="וויליאם גאן" loading="lazy">
-      <figcaption><b>וויליאם ד. גאן</b><span>״הנביא מוול סטריט״</span></figcaption>
+      <figcaption><b>וויליאם ד. גאן</b><span>אבי הגישה המחזורית</span></figcaption>
     </figure>
   </div>
 </section>
@@ -413,20 +424,20 @@ footer details p{padding:0}
   <div class="wrap">
     <div class="center rv">
       <span class="eyebrow">מה תקבלו בהדרכה</span>
-      <h2 class="h2">שעה אחת.<br><span class="b">שש תובנות שישנו את המסחר שלכם.</span></h2>
+      <h2 class="h2">שעה אחת.<br><span class="b">ראייה רחבה יותר על השוק.</span></h2>
       <p class="lead">בין אם אתם בתחילת הדרך ובין אם אתם סוחרים כבר שנים.</p>
     </div>
     <div class="cards">
-      <article class="card rv"><span class="n">01</span><h3>הסוד של גאן, בשפה פשוטה</h3><p>מהי גישת המסחר המחזורי, ולמה היא ממשיכה להכות את המדדים בעקביות כבר 100 שנה.</p></article>
-      <article class="card rv"><span class="n">02</span><h3>תשואה בלי לחיות מול המסך</h3><p>איך לכוון לתשואה דו-ספרתית בעקביות, עם עסקאות ספורות בכל חודש.</p></article>
-      <article class="card rv"><span class="n">03</span><h3>להרוויח בכל מצב שוק</h3><p>טכניקה שמתאימה את עצמה כשהבורסה עולה, יורדת ואפילו מדשדשת.</p></article>
-      <article class="card rv"><span class="n">04</span><h3>לזהות מפולת לפני שהיא מגיעה</h3><p>איך יוצאים בזמן כדי לשמור על הרווחים – ואיך מרוויחים דווקא מהירידה.</p></article>
-      <article class="card rv"><span class="n">05</span><h3>הטעות הנפוצה בבחירת כיוון</h3><p>למה רוב הסוחרים טועים בכיוון העסקה, ואיך מגבילים כל עסקה להפסד קטן וידוע מראש.</p></article>
-      <article class="card rv"><span class="n">06</span><h3>שיטה אחת לכל השווקים</h3><p>למה העקרונות עובדים בכל נכס סחיר בעולם, כולל קריפטו.</p></article>
+      <article class="card rv"><span class="n">01</span><h3>הגישה המחזורית, בשפה פשוטה</h3><p>איך מחיר, זמן ודפוסים מתחברים לתמונה אחת – בלי נוסחאות מסובכות.</p></article>
+      <article class="card rv"><span class="n">02</span><h3>לראות זמן, לא רק מחיר</h3><p>למה תזמון חשוב לא פחות מכיוון, ואיך מזהים חלונות זמן שבהם הסבירות לשינוי גבוהה.</p></article>
+      <article class="card rv"><span class="n">03</span><h3>מסחר בכל מצב שוק</h3><p>איך ניגשים לשוק עולה, יורד ומדשדש – עם אותם עקרונות.</p></article>
+      <article class="card rv"><span class="n">04</span><h3>לזהות נקודות מפנה</h3><p>אילו סימנים מקדימים שינוי מגמה, ואיך פועלים בזמן כדי להגן על הרווחים.</p></article>
+      <article class="card rv"><span class="n">05</span><h3>ניהול סיכונים כמו מקצוענים</h3><p>הטעות הנפוצה בבחירת כיוון, ואיך מגבילים כל עסקה להפסד קטן שידוע מראש.</p></article>
+      <article class="card rv"><span class="n">06</span><h3>גישה אחת, כל השווקים</h3><p>למה העקרונות רלוונטיים לכל נכס סחיר בעולם, כולל קריפטו.</p></article>
     </div>
     <div class="live rv">
       <span class="tag"><i></i>LIVE</span>
-      <p><b>בונוס למשתתפים בלבד:</b> נכנסים לחדר המסחר החי של תלמידי סייקלס טריידינג – עסקאות אמיתיות ותוצאות אמיתיות, בזמן אמת.</p>
+      <p><b>בונוס למשתתפים בלבד:</b> הצצה לחדר המסחר החי של קהילת Cycles Trading – ניתוח עסקאות אמיתיות, בזמן אמת.</p>
       <a href="#register" class="btn btn-line">אני רוצה לראות</a>
     </div>
   </div>
@@ -436,14 +447,14 @@ footer details p{padding:0}
 <section class="testi">
   <div class="wrap">
     <div class="center rv">
-      <span class="eyebrow">תלמידים מספרים</span>
+      <span class="eyebrow">בוגרים מספרים</span>
       <h2 class="h2">הם התחילו בדיוק<br><span class="b">מאיפה שאתם נמצאים.</span></h2>
     </div>
     <div class="t-grid">
       <figure class="t rv">
         <div class="stars">★★★★★</div>
         <h3>״נכנס פעמיים-שלוש בשבוע. בזמן שלי, בקצב שלי.״</h3>
-        <blockquote>ראיתי שזה באמת עובד. אני מצליח לייצר הכנסה באחוזים יפים. אפשר לראות איך זיו חוזה את שוק ההון, יש לו הוכחות ואי אפשר להתווכח עם זה.</blockquote>
+        <blockquote>ראיתי שזה באמת עובד. אני נכנס פעמיים-שלוש בשבוע, בזמן שלי ובקצב שלי. מי שעובד לפי הגישה הזו יגיע רחוק.</blockquote>
         <figcaption class="who"><img src="assets/osher.webp" alt="" loading="lazy"><div><b>אושר ברחק</b><span>סטודנט להנדסת תעשייה וניהול</span></div></figcaption>
       </figure>
       <figure class="t rv">
@@ -454,8 +465,8 @@ footer details p{padding:0}
       </figure>
       <figure class="t rv">
         <div class="stars">★★★★★</div>
-        <h3>״30 שנה דשדשתי. היום אני עובד לפי שיטה.״</h3>
-        <blockquote>אם הייתי לומד את זה לפני 30 שנה, הייתי מזמן מיליונר. אני יועץ השקעות מדופלם, ובכל זאת דשדשתי בין רווח להפסד. כשעובדים לפי השיטה, לא משנה מה יקרה – אתה יודע שאתה מוגן.</blockquote>
+        <h3>״30 שנה דשדשתי. היום יש לי גישה.״</h3>
+        <blockquote>אני יועץ השקעות מדופלם, ובכל זאת 30 שנה דשדשתי בין רווח להפסד. הבנתי ששוק ההון עובד לפי חוקיות. כשעובדים לפי הגישה, לא משנה מה יקרה – אתה יודע איפה אתה עומד.</blockquote>
         <figcaption class="who"><img src="assets/shimon.webp" alt="" loading="lazy"><div><b>שמעון אייל</b><span>יועץ השקעות לשעבר, בנק מזרחי</span></div></figcaption>
       </figure>
     </div>
@@ -467,13 +478,13 @@ footer details p{padding:0}
   <div class="wrap about-grid">
     <div class="about-photo rv"><img src="assets/ziv-cut.webp" alt="זיו חקשוריאן" loading="lazy"></div>
     <div class="rv">
-      <span class="eyebrow">נעים להכיר</span>
-      <h2 class="h2">אני זיו.<br><span class="b">23 שנה בשוק. 100 שנה של שיטה.</span></h2>
-      <p>אני סוחר כבר יותר מ-23 שנה, ומ-2007 אני <b>מתפרנס מהמסחר בשוק ההון</b>. הכשרתי כ-5,000 תלמידים במכללות מובילות, ובמשך יותר מעשור הייתי פרשן כלכלי קבוע ברדיו גלי ישראל וברדיו ירושלים.</p>
-      <p>ובכל זאת, רק ב-2020 נחשפתי לראשונה לשיטת המסחר המחזורי של וויליאם גאן.</p>
-      <div class="hammer">״זה היכה בי כמו פטיש של 5 ק״ג: איך ייתכן שעם כל הניסיון שלי, מעולם לא שמעתי על שיטה שקיימת כבר 100 שנה?״</div>
-      <p>לא האמנתי עד שראיתי אותה עובדת בפועל. היום אני מלמד אותה – ובהדרכה אראה לכם בדיוק איך.</p>
-      <div class="sig">זיו חקשוריאן<span>מייסד CyclesTrading</span></div>
+      <span class="eyebrow">המנטור הראשי</span>
+      <h2 class="h2">זיו חקשוריאן.<br><span class="b">24 שנה בשוק ההון.</span></h2>
+      <p>סוחר מקצועי מאז 2007, מרצה שהכשיר כ-5,000 תלמידים במכללות מובילות, ופרשן כלכלי בגלי ישראל, ברדיו ירושלים ובערוץ 10.</p>
+      <p>כמו רוב הסוחרים, הוא הכיר את הכלים של גאן. רק ב-2020 הוא הכיר לעומק את <b>הגישה המחזורית</b> – והבין כמה מהתמונה פספס עד אז.</p>
+      <div class="hammer">״איך ייתכן שעם כל הניסיון שלי, לא הכרתי לעומק גישה שנבחנת בשווקים כבר יותר מ-120 שנה?״</div>
+      <p>מאז הוא חוקר אותה, מעמיק בה ומלמד אותה – יחד עם צוות סוחרים מקצועיים, דו״ח חודשי וקהילת מסחר פעילה שמלווה את הבוגרים גם אחרי ההכשרה.</p>
+      <div class="sig">זיו חקשוריאן<span>המנטור הראשי, Cycles Trading</span></div>
     </div>
   </div>
 </section>
@@ -489,15 +500,15 @@ footer details p{padding:0}
       <div class="fit-box fit-yes rv">
         <h3>בשבילכם</h3>
         <ul>
-          <li><svg><use href="#i-check"/></svg>אתם שכירים או עצמאים ורוצים להגדיל את ההכנסה הפנויה – בלי לוותר על הזמן שלכם</li>
-          <li><svg><use href="#i-check"/></svg>אתם רוצים להיכנס לשוק ההון עם שיטה, ולא עם ניחושים וטיפים</li>
+          <li><svg><use href="#i-check"/></svg>אתם שכירים או עצמאים ורוצים לפעול בשוק ההון לצד העבודה – המטרה היא לפנות זמן, לא להחליף עבודה בעבודה</li>
+          <li><svg><use href="#i-check"/></svg>אתם רוצים להיכנס לשוק ההון עם גישה מוגדרת, ולא עם ניחושים וטיפים</li>
           <li><svg><use href="#i-check"/></svg>אתם כבר סוחרים, ומרגישים שאתם מדשדשים בין רווח להפסד</li>
         </ul>
       </div>
       <div class="fit-box fit-no rv">
         <h3>לא בשבילכם</h3>
         <ul>
-          <li><svg><use href="#i-x"/></svg>אם אתם מחפשים ״להתעשר מהר״</li>
+          <li><svg><use href="#i-x"/></svg>אם אתם מחפשים קיצורי דרך או ״טיפ חם״</li>
           <li><svg><use href="#i-x"/></svg>אם אתם לא מוכנים ללמוד ולעבוד לפי כללים</li>
         </ul>
       </div>
@@ -511,7 +522,7 @@ footer details p{padding:0}
     <div class="reg rv">
       <div class="reg-info">
         <span class="eyebrow"><i></i>הרשמה ללא עלות</span>
-        <h2 class="h2">200 מקומות.<br><span class="g">שידור אחד. בלי הקלטה.</span></h2>
+        <h2 class="h2">200 מקומות בשידור.<br><span class="g">שידור אחד. בלי הקלטה.</span></h2>
         <ul>
           <li><svg><use href="#i-check"/></svg>יום שני, <span class="ltr">09.11.26</span> בשעה <span class="ltr">20:30</span></li>
           <li><svg><use href="#i-check"/></svg>שידור חי ב-ZOOM, מכל מקום</li>
@@ -520,7 +531,7 @@ footer details p{padding:0}
         </ul>
         <div class="scarcity">
           <div class="bar"><i></i></div>
-          <small>בגלל מגבלות טכניות ההדרכה מוגבלת ל-200 משתתפים. מומלץ לשריין מקום מראש ולהגיע בזמן.</small>
+          <small>השידור החי מוגבל ל-200 משתתפים – הראשונים שמתחברים נכנסים. מומלץ להירשם מראש ולהתחבר בזמן.</small>
         </div>
       </div>
       <form id="regForm" novalidate>
@@ -545,11 +556,11 @@ footer details p{padding:0}
       <h2 class="h2">עוד כמה דברים שכדאי לדעת</h2>
     </div>
     <div class="faq rv">
-      <details><summary>ההדרכה באמת ללא עלות?</summary><p>כן. ההדרכה פתוחה ללא עלות, עד 200 משתתפים.</p></details>
+      <details><summary>ההדרכה באמת ללא עלות?</summary><p>כן. ההדרכה ללא עלות. השידור החי מוגבל ל-200 משתתפים.</p></details>
       <details><summary>אפשר לצפות בהקלטה אחר כך?</summary><p>לא. ההדרכה מתקיימת בשידור חי בלבד, ולא תהיה הקלטה. לכן חשוב לשריין מקום ולהגיע בזמן.</p></details>
       <details><summary>אני לא סוחר בכלל. זה מתאים לי?</summary><p>כן. ההדרכה בנויה גם למי שבתחילת הדרך וגם לסוחרים ותיקים.</p></details>
-      <details><summary>כמה זמן ביום השיטה דורשת?</summary><p>השיטה מבוססת על עסקאות ספורות בחודש ועל השקעה של כ-30 דקות ביום, כך שאפשר לשלב אותה לצד עבודה או עסק.</p></details>
-      <details><summary>זה עובד רק על מניות?</summary><p>לא. עקרונות המסחר המחזורי מתאימים לכל נכס סחיר – מניות, מדדים, סחורות וגם קריפטו.</p></details>
+      <details><summary>כמה זמן זה דורש?</summary><p>הגישה מבוססת על עסקאות ספורות ומשתלבת בכמה שעות בשבוע לצד עבודה או עסק. המטרה היא לפנות זמן, לא להחליף עבודה בעבודה.</p></details><details><summary>אתם מבטיחים רווחים?</summary><p>לא. אף אחד לא יכול להבטיח תשואה בשוק ההון. אנחנו מלמדים גישת מסחר, ניהול סיכונים וסטנדרט מקצועי – ומלווים את הבוגרים בקהילה פעילה.</p></details>
+      <details><summary>זה עובד רק על מניות?</summary><p>לא. עקרונות הגישה המחזורית רלוונטיים לכל נכס סחיר – מניות, מדדים, סחורות וגם קריפטו.</p></details>
     </div>
   </div>
 </section>
@@ -558,8 +569,8 @@ footer details p{padding:0}
 <section class="final">
   <div class="wrap rv">
     <span class="eyebrow"><i></i>יום שני · 20:30 · ZOOM</span>
-    <h2 class="h2">השוק ימשיך לנוע במחזורים.<br><span class="b">השאלה אם תדעו לזהות אותם.</span></h2>
-    <p class="lead" style="margin:0 auto 36px">200 מקומות. ללא עלות. בלי הקלטה.</p>
+    <h2 class="h2">רבותיי, ההיסטוריה חוזרת.<br><span class="b">השאלה אם תזהו את זה בזמן.</span></h2>
+    <p class="lead" style="margin:0 auto 36px">ללא עלות. בלי הקלטה. 200 מקומות בשידור החי.</p>
     <a href="#register" class="btn btn-cta">שריינו לי מקום בחינם <svg><use href="#i-arrow"/></svg></a>
   </div>
 </section>
@@ -567,13 +578,15 @@ footer details p{padding:0}
 
 <footer>
   <div class="wrap">
-    <div class="row"><img src="assets/logo-white.png" alt="CyclesTrading" loading="lazy"><span>© CyclesTrading · ב.ח השכלה פיננסית בע״מ</span></div>
+    <div class="row"><img src="assets/logo-white.png" alt="CyclesTrading" loading="lazy"><span>© Cycles Trading · ב.ח השכלה פיננסית בע״מ</span></div>
     <details>
       <summary>גילוי נאות</summary>
       <p>חברת ב.ח השכלה פיננסית בע״מ, בעלת האתר ״סייקלס טריידינג״, אינה מחזיקה ברישיון ייעוץ השקעות, שיווק השקעות או ניהול השקעות מכוח חוק הסדרת העיסוק בייעוץ השקעות, בשיווק השקעות ובניהול תיקי השקעות, התשנ״ה-1995 (״החוק״). אין לראות באמור המלצה ו/או הצעה לביצוע פעולות ו/או ייעוץ השקעות ו/או שיווק השקעות ו/או ייעוץ מכל סוג שהוא, והתכנים המופיעים באתר החברה ובניוזלטרים שלה הם לצורך לימוד והעשרה בלבד ואין בהם כדי להחליף את שיקול דעתו של הסוחר/המשקיע/הקורא, המחויב לקבל ייעוץ השקעות מגורמי מקצוע המתחשבים בצרכיו המיוחדים. כמו כן, אין לראות בתכנים שום סוג של הצעה או ייעוץ לרכישה ו/או מכירה לביצוע כל פעולה פיננסית. בתחזיות החברה עלולות להתגלות סטיות בין התחזיות לבין התוצאות בפועל. החברה ו/או מי מטעמה לא יהיו אחראים בכל צורה שהיא לנזק ו/או להפסד שייגרם למשקיע ו/או לסוחר מהסתמכות על המידע ומהשימוש בו, וכל העושה במידע שימוש כלשהו עושה זאת על דעתו בלבד ועל אחריותו הבלעדית. אין לשכפל, להעתיק, לתרגם, לצלם, להקליט או להעביר בכל צורה שהיא כל חלק מן החומר המפורסם על ידי החברה אלא באישור מפורש בכתב ומראש מהחברה.</p>
     </details>
   </div>
 </footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"><i></i><span id="toast-txt"></span></div>
 
 <div class="sticky" id="sticky"><a href="#register" class="btn btn-cta">שריינו מקום בחינם · שני 20:30</a></div>
 
@@ -596,6 +609,23 @@ footer details p{padding:0}
     document.getElementById('cd-m').textContent=pad(Math.floor(d%3600/60));
     document.getElementById('cd-s').textContent=pad(Math.floor(d%60));}
   tick();setInterval(tick,1000);
+  // ===== Registration stats – REAL numbers only =====
+  // Update from Elementor submissions before each webinar (total for this webinar + last 24h).
+  var REG={total:305,last24h:40};
+  if(REG.total>0){
+    document.getElementById('topbar').hidden=false;
+    document.querySelectorAll('[data-reg-total]').forEach(function(e){e.textContent=REG.total.toLocaleString('he-IL')});
+    document.querySelectorAll('[data-reg-24h]').forEach(function(e){e.textContent=REG.last24h});
+  }
+  var toast=document.getElementById('toast'),tt=document.getElementById('toast-txt'),ti=0;
+  function msgs(){var h=Math.max(0,Math.floor((target-Date.now())/3600000)),m=[];
+    if(REG.last24h>0)m.push('<b>'+REG.last24h+' אנשים</b> נרשמו ב-24 השעות האחרונות');
+    if(target>Date.now())m.push(h>=1?'השידור מתחיל בעוד <b>'+h+' שעות</b>':'השידור מתחיל <b>בקרוב</b>');
+    m.push('<b>200 מקומות</b> בשידור החי – הראשונים שמתחברים נכנסים');
+    return m}
+  function showToast(){var m=msgs();tt.innerHTML=m[ti++%m.length];toast.classList.add('on');setTimeout(function(){toast.classList.remove('on')},5000)}
+  setTimeout(function(){showToast();setInterval(showToast,22000)},9000);
+
 
   // Preview-only form (no submission). Replace with the WordPress form on build.
   document.getElementById('regForm').addEventListener('submit',function(e){
