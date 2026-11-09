@@ -54,9 +54,8 @@ const fit = (fs) => `<div class="fit2" style="font-size:${fs}px">
 
 const TERMS = [
   ['היום', `תשלום חד-פעמי של ${n('197') + '&nbsp;₪'}, במקום ${n('450') + '&nbsp;₪'}.`],
-  ['במשך החודש', 'גישה מלאה: לייבים, דיסקורד והדוח.'],
-  ['לפני סוף החודש', 'נציג מתקשר עם הצעה להמשך, אם תרצו.'],
-  ['לא ממשיכים?', 'לא עושים כלום. בלי חיוב נוסף.'],
+  ['עד 31/12', 'גישה מלאה: לייבים, דיסקורד והדוח.'],
+  ['אחרי 31/12', 'רוצים להמשיך? בוחרים מסלול. לא? בלי חיוב.'],
 ];
 const terms = (fs, cols) => `<div class="terms" style="font-size:${fs}px;grid-template-columns:repeat(${cols},1fr)">${TERMS.map(([b, p], i) => `<div class="term"><div class="tn"><i>${n(i + 1)}</i><b>${b}</b></div><p>${p}</p></div>`).join('')}</div>`;
 
