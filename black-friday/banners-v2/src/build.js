@@ -4,7 +4,7 @@ const path = require('path');
 const LOGO = fs.readFileSync('/tmp/claude-0/-home-user-sales-control-dashboard/14c85a98-2788-5150-9990-4b12814891c7/scratchpad/logo/logo.b64', 'utf8').trim();
 
 const n = (t) => `<span class="n">${t}</span>`;
-const RENEW = `מהחודש השני ${n('450') + '&nbsp;₪'} לחודש, ביטול בכל עת`;
+const RENEW = `תשלום חד-פעמי · בלי חידוש אוטומטי`;
 const DISC = 'התוכן לימודי ואינו ייעוץ השקעות. מסחר כרוך בסיכון.';
 
 // ---------- components ----------
@@ -13,7 +13,7 @@ const logo = (w) => `<div class="logo" style="width:${w}px" role="img" aria-labe
 const keepHl = (html) => html.replace(/<span class="hl">([\s\S]*?)<\/span>(?![^<]*<\/span>)/g, (m, inner) => '<span class="hl">' + inner.split(/(<[^>]+>)/).map(t => t.startsWith('<') ? t : t.replace(/ /g, '&nbsp;')).join('') + '</span>');
 const head = (html, fs, extra = '') => `<h1 class="hbox" style="font-size:${fs}px;${extra}">${keepHl(html)}</h1>`;
 const strike = `<svg viewBox="0 0 100 40" preserveAspectRatio="none" aria-hidden="true"><path d="M4 30 C 30 22, 60 16, 96 8"/></svg>`;
-const price = (p, gap) => `<div class="price${p < 80 ? ' compact' : ''}" style="--p:${p}px;${gap ? 'gap:' + gap + 'px' : ''}"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש ראשון</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div>`;
+const price = (p, gap) => `<div class="price${p < 80 ? ' compact' : ''}" style="--p:${p}px;${gap ? 'gap:' + gap + 'px' : ''}"><div class="pc reg"><span class="t">מחיר רגיל</span><span class="pp"><span class="n">450</span>&nbsp;₪</span><span class="s">לחודש</span></div><span class="arr" aria-hidden="true">←</span><div class="pc bf"><span class="t">בלאק פריידי · חודש בקהילה</span><span class="pp"><span class="n dg">197</span><span class="cur">₪</span></span></div></div>`;
 const renew = (fs, extra = '') => `<div class="renew" style="font-size:${Math.round(fs*0.62)}px;${extra}">${RENEW}</div>`;
 const cta = (t, fs, extra = '') => `<div class="cta" style="font-size:${fs}px;${extra}">${t} ←</div>`;
 const disc = (fs, extra = '') => `<div class="disc" style="font-size:${fs}px;${extra}">${DISC}</div>`;
@@ -52,10 +52,10 @@ const fit = (fs) => `<div class="fit2" style="font-size:${fs}px">
 </div>`;
 
 const TERMS = [
-  ['היום', `${n('197') + '&nbsp;₪'} על החודש הראשון, במקום ${n('450') + '&nbsp;₪'}.`],
-  ['לפני החיוב הבא', 'תזכורת לפני שהמנוי מתחדש.'],
-  ['מהחודש השני', `חידוש אוטומטי ב-${n('450') + '&nbsp;₪'} לחודש.`],
-  ['ביטול', 'בכל עת, בלחיצה אחת מהאזור האישי.'],
+  ['היום', `תשלום חד-פעמי של ${n('197') + '&nbsp;₪'}, במקום ${n('450') + '&nbsp;₪'}.`],
+  ['במשך החודש', 'גישה מלאה: לייבים, דיסקורד והדוח.'],
+  ['לפני סוף החודש', 'נציג מתקשר עם הצעה להמשך, אם תרצו.'],
+  ['לא ממשיכים?', 'לא עושים כלום. בלי חיוב נוסף.'],
 ];
 const terms = (fs, cols) => `<div class="terms" style="font-size:${fs}px;grid-template-columns:repeat(${cols},1fr)">${TERMS.map(([b, p], i) => `<div class="term"><div class="tn"><i>${n(i + 1)}</i><b>${b}</b></div><p>${p}</p></div>`).join('')}</div>`;
 
@@ -177,7 +177,7 @@ add('p45-w3-waiting', 1080, 1350, 'p45', `
   <div class="vps" style="font-size:34px;margin-top:56px;gap:36px">
     <div class="vp"><i>${n('1')}</i><div><h3>גישה מוקדמת ב-${n('23/11')}</h3><p>נכנסים לקהילה 24 שעות לפני שהיא נפתחת לכולם.</p></div></div>
     <div class="vp"><i>${n('2')}</i><div><h3>קישור הצטרפות אישי</h3><p>ביום הפתיחה, בלי לחפש ובלי לפספס.</p></div></div>
-    <div class="vp"><i>${n('3')}</i><div><h3>מחיר בלאק פריידי</h3><p>חודש ראשון בקהילה ב-${n('197') + '&nbsp;₪'} במקום ${n('450') + '&nbsp;₪'}.</p></div></div>
+    <div class="vp"><i>${n('3')}</i><div><h3>מחיר בלאק פריידי</h3><p>חודש בקהילה ב-${n('197') + '&nbsp;₪'} במקום ${n('450') + '&nbsp;₪'}.</p></div></div>
   </div>
   ${renew(36, 'margin-top:56px')}
   <div class="grow"></div>
@@ -236,7 +236,7 @@ const storyOffer = (name, tagT, headH, mid, ctaT, foot) => add(name, 1080, 1920,
     ${tag(tagT, 34)}
     ${head(headH, 92, 'max-width:920px')}
     ${mid}
-    <p class="per" style="font-size:38px">חודש ראשון בקהילת הסוחרים</p>
+    <p class="per" style="font-size:38px">חודש שלם בקהילת הסוחרים</p>
     <div class="glow">${price(250)}</div>
     ${renew(40)}
   </div>
@@ -276,7 +276,7 @@ add('sq-o2-report', 1080, 1080, 'sq', `
   <div class="stat" style="margin-top:10px"><b class="n" style="font-size:170px">76.8%</b><span style="font-size:30px">פגיעה ב-${n('12')} החודשים האחרונים</span></div>
   <div style="margin-top:24px">${assets(28)}</div>
   <div class="grow"></div>
-  <div class="mini-price"><span>חודש ראשון בקהילה, כולל הדוח</span>${price(110, 30)}</div>
+  <div class="mini-price"><span>חודש בקהילה, כולל הדוח</span>${price(110, 30)}</div>
   ${renew(30, 'margin-top:18px')}
   <div class="fine" style="font-size:20px;margin-top:16px">ממוצע של ${n('60')} תחזיות. ביצועי עבר אינם מעידים על העתיד.</div>
   ${disc(20, 'margin-top:4px')}
@@ -295,7 +295,7 @@ add('p45-o1-hero', 1080, 1350, 'p45', `
   ${logo(250)}
   ${head('חודש שלם בתוך <span class="hl">קהילת הסוחרים</span>', 66, 'margin-top:34px;max-width:900px')}
   <div class="glow" style="margin-top:44px">${price(220)}</div>
-  <p class="per" style="font-size:30px;margin-top:14px">לחודש הראשון · בלאק פריידי</p>
+  <p class="per" style="font-size:30px;margin-top:14px">חודש בקהילה · בלאק פריידי</p>
   ${renew(32, 'margin-top:18px')}
   <div style="margin-top:44px;width:100%">${pillars(27)}</div>
   <div class="grow" style="min-height:36px"></div>
@@ -308,7 +308,7 @@ add('p45-o2-fit', 1080, 1350, 'p45', `
   ${head('למי זה מתאים, <span class="hl">ולמי לא</span>', 72, 'margin-top:40px')}
   <div style="margin-top:46px;width:100%">${fit(28)}</div>
   <div class="grow"></div>
-  <div class="mini-price"><span>מתאים לכם? חודש ראשון ב-</span>${price(100, 26)}</div>
+  <div class="mini-price"><span>מתאים לכם? חודש בקהילה ב-</span>${price(100, 26)}</div>
   ${renew(32, 'margin-top:20px')}
   ${disc(23, 'margin-top:28px')}
 `);
@@ -328,7 +328,7 @@ add('report-peek-open', 1080, 1350, 'p45', `
   ${head('הצצה <span class="hl">לדוח החודשי</span>', 70, 'margin-top:34px')}
   <p class="sub" style="font-size:28px;margin-top:20px">כלול בחודש בקהילה. התוכן עצמו נשמר לחברים.</p>
   <div class="rbox" style="height:680px;margin-top:6px">${reportStack(0.98)}</div>
-  <div class="mini-price">${price(100, 26)}<span>חודש ראשון בקהילה, כולל הדוח</span></div>
+  <div class="mini-price">${price(100, 26)}<span>חודש בקהילה, כולל הדוח</span></div>
   ${renew(30, 'margin-top:16px')}
   <div class="grow"></div>
   ${disc(22)}
@@ -343,7 +343,7 @@ add('hero-desktop-open', 1920, 700, 'hd', `
     <div class="hd-act">${cta('אני רוצה להיכנס לקהילה', 28)}${disc(18)}</div>
   </div>
   <div class="hd-price">
-    <p class="per" style="font-size:28px">חודש ראשון</p>
+    <p class="per" style="font-size:28px">חודש בקהילה</p>
     <div class="glow">${price(200)}</div>
     ${renew(26, 'margin-top:18px')}
   </div>
@@ -355,7 +355,7 @@ add('hero-mobile-open', 1080, 1350, 'p45', `
   ${tag(`בלאק פריידי · נסגר ב-${n('30/11')} בשעה ${n('23:59')}`, 28, 'margin-top:36px')}
   ${head('חודש שלם בתוך <span class="hl">קהילת הסוחרים</span>', 74, 'margin-top:40px;max-width:920px')}
   <div class="glow" style="margin-top:50px">${price(230)}</div>
-  <p class="per" style="font-size:32px;margin-top:22px">לחודש הראשון</p>
+  <p class="per" style="font-size:32px;margin-top:22px">חודש בקהילה · חד-פעמי</p>
   ${renew(34, 'margin-top:22px')}
   ${chips([[n('4'), 'לייבים בשבוע'], [n('2,000+'), 'סוחרים'], [n('9'), 'מנטורים'], ['+', 'הדוח החודשי']], 26, 'margin-top:40px')}
   <div class="grow" style="min-height:40px"></div>
@@ -373,7 +373,7 @@ mail('mail-o3-tonight', 'נסגר <span class="hl">הלילה</span>', `המבצ
 const wa = (name, tagT, headH, foot) => add(name, 1080, 1080, 'sq wa', `
   <div class="row-top">${logo(220)}${tag(tagT, 26)}</div>
   ${head(headH, 80, 'margin-top:46px')}
-  <p class="per" style="font-size:32px;margin-top:44px">חודש ראשון בקהילת הסוחרים</p>
+  <p class="per" style="font-size:32px;margin-top:44px">חודש שלם בקהילת הסוחרים</p>
   <div class="glow" style="margin-top:6px">${price(220)}</div>
   ${renew(34, 'margin-top:30px')}
   <div class="grow"></div>
