@@ -307,8 +307,14 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 .ctlp .seats .fill{height:100%;width:0;background:linear-gradient(90deg,#4caf32,var(--green));border-radius:999px;transition:width 1.2s ease-out}
 .ctlp .seats .txt{display:flex;justify-content:space-between;font-size:15px;margin-top:8px;color:var(--muted)}
 .ctlp .seats .txt b{color:var(--coral);font-weight:800}
+.ctlp .seats .txt b [data-seats-left]{margin:0 5px}
 .ctlp .seat-flash{display:inline-block;animation:seatFlash .7s ease-out}
 @keyframes seatFlash{0%{color:var(--green-light);transform:scale(1.35)}100%{transform:scale(1)}}
+.ctlp .card h3{font-size:22px}
+.ctlp .fomo{margin-top:24px;display:flex;align-items:center;justify-content:space-between;gap:24px;padding:28px 32px;border-radius:var(--r);background:rgba(255,138,92,.07);box-shadow:inset 0 0 0 1px rgba(255,138,92,.35)}
+.ctlp .fomo b{display:block;font-size:22px;font-weight:900;color:#fff}
+.ctlp .fomo span{color:var(--muted);font-size:17px}
+@media (max-width:640px){.ctlp .fomo{flex-direction:column;align-items:stretch;padding:22px}.ctlp .fomo .btn{width:100%}}
 /* guard against Elementor kit/theme globals */
 .ctlp{font-size:18px;line-height:1.7;color:var(--ink)}
 @media (max-width:640px){.ctlp{font-size:17px}}
@@ -444,22 +450,25 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 <section class="learn" id="learn">
   <div class="wrap">
     <div class="center rv">
-      <span class="eyebrow">מה תקבלו בהדרכה</span>
-      <h2 class="h2">שעה אחת.<br><span class="b">ראייה רחבה יותר על השוק.</span></h2>
-      <p class="lead">בין אם אתם בתחילת הדרך ובין אם אתם סוחרים כבר שנים.</p>
+      <span class="eyebrow">מה תגלו בהדרכה</span>
+      <h2 class="h2">שעה אחת שתשנה<br><span class="b">את הדרך שבה אתם רואים את השוק.</span></h2>
+      <p class="lead">מה שרוב הסוחרים לומדים אחרי שנים של ניסוי וטעייה – מרוכז בשעה אחת. בשידור חי, בלי הקלטה.</p>
     </div>
     <div class="cards">
-      <article class="card rv"><span class="n">01</span><h3>הגישה המחזורית, בשפה פשוטה</h3><p>איך מחיר, זמן ודפוסים מתחברים לתמונה אחת – בלי נוסחאות מסובכות.</p></article>
-      <article class="card rv"><span class="n">02</span><h3>לראות זמן, לא רק מחיר</h3><p>למה תזמון חשוב לא פחות מכיוון, ואיך מזהים חלונות זמן שבהם הסבירות לשינוי גבוהה.</p></article>
-      <article class="card rv"><span class="n">03</span><h3>מסחר בכל מצב שוק</h3><p>איך ניגשים לשוק עולה, יורד ומדשדש – עם אותם עקרונות.</p></article>
-      <article class="card rv"><span class="n">04</span><h3>לזהות נקודות מפנה</h3><p>אילו סימנים מקדימים שינוי מגמה, ואיך פועלים בזמן כדי להגן על הרווחים.</p></article>
-      <article class="card rv"><span class="n">05</span><h3>ניהול סיכונים כמו מקצוענים</h3><p>הטעות הנפוצה בבחירת כיוון, ואיך מגבילים כל עסקה להפסד קטן שידוע מראש.</p></article>
-      <article class="card rv"><span class="n">06</span><h3>גישה אחת, כל השווקים</h3><p>למה העקרונות רלוונטיים לכל נכס סחיר בעולם, כולל קריפטו.</p></article>
+      <article class="card rv"><span class="n">01</span><h3>הגישה שהסעירה את וול סטריט</h3><p>מהי הגישה המחזורית של וויליאם גאן, ולמה היא ממשיכה להכות את המדדים בעקביות כבר יותר מ-120 שנה.</p></article>
+      <article class="card rv"><span class="n">02</span><h3>מסחר עקבי בלי לחיות מול המסך</h3><p>איך בונים מסחר עקבי עם עסקאות ספורות בחודש – בלי לבלות שעות מול הגרפים.</p></article>
+      <article class="card rv"><span class="n">03</span><h3>להרוויח כשהשוק עולה, יורד ומדשדש</h3><p>טכניקה שמתאימה את עצמה לכל מצב שוק, כך שאתם לא תלויים בכיוון אחד.</p></article>
+      <article class="card rv"><span class="n">04</span><h3>לזהות מפולות לפני כולם</h3><p>איך מזהים מפולת ויוצאים בזמן כדי לשמור על הרווחים – ואיך לרכב עליה דווקא כשהשוק יורד.</p></article>
+      <article class="card rv"><span class="n">05</span><h3>הטעות ש-90% מהסוחרים עושים</h3><p>הטעות בבחירת כיוון העסקה, ואיך מגבילים כל עסקה להפסד קטן שידוע מראש.</p></article>
+      <article class="card rv"><span class="n">06</span><h3>גישה אחת לכל נכס – כולל קריפטו</h3><p>למה העקרונות עובדים במניות, מדדים, סחורות וקריפטו – ולא מגבילים אתכם לשוק אחד.</p></article>
     </div>
     <div class="live rv">
       <span class="tag"><i></i>LIVE</span>
-      <p><b>בונוס למשתתפים בלבד:</b> הצצה לחדר המסחר החי של קהילת Cycles Trading – ניתוח עסקאות אמיתיות, בזמן אמת.</p>
-      <a href="#register" class="btn btn-line">אני רוצה לראות</a>
+      <p><b>בלעדי למשתתפי השידור:</b> הצצה בזמן אמת לחדר המסחר של תלמידי Cycles Trading – עסקאות אמיתיות ותוצאות אמיתיות, בשידור חי.</p>
+    </div>
+    <div class="fomo rv">
+      <div><b>ההדרכה לא תוקלט ולא תשודר שוב.</b><span>מי שלא יהיה בשידור החי – פשוט לא יראה את זה.</span></div>
+      <a href="#register" class="btn btn-cta">שריינו לי מקום עכשיו <svg><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
