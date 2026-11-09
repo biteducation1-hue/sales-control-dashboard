@@ -1,0 +1,160 @@
+<script nowprocket>
+/* CyclesTrading – Black Friday 197 checkout redesign (CartFlows step 49639, /black-friday-197/) */
+(function () {
+  var END_DATE = '2026-11-30T23:59:00+02:00';
+  var PRICE = 197, REG = 450;
+  if (window.__ctBF197) return; window.__ctBF197 = true;
+
+  function fmt(n) { return n.toLocaleString('en-US'); }
+  var SAVE = REG - PRICE;
+
+  function svg(p, fill) { return '<svg viewBox="0 0 24 24" ' + (fill ? 'fill="currentColor"' : 'fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"') + '>' + p + '</svg>'; }
+  var ICON = {
+    gift: svg('<rect x="3" y="8" width="18" height="4" rx="1"/><path d="M12 8v13M19 12v9H5v-9"/><path d="M7.5 8a2.5 2.5 0 0 1 0-5C11 3 12 8 12 8s1-5 4.5-5a2.5 2.5 0 0 1 0 5"/>'),
+    users: svg('<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/>'),
+    live: svg('<rect x="2" y="6" width="14" height="12" rx="2"/><path d="m16 10 6-3v10l-6-3"/>'),
+    ai: svg('<path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M19 15l.9 2.1L22 18l-2.1.9L19 21l-.9-2.1L16 18l2.1-.9z"/>'),
+    chat: svg('<path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>'),
+    chart: svg('<path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 6-7"/>'),
+    lock: svg('<rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/>'),
+    card: svg('<rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/>'),
+    cal: svg('<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="m9 16 2 2 4-4"/>'),
+    wa: svg('<path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.3 14.1c-.2.6-1.3 1.2-1.8 1.3-.5 0-1 .2-3.3-.7-2.8-1.1-4.6-4-4.7-4.2-.1-.2-1.1-1.5-1.1-2.9s.7-2 1-2.3c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.8 2c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.2 1 2.1 1.3 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l1.9.9c.3.1.5.2.5.3.1.2.1.7-.1 1.3z"/>', true)
+  };
+
+  var P = '.postid-49639 ';
+  var css = [
+    "@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&display=swap');",
+    ":root{--ct-bg:#0c1013;--ct-slate:#20272e;--ct-dg:#1e332f;--ct-g:#7ed957;--ct-lg:#c9ed8a;--ct-line:rgba(126,217,87,.18);--ct-mut:#9aa7a2}",
+    "body.postid-49639{background:var(--ct-bg)!important}",
+    "html:not(.ct-ready) body.postid-49639 .cartflows-container{visibility:hidden}",
+    P + ".cartflows-container," + P + ".cartflows-container *:not(.dashicons){font-family:'Heebo',sans-serif}",
+    P + ".kb-row-layout-id49639_fb50a5-46{background:radial-gradient(900px 420px at 50% -80px,rgba(126,217,87,.22),transparent 70%),radial-gradient(600px 400px at 100% 100%,rgba(30,51,47,.9),transparent 70%),var(--ct-bg)!important;padding:0 16px 72px!important}",
+    P + ".kb-row-layout-id49639_fb50a5-46>.kt-row-column-wrap{padding:0!important;max-width:none!important}",
+    P + ".kadence-column49639_f36cd7-84," + P + ".kadence-column49639_b63ac6-d7{display:none!important}",
+    P + ".kadence-column49639_9cb473-5a{width:100%!important;max-width:none!important;margin:0!important}" + P + ".kadence-column49639_9cb473-5a>.kt-inside-inner-col{padding:0!important}",
+    P + ".kb-row-layout-id49639_9af32e-c6{margin:0!important;padding:0!important}",
+    ".ct-hero{max-width:900px;margin:0 auto;padding:56px 0 36px;text-align:center;color:#fff}",
+    ".ct-eyebrow{display:inline-flex;gap:8px;align-items:center;font-weight:800;letter-spacing:.03em;font-size:14px;color:var(--ct-bg);background:var(--ct-g);padding:7px 16px;border-radius:999px}",
+    ".ct-eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--ct-bg);animation:ctp 1.4s infinite}@keyframes ctp{50%{opacity:.25}}",
+    ".ct-hero h1{font-size:clamp(34px,5.6vw,62px);line-height:1.05;font-weight:900;margin:22px 0 26px;color:#fff}",
+    ".ct-hero h1 em{font-style:normal;color:var(--ct-g)}",
+    ".ct-cd{display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid var(--ct-line);border-radius:16px;padding:12px 18px}",
+    ".ct-cd-l{font-size:14px;color:var(--ct-mut)}.ct-cd-u{display:flex;gap:8px;direction:ltr}",
+    ".ct-cd-u div{min-width:56px;background:var(--ct-slate);border-radius:10px;padding:6px 4px 4px;text-align:center}",
+    ".ct-cd-u b{display:block;font-size:24px;font-weight:800;color:#fff;font-variant-numeric:tabular-nums;line-height:1.1}.ct-cd-u span{font-size:11px;color:var(--ct-mut)}",
+    P + ".kb-row-layout-id49639_9af32e-c6>.kt-row-column-wrap{display:grid!important;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:28px;max-width:1120px;margin:0 auto;padding:0!important;align-items:start}",
+    P + ".kb-row-layout-id49639_9af32e-c6 .wp-block-kadence-column{width:auto!important;flex:none!important;margin:0!important}",
+    P + ".kadence-column49639_efeb51-0a>.kt-inside-inner-col," + P + ".kadence-column49639_38ba65-c5>.kt-inside-inner-col{padding:0!important;background:none!important;border:0!important;box-shadow:none!important;border-radius:0!important}",
+    ".ct-price{background:linear-gradient(160deg,#22402f 0%,var(--ct-dg) 45%,var(--ct-slate) 100%);border:1px solid rgba(126,217,87,.35);border-radius:22px 22px 0 0;padding:24px 26px 20px;color:#fff;position:relative;overflow:hidden}",
+    ".ct-price:after{content:'';position:absolute;inset:auto -60px -90px auto;width:220px;height:220px;border-radius:50%;background:rgba(126,217,87,.12);filter:blur(10px)}",
+    ".ct-tag{font-size:12px;font-weight:800;color:var(--ct-lg);letter-spacing:.06em}",
+    ".ct-price h3{color:#fff;font-size:20px;font-weight:800;margin:4px 0 14px}",
+    ".ct-stack{position:relative;z-index:1;border-top:1px solid rgba(255,255,255,.1);margin:0 0 14px;padding-top:10px}",
+    ".ct-stack div{display:flex;justify-content:space-between;font-size:15px;color:#d6e2dc;padding:4px 0}",
+    ".ct-stack .ct-tot{border-top:1px dashed rgba(255,255,255,.15);margin-top:4px;padding-top:8px;font-weight:700;color:#fff}",
+    ".ct-was{color:var(--ct-mut);text-decoration:line-through;text-decoration-color:#e45b5b;text-decoration-thickness:2px}",
+    ".ct-row{display:flex;align-items:center;gap:12px;flex-wrap:wrap}",
+    ".ct-now{font-size:52px;font-weight:900;line-height:1;color:#fff}.ct-now small{font-size:26px;font-weight:800;margin-right:3px}",
+    ".ct-chip{background:var(--ct-g);color:#0c1a10;font-weight:800;font-size:14px;padding:5px 12px;border-radius:999px}",
+    ".ct-per{margin-top:10px;font-size:15px;color:#d6e2dc}.ct-per b{color:var(--ct-lg)}",
+    ".ct-renew{position:relative;z-index:1;display:flex;gap:10px;align-items:flex-start;margin-top:16px;background:rgba(12,16,19,.45);border-radius:12px;padding:11px 13px;font-size:14px;line-height:1.5;color:#e8efe9}",
+    ".ct-renew svg{flex:0 0 20px;width:20px;height:20px;color:var(--ct-g);margin-top:1px}",
+    P + ".wcf-embed-checkout-form-two-step{max-width:none!important}",
+    P + ".wcf-gb-checkout-form{background:#fff;border-radius:0 0 22px 22px;overflow:hidden;box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}",
+    P + ".wcf-embed-checkout-form-nav," + P + ".wcf-embed-checkout-form-two-step .woocommerce{border:0!important}",
+    P + ".wcf-embed-checkout-form-steps .steps{background:#f3f6f4!important}" + P + ".wcf-embed-checkout-form-steps .steps.wcf-current{background:#fff!important}",
+    P + ".wcf-embed-checkout-form-steps .steps.wcf-current:before{background-color:var(--ct-g)!important;height:3px!important}",
+    P + ".wcf-embed-checkout-form .woocommerce form .form-row input.input-text{border-radius:12px!important;border-color:#dfe5e1!important;min-height:54px!important;font-size:16px!important}",
+    P + ".wcf-embed-checkout-form .woocommerce form .form-row input.input-text:focus{border-color:var(--ct-g)!important;box-shadow:0 0 0 3px rgba(126,217,87,.25)!important}",
+    P + ".wcf-embed-checkout-form-two-step .woocommerce .wcf-embed-checkout-form-nav-btns a.wcf-next-button," + P + ".wcf-embed-checkout-form .woocommerce #payment #place_order{background:var(--ct-g)!important;color:#0c1a10!important;border:0!important;border-radius:14px!important;min-height:62px!important;font-size:20px!important;font-weight:900!important;box-shadow:0 12px 28px -10px rgba(126,217,87,.7);transition:transform .15s,box-shadow .15s}",
+    P + ".wcf-embed-checkout-form-two-step .woocommerce .wcf-embed-checkout-form-nav-btns a.wcf-next-button:hover," + P + ".wcf-embed-checkout-form .woocommerce #payment #place_order:hover{transform:translateY(-2px);box-shadow:0 16px 32px -10px rgba(126,217,87,.85)}",
+    P + ".wcf-embed-checkout-form .woocommerce-checkout #payment{background:#f7faf8!important;border-radius:14px!important}",
+    P + ".wcf-embed-checkout-form .woocommerce-checkout #payment div.payment_box{background:#eef3f0!important;border-radius:12px}" + P + ".wcf-embed-checkout-form .woocommerce-checkout #payment div.payment_box:before{display:none}",
+    P + ".wcf-custom-coupon-field .wcf-submit-coupon.button{background:var(--ct-slate)!important;border-radius:10px!important}",
+    ".ct-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}",
+    ".ct-trust div{display:flex;flex-direction:column;align-items:center;gap:6px;text-align:center;font-size:13px;line-height:1.35;color:#c7d2cd;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:12px 8px}",
+    ".ct-trust svg{width:20px;height:20px;color:var(--ct-g)}",
+    ".ct-inc h2{color:#fff!important;font-size:26px!important;font-weight:900!important;margin:6px 0 18px!important;line-height:1.25}",
+    ".ct-faq{margin-top:26px}.ct-feat{display:flex;gap:14px;background:rgba(255,255,255,.035);border:1px solid var(--ct-line);border-radius:18px;padding:18px;margin-bottom:12px}",
+    ".ct-ico{flex:0 0 46px;height:46px;border-radius:12px;background:rgba(126,217,87,.12);display:grid;place-items:center;color:var(--ct-g)}.ct-ico svg{width:24px;height:24px}",
+    ".ct-feat h4{color:#fff;font-size:18px;font-weight:800;margin:0 0 4px}.ct-feat p{color:#b9c6c0;font-size:15px;line-height:1.55;margin:0}",
+    ".ct-faq h3{color:#fff;font-size:20px;font-weight:800;margin:0 0 10px}",
+    ".ct-faq details{border-bottom:1px solid rgba(255,255,255,.08);padding:14px 2px}",
+    ".ct-faq summary{cursor:pointer;list-style:none;color:#fff;font-weight:700;font-size:16px;display:flex;justify-content:space-between;gap:10px}.ct-faq summary::-webkit-details-marker{display:none}",
+    ".ct-faq summary:after{content:'+';color:var(--ct-g);font-size:22px;line-height:1;transition:transform .2s}.ct-faq details[open] summary:after{transform:rotate(45deg)}",
+    ".ct-faq details p{color:#b9c6c0;font-size:15px;line-height:1.6;margin:8px 0 0}",
+    ".ct-wa{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--ct-lg)!important;font-weight:700;text-decoration:none!important;border:1px solid var(--ct-line);border-radius:999px;padding:10px 16px}.ct-wa svg{width:18px;height:18px}",
+    ".ct-disc{color:#6f7d77;font-size:12px;margin-top:22px;line-height:1.5}",
+    "@media (max-width:900px){" + P + ".kb-row-layout-id49639_9af32e-c6>.kt-row-column-wrap{grid-template-columns:1fr;flex-direction:column!important}" + P + ".kadence-column49639_efeb51-0a{order:1!important}" + P + ".kadence-column49639_38ba65-c5{order:2!important;margin-top:28px!important}.ct-hero{padding:34px 0 24px}.ct-now{font-size:44px}.ct-cd{flex-direction:column;gap:8px}}",
+    "@media (max-width:480px){.ct-cd-u div{min-width:50px}.ct-trust div{font-size:12px;padding:10px 4px}.ct-price{padding:20px 18px 18px}}"
+  ].join(' ');
+
+  function ready() { document.documentElement.classList.add('ct-ready'); }
+  var st = document.createElement('style'); st.id = 'ct-bf-style'; st.textContent = css; (document.head || document.documentElement).appendChild(st);
+  setTimeout(ready, 3000);
+
+  function feat(ic, h, p) { return '<div class="ct-feat"><div class="ct-ico">' + ic + '</div><div><h4>' + h + '</h4><p>' + p + '</p></div></div>'; }
+
+  function build() {
+    var mainRow = document.querySelector('.kb-row-layout-id49639_9af32e-c6');
+    var infoCol = document.querySelector('.kadence-column49639_38ba65-c5 > .kt-inside-inner-col');
+    var form = document.querySelector('.wcf-gb-checkout-form');
+    if (!mainRow || !infoCol || !form) { ready(); return; }
+
+    var wa = document.querySelector('a[href*="wa.me"],a[href*="api.whatsapp"],a[href*="whatsapp.com/send"]');
+
+    var hero = document.createElement('section'); hero.className = 'ct-hero';
+    hero.innerHTML =
+      '<span class="ct-eyebrow"><i></i>BLACK FRIDAY · חודש בקהילה</span>' +
+      '<h1>חודש שלם בקהילה.<br><em>ב-' + fmt(PRICE) + ' ₪ בלבד</em></h1>' +
+      '<div class="ct-cd" id="ct-cd"><span class="ct-cd-l">המבצע נגמר בעוד</span><div class="ct-cd-u">' +
+      '<div><b data-u="d">0</b><span>ימים</span></div><div><b data-u="h">00</b><span>שעות</span></div>' +
+      '<div><b data-u="m">00</b><span>דקות</span></div><div><b data-u="s">00</b><span>שניות</span></div></div></div>';
+    mainRow.parentNode.insertBefore(hero, mainRow);
+
+    var price = document.createElement('div'); price.className = 'ct-price';
+    price.innerHTML =
+      '<div class="ct-tag">ההצעה שלך · מחיר בלאק פריידי</div>' +
+      '<h3>חודש בקהילת הסוחרים של סייקלס</h3>' +
+      '<div class="ct-stack">' +
+      '<div><span>לייבים, דיסקורד, מנטורים והדוח החודשי</span><span>כלול</span></div>' +
+      '<div class="ct-tot"><span>מחיר מנוי חודשי רגיל</span><span dir="ltr" class="ct-was">₪' + fmt(REG) + '</span></div></div>' +
+      '<div class="ct-row"><div class="ct-now" dir="ltr"><small>₪</small>' + fmt(PRICE) + '</div><span class="ct-chip">חוסכים ' + fmt(SAVE) + ' ₪</span></div>' +
+      '<div class="ct-per">תשלום חד-פעמי, <b>בלי חידוש אוטומטי</b></div>' +
+      '<div class="ct-renew">' + ICON.cal + '<span>הגישה פתוחה עד 31/12. מי שמצטרף עכשיו מקבל יותר מחודש.</span></div>';
+    form.parentNode.insertBefore(price, form);
+
+    var trust = document.createElement('div'); trust.className = 'ct-trust';
+    trust.innerHTML = '<div>' + ICON.lock + 'תשלום מאובטח</div><div>' + ICON.card + 'תשלום אחד, 197 ₪</div><div>' + ICON.cal + 'בלי חידוש אוטומטי</div>';
+    form.parentNode.insertBefore(trust, form.nextSibling);
+
+    infoCol.innerHTML =
+      '<div class="ct-inc"><h2>מה מקבלים עד 31/12</h2>' +
+      feat(ICON.live, '5 לייבים בכל שבוע', 'בבוקר ובערב, עם זיו, מני, רועי, גולן ושגיא. ניתוחים, תרחישים ומענה לשאלות.') +
+      feat(ICON.ai, 'סיכומי AI מתקדמים', 'סיכום מתקדם לכל אחד מהלייבים, כך שאפשר להתעדכן גם בלי לצפות בכל השידור.') +
+      feat(ICON.chat, 'גישה לכל חדרי הדיסקורד', 'כולל החדרים של מומחי הסייקלים לנכסי הדוח וחדר המניות החמות.') +
+      feat(ICON.users, '2,000+ סוחרים ו-9 מנטורים', 'קהילה פעילה, ומנטורים שעונים על שאלות כל יום.') +
+      feat(ICON.chart, 'הדוח החודשי + ארכיון הדוחות', 'אינדיקציה חודשית על חמישה נכסים, וגישה לכל הדוחות הקודמים כדי לראות איך זה עבד לאורך זמן.') +
+      '<div class="ct-faq"><h3>שאלות לפני שמצטרפים</h3>' +
+      '<details open><summary>יש חידוש אוטומטי?</summary><p>לא. משלמים 197 ₪ פעם אחת, ואין חיוב נוסף. אין גם מה לבטל.</p></details>' +
+      '<details><summary>מה קורה ב-31/12?</summary><p>הגישה מסתיימת. לפני כן נציג ייצור איתכם קשר עם הצעה להמשך, ואם תרצו, תבחרו מסלול.</p></details></div>' +
+      (wa ? '<a class="ct-wa" href="' + wa.href + '" target="_blank" rel="noopener">' + ICON.wa + 'יש שאלה? דברו איתנו בוואטסאפ</a>' : '') +
+      '<p class="ct-disc">התוכן לימודי ואינו מהווה ייעוץ השקעות. כל החלטת מסחר היא באחריות המשתמש.</p></div>';
+
+    var end = new Date(END_DATE).getTime(), cd = document.getElementById('ct-cd');
+    function pad(n) { return (n < 10 ? '0' : '') + n; }
+    function q(u) { return cd.querySelector('[data-u=' + u + ']'); }
+    function tick() {
+      var t = Math.max(0, end - Date.now());
+      if (!t) { cd.style.display = 'none'; return; }
+      var s = Math.floor(t / 1000);
+      q('d').textContent = Math.floor(s / 86400); q('h').textContent = pad(Math.floor(s % 86400 / 3600));
+      q('m').textContent = pad(Math.floor(s % 3600 / 60)); q('s').textContent = pad(s % 60);
+    }
+    tick(); setInterval(tick, 1000);
+    ready();
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();
+})();
+</script>
