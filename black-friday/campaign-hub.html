@@ -203,12 +203,58 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
   <div><h1>חדר המלחמה · <span class="hl">בלאק פריידי 2026</span></h1><p>כל מה שהקהל יראה, בדיוק כמו שהוא יראה את זה: דף הנחיתה, לוח הימים, הוואטסאפ, הסטוריז והבאנרים, מ-13/11 עד 30/11.</p></div>
   <div class="kpis"><div class="kpi"><b>18</b><span>ימי קמפיין</span></div><div class="kpi"><b>8</b><span>תפוצות וואטסאפ</span></div><div class="kpi"><b>67</b><span>פריימים של סטוריז</span></div><div class="kpi"><b>33</b><span>באנרים</span></div></div>
 </header>
-<nav class="tabs" aria-label="תצוגות"><a href="#process">התהליך</a><a href="#timeline">לוח הימים</a><a href="#landing">דף הנחיתה</a><a href="#sales">אנשי מכירות</a><a href="#whatsapp">וואטסאפ</a><a href="#stories">סטוריז</a><a href="#social">איש הסושיאל</a><a href="#banners">באנרים</a><a href="#video">סרטון ויוטיוב</a><a href="#members">חברי הקהילה</a><a href="#memberoffer">מבצע לחברים</a><a href="#referral">שגרירים</a></nav>
+<nav class="tabs" aria-label="תצוגות"><a href="#process">התהליך</a><a href="#timeline">לוח הימים</a><a href="#landing">דף הנחיתה</a><a href="#checkout">עמוד תשלום</a><a href="#sales">אנשי מכירות</a><a href="#whatsapp">וואטסאפ</a><a href="#stories">סטוריז</a><a href="#social">איש הסושיאל</a><a href="#banners">באנרים</a><a href="#video">סרטון ויוטיוב</a><a href="#members">חברי הקהילה</a><a href="#memberoffer">מבצע לחברים</a><a href="#referral">שגרירים</a></nav>
 
 <section class="view" id="v-landing" hidden>
   <p class="intro">זה דף המכירה שאליו מובילים כל הערוצים. אפשר להחליף בין תצוגת מחשב לתצוגת טלפון, או לפתוח אותו במסך מלא.</p>
   <div class="pick" id="lp-pick" style="margin-bottom:16px"><button type="button" data-m="desk" aria-pressed="true">🖥 מחשב</button><button type="button" data-m="mob">📱 טלפון</button><a class="openfull" href="landing.html" target="_blank" rel="noopener">פתיחה במסך מלא ↗</a></div>
   <div class="lp-frame" id="lp-frame"><iframe title="דף הנחיתה" src="landing.html" loading="lazy"></iframe></div>
+</section>
+
+<section class="view" id="v-checkout" hidden>
+  <p class="intro">עמוד התשלום שאליו מובילים כל הכפתורים בדף הנחיתה. העיצוב זהה לעמוד התשלום של המנוי השנתי לחברים, עם מסרים של חודש אחד. הצילומים מהאתר החי, 9/11.</p>
+  <style>
+  .co-grid{display:grid;grid-template-columns:minmax(0,2.2fr) minmax(0,1fr);gap:18px;align-items:start;margin:14px 0 26px}
+  .co-shot{border:1px solid rgba(255,255,255,.12);border-radius:14px;overflow-x:hidden;overflow-y:auto;max-height:620px;background:#0c1013}
+  .co-shot img{display:block;width:100%;height:auto}
+  .co-cap{font-size:13px;color:var(--muted);margin:6px 2px 0}
+  .co-links{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 4px}
+  .co-links a{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;border:1px solid rgba(126,217,87,.45);color:var(--green-light,#c9ed8a);font-weight:700;text-decoration:none}
+  @media (max-width:760px){.co-grid{grid-template-columns:1fr}}
+  </style>
+  <div class="co-links"><a href="https://cyclestrading-course.com/black-friday-197/" target="_blank" rel="noopener">עמוד התשלום 197 ↗</a><a href="https://cyclestrading-course.com/black-friday-3/" target="_blank" rel="noopener">עמוד התשלום של המנוי השנתי (חברים) ↗</a></div>
+
+  <h3 class="mh" style="margin-top:18px">חודש בקהילה · 197 ₪</h3>
+  <div class="co-grid">
+    <div><div class="co-shot"><img loading="lazy" alt="עמוד התשלום 197, מחשב" src="checkout/bf197-d.jpg"></div><p class="co-cap">מחשב · גוללים בתוך התמונה</p></div>
+    <div><div class="co-shot"><img loading="lazy" alt="עמוד התשלום 197, טלפון" src="checkout/bf197-m.jpg"></div><p class="co-cap">טלפון · גוללים בתוך התמונה</p></div>
+  </div>
+
+  <h3 class="mh">מה כתוב בעמוד</h3>
+  <div class="tbl-scroll"><table class="tbl"><thead><tr><th>אזור</th><th>הנוסח</th></tr></thead><tbody>
+    <tr><td>כותרת</td><td>"חודש שלם בקהילה. ב-197 ₪ בלבד" + שעון עד 30/11 ב-23:59</td></tr>
+    <tr><td>כרטיס המחיר</td><td>מחיר רגיל 450 ₪ מחוק · 197 ₪ · "חוסכים 253 ₪" · "תשלום חד-פעמי, בלי חידוש אוטומטי" · "הגישה פתוחה עד 31/12. מי שמצטרף עכשיו מקבל יותר מחודש."</td></tr>
+    <tr><td>מה מקבלים עד 31/12</td><td>5 לייבים בשבוע (בבוקר ובערב) · סיכומי AI · כל חדרי הדיסקורד · 2,000+ סוחרים ו-9 מנטורים · הדוח החודשי + ארכיון הדוחות</td></tr>
+    <tr><td>שאלות</td><td>"יש חידוש אוטומטי?" · "מה קורה ב-31/12?"</td></tr>
+    <tr><td>מתחת לטופס</td><td>תשלום מאובטח · תשלום אחד, 197 ₪ · בלי חידוש אוטומטי</td></tr>
+  </tbody></table></div>
+
+  <h3 class="mh" style="margin-top:24px">מצב</h3>
+  <div class="tbl-scroll"><table class="tbl"><thead><tr><th>מה</th><th>מי</th><th>סטטוס</th></tr></thead><tbody>
+    <tr><td>עיצוב העמוד (סניפט 63 + קוד בסטפ 49639)</td><td>Claude</td><td><span class="st ok">באוויר</span></td></tr>
+    <tr><td>מוצר 49620 מוגדר וירטואלי (בלי שדות משלוח)</td><td>בעל העסק</td><td><span class="st ok">בוצע</span></td></tr>
+    <tr><td>שם המוצר: "חודש בקהילה · בלאק פריידי"</td><td>בעל העסק</td><td><span class="st ok">בוצע</span></td></tr>
+    <tr><td>תמונת מוצר ראשית (מופיעה בסיכום ההזמנה)</td><td>Claude</td><td><span class="st ok">בוצע</span></td></tr>
+    <tr><td>כותרת הלשונית בדפדפן: "חודש בקהילה · בלאק פריידי"</td><td>Claude</td><td><span class="st ok">בוצע</span></td></tr>
+    <tr><td>רכישת בדיקה מקצה לקצה (קופון 100%): גישה לאתר + תפקיד בדיסקורד נפתחים</td><td>אנאל</td><td><span class="st warn">לפני 23/11</span></td></tr>
+    <tr><td>מוצר כפול 49621 (לא מחובר לקופה)</td><td>—</td><td><span class="st no">לא נוגעים</span></td></tr>
+  </tbody></table></div>
+
+  <h3 class="mh" style="margin-top:24px">לשם השוואה: עמוד התשלום של המנוי השנתי (חברים)</h3>
+  <div class="co-grid">
+    <div><div class="co-shot"><img loading="lazy" alt="עמוד התשלום השנתי, מחשב" src="checkout/annual-d.jpg"></div><p class="co-cap">מחשב · 2,890 ₪ במקום 3,590 ₪, 13 חודשים</p></div>
+    <div><div class="co-shot"><img loading="lazy" alt="עמוד התשלום השנתי, טלפון" src="checkout/annual-m.jpg"></div><p class="co-cap">טלפון · גוללים בתוך התמונה</p></div>
+  </div>
 </section>
 
 <section class="view" id="v-timeline">
@@ -681,7 +727,7 @@ document.getElementById('vid-pick').addEventListener('click',function(e){var b=e
  [].forEach.call(this.querySelectorAll('button'),function(x){x.setAttribute('aria-pressed',x===b);});
  var v=document.getElementById('vid');v.pause();v.querySelector('source').src=b.dataset.v==='bf'?'video/offer-bf26.mp4':'video/offer-evergreen.mp4';v.load();});
 /* routing */
-var VIEWS=['process','timeline','landing','sales','whatsapp','stories','social','banners','video','members','memberoffer','referral'];
+var VIEWS=['process','timeline','landing','checkout','sales','whatsapp','stories','social','banners','video','members','memberoffer','referral'];
 function route(){var v=(location.hash||'#process').slice(1);if(VIEWS.indexOf(v)<0)v='process';
  VIEWS.forEach(function(n){var el=document.getElementById('v-'+n);if(n==='process'){el.classList.toggle('off',n!==v);}else{el.hidden=n!==v;}});
  document.querySelectorAll('nav.tabs a').forEach(function(a){if(a.getAttribute('href')==='#'+v)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
