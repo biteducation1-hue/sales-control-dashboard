@@ -20,13 +20,14 @@ const disc = (fs, extra = '') => `<div class="disc" style="font-size:${fs}px;${e
 const tag = (t, fs, extra = '') => `<div class="tag" style="font-size:${fs}px;${extra}">${t}</div>`;
 const ziv = (w, h, fs) => `<div class="ziv" style="width:${w}px;height:${h}px;font-size:${fs}px"><span>תמונה של זיו</span></div>`;
 const chips = (items, fs, extra = '') => `<div class="chips" style="font-size:${fs}px;${extra}">${items.map(([b, s]) => `<div class="chip"><b>${b}</b><span>${s}</span></div>`).join('')}</div>`;
-const COMM_CHIPS = [[n('4'), 'לייבים בשבוע'], [n('2,000+'), 'סוחרים'], [n('9'), 'מנטורים']];
+const COMM_CHIPS = [[n('5'), 'לייבים בשבוע'], [n('2,000+'), 'סוחרים'], [n('9'), 'מנטורים']];
 
 const LIVES = [
-  ['ראשון', 'זיו', 'לייב הכנה למסחר'],
-  ['שלישי', 'מני', 'לייב עומק על הסייקלים'],
-  ['רביעי', 'רועי', 'תזמון עסקאות במניות'],
-  ['חמישי', 'גולן', 'דיוק בהבנת הגרף'],
+  ['ראשון · ערב', 'זיו', 'לייב הכנה למסחר'],
+  ['שלישי · ערב', 'מני', 'לייב עומק על הסייקלים'],
+  ['רביעי · ערב', 'רועי', 'תזמון עסקאות במניות'],
+  ['חמישי · בוקר', 'גולן', 'דיוק בהבנת הגרף'],
+  ['חמישי · צהריים', 'שגיא', 'לייב שאלות והבנה'],
 ];
 const lives = (fs) => `<div class="week" style="font-size:${fs}px">${LIVES.map(([w, nm, s]) => `<div class="live"><span class="when">${w}</span><h3>${nm}</h3><b>${s}</b></div>`).join('')}</div>`;
 const ROOMS = ['# מומחי מניות', '# חדר לכל נכס', '# רעיונות מסחר', '# קריפטו', '# מט"ח', '# נוסטרו', '# טווח ארוך'];
@@ -35,7 +36,7 @@ const ASSETS = [n('S&amp;P 500'), 'ביטקוין', 'זהב', 'נפט', 'יור�
 const assets = (fs) => `<div class="assets" style="font-size:${fs}px">${ASSETS.map(a => `<span>${a}</span>`).join('')}</div>`;
 
 const pillars = (fs, cols = 3) => `<div class="pillars" style="font-size:${fs}px;grid-template-columns:repeat(${cols},1fr)">
-  <div class="pl"><i>${n('1')}</i><h3>${n('4')} לייבים בשבוע</h3><p>זיו, מני, רועי וגולן</p></div>
+  <div class="pl"><i>${n('1')}</i><h3>${n('5')} לייבים בשבוע</h3><p>זיו, מני, רועי, גולן ושגיא</p></div>
   <div class="pl"><i>${n('2')}</i><h3>כל חדרי הדיסקורד</h3><p>${n('2,000+')} סוחרים ו-${n('9')} מנטורים</p></div>
   <div class="pl"><i>${n('3')}</i><h3>+ הדוח החודשי</h3><p>תאריכי מפנה ב-${n('5')} נכסים</p></div>
 </div>`;
@@ -154,7 +155,7 @@ add('p45-w1-follow', 1080, 1350, 'p45', `
   ${head('עקבתם מבחוץ.<br><span class="hl">הגיע הזמן להיכנס</span>', 82, 'margin-top:56px')}
   <div class="io" style="font-size:32px;margin-top:64px">
     <div class="io-out"><h3>מבחוץ</h3><ul><li>פוסט פה, סרטון שם</li><li>לנחש לבד מה חשוב</li><li>לסחור לבד</li></ul></div>
-    <div class="io-in card"><h3>בפנים</h3><ul><li>${n('4')} לייבים בכל שבוע</li><li>כל חדרי הדיסקורד</li><li>${n('2,000+')} סוחרים ו-${n('9')} מנטורים</li><li>ובנוסף, הדוח החודשי</li></ul></div>
+    <div class="io-in card"><h3>בפנים</h3><ul><li>${n('5')} לייבים בכל שבוע</li><li>כל חדרי הדיסקורד</li><li>${n('2,000+')} סוחרים ו-${n('9')} מנטורים</li><li>ובנוסף, הדוח החודשי</li></ul></div>
   </div>
   <div class="grow"></div>
   <div class="strip" style="font-size:32px">מי שברשימה נכנס ראשון ב-${n('23/11')}</div>
@@ -201,7 +202,7 @@ add('hero-desktop-waitlist', 1920, 700, 'hd', `
     ${logo(240)}
     ${tag(`בלאק פריידי · רשימת המתנה ${n('13–22/11')}`, 24, 'margin-top:26px')}
     ${head('מי שברשימה<br><span class="hl">נכנס ראשון</span> לקהילה', 72, 'margin-top:24px')}
-    <p class="sub" style="font-size:26px;margin-top:26px;max-width:860px">${n('4')} לייבים בשבוע, כל חדרי הדיסקורד, ${n('2,000+')} סוחרים ו-${n('9')} מנטורים. ובנוסף, הדוח החודשי.</p>
+    <p class="sub" style="font-size:26px;margin-top:26px;max-width:860px">${n('5')} לייבים בשבוע, כל חדרי הדיסקורד, ${n('2,000+')} סוחרים ו-${n('9')} מנטורים. ובנוסף, הדוח החודשי.</p>
     <div class="hd-act">${cta('להרשמה לרשימת ההמתנה', 30)}${disc(18)}</div>
   </div>
   <div class="hd-side">
@@ -214,7 +215,7 @@ add('hero-mobile-waitlist', 1080, 1350, 'p45', `
   ${logo(270)}
   ${tag(`בלאק פריידי · רשימת המתנה ${n('13–22/11')}`, 28, 'margin-top:44px')}
   ${head('מי שברשימה <span class="hl">נכנס ראשון</span> לקהילה', 86, 'margin-top:44px')}
-  <p class="sub" style="font-size:34px;margin-top:44px;max-width:900px">${n('4')} לייבים בשבוע, כל חדרי הדיסקורד, ${n('2,000+')} סוחרים ו-${n('9')} מנטורים. ובנוסף, הדוח החודשי.</p>
+  <p class="sub" style="font-size:34px;margin-top:44px;max-width:900px">${n('5')} לייבים בשבוע, כל חדרי הדיסקורד, ${n('2,000+')} סוחרים ו-${n('9')} מנטורים. ובנוסף, הדוח החודשי.</p>
   <div class="date-card" style="margin-top:56px"><span class="dc-k">גישה מוקדמת לרשימה</span><b>${n('23/11')}</b><span class="dc-s">24 שעות לפני כולם</span></div>
   <div class="grow"></div>
   ${cta('להרשמה לרשימת ההמתנה', 40)}
@@ -260,7 +261,7 @@ add('sq-o1-inside', 1080, 1080, 'sq', `
   <div class="row-top">${logo(220)}${tag('בלאק פריידי', 24)}</div>
   ${head(`מה מקבלים <span class="hl">ב-${n('197') + '&nbsp;₪'}</span>`, 72, 'margin-top:40px')}
   <div class="pillars3" style="font-size:30px;margin-top:44px">
-    <div class="pc"><i>${n('1')}</i><div><h3>${n('4')} לייבים בשבוע</h3><p>זיו, מני, רועי וגולן. ניתוחים, תרחישים ושאלות.</p></div></div>
+    <div class="pc"><i>${n('1')}</i><div><h3>${n('5')} לייבים בשבוע</h3><p>זיו, מני, רועי, גולן ושגיא. בבוקר ובערב.</p></div></div>
     <div class="pc"><i>${n('2')}</i><div><h3>כל חדרי הדיסקורד</h3><p>מומחי מניות, חדר לכל נכס, רעיונות מסחר, קריפטו, מט"ח, נוסטרו וטווח ארוך.</p></div></div>
     <div class="pc"><i>${n('3')}</i><div><h3>ובנוסף: הדוח החודשי</h3><p>תאריכי מפנה ב-${n('5')} נכסים, בתחילת כל חודש.</p></div></div>
   </div>
@@ -339,7 +340,7 @@ add('hero-desktop-open', 1920, 700, 'hd', `
     ${logo(230)}
     ${tag(`בלאק פריידי · נסגר ב-${n('30/11')} בשעה ${n('23:59')}`, 24, 'margin-top:24px')}
     ${head('חודש שלם בתוך <span class="hl">קהילת הסוחרים</span>', 62, 'margin-top:26px')}
-    <p class="sub" style="font-size:25px;margin-top:24px;max-width:900px">${n('4')} לייבים בשבוע, כל חדרי הדיסקורד, ${n('2,000+')} סוחרים ו-${n('9')} מנטורים. ובנוסף, הדוח החודשי.</p>
+    <p class="sub" style="font-size:25px;margin-top:24px;max-width:900px">${n('5')} לייבים בשבוע, כל חדרי הדיסקורד, ${n('2,000+')} סוחרים ו-${n('9')} מנטורים. ובנוסף, הדוח החודשי.</p>
     <div class="hd-act">${cta('אני רוצה להיכנס לקהילה', 28)}${disc(18)}</div>
   </div>
   <div class="hd-price">
@@ -357,7 +358,7 @@ add('hero-mobile-open', 1080, 1350, 'p45', `
   <div class="glow" style="margin-top:50px">${price(230)}</div>
   <p class="per" style="font-size:32px;margin-top:22px">חודש בקהילה · חד-פעמי</p>
   ${renew(34, 'margin-top:22px')}
-  ${chips([[n('4'), 'לייבים בשבוע'], [n('2,000+'), 'סוחרים'], [n('9'), 'מנטורים'], ['+', 'הדוח החודשי']], 26, 'margin-top:40px')}
+  ${chips([[n('5'), 'לייבים בשבוע'], [n('2,000+'), 'סוחרים'], [n('9'), 'מנטורים'], ['+', 'הדוח החודשי']], 26, 'margin-top:40px')}
   <div class="grow" style="min-height:40px"></div>
   ${cta('אני רוצה להיכנס לקהילה', 40)}
   ${disc(23, 'margin-top:30px')}
@@ -380,9 +381,9 @@ const wa = (name, tagT, headH, foot) => add(name, 1080, 1080, 'sq wa', `
   <div class="fine" style="font-size:26px;margin-bottom:14px">${foot}</div>
   ${disc(22)}
 `);
-wa('wa-1-early', `${n('23/11')} · רק לרשימה`, 'הגישה המוקדמת <span class="hl">נפתחה</span>', `${n('4')} לייבים בשבוע · כל חדרי הדיסקורד · ${n('2,000+')} סוחרים · ובנוסף, הדוח החודשי`);
+wa('wa-1-early', `${n('23/11')} · רק לרשימה`, 'הגישה המוקדמת <span class="hl">נפתחה</span>', `${n('5')} לייבים בשבוע · כל חדרי הדיסקורד · ${n('2,000+')} סוחרים · ובנוסף, הדוח החודשי`);
 wa('wa-2-bf', `${n('27/11')}`, 'היום <span class="hl">בלאק פריידי</span>', `המבצע נסגר ב-${n('30/11')} בשעה ${n('23:59')}`);
-wa('wa-3-tonight', `${n('30/11')} · הזדמנות אחרונה`, 'נסגר <span class="hl">הלילה</span> ב-' + n('23:59'), `${n('4')} לייבים בשבוע · כל חדרי הדיסקורד · ${n('9')} מנטורים · ובנוסף, הדוח החודשי`);
+wa('wa-3-tonight', `${n('30/11')} · הזדמנות אחרונה`, 'נסגר <span class="hl">הלילה</span> ב-' + n('23:59'), `${n('5')} לייבים בשבוע · כל חדרי הדיסקורד · ${n('9')} מנטורים · ובנוסף, הדוח החודשי`);
 
 // ---------- css ----------
 const CSS = fs.readFileSync(path.join(__dirname, 'banners.css'), 'utf8').replace('__LOGO__', LOGO);

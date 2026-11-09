@@ -193,7 +193,9 @@ h1,h2,h3,p{margin:0}
 .m-pr{flex:none;display:flex;flex-direction:column;align-items:center;gap:12px}
 
 .lives-sm .live{padding:18px 26px;gap:2px}
-.lives-sm .week{gap:18px}
+.lives-sm .week{gap:16px;grid-template-columns:repeat(6,1fr)}
+.lives-sm .live{grid-column:span 2}
+.lives-sm .live:nth-child(4){grid-column:2 / span 2}
 .rooms{gap:10px}
 
 /* price block, option B: regular-price card vs Black Friday card */
@@ -206,9 +208,10 @@ h1,h2,h3,p{margin:0}
 .reg .t,.reg .s{color:rgba(255,255,255,.66)}
 .reg .pp{font-size:calc(var(--p)*.3);color:rgba(255,255,255,.85);position:relative}
 .reg .pp::after{content:"";position:absolute;inset-inline:-6%;top:52%;height:max(3px,calc(var(--p)*.018));background:rgba(255,255,255,.8);border-radius:2px;transform:rotate(-8deg)}
-.bf{background:linear-gradient(160deg,#21392f,#16221d);color:var(--white);border:max(3px,calc(var(--p)*.014)) solid var(--green);box-shadow:0 0 calc(var(--p)*.2) rgba(126,217,87,.4)}
-.bf .t{color:var(--green-light)}
-.bf .pp{display:flex;align-items:flex-start;gap:calc(var(--p)*.03);color:var(--green);text-shadow:0 0 calc(var(--p)*.12) rgba(126,217,87,.45)}
+.bf{background:#fff;color:var(--ink);border:max(3px,calc(var(--p)*.018)) solid var(--ink);box-shadow:calc(var(--p)*.03) calc(var(--p)*.035) 0 var(--ink)}
+.bf .t{background:var(--green);color:var(--ink);border-radius:999px;padding:0 .6em;border:2px solid var(--ink)}
+.bf .s{color:#3a4650}
+.bf .pp{display:flex;align-items:flex-start;gap:calc(var(--p)*.03);color:var(--ink)}
 .bf .dg{font-size:calc(var(--p)*.6);letter-spacing:-.01em;line-height:.9}
 .bf .cur{font-size:calc(var(--p)*.2);margin-top:calc(var(--p)*.06)}
 .arr{font-size:calc(var(--p)*.24);font-weight:900;color:var(--green)}
