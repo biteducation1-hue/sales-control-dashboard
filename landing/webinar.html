@@ -65,7 +65,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 .ctlp .hdr .btn{padding:11px 22px;font-size:16px}
 
 /* hero */
-.ctlp .hero{min-height:100vh;padding:150px 0 80px;display:flex;align-items:center;overflow:hidden;background:var(--bg-0)}
+.ctlp .hero{min-height:100vh;padding:128px 0 70px;display:flex;align-items:center;overflow:hidden;background:var(--bg-0)}
 .ctlp .hero-bg{position:absolute;inset:0;background:radial-gradient(55% 60% at 22% 55%,rgba(126,217,87,.16),transparent 70%),linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px) 0 0/90px 90px,linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px) 0 0/90px 90px,linear-gradient(180deg,var(--bg-1),var(--bg-2) 60%,var(--bg-0));animation:grid 40s linear infinite}
 @keyframes grid{to{background-position:0 0,0 90px,90px 0,0 0}}
 .ctlp .hero::after{content:"";position:absolute;inset:0;background:
@@ -249,7 +249,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 .ctlp footer details p{padding:0}
 
 .ctlp .sticky{position:fixed;z-index:60;inset:auto 0 0;padding:12px 16px calc(12px + env(safe-area-inset-bottom));background:rgba(18,24,28,.94);backdrop-filter:blur(12px);border-top:1px solid rgba(126,217,87,.2);display:none;transform:translateY(110%);transition:transform .3s}
-.ctlp .sticky.on{transform:none}
+.ctlp .sticky.on{transform:none}.ctlp .sticky.on.hide{transform:translateY(110%)}
 .ctlp .sticky .btn{width:100%;font-size:17px;padding:15px}
 
 
@@ -299,7 +299,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
     .ctlp .reg-info,.ctlp form{padding:32px 20px}
   .ctlp .fit-box{padding:26px 22px}
 }
-@media (prefers-reduced-motion:reduce){.ctlp *{animation:none!important;transition:none!important}.ctlp .rv,.ctlp .hero .wrap>div:first-child>*,.ctlp .hero-visual{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.ctlp *{animation:none!important;transition:none!important}.ctlp .rv,.ctlp .hero .wrap>div:first-child>*,.ctlp .hero-visual,.ctlp .hero-card{opacity:1;transform:none}}
 
 /* seats */
 .ctlp .seats{margin-top:26px;max-width:560px}
@@ -361,6 +361,36 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 .ctlp section.light details{background:#f5f7f5;box-shadow:inset 0 0 0 1px rgba(27,33,45,.08)}
 .ctlp section.light details[open]{box-shadow:inset 0 0 0 1px rgba(63,155,37,.45)}
 .ctlp section.light summary{color:#1b212d}.ctlp section.light details p{color:#5b6670}
+/* hero form card */
+.ctlp .hero-side{position:relative;align-self:start;display:flex;flex-direction:column;align-items:center;margin-top:20px}
+.ctlp .hero-side .hero-visual{position:relative;width:100%;height:200px;display:flex;justify-content:center;align-items:flex-end;margin:0;opacity:1;animation:none}
+.ctlp .hero-side .hero-visual .halo{top:60%;width:360px}
+.ctlp .hero-side .hero-visual img.person{position:relative;width:auto;height:236px;max-width:none;margin-bottom:-6px;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,#000 80%,transparent 100%);animation:none}
+.ctlp .hero-side .name-tag{bottom:-14px;font-size:14px;padding:7px 18px}
+.ctlp .hero-card{position:relative;z-index:4;width:100%;max-width:460px;background:rgba(21,27,32,.92);backdrop-filter:blur(12px);border-radius:24px;padding:28px 26px 20px;box-shadow:0 0 0 1px rgba(126,217,87,.45),0 30px 80px -30px rgba(126,217,87,.5);opacity:0;animation:heroIn 1s cubic-bezier(.2,.8,.2,1) .25s forwards}
+.ctlp .hero-card h3{font-size:21px;font-weight:900;text-align:center;margin:4px 0 10px;color:#fff}
+.ctlp .hero-card .seats{margin:0 0 12px;max-width:none}
+.ctlp .hero-card .elementor-widget-container{padding:0!important}
+.ctlp .hero-card .elementor-form-fields-wrapper{margin:0!important;display:flex;flex-wrap:wrap}
+.ctlp .hero-card .elementor-field-group{width:100%!important;max-width:100%!important;flex:0 0 100%!important;padding:0!important;margin:0 0 8px!important}
+.ctlp .hero-card .elementor-field-group>label.elementor-field-label{display:none}
+.ctlp .hero-card .elementor-field-textual{width:100%!important;font-family:Heebo,sans-serif!important;font-size:16px!important;color:#fff!important;background:var(--bg-0)!important;border:1.5px solid rgba(126,217,87,.25)!important;border-radius:12px!important;padding:10px 16px!important;min-height:46px!important;box-shadow:none!important;direction:rtl}
+.ctlp .hero-card .elementor-field-textual::placeholder{color:var(--muted)!important;opacity:1}
+.ctlp .hero-card .elementor-field-textual:focus{border-color:var(--green)!important;box-shadow:0 0 0 4px rgba(126,217,87,.18)!important;outline:none}
+.ctlp .hero-card .elementor-field-type-acceptance{position:static!important;margin:2px 0 4px!important}
+.ctlp .hero-card .elementor-field-type-acceptance .elementor-field-option{display:flex;gap:8px;align-items:flex-start}
+.ctlp .hero-card .elementor-field-type-acceptance label{font-size:13px!important;color:var(--muted)!important;line-height:1.5}
+.ctlp .hero-card .elementor-field-type-acceptance a{color:var(--green)!important;font-size:inherit!important}
+.ctlp .hero-card .elementor-field-type-acceptance input{accent-color:var(--green);width:16px;height:16px;margin-top:3px}
+.ctlp .hero-card .e-form__buttons,.ctlp .hero-card .elementor-field-type-submit{width:100%!important;max-width:100%!important;flex:0 0 100%!important;padding:0!important;margin:6px 0 0!important}
+.ctlp .hero-card .elementor-button{width:100%!important;justify-content:center;font-family:Heebo,sans-serif!important;font-weight:800!important;font-size:19px!important;padding:14px!important;min-height:0!important;border-radius:12px!important;border:0!important;cursor:pointer;color:#0f200e!important;background:linear-gradient(180deg,#9be672,var(--green))!important;animation:ctaPulse 2.4s ease-out infinite}
+.ctlp .hero-card .elementor-message{color:var(--green)!important;font-weight:700;text-align:center}
+@media (max-width:1020px){.ctlp .hero .wrap>div:first-child{display:contents}.ctlp .hero .eyebrow{order:1;justify-self:start}.ctlp .hero h1{order:2}.ctlp .hero .sub{order:3}.ctlp .hero-side{order:4;margin:10px auto 0;width:100%}.ctlp .hero .facts{order:5}.ctlp .hero .micro{order:6}.ctlp .hero .cd{order:7}.ctlp .hero-side .hero-visual{height:170px}.ctlp .hero-side .hero-visual img.person{height:200px}}
+.ctlp .final .h2{font-size:clamp(30px,3.6vw,50px)!important;max-width:900px;margin-inline:auto}
+/* disclaimer */
+.ctlp footer .disc{margin-top:6px;padding:20px 22px;border-radius:14px;background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.ctlp footer .disc h4{font-size:15px;font-weight:800;color:#d5ddd9;margin-bottom:8px}
+.ctlp footer .disc p{font-size:13.5px;line-height:1.8;color:#a7b3ad}
 /* guard against Elementor kit/theme globals */
 .ctlp{font-size:18px;line-height:1.7;color:var(--ink)}
 @media (max-width:640px){.ctlp{font-size:17px}}
@@ -389,7 +419,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
   <div class="wrap">
     <img src="assets/logo-white.png" alt="Cycles Trading – מתזמנים את שוק ההון" width="900" height="288">
     <div class="when">הדרכה ב-ZOOM · <b>יום שני 09.11 · 20:30</b></div>
-    <a href="#register" class="btn btn-cta">שריינו מקום</a>
+    <a href="#hero-form" class="btn btn-cta">שריינו מקום</a>
   </div>
 </header>
 
@@ -414,13 +444,11 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
         <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="m16 10 6-3v10l-6-3"/></svg><div><small>איפה</small><b>ב-ZOOM, מכל מקום</b></div></div>
       </div>
 
-      <a href="#register" class="btn btn-cta">שריינו לי מקום בחינם <svg><use href="#i-arrow"/></svg></a>
       <div class="micro">
         <span><svg><use href="#i-check"/></svg>200 מקומות בלבד</span>
         <span><svg><use href="#i-check"/></svg>ללא עלות</span>
         <span><svg><use href="#i-check"/></svg>לא צריך ידע קודם</span>
       </div>
-      <div class="seats"><div class="bar"><div class="fill" data-seats-fill></div></div><div class="txt"><span><span data-seats-taken>—</span> כבר נרשמו</span><b>נותרו <span data-seats-left>—</span> מקומות</b></div></div>
 
       <div class="cd" aria-label="זמן עד תחילת ההדרכה">
         <span class="lbl">מתחילים בעוד</span>
@@ -431,13 +459,17 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
       </div>
     </div>
 
-    <div class="hero-visual">
-      <div class="halo"></div>
-      <div class="ring"></div>
-      <img class="person" src="assets/ziv-cut.webp" alt="זיו חקשוריאן">
-      <div class="badge b1"><span class="n b">24</span><small>שנות מסחר<br>בשוק ההון</small></div>
-      <div class="badge b2"><span class="n g">120+</span><small>שנים שהקצב<br>חוזר על עצמו</small></div>
-      <div class="name-tag">זיו חקשוריאן · מייסד Cycles Trading</div>
+    <div class="hero-side">
+      <div class="hero-visual">
+        <div class="halo"></div>
+        <img class="person" src="assets/ziv-cut.webp" alt="זיו חקשוריאן">
+        <div class="name-tag">זיו חקשוריאן · מייסד Cycles Trading</div>
+      </div>
+      <div class="hero-card" id="hero-form">
+        <h3>שריינו מקום – ללא עלות</h3>
+        <div class="seats"><div class="bar"><div class="fill" data-seats-fill></div></div><div class="txt"><span><span data-seats-taken>—</span> כבר נרשמו</span><b>נותרו <span data-seats-left>—</span> מקומות</b></div></div>
+        <div class="hero-form-slot"><div class="mock-form"><div class="elementor-form-fields-wrapper"><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="שם מלא"></div><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="אימייל"></div><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="מס טלפון"></div><div class="elementor-field-group elementor-field-type-acceptance"><span class="elementor-field-option"><input type="checkbox"><label>אני מאשר הרשמה וקבלת דיוור על פי <a href="#">מדיניות הפרטיות</a></label></span></div><div class="elementor-field-group e-form__buttons"><button class="elementor-button" type="button">רישמו אותי להדרכה!</button></div></div></div><!--endmock--></div>
+      </div>
     </div>
   </div>
 </section>
@@ -642,9 +674,9 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 <section class="final">
   <div class="wrap rv">
     <span class="eyebrow"><i></i>יום שני · 20:30 · ZOOM</span>
-    <h2 class="h2">רבותיי, ההיסטוריה חוזרת.<br><span class="b">השאלה אם תזהו את זה בזמן.</span></h2>
-    <p class="lead" style="margin:0 auto 36px">ללא עלות. 200 מקומות בלבד.</p>
-    <a href="#register" class="btn btn-cta">שריינו לי מקום בחינם <svg><use href="#i-arrow"/></svg></a>
+    <h2 class="h2">רוב האנשים רואים רק את מה שקורה היום.<br><span class="b">אנחנו מלמדים לראות את התמונה הרחבה.</span></h2>
+    <p class="lead" style="margin:0 auto 36px;max-width:760px">ראייה רחבה יותר על שוק ההון מתחילה בהדרכה אחת – ללא עלות. 200 מקומות בלבד.</p>
+    <a href="#hero-form" class="btn btn-cta">שריינו לי מקום בחינם <svg><use href="#i-arrow"/></svg></a>
   </div>
 </section>
 </main>
@@ -652,16 +684,13 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 <footer>
   <div class="wrap">
     <div class="row"><img src="assets/logo-white.png" alt="CyclesTrading" loading="lazy"><span>© Cycles Trading · ב.ח השכלה פיננסית בע״מ</span></div>
-    <details>
-      <summary>גילוי נאות</summary>
-      <p>חברת ב.ח השכלה פיננסית בע״מ, בעלת האתר ״סייקלס טריידינג״, אינה מחזיקה ברישיון ייעוץ השקעות, שיווק השקעות או ניהול השקעות מכוח חוק הסדרת העיסוק בייעוץ השקעות, בשיווק השקעות ובניהול תיקי השקעות, התשנ״ה-1995 (״החוק״). אין לראות באמור המלצה ו/או הצעה לביצוע פעולות ו/או ייעוץ השקעות ו/או שיווק השקעות ו/או ייעוץ מכל סוג שהוא, והתכנים המופיעים באתר החברה ובניוזלטרים שלה הם לצורך לימוד והעשרה בלבד ואין בהם כדי להחליף את שיקול דעתו של הסוחר/המשקיע/הקורא, המחויב לקבל ייעוץ השקעות מגורמי מקצוע המתחשבים בצרכיו המיוחדים. כמו כן, אין לראות בתכנים שום סוג של הצעה או ייעוץ לרכישה ו/או מכירה לביצוע כל פעולה פיננסית. בתחזיות החברה עלולות להתגלות סטיות בין התחזיות לבין התוצאות בפועל. החברה ו/או מי מטעמה לא יהיו אחראים בכל צורה שהיא לנזק ו/או להפסד שייגרם למשקיע ו/או לסוחר מהסתמכות על המידע ומהשימוש בו, וכל העושה במידע שימוש כלשהו עושה זאת על דעתו בלבד ועל אחריותו הבלעדית. אין לשכפל, להעתיק, לתרגם, לצלם, להקליט או להעביר בכל צורה שהיא כל חלק מן החומר המפורסם על ידי החברה אלא באישור מפורש בכתב ומראש מהחברה.</p>
-    </details>
+    <div class="disc"><h4>גילוי נאות</h4><p>חברת ב.ח השכלה פיננסית בע״מ, בעלת האתר ״סייקלס טריידינג״, אינה מחזיקה ברישיון ייעוץ השקעות, שיווק השקעות או ניהול השקעות מכוח חוק הסדרת העיסוק בייעוץ השקעות, בשיווק השקעות ובניהול תיקי השקעות, התשנ״ה-1995 (״החוק״). אין לראות באמור המלצה ו/או הצעה לביצוע פעולות ו/או ייעוץ השקעות ו/או שיווק השקעות ו/או ייעוץ מכל סוג שהוא, והתכנים המופיעים באתר החברה ובניוזלטרים שלה הם לצורך לימוד והעשרה בלבד ואין בהם כדי להחליף את שיקול דעתו של הסוחר/המשקיע/הקורא, המחויב לקבל ייעוץ השקעות מגורמי מקצוע המתחשבים בצרכיו המיוחדים. כמו כן, אין לראות בתכנים שום סוג של הצעה או ייעוץ לרכישה ו/או מכירה לביצוע כל פעולה פיננסית. בתחזיות החברה עלולות להתגלות סטיות בין התחזיות לבין התוצאות בפועל. החברה ו/או מי מטעמה לא יהיו אחראים בכל צורה שהיא לנזק ו/או להפסד שייגרם למשקיע ו/או לסוחר מהסתמכות על המידע ומהשימוש בו, וכל העושה במידע שימוש כלשהו עושה זאת על דעתו בלבד ועל אחריותו הבלעדית. אין לשכפל, להעתיק, לתרגם, לצלם, להקליט או להעביר בכל צורה שהיא כל חלק מן החומר המפורסם על ידי החברה אלא באישור מפורש בכתב ומראש מהחברה.</p></div>
   </div>
 </footer>
 
 <div class="toast" id="toast" role="status" aria-live="polite"><i></i><span id="toast-txt"></span></div>
 
-<div class="sticky" id="sticky"><a href="#register" class="btn btn-cta">שריינו מקום בחינם · שני 20:30</a></div>
+<div class="sticky" id="sticky"><a href="#hero-form" class="btn btn-cta">שריינו מקום בחינם · שני 20:30</a></div>
 
 <script>
 (function(){
@@ -673,6 +702,12 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12});
   document.querySelectorAll('.rv').forEach(function(el){var p=el.parentElement;if(p.matches('.cards,.t-grid,.pains')){el.style.transitionDelay=([].indexOf.call(p.children,el)%3)*90+'ms'}io.observe(el)});
 
+  // move the Elementor form (if present) into the hero card
+  (function(){var slot=document.querySelector('.hero-form-slot');if(!slot||document.body.classList.contains('elementor-editor-active'))return;
+    function mv(){var src=document.querySelector('.ct-hero-form-src .elementor-widget');if(!src)return false;slot.innerHTML='';slot.appendChild(src);return true}
+    if(!mv()){document.addEventListener('DOMContentLoaded',mv);setTimeout(mv,800)}})();
+  // hide sticky while hero form is visible
+  var hf=document.getElementById('hero-form'),hfIn=true;if(hf){new IntersectionObserver(function(e){hfIn=e[0].isIntersecting;sticky&&sticky.classList.toggle('hide',hfIn)}).observe(hf)}
   // count-up for trust numbers
   var cio=new IntersectionObserver(function(es){es.forEach(function(e){if(!e.isIntersecting)return;cio.unobserve(e.target);var el=e.target,txt=el.textContent,m=txt.match(/[\d,]+/);if(!m)return;var end=parseInt(m[0].replace(/,/g,''),10),t0=null;function f(t){if(!t0)t0=t;var k=Math.min(1,(t-t0)/1400),v=Math.round(end*(1-Math.pow(1-k,3)));el.textContent=txt.replace(m[0],v.toLocaleString('en-US'));if(k<1)requestAnimationFrame(f)}requestAnimationFrame(f)})},{threshold:.6});
   document.querySelectorAll('.trust .num').forEach(function(n){cio.observe(n)});
