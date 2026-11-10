@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__WPVibe_for_WordPress__rest_api_write",
+      "mcp__WPVibe_for_WordPress__rest_api",
+      "mcp__WPVibe_for_WordPress__run_wp_cli",
+      "mcp__WPVibe_for_WordPress__get_page_html",
+      "mcp__WPVibe_for_WordPress__upload_media"
+    ]
+  }
+}
