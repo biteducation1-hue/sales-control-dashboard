@@ -299,7 +299,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
     .ctlp .reg-info,.ctlp form{padding:32px 20px}
   .ctlp .fit-box{padding:26px 22px}
 }
-@media (prefers-reduced-motion:reduce){.ctlp *{animation:none!important;transition:none!important}.ctlp .rv,.ctlp .hero .wrap>div:first-child>*,.ctlp .hero-visual,.ctlp .hero-card{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.ctlp *{animation:none!important;transition:none!important}.ctlp .rv,.ctlp .hero .wrap>div:first-child>*,.ctlp .hero-visual,.ctlp .hero-reg{opacity:1;transform:none}}
 
 /* seats */
 .ctlp .seats{margin-top:26px;max-width:560px}
@@ -361,31 +361,47 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 .ctlp section.light details{background:#f5f7f5;box-shadow:inset 0 0 0 1px rgba(27,33,45,.08)}
 .ctlp section.light details[open]{box-shadow:inset 0 0 0 1px rgba(63,155,37,.45)}
 .ctlp section.light summary{color:#1b212d}.ctlp section.light details p{color:#5b6670}
-/* hero form card */
-.ctlp .hero-side{position:relative;align-self:start;display:flex;flex-direction:column;align-items:center;margin-top:20px}
-.ctlp .hero-side .hero-visual{position:relative;z-index:5;width:100%;height:200px;display:flex;justify-content:center;align-items:flex-end;margin:0;opacity:1;animation:none}
-.ctlp .hero-side .hero-visual .halo{top:60%;width:360px}
-.ctlp .hero-side .hero-visual img.person{position:relative;width:auto;height:236px;max-width:none;margin-bottom:-6px;-webkit-mask-image:linear-gradient(180deg,#000 80%,transparent 100%);mask-image:linear-gradient(180deg,#000 80%,transparent 100%);animation:none}
-.ctlp .hero-side .name-tag{bottom:-14px;font-size:14px;padding:7px 18px}
-.ctlp .hero-card{position:relative;z-index:4;width:100%;max-width:460px;margin-top:18px;background:#151b20;border-radius:24px;padding:24px 26px 16px;box-shadow:0 0 0 1px rgba(126,217,87,.45),0 30px 80px -30px rgba(126,217,87,.5);opacity:0;animation:cardIn .9s ease-out .25s forwards}@keyframes cardIn{to{opacity:1}}.grecaptcha-badge{visibility:hidden!important}.elementor-field-type-recaptcha_v3{margin:0!important;padding:0!important;height:0!important;min-height:0!important}.ctlp .rc-note{font-size:11.5px;line-height:1.5;color:#6f8098;text-align:center;margin-top:10px}.ctlp .rc-note a{color:#9fb1c8;text-decoration:underline}
-.ctlp .hero-card h3{font-size:21px;font-weight:900;text-align:center;margin:4px 0 10px;color:#fff}
-.ctlp .hero-card .seats{margin:0 0 12px;max-width:none}
-.ctlp .hero-card .elementor-widget-container{padding:0!important}
-.ctlp .hero-card .elementor-form-fields-wrapper{margin:0!important;display:flex;flex-wrap:wrap}
-.ctlp .hero-card .elementor-field-group{width:100%!important;max-width:100%!important;flex:0 0 100%!important;padding:0!important;margin:0 0 8px!important}
-.ctlp .hero-card .elementor-field-group>label.elementor-field-label{display:none}
-.ctlp .hero-card .elementor-field-textual{width:100%!important;font-family:Heebo,sans-serif!important;font-size:16px!important;color:#fff!important;background:var(--bg-0)!important;border:1.5px solid rgba(126,217,87,.25)!important;border-radius:12px!important;padding:10px 16px!important;min-height:46px!important;box-shadow:none!important;direction:rtl}
-.ctlp .hero-card .elementor-field-textual::placeholder{color:var(--muted)!important;opacity:1}
-.ctlp .hero-card .elementor-field-textual:focus{border-color:var(--green)!important;box-shadow:0 0 0 4px rgba(126,217,87,.18)!important;outline:none}
-.ctlp .hero-card .elementor-field-type-acceptance{position:static!important;margin:2px 0 4px!important}
-.ctlp .hero-card .elementor-field-type-acceptance .elementor-field-option{display:flex;gap:8px;align-items:flex-start}
-.ctlp .hero-card .elementor-field-type-acceptance label{font-size:13px!important;color:var(--muted)!important;line-height:1.5}
-.ctlp .hero-card .elementor-field-type-acceptance a{color:var(--green)!important;font-size:inherit!important}
-.ctlp .hero-card .elementor-field-type-acceptance input{accent-color:var(--green);width:16px;height:16px;margin-top:3px}
-.ctlp .hero-card .e-form__buttons,.ctlp .hero-card .elementor-field-type-submit{width:100%!important;max-width:100%!important;flex:0 0 100%!important;padding:0!important;margin:6px 0 0!important}
-.ctlp .hero-card .elementor-button{width:100%!important;justify-content:center;font-family:Heebo,sans-serif!important;font-weight:800!important;font-size:19px!important;padding:14px!important;min-height:0!important;border-radius:12px!important;border:0!important;cursor:pointer;color:#0f200e!important;background:linear-gradient(180deg,#9be672,var(--green))!important;box-shadow:0 12px 28px -12px rgba(126,217,87,.8)!important;animation:none!important}
-.ctlp .hero-card .elementor-message{color:var(--green)!important;font-weight:700;text-align:center}
-@media (max-width:1020px){.ctlp .hero .wrap>div:first-child{display:contents}.ctlp .hero .eyebrow{order:1;justify-self:start}.ctlp .hero h1{order:2}.ctlp .hero .sub{order:3}.ctlp .hero-side{order:4;margin:10px auto 0;width:100%}.ctlp .hero .facts{order:5}.ctlp .hero .micro{order:6}.ctlp .hero .cd{order:7}.ctlp .hero-side .hero-visual{height:170px}.ctlp .hero-side .hero-visual img.person{height:200px}}
+/* hero v3: big portrait + registration strip */
+.ctlp .hero{min-height:0;padding:118px 0 56px;display:block}
+.ctlp .hero .wrap.hero-top{align-items:center}
+.ctlp .hero-top .hero-visual{margin-top:0;max-width:470px;justify-self:center;width:100%}
+.ctlp .hero-top .hero-visual img.person{max-height:460px;width:auto;margin:0 auto}
+.ctlp .hero .micro{display:none}
+.ctlp .hero .wrap.hero-bottom{display:block;margin-top:18px;z-index:4}
+.ctlp .hero-reg{position:relative;display:grid;grid-template-columns:300px 1fr;gap:28px;align-items:center;padding:22px 26px;border-radius:24px;background:linear-gradient(135deg,rgba(33,57,47,.96),rgba(21,27,32,.97) 55%);box-shadow:0 0 0 1px rgba(126,217,87,.45),0 30px 80px -34px rgba(126,217,87,.55);opacity:0;animation:cardIn .9s ease-out .45s forwards}
+.ctlp .hero-reg::before{content:"";position:absolute;inset:-1px;border-radius:inherit;padding:1px;background:linear-gradient(90deg,transparent,rgba(201,237,138,.9),transparent);background-size:200% 100%;-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;animation:shine 5s linear infinite;pointer-events:none}
+@keyframes cardIn{to{opacity:1}}
+.ctlp .hr-info h3{font-size:22px;font-weight:900;color:#fff;line-height:1.25;margin:0 0 6px}
+.ctlp .hr-when{display:flex;align-items:center;gap:8px;font-size:15px;color:#d5ddd9;margin-bottom:12px}
+.ctlp .hr-when svg{width:18px;height:18px;color:var(--green);flex:none}
+.ctlp .hr-when b{color:#fff}
+.ctlp .hero-reg .seats{margin:0;max-width:none}
+.ctlp .hero-reg .seats .txt{font-size:14px}
+.ctlp .hr-cd{display:flex;align-items:center;gap:6px;margin-top:10px;font-size:13px;color:var(--muted)}
+.ctlp .hr-cd b{font-family:Montserrat,sans-serif;font-size:15px;color:#fff;background:rgba(0,0,0,.25);border-radius:6px;padding:1px 6px;direction:ltr}
+.ctlp .hero-reg .elementor-widget-container{padding:0!important}
+.ctlp .hero-reg .elementor-form{padding:0!important;margin:0!important;background:none!important;border:0!important;box-shadow:none!important}
+.ctlp .hero-reg .elementor-form-fields-wrapper{margin:0!important;display:flex;flex-wrap:wrap;gap:10px}
+.ctlp .hero-reg .elementor-field-group{flex:1 1 0!important;width:auto!important;max-width:none!important;min-width:0;padding:0!important;margin:0!important}
+.ctlp .hero-reg .elementor-field-group>label.elementor-field-label{display:none}
+.ctlp .hero-reg .elementor-field-type-hidden{display:none!important}
+.ctlp .hero-reg .elementor-field-textual{width:100%!important;font-family:Heebo,sans-serif!important;font-size:16px!important;color:#fff!important;background:var(--bg-0)!important;border:1.5px solid rgba(126,217,87,.25)!important;border-radius:12px!important;padding:10px 16px!important;min-height:52px!important;box-shadow:none!important;direction:rtl}
+.ctlp .hero-reg .elementor-field-textual::placeholder{color:var(--muted)!important;opacity:1}
+.ctlp .hero-reg .elementor-field-textual:focus{border-color:var(--green)!important;box-shadow:0 0 0 4px rgba(126,217,87,.18)!important;outline:none}
+.ctlp .hero-reg .e-form__buttons,.ctlp .hero-reg .elementor-field-type-submit{flex:0 0 250px!important;order:5}
+.ctlp .hero-reg .elementor-button{width:100%!important;height:52px;justify-content:center;font-family:Heebo,sans-serif!important;font-weight:800!important;font-size:18px!important;padding:0 14px!important;min-height:0!important;border-radius:12px!important;border:0!important;cursor:pointer;color:#0f200e!important;background:linear-gradient(180deg,#9be672,var(--green))!important;box-shadow:0 12px 28px -12px rgba(126,217,87,.8)!important;animation:none!important;white-space:nowrap}
+.ctlp .hero-reg .elementor-field-type-acceptance{flex:0 0 100%!important;order:9;position:static!important;margin:0!important}
+.ctlp .hero-reg .elementor-field-type-acceptance .elementor-field-option{display:flex;gap:8px;align-items:flex-start}
+.ctlp .hero-reg .elementor-field-type-acceptance label{font-size:12.5px!important;color:var(--muted)!important;line-height:1.5}
+.ctlp .hero-reg .elementor-field-type-acceptance a{color:var(--green)!important;font-size:inherit!important}
+.ctlp .hero-reg .elementor-field-type-acceptance input{accent-color:var(--green);width:15px;height:15px;margin-top:3px}
+.ctlp .hero-reg .elementor-field-type-recaptcha_v3{order:10}
+.ctlp .hero-reg .elementor-message{flex:0 0 100%;color:var(--green)!important;font-weight:700}
+.grecaptcha-badge{visibility:hidden!important}
+.elementor-field-type-recaptcha_v3{flex:0 0 100%!important;margin:0!important;padding:0!important;height:0!important;min-height:0!important}
+.ctlp .rc-note{font-size:11px;line-height:1.5;color:#6f8098;margin-top:6px}
+.ctlp .rc-note a{color:#9fb1c8;text-decoration:underline}
+@media (max-width:1020px){.ctlp .hero{padding:140px 0 40px}.ctlp .hero-top .hero-visual{max-width:330px;margin:6px auto 0}.ctlp .hero-top .hero-visual img.person{max-height:300px}.ctlp .hero .micro{display:none}.ctlp .hero .wrap.hero-bottom{margin-top:-20px}.ctlp .hero-reg{grid-template-columns:1fr;gap:16px;padding:22px 18px}.ctlp .hr-info{text-align:center}.ctlp .hr-when{justify-content:center}.ctlp .hr-cd{justify-content:center}.ctlp .hero-reg .elementor-field-group,.ctlp .hero-reg .e-form__buttons,.ctlp .hero-reg .elementor-field-type-submit{flex:0 0 100%!important}.ctlp .hero-reg .elementor-button{height:56px;font-size:19px!important}.ctlp .rc-note{text-align:center}}
 .ctlp .final .h2{font-size:clamp(30px,3.6vw,50px)!important;max-width:900px;margin-inline:auto}
 /* disclaimer */
 .ctlp footer .disc{margin-top:6px;padding:20px 22px;border-radius:14px;background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
@@ -427,7 +443,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
 <!-- ============ HERO ============ -->
 <section class="hero">
   <div class="hero-bg"></div>
-  <div class="wrap">
+  <div class="wrap hero-top">
     <div>
       <span class="eyebrow"><i></i>הדרכה ב-ZOOM · ללא עלות</span>
       <h1>
@@ -437,38 +453,32 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
         <span class="g">גם ״מתי״.</span>
       </h1>
       <p class="sub">מחירים בשוק לא עולים ויורדים סתם. יש להם <b>קצב שחוזר על עצמו</b> כבר יותר מ-120 שנה. בהדרכה, זיו חקשוריאן, מייסד <span class="ltr">Cycles Trading</span>, יראה לכם איך לזהות את הקצב הזה – <b>גם אם מעולם לא סחרתם</b>.</p>
-
-      <div class="facts">
-        <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><div><small>מתי</small><b>יום שני, <span class="ltr">09.11.26</span></b></div></div>
-        <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg><div><small>שעה</small><b class="ltr">20:30</b></div></div>
-        <div class="fact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="6" width="14" height="12" rx="3"/><path d="m16 10 6-3v10l-6-3"/></svg><div><small>איפה</small><b>ב-ZOOM, מכל מקום</b></div></div>
-      </div>
-
       <div class="micro">
         <span><svg><use href="#i-check"/></svg>200 מקומות בלבד</span>
         <span><svg><use href="#i-check"/></svg>ללא עלות</span>
         <span><svg><use href="#i-check"/></svg>לא צריך ידע קודם</span>
       </div>
-
-      <div class="cd" aria-label="זמן עד תחילת ההדרכה">
-        <span class="lbl">מתחילים בעוד</span>
-        <div><b id="cd-d">00</b><span>ימים</span></div>
-        <div><b id="cd-h">00</b><span>שעות</span></div>
-        <div><b id="cd-m">00</b><span>דקות</span></div>
-        <div><b id="cd-s">00</b><span>שניות</span></div>
-      </div>
     </div>
-
-    <div class="hero-side">
-      <div class="hero-visual">
-        <div class="halo"></div>
-        <img class="person" src="assets/ziv-cut.webp" alt="זיו חקשוריאן">
-        <div class="name-tag">זיו חקשוריאן · מייסד Cycles Trading</div>
-      </div>
-      <div class="hero-card" id="hero-form">
+    <div class="hero-visual">
+      <div class="halo"></div>
+      <div class="ring"></div>
+      <img class="person" src="assets/ziv-cut.webp" alt="זיו חקשוריאן">
+      <div class="badge b1"><span class="n b">24</span><small>שנות מסחר<br>בשוק ההון</small></div>
+      <div class="badge b2"><span class="n g">2,000+</span><small>סוחרים<br>בקהילה</small></div>
+      <div class="name-tag">זיו חקשוריאן · מייסד Cycles Trading</div>
+    </div>
+  </div>
+  <div class="wrap hero-bottom">
+    <div class="hero-reg" id="hero-form">
+      <div class="hr-info">
         <h3>שריינו מקום – ללא עלות</h3>
+        <div class="hr-when"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="3"/><path d="M16 2v4M8 2v4M3 10h18"/></svg><span><b>יום שני 09.11</b> · 20:30 · ב-ZOOM</span></div>
         <div class="seats"><div class="bar"><div class="fill" data-seats-fill></div></div><div class="txt"><span><span data-seats-taken>—</span> כבר נרשמו</span><b>נותרו <span data-seats-left>—</span> מקומות</b></div></div>
-        <div class="hero-form-slot"><div class="mock-form"><div class="elementor-form-fields-wrapper"><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="שם מלא"></div><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="אימייל"></div><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="מס טלפון"></div><div class="elementor-field-group elementor-field-type-acceptance"><span class="elementor-field-option"><input type="checkbox"><label>אני מאשר הרשמה וקבלת דיוור על פי <a href="#">מדיניות הפרטיות</a></label></span></div><div class="elementor-field-group e-form__buttons"><button class="elementor-button" type="button">רישמו אותי להדרכה!</button></div></div></div><!--endmock--></div><p class="rc-note">האתר מוגן באמצעות reCAPTCHA. חלים <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> ו<a href="https://policies.google.com/terms" target="_blank" rel="noopener">תנאי השימוש</a> של Google.</p>
+        <div class="hr-cd" aria-label="זמן עד תחילת ההדרכה">מתחילים בעוד <b id="cd-d">00</b>ימים <span dir="ltr"><b id="cd-h">00</b>:<b id="cd-m">00</b>:<b id="cd-s">00</b></span></div>
+      </div>
+      <div class="hr-form">
+        <div class="hero-form-slot"><div class="mock-form"><div class="elementor-form-fields-wrapper"><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="שם מלא"></div><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="אימייל"></div><div class="elementor-field-group"><input class="elementor-field elementor-field-textual" placeholder="מס טלפון"></div><div class="elementor-field-group elementor-field-type-acceptance"><span class="elementor-field-option"><input type="checkbox"><label>אני מאשר הרשמה וקבלת דיוור על פי <a href="#">מדיניות הפרטיות</a></label></span></div><div class="elementor-field-group e-form__buttons"><button class="elementor-button" type="button">רישמו אותי להדרכה!</button></div></div></div><!--endmock--></div>
+        <p class="rc-note">האתר מוגן באמצעות reCAPTCHA. חלים <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">מדיניות הפרטיות</a> ו<a href="https://policies.google.com/terms" target="_blank" rel="noopener">תנאי השימוש</a> של Google.</p>
       </div>
     </div>
   </div>
@@ -506,7 +516,7 @@ body{background:var(--bg-0);color:var(--ink);font-family:Heebo,system-ui,sans-se
     </div>
     <div class="fomo rv">
       <div><b>מספר המקומות מוגבל ל-200.</b><span>ההרשמה חינמית ולוקחת 30 שניות – כדאי לשריין מקום עכשיו.</span></div>
-      <a href="#register" class="btn btn-cta">שריינו לי מקום עכשיו <svg><use href="#i-arrow"/></svg></a>
+      <a href="#hero-form" class="btn btn-cta">שריינו לי מקום עכשיו <svg><use href="#i-arrow"/></svg></a>
     </div>
   </div>
 </section>
