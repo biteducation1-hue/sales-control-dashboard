@@ -1,0 +1,361 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>הדרכה חינמית – Cycles Trading (גרסה ב)</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111518;--soft:#3b444d;--muted:#6b7680;--bg:#ffffff;--paper:#f6f8f4;--green:#7ed957;--green-d:#3a9a22;--mark:#c9ed8a;--dark:#12181c;--coral:#ff6b3d;--line:#e3e8e1}
+.vb *,.vb *::before,.vb *::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg)}
+.vb{font-family:Heebo,system-ui,sans-serif;color:var(--ink);font-size:19px;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.vb img{max-width:100%;display:block}
+.vb a{color:inherit;text-decoration:none}
+.vb .w{max-width:1080px;margin:0 auto;padding:0 24px}
+.vb .n{max-width:760px;margin:0 auto;padding:0 24px}
+.vb .ltr{direction:ltr;unicode-bidi:isolate;display:inline-block}
+.vb mark{-webkit-box-decoration-break:clone;box-decoration-break:clone;background:linear-gradient(180deg,transparent 52%,var(--mark) 52%);color:inherit;padding:0 2px}
+.vb u{text-decoration:none;background:linear-gradient(90deg,var(--coral),var(--coral)) 0 100%/100% 4px no-repeat;padding-bottom:2px}
+.vb section{padding:84px 0}
+
+/* top bar */
+.vb .bar{background:var(--dark);color:#fff;text-align:center;font-size:15.5px;font-weight:700;padding:10px 16px;position:sticky;top:0;z-index:40}
+.vb .bar b{color:var(--green)}
+.vb .bar .pill{display:inline-block;background:var(--coral);color:#fff;border-radius:6px;padding:0 8px;margin:0 3px;font-weight:900;direction:ltr}
+
+/* hero */
+.vb .hero{padding:20px 0 70px;text-align:center;background:radial-gradient(70% 60% at 50% 0,#eef9e7,transparent 70%)}
+.vb .logo{height:40px;width:auto;margin:0 auto 22px;filter:invert(1)}
+.vb .pre{display:inline-block;font-size:16px;font-weight:800;color:var(--green-d);background:#eaf7e2;border:2px dashed #b7e3a2;border-radius:10px;padding:6px 16px;margin-bottom:16px}
+.vb h1{font-size:clamp(34px,4.4vw,60px);font-weight:900;line-height:1.1;letter-spacing:-.03em;max-width:1040px;margin:0 auto 18px}.vb h1 span{display:block}@media (max-width:900px){.vb h1 span{display:inline}}
+.vb h1 .q{color:var(--green-d)}
+.vb .sub{font-size:clamp(19px,1.9vw,23px);color:var(--soft);max-width:760px;margin:0 auto}
+.vb .sub b{color:var(--ink)}
+.vb .hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center;max-width:980px;margin:24px auto 0;text-align:right}
+.vb .ziv{position:relative;border-radius:22px;background:linear-gradient(180deg,#1e332f,#12181c);overflow:hidden;aspect-ratio:1/1.02;box-shadow:0 30px 60px -30px rgba(18,24,28,.6)}
+.vb .ziv img{position:absolute;inset:auto 0 0 0;width:100%;height:94%;object-fit:contain;object-position:bottom}
+.vb .ziv .cap{position:absolute;inset:auto 14px 14px 14px;background:#fff;border-radius:12px;padding:10px 14px;font-size:15px;line-height:1.35;box-shadow:0 10px 30px -10px rgba(0,0,0,.4)}
+.vb .ziv .cap b{display:block;font-size:17px}
+.vb .ziv .stamp{position:absolute;top:16px;right:16px;background:var(--green);color:#0f200e;font-weight:900;font-size:14px;border-radius:999px;padding:6px 14px}
+
+/* form box */
+.vb .box{background:#fff;border:3px solid var(--ink);border-radius:20px;padding:20px 24px 14px;box-shadow:10px 10px 0 var(--ink)}
+.vb .box h3{font-size:25px;font-weight:900;line-height:1.2;margin-bottom:4px}
+.vb .box .when{font-size:16px;color:var(--soft);margin-bottom:10px}
+.vb .box .when b{color:var(--ink)}
+.vb .seats .track{height:12px;border-radius:99px;background:#eef1ec;overflow:hidden;border:1px solid var(--line)}
+.vb .seats .fill{height:100%;width:0;background:linear-gradient(90deg,var(--green-d),var(--green));transition:width 1.2s}
+.vb .seats .t{display:flex;justify-content:space-between;font-size:14.5px;color:var(--muted);margin:6px 0 12px}
+.vb .seats .t b{color:var(--coral);font-weight:900}
+.vb .seats .t b span{margin:0 4px}
+.vb .seat-flash{display:inline-block;animation:sf .7s ease-out}@keyframes sf{0%{transform:scale(1.4);color:var(--green-d)}}
+.vb .fld{width:100%;font:inherit;font-size:17px;padding:11px 16px;border:2px solid #d5dbd2;border-radius:12px;margin-bottom:8px;background:#fbfcfa;color:var(--ink)}
+.vb .fld:focus{outline:none;border-color:var(--green-d);box-shadow:0 0 0 4px rgba(126,217,87,.25)}
+.vb .chk{display:flex;gap:8px;font-size:13px;color:var(--muted);line-height:1.5;margin:4px 0 12px}
+.vb .chk a{color:var(--green-d);text-decoration:underline}
+.vb .cta{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;border:0;cursor:pointer;font:inherit;background:var(--green);color:#0f200e;border-radius:14px;padding:16px 18px;font-size:22px;font-weight:900;line-height:1.2;box-shadow:0 6px 0 #3f9b25;transition:transform .12s,box-shadow .12s}
+.vb .cta small{display:block;font-size:14px;font-weight:600;opacity:.8;margin-top:4px}
+.vb .cta:hover{transform:translateY(2px);box-shadow:0 4px 0 #3f9b25}
+.vb .cta.inline{display:inline-flex;width:auto;padding:18px 40px}
+.vb .safe{font-size:13px;color:var(--muted);text-align:center;margin-top:12px}
+
+/* letter */
+.vb .letter{background:var(--paper);border-block:1px solid var(--line)}
+.vb .letter .from{font-size:15px;color:var(--muted);margin-bottom:18px}
+.vb .letter h2,.vb .h2{font-size:clamp(30px,3.8vw,46px);font-weight:900;line-height:1.12;letter-spacing:-.02em;margin-bottom:24px}
+.vb .letter p{margin-bottom:18px;color:var(--soft)}
+.vb .letter p b{color:var(--ink)}
+.vb .letter .big{font-size:24px;font-weight:800;color:var(--ink);line-height:1.45;border-right:6px solid var(--green);padding-right:18px;margin:28px 0}
+
+/* mistakes */
+.vb .mist{counter-reset:m;display:grid;gap:16px;margin-top:10px}
+.vb .mist li{list-style:none;display:grid;grid-template-columns:64px 1fr;gap:18px;align-items:start;padding:22px;border:2px solid var(--ink);border-radius:16px;background:#fff}
+.vb .mist li::before{counter-increment:m;content:counter(m);display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:var(--ink);color:#fff;font-family:Montserrat,sans-serif;font-size:30px;font-weight:900}
+.vb .mist h3{font-size:22px;font-weight:900;line-height:1.3;margin-bottom:4px}
+.vb .mist p{color:var(--soft);font-size:17.5px}
+
+/* stack */
+.vb .stack-sec{background:var(--dark);color:#fff}
+.vb .stack-sec .h2{color:#fff;text-align:center}
+.vb .stack-sec .lead{text-align:center;color:#b9c4bf;max-width:640px;margin:-8px auto 34px}
+.vb .stack{max-width:820px;margin:0 auto;background:#fff;color:var(--ink);border-radius:20px;overflow:hidden;box-shadow:0 0 0 4px var(--green)}
+.vb .stack .row{display:grid;grid-template-columns:44px 1fr;gap:16px;padding:20px 26px;border-bottom:1px solid var(--line);align-items:start}
+.vb .stack .row:nth-child(even){background:#f8faf6}
+.vb .stack .ic{width:44px;height:44px;border-radius:50%;background:var(--green);display:grid;place-items:center}
+.vb .stack .ic svg{width:24px;height:24px;color:#0f200e}
+.vb .stack h4{font-size:20px;font-weight:900;line-height:1.3}
+.vb .stack p{font-size:16.5px;color:var(--soft)}
+.vb .stack .tot{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 26px;background:var(--mark)}
+.vb .stack .tot b{font-size:24px;font-weight:900}
+.vb .stack .tot s{color:var(--muted);font-size:18px;margin-left:10px}
+.vb .stack .tot .free{font-family:Montserrat,Heebo,sans-serif;font-size:28px;font-weight:900;color:var(--green-d)}
+.vb .center{text-align:center}
+.vb .after{text-align:center;margin-top:34px}
+
+/* proof */
+.vb .proof .h2{text-align:center}
+.vb .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px}
+.vb .tc{border:2px solid var(--line);border-radius:18px;padding:24px;display:flex;flex-direction:column;background:#fff}
+.vb .tc .st{color:#f5b400;letter-spacing:3px}
+.vb .tc h3{font-size:20px;font-weight:900;line-height:1.35;margin:8px 0}
+.vb .tc blockquote{flex:1;font-size:16.5px;color:var(--soft);margin-bottom:18px}
+.vb .tc .who{display:flex;gap:12px;align-items:center;border-top:1px solid var(--line);padding-top:14px}
+.vb .tc .who img{width:50px;height:50px;border-radius:50%;object-fit:cover}
+.vb .tc .who b{display:block;line-height:1.25}.vb .tc .who span{font-size:14px;color:var(--muted)}
+.vb .nums{display:grid;grid-template-columns:repeat(4,1fr);margin-top:40px;border:2px solid var(--ink);border-radius:18px;overflow:hidden}
+.vb .nums div{padding:20px 10px;text-align:center}
+.vb .nums div+div{border-right:2px solid var(--ink)}
+.vb .nums b{display:block;font-family:Montserrat,Heebo,sans-serif;font-size:clamp(26px,3vw,38px);font-weight:900;line-height:1.1}
+.vb .nums span{font-size:14.5px;color:var(--muted)}
+
+/* about */
+.vb .about{background:var(--paper);border-block:1px solid var(--line)}
+.vb .ab{display:grid;grid-template-columns:.8fr 1.2fr;gap:44px;align-items:center}
+.vb .ab .ph{border-radius:20px;background:linear-gradient(180deg,#1e332f,#12181c);overflow:hidden;aspect-ratio:4/5;position:relative}
+.vb .ab .ph img{position:absolute;inset:auto 0 0;width:100%;height:92%;object-fit:contain;object-position:bottom}
+.vb .ab p{color:var(--soft);margin-bottom:14px}
+.vb .ab p b{color:var(--ink)}
+
+/* fit */
+.vb .fit{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:30px}
+.vb .fit div{border-radius:18px;padding:26px}
+.vb .fit .y{background:#eef9e7;border:2px solid #b7e3a2}
+.vb .fit .x{background:#fff3ee;border:2px solid #ffc9b5}
+.vb .fit h3{font-size:22px;font-weight:900;margin-bottom:12px}
+.vb .fit li{list-style:none;display:flex;gap:10px;margin-bottom:10px;font-size:17.5px;line-height:1.55}
+.vb .fit li::before{flex:none;font-weight:900}
+.vb .fit .y li::before{content:"✓";color:var(--green-d)}
+.vb .fit .x li::before{content:"✕";color:var(--coral)}
+
+/* faq */
+.vb .faq{display:grid;gap:14px;margin-top:26px}
+.vb .faq div{border-bottom:2px solid var(--line);padding-bottom:14px}
+.vb .faq h4{font-size:20px;font-weight:900;margin-bottom:4px}
+.vb .faq p{color:var(--soft);font-size:17.5px}
+
+/* final */
+.vb .final{background:var(--dark);color:#fff;text-align:center}
+.vb .final .h2{color:#fff;max-width:860px;margin:0 auto 18px}
+.vb .final .h2 span{color:var(--green)}
+.vb .final p.l{color:#b9c4bf;max-width:680px;margin:0 auto 32px;font-size:20px}
+.vb .final .ps{max-width:680px;margin:36px auto 0;text-align:right;color:#d5ddd9;font-size:17px;border-top:1px dashed #3a464f;padding-top:22px}
+.vb .final .ps b{color:#fff}
+
+/* footer */
+.vb footer{background:#0e1317;color:#8796a6;padding:34px 0 110px;font-size:13.5px;line-height:1.8}
+.vb footer .row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;margin-bottom:18px}
+.vb footer img{height:34px;width:auto}
+.vb footer .disc{padding:20px 22px;border-radius:14px;background:rgba(255,255,255,.03);box-shadow:inset 0 0 0 1px rgba(255,255,255,.1)}
+.vb footer .disc h4{font-size:15px;font-weight:800;color:#d5ddd9;margin-bottom:8px}
+
+/* sticky + toast */
+.vb .stick{position:fixed;inset:auto 0 0;z-index:50;background:#fff;border-top:2px solid var(--ink);padding:10px 14px calc(10px + env(safe-area-inset-bottom));display:none;transform:translateY(110%);transition:transform .3s}
+.vb .stick.on{transform:none}
+.vb .stick .cta{font-size:18px;padding:13px}
+.vb .toast{position:fixed;right:16px;bottom:16px;z-index:60;display:flex;gap:10px;align-items:center;background:#fff;border:2px solid var(--ink);border-radius:12px;padding:10px 14px;font-size:15px;box-shadow:5px 5px 0 var(--ink);opacity:0;transform:translateY(20px);transition:.35s;pointer-events:none}
+.vb .toast.on{opacity:1;transform:none}
+.vb .toast i{width:10px;height:10px;border-radius:50%;background:var(--green-d)}
+.vb .rv{opacity:0;transform:translateY(22px);transition:opacity .6s,transform .6s}
+.vb .rv.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .vb section{padding:64px 0}
+  .vb .hero-grid,.vb .ab,.vb .fit{grid-template-columns:1fr}
+  .vb .hero-grid .box{order:-1}
+  .vb .ziv{max-width:420px;margin:0 auto;width:100%;aspect-ratio:1/.8}
+  .vb .tg{grid-template-columns:1fr}
+  .vb .nums{grid-template-columns:1fr 1fr}
+  .vb .nums div:nth-child(3){border-right:0}
+  .vb .nums div:nth-child(n+3){border-top:2px solid var(--ink)}
+  .vb .ab .ph{max-width:360px;margin:0 auto;width:100%}
+  .vb .stick{display:block}
+  .vb .toast{bottom:80px;left:12px;right:12px}
+}
+@media (max-width:560px){
+  .vb{font-size:17.5px}
+  .vb .w,.vb .n{padding:0 18px}
+  .vb .box{box-shadow:6px 6px 0 var(--ink);padding:22px 18px 18px}
+  .vb .mist li{grid-template-columns:48px 1fr;padding:18px;gap:14px}
+  .vb .mist li::before{width:48px;height:48px;font-size:24px}
+  .vb .stack .row{padding:16px 18px;gap:12px;grid-template-columns:36px 1fr}
+  .vb .stack .ic{width:36px;height:36px}
+  .vb .stack .tot{flex-direction:column;text-align:center}
+  .vb .cta.inline{width:100%}
+}
+</style>
+</head>
+<body>
+<div class="vb">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="ck" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></symbol></svg>
+
+<div class="bar">הדרכה חינמית ב-ZOOM · <b>יום שני 16.11 · 20:30</b> · נותרו <span class="pill" data-seats-left>—</span> מקומות</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="w">
+    <img class="logo" src="assets/logo-white.png" alt="Cycles Trading">
+    <div class="pre">לשכירים ועצמאים שרוצים להתחיל בשוק ההון – בלי לשבת כל היום מול המסך</div>
+    <h1><span>רוב האנשים שואלים ״לאן השוק הולך״.</span> <span>המקצוענים שואלים גם <mark class="q">״מתי״.</mark></span></h1>
+    <p class="sub">בהדרכה חינמית אחת, <b>זיו חקשוריאן</b> יראה לכם איך לזהות את <b>הקצב שחוזר על עצמו בשוק כבר יותר מ-120 שנה</b> – בשפה פשוטה, גם אם מעולם לא סחרתם.</p>
+
+    <div class="hero-grid">
+      <div class="ziv">
+        <span class="stamp">24 שנה בשוק ההון</span>
+        <img src="assets/ziv-cut.webp" alt="זיו חקשוריאן">
+        <div class="cap"><b>זיו חקשוריאן</b>מייסד Cycles Trading · קהילה של מעל 2,000 סוחרים</div>
+      </div>
+
+      <div class="box" id="form">
+        <h3>שריינו מקום – בחינם</h3>
+        <div class="when"><b>יום שני, 16.11</b> · 20:30 · ב-ZOOM</div>
+        <div class="seats"><div class="track"><div class="fill" data-seats-fill></div></div><div class="t"><span><span data-seats-taken>—</span> כבר נרשמו</span><b>נותרו<span data-seats-left>—</span>מקומות</b></div></div>
+        <div class="form-slot">
+          <input class="fld" placeholder="שם מלא"><input class="fld" placeholder="טלפון נייד"><input class="fld" placeholder="אימייל">
+          <label class="chk"><input type="checkbox"> אני מאשר/ת הרשמה וקבלת דיוור על פי <a href="#">מדיניות הפרטיות</a></label>
+          <button class="cta" type="button">כן! שריינו לי מקום <small>ההרשמה לוקחת 30 שניות</small></button>
+        </div>
+        <p class="safe">🔒 בלי כרטיס אשראי · בלי התחייבות</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="letter">
+  <div class="n rv">
+    <div class="from">מאת: זיו חקשוריאן, מייסד Cycles Trading</div>
+    <h2>אם ניסיתם להבין את שוק ההון ויצאתם עם יותר שאלות מתשובות – <mark>זה לא אתם.</mark></h2>
+    <p>רוב מי שמתחיל לסחור עושה את אותו דבר: קורא חדשות, שומע טיפים, מנסה לנחש לאן השוק הולך. לפעמים זה מצליח. הרבה פעמים – לא.</p>
+    <p>הבעיה היא לא שוק ההון. <b>הבעיה היא שכמעט כולם שואלים רק ״לאן״.</b> ומי שצודק בכיוון אבל נכנס בזמן הלא נכון – עדיין מפסיד.</p>
+    <div class="big">״אנשים לא השתנו ב-120 שנה. ולכן גם השוק חוזר על עצמו.״</div>
+    <p>במשך 24 שנה בשוק ההון הכרתי את הכלים של וויליאם גאן – כמו רוב הסוחרים. רק ב-2020 הכרתי לעומק את <b>הגישה המחזורית</b>, והבנתי כמה מהתמונה פספסתי עד אז.</p>
+    <p>בהדרכה אני הולך להראות לכם בדיוק את זה: <u>איך מזהים את הקצב של השוק</u>, ואיך מחליטים <b>מתי</b> להיכנס, <b>מתי</b> לצאת, ו<b>כמה</b> מותר להפסיד – עוד לפני שנכנסים לעסקה.</p>
+  </div>
+</section>
+
+<!-- MISTAKES -->
+<section>
+  <div class="n rv">
+    <h2 class="h2">3 טעויות שעולות לרוב הסוחרים <mark>הכי הרבה כסף</mark></h2>
+    <ol class="mist">
+      <li><div><h3>שואלים רק ״לאן״, לא ״מתי״</h3><p>אפשר לצדוק לגבי הכיוון ועדיין להפסיד – אם נכנסים בזמן הלא נכון.</p></div></li>
+      <li><div><h3>רודפים אחרי חדשות</h3><p>עד שהכותרת מתפרסמת, המחיר כבר זז. מי שקונה בגלל חדשות – בדרך כלל מאחר.</p></div></li>
+      <li><div><h3>לא יודעים מראש כמה הם יכולים להפסיד</h3><p>בלי גבול הפסד שנקבע מראש, עסקה אחת לא טובה יכולה למחוק חודשים של רווחים.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- STACK -->
+<section class="stack-sec">
+  <div class="w rv">
+    <h2 class="h2">מה תקבלו בהדרכה</h2>
+    <p class="lead">מה שלוקח לרוב האנשים שנים של ניסוי וטעייה – מרוכז בהדרכה אחת, בשפה פשוטה.</p>
+    <div class="stack">
+      <div class="row"><span class="ic"><svg><use href="#ck"/></svg></span><div><h4>הגישה המחזורית של וויליאם גאן</h4><p>מה היא, ולמה היא נבחנת בשווקים כבר יותר מ-120 שנה.</p></div></div>
+      <div class="row"><span class="ic"><svg><use href="#ck"/></svg></span><div><h4>איך לפעול בכמה הזדמנויות בחודש</h4><p>בלי לשבת כל היום מול המסך – לצד עבודה או עסק.</p></div></div>
+      <div class="row"><span class="ic"><svg><use href="#ck"/></svg></span><div><h4>איך מזהים ירידה חדה לפני כולם</h4><p>יוצאים בזמן, שומרים על הכסף – ואפילו מרוויחים מהירידה.</p></div></div>
+      <div class="row"><span class="ic"><svg><use href="#ck"/></svg></span><div><h4>איך קובעים מראש כמה אפשר להפסיד</h4><p>גבול הפסד לכל עסקה – כדי שלא יהיו הפתעות.</p></div></div>
+      <div class="row"><span class="ic"><svg><use href="#ck"/></svg></span><div><h4>דוגמאות מסחר אמיתיות על הגרף</h4><p>לא רק תיאוריה – ככה זה נראה בפועל.</p></div></div>
+      <div class="row"><span class="ic"><svg><use href="#ck"/></svg></span><div><h4>אותם עקרונות – בכל שוק</h4><p>מניות, מדדים, סחורות או קריפטו.</p></div></div>
+      <div class="tot"><b>כל זה – בהדרכה אחת</b><span class="free">ללא עלות</span></div>
+    </div>
+    <div class="after"><a href="#form" class="cta inline">שריינו לי מקום עכשיו <small>נותרו <span data-seats-left>—</span> מקומות מתוך 200</small></a></div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="w rv">
+    <h2 class="h2">הם התחילו בדיוק <mark>מאיפה שאתם נמצאים</mark></h2>
+    <div class="tg">
+      <figure class="tc"><div class="st">★★★★★</div><h3>״נכנס פעמיים-שלוש בשבוע. בזמן שלי, בקצב שלי.״</h3><blockquote>ראיתי שזה באמת עובד. אני נכנס פעמיים-שלוש בשבוע, בזמן שלי ובקצב שלי. מי שעובד לפי הגישה הזו יגיע רחוק.</blockquote><figcaption class="who"><img src="assets/osher.webp" alt=""><div><b>אושר ברחק</b><span>סטודנט להנדסת תעשייה וניהול</span></div></figcaption></figure>
+      <figure class="tc"><div class="st">★★★★★</div><h3>״שעה בשבוע – במקום 40 שעות בעסק.״</h3><blockquote>בשעה בשבוע אני מקבל את מה שבעסק דורש ממני 10, 20 ואפילו 40 שעות. זיו מלמד בסבלנות ובאופן מדהים.</blockquote><figcaption class="who"><img src="assets/boaz.webp" alt=""><div><b>בועז אופק</b><span>עו״ד ואיש עסקים</span></div></figcaption></figure>
+      <figure class="tc"><div class="st">★★★★★</div><h3>״30 שנה דשדשתי. היום יש לי גישה.״</h3><blockquote>אני יועץ השקעות מדופלם, ובכל זאת 30 שנה דשדשתי בין רווח להפסד. כשעובדים לפי הגישה – אתה יודע איפה אתה עומד.</blockquote><figcaption class="who"><img src="assets/shimon.webp" alt=""><div><b>שמעון אייל</b><span>יועץ השקעות לשעבר, בנק מזרחי</span></div></figcaption></figure>
+    </div>
+    <div class="nums"><div><b>24</b><span>שנות ניסיון במסחר</span></div><div><b>2,000+</b><span>סוחרים בקהילה</span></div><div><b>5,000</b><span>תלמידים שהכשיר זיו</span></div><div><b>120+</b><span>שנה שהקצב חוזר</span></div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="w ab rv">
+    <div class="ph"><img src="assets/ziv-cut.webp" alt="זיו חקשוריאן"></div>
+    <div>
+      <h2 class="h2">מי זה <mark>זיו חקשוריאן?</mark></h2>
+      <p><b>סוחר מקצועי מאז 2007</b>, מרצה שהכשיר כ-5,000 תלמידים במכללות מובילות, ופרשן כלכלי בגלי ישראל, ברדיו ירושלים ובערוץ 10.</p>
+      <p>מאז 2020 הוא חוקר ומלמד את <b>הגישה המחזורית</b>, והקים את Cycles Trading: צוות סוחרים מקצועיים, דו״ח חודשי ו<b>קהילה של מעל 2,000 סוחרים</b> שמלווה את הבוגרים גם אחרי ההכשרה.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FIT + FAQ -->
+<section>
+  <div class="n rv">
+    <h2 class="h2">ההדרכה הזו <mark>בשבילכם</mark> אם…</h2>
+    <div class="fit">
+      <div class="y"><h3>בשבילכם</h3><ul><li>אתם רוצים להתחיל בשוק ההון לצד העבודה</li><li>אתם רוצים כללים ברורים, לא ניחושים וטיפים</li><li>אתם כבר סוחרים ומרגישים תקועים</li></ul></div>
+      <div class="x"><h3>לא בשבילכם</h3><ul><li>אתם מחפשים קיצורי דרך או ״טיפ חם״</li><li>אתם לא מוכנים ללמוד ולעבוד לפי כללים</li></ul></div>
+    </div>
+    <h2 class="h2" style="margin-top:64px">שאלות נפוצות</h2>
+    <div class="faq">
+      <div><h4>ההדרכה באמת חינמית?</h4><p>כן. מספר המקומות מוגבל ל-200, לכן מומלץ לשריין מקום מראש.</p></div>
+      <div><h4>אני לא סוחר בכלל. זה מתאים לי?</h4><p>כן. ההדרכה בשפה פשוטה, גם למי שמעולם לא סחר – וגם לסוחרים ותיקים.</p></div>
+      <div><h4>כמה זמן זה דורש?</h4><p>כמה שעות בשבוע, לצד עבודה או עסק. לא צריך לשבת כל היום מול המסך.</p></div>
+      <div><h4>אתם מבטיחים רווחים?</h4><p>לא. אף אחד לא יכול להבטיח רווחים בשוק ההון. אנחנו מלמדים איך לפעול לפי כללים ואיך להגביל הפסדים מראש.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final">
+  <div class="w rv">
+    <h2 class="h2">רוב האנשים רואים רק את מה שקורה היום.<br><span>אנחנו מלמדים לראות את התמונה הרחבה.</span></h2>
+    <p class="l">ראייה רחבה יותר על שוק ההון מתחילה בהדרכה אחת – ללא עלות. 200 מקומות בלבד.</p>
+    <a href="#form" class="cta inline">כן! שריינו לי מקום בחינם <small>יום שני 16.11 · 20:30 · ZOOM</small></a>
+    <div class="ps"><b>נ.ב.</b> אם קראתם עד כאן, כנראה שזה מעניין אתכם. ההרשמה לוקחת 30 שניות ולא עולה כלום – הדבר הכי גרוע שיכול לקרות הוא שתלמדו משהו חדש על שוק ההון.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="w">
+    <div class="row"><img src="assets/logo-white.png" alt="CyclesTrading"><span>© Cycles Trading · ב.ח השכלה פיננסית בע״מ</span></div>
+    <div class="disc"><h4>גילוי נאות</h4><p>חברת ב.ח השכלה פיננסית בע״מ, בעלת האתר ״סייקלס טריידינג״, אינה מחזיקה ברישיון ייעוץ השקעות, שיווק השקעות או ניהול השקעות מכוח חוק הסדרת העיסוק בייעוץ השקעות, בשיווק השקעות ובניהול תיקי השקעות, התשנ״ה-1995 (״החוק״). אין לראות באמור המלצה ו/או הצעה לביצוע פעולות ו/או ייעוץ השקעות ו/או שיווק השקעות ו/או ייעוץ מכל סוג שהוא, והתכנים המופיעים באתר החברה ובניוזלטרים שלה הם לצורך לימוד והעשרה בלבד ואין בהם כדי להחליף את שיקול דעתו של הסוחר/המשקיע/הקורא, המחויב לקבל ייעוץ השקעות מגורמי מקצוע המתחשבים בצרכיו המיוחדים. כמו כן, אין לראות בתכנים שום סוג של הצעה או ייעוץ לרכישה ו/או מכירה לביצוע כל פעולה פיננסית. בתחזיות החברה עלולות להתגלות סטיות בין התחזיות לבין התוצאות בפועל. החברה ו/או מי מטעמה לא יהיו אחראים בכל צורה שהיא לנזק ו/או להפסד שייגרם למשקיע ו/או לסוחר מהסתמכות על המידע ומהשימוש בו, וכל העושה במידע שימוש כלשהו עושה זאת על דעתו בלבד ועל אחריותו הבלעדית. אין לשכפל, להעתיק, לתרגם, לצלם, להקליט או להעביר בכל צורה שהיא כל חלק מן החומר המפורסם על ידי החברה אלא באישור מפורש בכתב ומראש מהחברה.</p></div>
+  </div>
+</footer>
+
+<div class="stick" id="stick"><a href="#form" class="cta">שריינו מקום בחינם · שני 20:30</a></div>
+<div class="toast" id="toast" role="status" aria-live="polite"><i></i><span id="toast-txt"></span></div>
+
+<script>
+(function(){
+  var stick=document.getElementById('stick'),form=document.getElementById('form'),formIn=true;
+  new IntersectionObserver(function(e){formIn=e[0].isIntersecting;upd()}).observe(form);
+  function upd(){stick.classList.toggle('on',scrollY>500&&!formIn)}
+  addEventListener('scroll',upd,{passive:true});
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.1});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  var SEATS={total:200,taken:150+Math.floor(Math.random()*8),minLeft:30+Math.floor(Math.random()*11)};
+  var taken=SEATS.taken,maxTaken=SEATS.total-SEATS.minLeft;
+  var leftEls=[].slice.call(document.querySelectorAll('[data-seats-left]')),takenEls=[].slice.call(document.querySelectorAll('[data-seats-taken]')),fillEls=[].slice.call(document.querySelectorAll('[data-seats-fill]'));
+  function render(flash){var left=SEATS.total-taken,pct=Math.round(taken/SEATS.total*100);
+    leftEls.forEach(function(e){e.textContent=left;if(flash){e.classList.remove('seat-flash');void e.offsetWidth;e.classList.add('seat-flash')}});
+    takenEls.forEach(function(e){e.textContent=taken});fillEls.forEach(function(e){e.style.width=pct+'%'})}
+  render(false);
+  var NAMES=['נועה כהן','דניאל לוי','משה פרץ','יעל אברהם','אבי מזרחי','רון ביטון','שירה דהן','איתי אזולאי','תמר גולן','עומר שרון','ליאור חדד','גיא רוזן','מאיה נחום','אורי בר-און','דנה שמש','יוסי אוחיון','נתן ברק','הדר אמסלם','ליהי טל','אמיר סבן','רותם יעקבי','עידן מור'],lastName='';
+  var toast=document.getElementById('toast'),tt=document.getElementById('toast-txt');
+  function showToast(){if(!toast)return;var nm;do{nm=NAMES[Math.floor(Math.random()*NAMES.length)]}while(nm===lastName);lastName=nm;
+    tt.innerHTML='<b>'+nm+'</b> הרגע שריין/ה מקום';toast.classList.add('on');clearTimeout(toast._t);toast._t=setTimeout(function(){toast.classList.remove('on')},4200)}
+  function step(){if(taken>=maxTaken)return false;taken++;render(true);showToast();return true}
+  var started=false;
+  function start(){if(started)return;started=true;step();setTimeout(function(){if(!step())return;var iv=setInterval(function(){if(!step())clearInterval(iv)},25000)},15000)}
+  addEventListener('scroll',start,{once:true,passive:true});setTimeout(start,15000);
+
+
+  
+})();
+</script>
+</div>
+</body>
+</html>
