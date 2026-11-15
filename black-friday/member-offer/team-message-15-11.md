@@ -10,7 +10,7 @@
 • רק לחברים קיימים, עד *30/11 בשעה 23:59*
 
 🔗 *הקישור*
-https://cyclestrading-course.com/black-friday-3/
+https://go.cyclestrading.com/black-2026
 
 ━━━━━━━━━━
 
