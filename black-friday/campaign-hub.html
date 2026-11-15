@@ -292,6 +292,55 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
 <section class="view" id="v-memberoffer" hidden>
   <div class="moffer"><div><span class="kick">מבצע לחברים קיימים · <bdi dir="ltr">15/11–30/11</bdi></span><h3 style="margin:4px 0 6px;font-size:26px">מנוי שנתי ב-2,890 ₪ במקום 3,590 ₪</h3><p>כ-241 ₪ לחודש במקום 450 ₪ · עד 12 תשלומים · המבצע פונה למנויים החודשיים</p></div><a class="cta-s" href="https://go.cyclestrading.com/black-2026" target="_blank" rel="noopener">לדף הרכישה ↗</a></div>
   <p class="intro">המבצע לחברים מתחיל שבוע לפני המבצע לחדשים. כך החברים שומעים עליו ראשונים, ולא מתוך מודעה. יש ארבעה ערוצים: <span class="ch ml">מייל</span> <span class="ch dcch">דיסקורד</span> <span class="ch lvch">לייב</span>, ואת הפולואפ מנהל התהליך שכבר מוכן ב-Pipedrive.</p>
+  <div id="mo-track" class="mo-track">
+  <style>
+  .mo-track{background:rgba(13,18,22,.45);border:1px solid var(--line);border-radius:18px;padding:16px 18px;margin:16px 0 22px}
+  .mo-track h3{margin:0 0 4px;font-size:20px}
+  .mo-track .upd{font-size:12px;color:var(--muted);margin-bottom:12px}
+  .mo-track .kpis{margin-bottom:14px}
+  .mo-bars{display:grid;grid-template-columns:repeat(16,minmax(0,1fr));gap:4px;margin:18px 0 4px}
+  .mo-bar{display:flex;flex-direction:column}.mo-col{position:relative;height:100px;display:flex;flex-direction:column;justify-content:flex-end;border-bottom:1px solid var(--line)}
+  .mo-bar i{display:block;background:var(--green);border-radius:4px 4px 0 0;min-height:2px}
+  .mo-bar u{position:absolute;left:0;right:0;border-top:2px dashed rgba(255,255,255,.45);text-decoration:none}
+  .mo-bar small{font-size:10px;color:var(--muted);text-align:center;margin-top:3px;white-space:nowrap}
+  .mo-leg{font-size:12px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap}
+  .mo-leg span:before{content:"";display:inline-block;width:12px;height:8px;margin-left:6px;vertical-align:middle;background:var(--green);border-radius:2px}
+  .mo-leg span.ly:before{background:none;border-top:2px dashed rgba(255,255,255,.6);height:0}
+  </style>
+  <h3>מעקב המרות · מבצע החברים</h3>
+  <div class="upd" id="mo-upd"></div>
+  <div class="kpis" id="mo-kpis"></div>
+  <div class="mo-bars" id="mo-bars"></div>
+  <div class="mo-leg"><span>הזמנות ביום (2026)</span><span class="ly">אותו יום במבצע של שנה שעברה (התחיל 23/11/2025)</span></div>
+  <div class="tbl-scroll" style="margin-top:12px"><table class="tbl"><thead><tr><th>יום</th><th>תאריך</th><th>הזמנות</th><th>מצטבר</th><th>הכנסות מצטבר</th><th>שנה שעברה מצטבר</th></tr></thead><tbody id="mo-rows"></tbody></table></div>
+  <p class="small" style="margin-top:8px">מקור: הזמנות של מוצר 44712 (מנוי שנתי · בלאק פריידי) בסטטוס הושלמה/בעיבוד, בלי הזמנות של 0 ₪. מתעדכן כל ערב בסביבות 20:00. השוואה לשנה שעברה היא כיוון בלבד: אז המבצע התחיל ב-23/11 במחיר 2,990 ₪ ולא היה מבצע נפרד לחברים.</p>
+  </div>
+  <script>
+  (function(){
+    /* MO_DATA: updated nightly. d=date, n=paid orders that day, r=revenue that day, u=orders without linked user */
+    var MO_UPDATED="15/11 · נתון חלקי (עד 14:30)";
+    var MO_DATA=[{d:"15/11",n:2,r:5780,u:0}];
+    var LY=[15,29,37,43,45,48,50,55,61,65,67,73,74,78,84,86];
+    var LYd=[15,14,8,6,2,3,2,5,6,4,2,6,1,4,6,2];
+    var DAYS=["15/11","16/11","17/11","18/11","19/11","20/11","21/11","22/11","23/11","24/11","25/11","26/11","27/11","28/11","29/11","30/11"];
+    var tot=0,rev=0,unl=0,rows="",max=Math.max.apply(null,LYd.concat(MO_DATA.map(function(x){return x.n})));
+    var byd={};MO_DATA.forEach(function(x){byd[x.d]=x});
+    var bars="";
+    DAYS.forEach(function(d,i){var x=byd[d];var h=x?Math.round(x.n/max*100):0;var ly=Math.round(LYd[i]/max*100);
+      bars+='<div class="mo-bar" title="'+d+(x?': '+x.n+' הזמנות':'')+' · שנה שעברה: '+LYd[i]+'"><div class="mo-col"><i style="height:'+h+'%"></i><u style="bottom:'+ly+'%"></u></div><small>'+d.split("/")[0]+'</small></div>';
+      if(x){tot+=x.n;rev+=x.r;unl+=x.u||0;rows+='<tr><td>'+(i+1)+'</td><td>'+d+'</td><td>'+x.n+'</td><td><b>'+tot+'</b></td><td>'+rev.toLocaleString("en-US")+' ₪</td><td>'+LY[i]+'</td></tr>';}});
+    var day=MO_DATA.length,lyAt=LY[day-1]||0;
+    document.getElementById("mo-upd").textContent="עודכן: "+MO_UPDATED;
+    document.getElementById("mo-kpis").innerHTML=
+      '<div class="kpi"><b>'+tot+'</b><span>הזמנות עד היום</span></div>'+
+      '<div class="kpi"><b>'+rev.toLocaleString("en-US")+' ₪</b><span>הכנסות</span></div>'+
+      '<div class="kpi"><b>'+lyAt+'</b><span>שנה שעברה, אחרי '+day+' ימים</span></div>'+
+      '<div class="kpi"><b>'+(16-day)+'</b><span>ימים שנשארו</span></div>'+
+      '<div class="kpi"><b style="color:'+(unl?'var(--coral)':'var(--green)')+'">'+unl+'</b><span>הזמנות בלי משתמש</span></div>';
+    document.getElementById("mo-bars").innerHTML=bars;
+    document.getElementById("mo-rows").innerHTML=rows;
+  })();
+  </script>
   <h3 class="mh">לוח הזמנים</h3>
   <div class="mlist"><div class="mrow"><div class="mwhen"><b>ראשון 15/11</b><span>09:30</span></div><div class="mbody"><span class="ch ml">מייל</span><b>🎁 לחברי הקהילה בלבד: השנה הבאה שלכם, ב-700 ₪ פחות</b><span class="small">חלופה: רק לחברים: מנוי שנתי ב-2,890 ₪</span><div class="mtext">היי {שם},
 
