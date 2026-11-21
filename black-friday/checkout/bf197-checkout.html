@@ -87,6 +87,8 @@
     ".ct-wa{display:inline-flex;align-items:center;gap:8px;margin-top:20px;color:var(--ct-lg)!important;font-weight:700;text-decoration:none!important;border:1px solid var(--ct-line);border-radius:999px;padding:10px 16px}.ct-wa svg{width:18px;height:18px}",
     ".ct-disc{color:#6f7d77;font-size:12px;margin-top:22px;line-height:1.5}",
     "@media (max-width:900px){" + P + ".kb-row-layout-id49639_9af32e-c6>.kt-row-column-wrap{grid-template-columns:1fr;flex-direction:column!important}" + P + ".kadence-column49639_efeb51-0a{order:1!important}" + P + ".kadence-column49639_38ba65-c5{order:2!important;margin-top:28px!important}.ct-hero{padding:34px 0 24px}.ct-now{font-size:44px}.ct-cd{flex-direction:column;gap:8px}}",
+    ".ct-quick{display:none}",
+    "@media (max-width:900px){.ct-quick{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 0 14px}.ct-quick div{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.04);border:1px solid var(--ct-line);border-radius:12px;padding:10px;font-size:13.5px;line-height:1.3;color:#e8efe9;font-weight:600}.ct-quick svg{flex:0 0 20px;width:20px;height:20px;color:var(--ct-g)}}",
     "@media (max-width:480px){.ct-cd-u div{min-width:50px}.ct-trust div{font-size:12px;padding:10px 4px}.ct-price{padding:20px 18px 18px}}"
   ].join(' ');
 
@@ -124,6 +126,9 @@
       '<div class="ct-per">תשלום חד-פעמי, <b>בלי חידוש אוטומטי</b></div>' +
       '<div class="ct-renew">' + ICON.cal + '<span>הגישה פתוחה עד 31/12. מי שמצטרף עכשיו מקבל יותר מחודש.</span></div>';
     form.parentNode.insertBefore(price, form);
+    var quick = document.createElement('div'); quick.className = 'ct-quick';
+    quick.innerHTML = '<div>' + ICON.live + '5 לייבים בשבוע, בבוקר ובערב</div><div>' + ICON.chat + 'כל חדרי הדיסקורד ו-9 מנטורים</div><div>' + ICON.chart + 'הדוח החודשי + ארכיון הדוחות</div><div>' + ICON.cal + 'גישה מלאה עד 31/12</div>';
+    price.parentNode.insertBefore(quick, price);
 
     var trust = document.createElement('div'); trust.className = 'ct-trust';
     trust.innerHTML = '<div>' + ICON.lock + 'תשלום מאובטח</div><div>' + ICON.card + 'תשלום אחד, 197 ₪</div><div>' + ICON.cal + 'בלי חידוש אוטומטי</div>';
