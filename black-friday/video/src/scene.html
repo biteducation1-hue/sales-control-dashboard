@@ -210,7 +210,6 @@ body{font-family:Heebo,Arial,sans-serif;color:#fff;direction:rtl}
         <div style="height:13px;border-radius:7px;background:#d5dadf;margin-bottom:16px;width:92%"></div>
         <div style="height:13px;border-radius:7px;background:#d5dadf;width:60%"></div>
       </div>
-      <div class="stamp" style="left:24px;bottom:20px">שחזור גרפי · התוכן מטושטש</div>
     </div>
     <div class="shot a" style="left:900px;top:470px;width:930px;border-radius:18px;background:#fff" data-t="45.2" data-k="pop" data-r="1.2"><img src="../assets/site/site-report-results-cards.png"></div>
     <div class="src a" style="right:96px;top:968px" data-t="45.4" data-k="fade">צילום מסך מעמוד הדוח באתר סייקלס טריידינג</div>
@@ -285,12 +284,13 @@ const eIO=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
 // build S4 avatars + days
 (function(){
   const avs=document.getElementById('avs');
+  const MENT=['menny.png','golan.png','sagi.png','shalev.png','raz.png','eli.jpg','yosef.png','shlomo.png','roy.png'];
   const person='<svg viewBox="0 0 24 24" fill="#7ed957"><circle cx="12" cy="8" r="4.2"/><path d="M3.5 21c.8-4.6 4.2-7 8.5-7s7.7 2.4 8.5 7z"/></svg>';
   // 3 x 3 grid, right block
   for(let i=0;i<9;i++){const r=Math.floor(i/3),c=i%3;
     const d=document.createElement('div');d.className='av a';
     d.style.left=(1000+(2-c)*200)+'px';d.style.top=(260+r*190)+'px';
-    d.dataset.t=(32.7+i*0.22).toFixed(2);d.dataset.k='pop';d.innerHTML=person;
+    d.dataset.t=(32.7+i*0.22).toFixed(2);d.dataset.k='pop';d.innerHTML='<img src="../assets/mentors/'+MENT[i]+'" alt="" style="width:100%;height:100%;border-radius:50%;object-fit:cover;display:block">';
     // chat bubble tick
     const bub=document.createElement('div');bub.className='abs';bub.style.cssText='left:-14px;top:-10px;width:54px;height:44px;border-radius:14px 14px 14px 4px;background:#fff;border:3px solid #0d1216;color:#2f8f1e;font-weight:900;font-size:28px;display:flex;align-items:center;justify-content:center';bub.textContent='✓';
     d.appendChild(bub);avs.appendChild(d);}
