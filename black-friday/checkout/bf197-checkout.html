@@ -39,6 +39,8 @@
     ".ct-eyebrow i{width:7px;height:7px;border-radius:50%;background:var(--ct-bg);animation:ctp 1.4s infinite}@keyframes ctp{50%{opacity:.25}}",
     ".ct-hero h1{font-size:clamp(34px,5.6vw,62px);line-height:1.05;font-weight:900;margin:22px 0 26px;color:#fff}",
     ".ct-hero h1 em{font-style:normal;color:var(--ct-g)}",
+    ".ct-vid{position:relative;max-width:760px;margin:0 auto 26px;aspect-ratio:16/9;border-radius:18px;overflow:hidden;border:1px solid var(--ct-line);background:#000;box-shadow:0 18px 50px rgba(0,0,0,.45)}",
+    ".ct-vid iframe{position:absolute;inset:0;width:100%;height:100%;border:0}",
     ".ct-cd{display:inline-flex;align-items:center;gap:14px;background:rgba(255,255,255,.04);border:1px solid var(--ct-line);border-radius:16px;padding:12px 18px}",
     ".ct-cd-l{font-size:14px;color:var(--ct-mut)}.ct-cd-u{display:flex;gap:8px;direction:ltr}",
     ".ct-cd-u div{min-width:56px;background:var(--ct-slate);border-radius:10px;padding:6px 4px 4px;text-align:center}",
@@ -110,6 +112,7 @@
     hero.innerHTML =
       '<span class="ct-eyebrow"><i></i>BLACK FRIDAY · חודש בקהילה</span>' +
       '<h1>חודש שלם בקהילה.<br><em>ב-' + fmt(PRICE) + ' ₪ בלבד</em></h1>' +
+      '<div class="ct-vid"><iframe src="https://www.youtube-nocookie.com/embed/bisvE6pSvAw?rel=0&modestbranding=1&playsinline=1" title="חודש בקהילה · בלאק פריידי" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>' +
       '<div class="ct-cd" id="ct-cd"><span class="ct-cd-l">המבצע נגמר בעוד</span><div class="ct-cd-u">' +
       '<div><b data-u="d">0</b><span>ימים</span></div><div><b data-u="h">00</b><span>שעות</span></div>' +
       '<div><b data-u="m">00</b><span>דקות</span></div><div><b data-u="s">00</b><span>שניות</span></div></div></div>';
