@@ -312,7 +312,7 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
   <div class="mo-bars" id="mo-bars"></div>
   <div class="mo-leg"><span>הזמנות ביום (2026)</span><span class="ly">אותו יום במבצע של שנה שעברה (התחיל 23/11/2025)</span></div>
   <div class="tbl-scroll" style="margin-top:12px"><table class="tbl"><thead><tr><th>יום</th><th>תאריך</th><th>הזמנות</th><th>מצטבר</th><th>הכנסות מצטבר</th><th>שנה שעברה מצטבר</th></tr></thead><tbody id="mo-rows"></tbody></table></div>
-  <p class="small" style="margin-top:8px">מקור: כל ההזמנות של המנוי השנתי בבלאק פריידי בסטטוס הושלמה/בעיבוד: מוצר 44712 (רכישה עצמית בעמוד) + מוצר 49617 (מכירות טלפוניות של הנציגים, נכנסות מ-Pipedrive) + הזמנה אחת ב-2,900 ₪ על מוצר 49621. בלי הזמנות של 0 ₪. אמור להתאים למסנן "מנוי קהילה בלאק פריידי 26" ב-Pipedrive (שם יש גם עסקת בדיקה אחת ועסקה מ-4/11). מתעדכן כל ערב בסביבות 20:00. השוואה לשנה שעברה היא כיוון בלבד: אז המבצע התחיל ב-23/11 במחיר 2,990 ₪ ולא היה מבצע נפרד לחברים.</p>
+  <p class="small" style="margin-top:8px">מקור: כל ההזמנות של המנוי השנתי בבלאק פריידי בסטטוס הושלמה/בעיבוד: מוצר 44712 (רכישה עצמית בעמוד) + מוצר 49617 (מכירות טלפוניות של הנציגים, נכנסות מ-Pipedrive) + הזמנה אחת ב-2,900 ₪ על מוצר 49621. בלי הזמנות של 0 ₪. אמור להתאים למסנן "מנוי קהילה בלאק פריידי 26" ב-Pipedrive (שם יש גם עסקת בדיקה אחת ועסקה מ-4/11). מתעדכן כל ערב בסביבות 20:00. שנה שעברה (מ-Pipedrive): 87 עסקאות ב-16 ימי המבצע ועוד 31 למאחרים עד 31/12, סה"כ 118 (כ-5 מהן כנראה לא של המבצע). השוואה לשנה שעברה היא כיוון בלבד: אז המבצע התחיל ב-23/11 במחיר 2,990 ₪ ולא היה מבצע נפרד לחברים.</p>
   </div>
   <script>
   (function(){
@@ -321,6 +321,8 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
     var MO_DATA=[{d:"15/11",n:17,r:49140,u:0},{d:"16/11",n:6,r:17340,u:0},{d:"17/11",n:7,r:20230,u:0},{d:"18/11",n:6,r:17340,u:0},{d:"19/11",n:7,r:20230,u:0},{d:"20/11",n:3,r:8670,u:0},{d:"21/11",n:2,r:5780,u:0},{d:"22/11",n:4,r:11560,u:0},{d:"23/11",n:9,r:26010,u:0},{d:"24/11",n:11,r:31790,u:0},{d:"25/11",n:10,r:28900,u:0},{d:"26/11",n:4,r:11560,u:0}];
     var LY=[15,29,37,43,45,48,50,55,61,65,67,73,74,78,84,86];
     var LYd=[15,14,8,6,2,3,2,5,6,4,2,6,1,4,6,2];
+    /* LY_TOTAL: Pipedrive won deals at 2,890/2,990/2,900 from 23/11 to 31/12/2025 (87 in the 16 offer days + 31 latecomers in December) */
+    var LY_TOTAL=118;
     var DAYS=["15/11","16/11","17/11","18/11","19/11","20/11","21/11","22/11","23/11","24/11","25/11","26/11","27/11","28/11","29/11","30/11"];
     var tot=0,rev=0,unl=0,rows="",max=Math.max.apply(null,LYd.concat(MO_DATA.map(function(x){return x.n})));
     var byd={};MO_DATA.forEach(function(x){byd[x.d]=x});
@@ -334,6 +336,8 @@ code{direction:ltr;unicode-bidi:isolate;background:#0d1216;border-radius:5px;pad
       '<div class="kpi"><b>'+tot+'</b><span>הזמנות עד היום</span></div>'+
       '<div class="kpi"><b>'+rev.toLocaleString("en-US")+' ₪</b><span>הכנסות</span></div>'+
       '<div class="kpi"><b>'+lyAt+'</b><span>שנה שעברה, אחרי '+day+' ימים</span></div>'+
+      '<div class="kpi"><b>'+LY_TOTAL+'</b><span>שנה שעברה כולל דצמבר (היעד)</span></div>'+
+      '<div class="kpi"><b style="color:'+(tot>=LY_TOTAL?'var(--green)':'var(--coral)')+'">'+(tot>=LY_TOTAL?'✓':(LY_TOTAL-tot))+'</b><span>'+(tot>=LY_TOTAL?'עברנו את שנה שעברה':'חסרות ליעד')+'</span></div>'+
       '<div class="kpi"><b>'+(16-day)+'</b><span>ימים שנשארו</span></div>'+
       '<div class="kpi"><b style="color:'+(unl?'var(--coral)':'var(--green)')+'">'+unl+'</b><span>הזמנות בלי משתמש</span></div>';
     document.getElementById("mo-bars").innerHTML=bars;
